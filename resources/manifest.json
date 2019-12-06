@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "header": {
+      "description": "Adds a diverse range of animals and monsters to your game",
+      "name": "Borgy's Mobs",
+      "uuid": "a0dfde7c-62c0-4feb-b024-20812994b6fb",
+      "version": [0, 1, 0],
+      "min_engine_version": [1, 2, 6]
+    },
+    "modules": [
+      {
+        "description": "borgys mobs resource pack",
+        "type": "resources",
+        "uuid": "1e21f2f5-2b4e-461f-be77-14a70e755909",
+        "version": [0, 1, 0]
+      }
+    ],
+    "metadata": {
+      "authors": [ "ANightDazingZoroark" ],
+      "license": "Unlicense",
+      "url": "https://discord.gg/bP6sAky"
+    }
+}

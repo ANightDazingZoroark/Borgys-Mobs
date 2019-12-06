@@ -1,0 +1,106 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:entity": {
+    "description": {
+	  "identifier": "borgysmobs:weeping_angel",
+	  "is_spawnable": true,
+	  "is_summonable": true,
+	  "is_experimental": false
+	},
+	"component_groups": {
+	  "minecraft:weeping_angel_statue": {
+	  },
+	  "minecraft:weeping_angel_looked_at": {
+	  },
+	  "minecraft:weeping_angel_active": {
+	    "minecraft:navigation.walk": {},
+	    "minecraft:attack": {
+          "damage": 7
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 5,
+          "attack_interval": 10,
+          "entity_types": [
+            {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              }
+            }
+          ],
+          "must_see": true
+        },
+	    "minecraft:teleport": {
+          "random_teleports": true,
+          "max_random_teleport_time": 30,
+          "random_teleport_cube": [ 32, 32, 32 ],
+          "target_distance": 16,
+          "target_teleport_chance": 0.05,
+          "light_teleport_chance": 0.05
+        }
+	  }
+	},
+	"components": {
+	  "minecraft:health": {
+	    "value": 25,
+		"max": 25
+	  },
+	  "minecraft:type_family": {
+        "family": [ "monster", "mob", "weeping_angel" ]
+      },
+      "minecraft:nameable": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      }
+	},
+	"events": {
+	  "minecraft:entity_spawned": {
+	    "remove": {},
+		"add": {
+		  "component_groups": [
+		    "minecraft:weeping_angel_statue"
+		  ]
+		}
+	  }
+	  "minecraft:weeping_angel_awaken": {
+	    "remove": {
+		  "component_groups": [
+		    "minecraft:weeping_angel_statue"
+		  ]
+		},
+		"add": {
+		  "component_groups": [
+		    "minecraft:weeping_angel_active"
+		  ]
+		}
+	  },
+	  "minecraft:weeping_angel_stared": {
+	    "remove": {
+		  "component_groups": [
+		    "minecraft:weeping_angel_active"
+		  ]
+		},
+		"add": {
+		  "component_groups": [
+		    "minecraft:weeping_angel_looked_at"
+		  ]
+		}
+	  },
+	  "minecraft:weeping_angel_activate": {
+	    "remove": {
+		  "component_groups": [
+		    "minecraft:weeping_angel_looked_at"
+		  ]
+		},
+		"add": {
+		  "component_groups": [
+		    "minecraft:weeping_angel_active"
+		  ]
+		}
+	  }
+	}
+  }
+}
