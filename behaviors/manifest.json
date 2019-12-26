@@ -3,14 +3,14 @@
     "header": {
       "description": "Adds a diverse range of animals and monsters to your game",
       "name": "Borgy's Mobs",
-      "uuid": "6dbcd7fc-f8a1-4ac4-8719-ae5dce401354",
+      "uuid": "382054c0-62b1-44c7-98e4-cbb88cf7b2dd",
       "version": [0, 1, 0]
     },
     "modules": [
       {
         "description": "borgys mobs behavior pack",
         "type": "data",
-        "uuid": "37cff4f6-7fb9-4814-aca3-f1303ef433f1",
+        "uuid": "15557f9f-bbbc-4b8f-bf20-4d07b2635895",
         "version": [0, 1, 0]
       }
     ],
