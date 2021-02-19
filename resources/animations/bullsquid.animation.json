@@ -1,0 +1,105 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bullsquid.idle": {
+			"loop": true,
+			"animation_length": 2.08,
+			"bones": {
+				"mouthTentacleOne0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [7.5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"mouthTentacleTwo0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [2.5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"mouthTentacleOne1": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [7.5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"mouthTentacleTwo1": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [2.5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"mouthTentacleOne2": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [0, 7.5, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"mouthTentacleTwo2": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [0, 2.5, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"mouthTentacleOne3": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [0, -7.5, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"mouthTentacleTwo3": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [0, -2.5, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"mouthTentacleOne4": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-7.5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"tail0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.bullsquid.walk": {
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"bones": {
+				"leftLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * 12.5", 0, 0]
+				},
+				"rightLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * -12.5", 0, 0]
+				}
+			}
+		},
+		"animation.bullsquid.melee_attack": {
+			"animation_length": 0.52,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.24": [0, -135, 0],
+						"0.52": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,136 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bakunawa.land_pose": {
+			"loop": true,
+			"bones": {
+				"leftWing0": {
+					"rotation": [0, 0, 54.15]
+				},
+				"leftWIng1": {
+					"rotation": [0, 0, -105]
+				},
+				"rightWing": {
+					"rotation": [0, 0, -54.15]
+				},
+				"rightWIng3": {
+					"rotation": [0, 0, 105]
+				}
+			}
+		},
+		"animation.bakunawa.fly_pose": {
+			"loop": true,
+			"bones": {
+				"leftLeg": {
+					"rotation": [30, 0, 0]
+				},
+				"leftFoot": {
+					"rotation": [60, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [30, 0, 0]
+				},
+				"rightFoot": {
+					"rotation": [60, 0, 0]
+				}
+			}
+		},
+		"animation.bakunawa.swim_pose": {
+			"loop": true,
+			"bones": {
+				"leftLeg": {
+					"rotation": [30, 0, 0]
+				},
+				"leftFoot": {
+					"rotation": [60, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [30, 0, 0]
+				},
+				"rightFoot": {
+					"rotation": [60, 0, 0]
+				},
+				"leftWing0": {
+					"rotation": [0, -37.5, 47.5]
+				},
+				"rightWing": {
+					"rotation": [0, 37.5, -47.5]
+				}
+			}
+		},
+		"animation.bakunawa.walk": {
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"bones": {
+				"leftWing0": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * 10", 0]
+				},
+				"rightWing": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * 10", 0]
+				},
+				"leftLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * 15", 0, 0]
+				},
+				"rightLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * -10", 0, 0]
+				}
+			}
+		},
+		"animation.bakunawa.fly": {
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"bones": {
+				"leftWing0": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 30) * 45"]
+				},
+				"rightWing": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 30) * -45"]
+				}
+			}
+		},
+		"animation.bakunawa.swim": {
+			"loop": true,
+			"bones": {
+				"tail0": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * 10", 0]
+				},
+				"tail1": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * 7.5", 0]
+				},
+				"tail2": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * 5", 0]
+				},
+				"tail3": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * 5", 0]
+				}
+			}
+		},
+		"animation.bakunawa.idle": {
+			"loop": true,
+			"animation_length": 2.08,
+			"bones": {
+				"neck": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [12.5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-12.5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"tail0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-7.5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}
