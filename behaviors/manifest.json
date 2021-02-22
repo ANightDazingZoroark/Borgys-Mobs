@@ -4,19 +4,18 @@
       "description": "Adds a diverse range of animals and monsters to your game",
       "name": "Borgy's Mobs",
       "uuid": "382054c0-62b1-44c7-98e4-cbb88cf7b2dd",
-      "version": [0, 1, 0]
+      "version": [1, 0, 0]
     },
     "modules": [
       {
         "description": "borgys mobs behavior pack",
         "type": "data",
         "uuid": "15557f9f-bbbc-4b8f-bf20-4d07b2635895",
-        "version": [0, 1, 0]
+        "version": [1, 0, 0]
       }
     ],
     "metadata": {
       "authors": [ "ANightDazingZoroark" ],
-      "license": "Unlicense",
-      "url": "https://discord.gg/bP6sAky"
+      "url": "https://discord.gg/qVWaKRMCRc"
     }
 }

@@ -1,0 +1,156 @@
+{
+    "mob.headcrab.idle": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/headcrab/headcrab idle 1",
+            "sounds/headcrab/headcrab idle 2",
+            "sounds/headcrab/headcrab idle 3"
+        ]
+    },
+    "mob.headcrab.attack": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/headcrab/headcrab attack"
+        ]
+    },
+    "mob.headcrab.hurt": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/headcrab/headcrab hurt 1",
+            "sounds/headcrab/headcrab hurt 2",
+            "sounds/headcrab/headcrab hurt 3"
+        ]
+    },
+    "mob.headcrab.death": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/headcrab/headcrab death 1",
+            "sounds/headcrab/headcrab death 2"
+        ]
+    },
+    "mob.houndeye.idle": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/houndeye/houndeye idle 1",
+            "sounds/houndeye/houndeye idle 2"
+        ]
+    },
+    "mob.houndeye.pre_attack": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/houndeye/houndeye pre attack"
+        ]
+    },
+    "mob.houndeye.post_attack": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/houndeye/houndeye post attack"
+        ]
+    },
+    "mob.houndeye.hurt": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/houndeye/houndeye hurt 1",
+            "sounds/houndeye/houndeye hurt 2"
+        ]
+    },
+    "mob.houndeye.death": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/houndeye/houndeye death 1",
+            "sounds/houndeye/houndeye death 2"
+        ]
+    },
+    "mob.bullsquid.idle": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/bullsquid/bullsquid idle"
+        ]
+    },
+    "mob.bullsquid.attack": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/bullsquid/bullsquid attack 1",
+            "sounds/bullsquid/bullsquid attack 2"
+        ]
+    },
+    "mob.bullsquid.launch_projectile": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/bullsquid/bullsquid launch projectile"
+        ]
+    },
+    "mob.bullsquid.projectile_hit": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/bullsquid/bullsquid projectile hit"
+        ]
+    },
+    "mob.bullsquid.hurt": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/bullsquid/bullsquid hurt 1",
+            "sounds/bullsquid/bullsquid hurt 2",
+            "sounds/bullsquid/bullsquid hurt 3"
+        ]
+    },
+    "mob.bullsquid.death": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/bullsquid/bullsquid death"
+        ]
+    },
+    "mob.icthyosaur.idle": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/icthyosaur/icthyosaur idle 1",
+            "sounds/icthyosaur/icthyosaur idle 2",
+            "sounds/icthyosaur/icthyosaur idle 3"
+        ]
+    },
+    "mob.icthyosaur.hurt": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/icthyosaur/icthyosaur hurt"
+        ]
+    },
+    "mob.icthyosaur.death": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/icthyosaur/icthyosaur death"
+        ]
+    },
+    "mob.bakunawa.idle": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/bakunawa/bakunawa idle 1",
+            "sounds/bakunawa/bakunawa idle 2",
+            "sounds/bakunawa/bakunawa idle 3"
+        ]
+    },
+    "mob.bakunawa.roar": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/bakunawa/bakunawa roar"
+        ]
+    },
+    "mob.bakunawa.fire_projectile": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/bakunawa/bakunawa fire projectile"
+        ]
+    },
+    "mob.bakunawa.hurt": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/bakunawa/bakunawa hurt 1",
+            "sounds/bakunawa/bakunawa hurt 2"
+        ]
+    },
+    "mob.bakunawa.death": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/bakunawa/bakunawa death"
+        ]
+    }
+}
