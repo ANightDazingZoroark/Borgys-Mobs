@@ -131,6 +131,17 @@
 					}
 				}
 			}
+		},
+		"animation.bakunawa.look": {
+			"loop": true,
+			"bones": {
+				"neck": {
+					"rotation": ["math.clamp(query.target_x_rotation, -5, 7.5)", "math.clamp(query.target_y_rotation, -7.5, 7.5)", 0]
+				},
+				"head": {
+					"rotation": ["math.clamp(query.target_x_rotation, -5, 7.5)", "math.clamp(query.target_y_rotation, -7.5, 7.5)", 0]
+				}
+			}
 		}
 	}
 }

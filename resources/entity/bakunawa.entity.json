@@ -1,0 +1,39 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:bakunawa",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/bakunawa"
+            },
+            "geometry": {
+                "default": "geometry.bakunawa"
+            },
+            "animations": {
+                "animLandPose": "animation.bakunawa.land_pose",
+                "animFlyPose": "animation.bakunawa.fly_pose",
+                "animSwimPose": "animation.bakunawa.swim_pose",
+                "animIdle": "animation.bakunawa.idle",
+                "animWalk": "animation.bakunawa.walk",
+                "animFly": "animation.bakunawa.fly",
+                "animSwim": "animation.bakunawa.swim",
+                "animLook": "animation.bakunawa.look"
+            },
+            "scripts": {
+                "animate": [
+                    "animLook"
+                ]
+            },
+            "render_controllers": [
+                "render.controller.bakunawa"
+            ],
+            "spawn_egg": {
+				"base_color": "#3590ae",
+				"overlay_color": "#004f69"
+			}
+        }
+    }
+}

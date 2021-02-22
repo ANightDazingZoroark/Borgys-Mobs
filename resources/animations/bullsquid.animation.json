@@ -89,7 +89,7 @@
 				}
 			}
 		},
-		"animation.bullsquid.melee_attack": {
+		"animation.bullsquid.attack": {
 			"animation_length": 0.52,
 			"bones": {
 				"body": {

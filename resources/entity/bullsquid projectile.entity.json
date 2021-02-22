@@ -1,0 +1,20 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:bullsquid_projectile",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/bullsquid"
+            },
+            "geometry": {
+                "default": "geometry.bullsquid_projectile"
+            },
+            "render_controllers": [
+                "render.controller.common"
+            ]
+        }
+    }
+}

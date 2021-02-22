@@ -95,7 +95,7 @@
 				{
 					"name": "lowerJaw",
 					"parent": "head",
-					"pivot": [0, 46, -15],
+					"pivot": [0, 63.5, -123.5],
 					"cubes": [
 						{"origin": [-10.5, 59, -145], "size": [21, 9, 21], "uv": [90, 0]}
 					]

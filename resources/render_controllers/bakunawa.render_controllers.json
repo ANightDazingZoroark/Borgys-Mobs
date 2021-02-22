@@ -1,0 +1,20 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.bakunawa": {
+            "textures": [
+                "Texture.default"
+            ],
+            "geometry": "Geometry.default",
+            "part_visibility": [
+                {
+                    "saddle*": "query.is_saddled",
+                    "headSaddle*": "query.is_saddled",
+                    "neckSaddle*": "query.is_saddled",
+                    "hideableBodyPart*": "query.is_saddled",
+                    "chest*": "query.is_chested"
+                }
+            ]
+        }
+    }
+}

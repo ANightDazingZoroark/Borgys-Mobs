@@ -1,0 +1,29 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:headcrab",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/headcrab"
+            },
+            "geometry": {
+                "default": "geometry.headcrab"
+            },
+            "animations": {
+                "animIdle": "animation.headcrab.idle",
+                "animWalk": "animation.headcrab.walk",
+                "animJump": "animation.headcrab.jump"
+            },
+            "render_controllers": [
+                "render.controller.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#a7846b",
+				"overlay_color": "#3f0e0b"
+			}
+        }
+    }
+}

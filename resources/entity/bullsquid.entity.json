@@ -1,0 +1,37 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:bullsquid",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/bullsquid"
+            },
+            "geometry": {
+                "default": "geometry.bullsquid"
+            },
+            "animations": {
+                "animIdle": "animation.bullsquid.idle",
+                "animWalk": "animation.bullsquid.walk",
+                "animAttack": "animation.bullsquid.attack",
+                "contMove": "controller.animation.bullsquid_movement",
+                "contAttack": "controller.animation.bullsquid_attack"
+            },
+            "scripts": {
+                "animate": [
+                    "contMove",
+                    "contAttack"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#876724",
+				"overlay_color": "#722007"
+			}
+        }
+    }
+}

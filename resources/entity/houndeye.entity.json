@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:houndeye",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/houndeye"
+            },
+            "geometry": {
+                "default": "geometry.houndeye"
+            },
+            "animations": {
+                "animIdle": "animation.houndeye.idle",
+                "animWalk": "animation.houndeye.walk",
+                "animSit": "animation.houndeye.sit",
+                "animAttack": "animation.houndeye.attack"
+            },
+            "render_controllers": [
+                "render.controller.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#97621e",
+				"overlay_color": "#2e5b63"
+			}
+        }
+    }
+}
