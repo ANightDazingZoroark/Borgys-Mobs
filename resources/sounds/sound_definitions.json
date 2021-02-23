@@ -35,16 +35,10 @@
             "sounds/houndeye/houndeye idle 2"
         ]
     },
-    "mob.houndeye.pre_attack": {
+    "mob.houndeye.attack": {
         "category": "hostile",
         "sounds": [
-            "sounds/houndeye/houndeye pre attack"
-        ]
-    },
-    "mob.houndeye.post_attack": {
-        "category": "hostile",
-        "sounds": [
-            "sounds/houndeye/houndeye post attack"
+            "sounds/houndeye/houndeye attack"
         ]
     },
     "mob.houndeye.hurt": {

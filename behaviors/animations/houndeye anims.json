@@ -1,0 +1,71 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.houndeye_pack_detection": {
+            "animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"v.x = 0.0; for_each(t.houndeye, query.get_nearby_entities_except_self(24, 'borgy:houndeye'), { v.x = v.x + !(t.houndeye -> query.is_tamed); }); return v.x > 0.0;"
+				]
+			}
+        },
+        "animation.houndeye_tamed_pack_detection": {
+            "animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"v.x = 0.0; for_each(t.houndeye, query.get_nearby_entities_except_self(24, 'borgy:houndeye'), { v.x = v.x + (t.houndeye -> query.is_tamed); }); return v.x > 0.0;"
+				]
+			}
+        },
+        "animation.houndeye_one_shockwave": {
+            "animation_length": 3.77,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"@s borgy:one_houndeye_attack"
+				],
+                "3.04": [
+                    "/camerashake add @a[r=24] 4"
+                ]
+			}
+        },
+        "animation.houndeye_two_shockwave": {
+            "animation_length": 3.77,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"@s borgy:two_houndeye_attack"
+				],
+                "3.04": [
+                    "/camerashake add @a[r=24] 4"
+                ]
+			}
+        },
+        "animation.houndeye_three_shockwave": {
+            "animation_length": 3.77,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"@s borgy:three_houndeye_attack"
+				],
+                "3.04": [
+                    "/camerashake add @a[r=24] 4"
+                ]
+			}
+        },
+        "animation.houndeye_four_shockwave": {
+            "animation_length": 3.77,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"@s borgy:four_houndeye_attack"
+				],
+                "3.04": [
+                    "/camerashake add @a[r=24] 4"
+                ]
+			}
+        }
+    }
+}

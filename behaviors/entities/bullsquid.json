@@ -109,7 +109,13 @@
                 ]
             },
             "minecraft:is_hidden_when_invisible": {},
-            "minecraft:nameable": {}
+            "minecraft:nameable": {},
+            "minecraft:experience_reward": {
+                "on_death": "query.last_hit_by_player ? Math.Random(16,24) : 0"
+            },
+            "minecraft:despawn": {
+                "despawn_from_distance": {}
+            }
         },
         "events": {
             "borgy:melee_mode": {

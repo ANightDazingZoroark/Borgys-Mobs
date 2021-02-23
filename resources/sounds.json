@@ -1,0 +1,33 @@
+{
+    "entity_sounds": {
+        "entities": {
+            "borgy:bullsquid": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.bullsquid.idle",
+					"hurt": "mob.bullsquid.hurt",
+					"death": "mob.bullsquid.death",
+                    "shoot": "mob.bullsquid.launch_projectile",
+                    "attack.strong": "mob.bullsquid.attack"
+				}
+            },
+            "borgy:houndeye": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.houndeye.idle",
+					"hurt": "mob.houndeye.hurt",
+					"death": "mob.houndeye.death",
+                    "roar": "mob.houndeye.attack"
+				}
+            }
+        }
+    }
+}

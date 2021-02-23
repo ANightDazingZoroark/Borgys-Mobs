@@ -1,0 +1,354 @@
+{
+    "format_version": "1.16.0",
+    "animation_controllers": {
+        "controller.animation.houndeye_pack": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "is_wild": "!query.is_tamed"
+                        }
+                    ]
+                },
+                "is_wild": {
+                    "animations": [
+                        "animPackDetection"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        }
+                    ]
+                },
+                "one": {
+                    "animations": [
+                        "animPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:one_houndeye",
+                        "/say one houndeye"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.is_tamed"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        }
+                    ]
+                },
+                "two": {
+                    "animations": [
+                        "animPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:two_houndeyes",
+                        "/say two houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        }
+                    ]
+                },
+                "three": {
+                    "animations": [
+                        "animPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:three_houndeyes",
+                        "/say three houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        }
+                    ]
+                },
+                "four": {
+                    "animations": [
+                        "animPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:four_houndeyes",
+                        "/say four houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.tamed_houndeye_pack": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "is_wild": "query.is_tamed"
+                        }
+                    ]
+                },
+                "is_wild": {
+                    "animations": [
+                        "animTamedPackDetection"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        }
+                    ]
+                },
+                "one": {
+                    "animations": [
+                        "animTamedPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:one_houndeye",
+                        "/say one houndeye"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        }
+                    ]
+                },
+                "two": {
+                    "animations": [
+                        "animTamedPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:two_houndeyes",
+                        "/say two houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        }
+                    ]
+                },
+                "three": {
+                    "animations": [
+                        "animTamedPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:three_houndeyes",
+                        "/say three houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        }
+                    ]
+                },
+                "four": {
+                    "animations": [
+                        "animTamedPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:four_houndeyes",
+                        "/say four houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.houndeye_shockwave": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "shockwave_one": "query.is_sheared && query.mark_variant == 0"
+                        },
+                        {
+                            "shockwave_two": "query.is_sheared && query.mark_variant == 1"
+                        },
+                        {
+                            "shockwave_three": "query.is_sheared && query.mark_variant == 2"
+                        },
+                        {
+                            "shockwave_four": "query.is_sheared && query.mark_variant == 3"
+                        }
+                    ]
+                },
+                "shockwave_one": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared"
+                        },
+                        {
+                            "shockwave_two": "query.is_sheared && query.mark_variant == 1"
+                        },
+                        {
+                            "shockwave_three": "query.is_sheared && query.mark_variant == 2"
+                        },
+                        {
+                            "shockwave_four": "query.is_sheared && query.mark_variant == 3"
+                        }
+                    ],
+                    "animations": [
+                        "animShockwaveOne"
+                    ]
+                },
+                "shockwave_two": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared"
+                        },
+                        {
+                            "shockwave_one": "query.is_sheared && query.mark_variant == 0"
+                        },
+                        {
+                            "shockwave_three": "query.is_sheared && query.mark_variant == 2"
+                        },
+                        {
+                            "shockwave_four": "query.is_sheared && query.mark_variant == 3"
+                        }
+                    ],
+                    "animations": [
+                        "animShockwaveTwo"
+                    ]
+                },
+                "shockwave_three": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared"
+                        },
+                        {
+                            "shockwave_one": "query.is_sheared && query.mark_variant == 0"
+                        },
+                        {
+                            "shockwave_three": "query.is_sheared && query.mark_variant == 2"
+                        },
+                        {
+                            "shockwave_four": "query.is_sheared && query.mark_variant == 3"
+                        }
+                    ],
+                    "animations": [
+                        "animShockwaveThree"
+                    ]
+                },
+                "shockwave_four": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared"
+                        },
+                        {
+                            "shockwave_one": "query.is_sheared && query.mark_variant == 0"
+                        },
+                        {
+                            "shockwave_three": "query.is_sheared && query.mark_variant == 1"
+                        },
+                        {
+                            "shockwave_three": "query.is_sheared && query.mark_variant == 2"
+                        }
+                    ],
+                    "animations": [
+                        "animShockwaveFour"
+                    ]
+                }
+            }
+        }
+    }
+}
