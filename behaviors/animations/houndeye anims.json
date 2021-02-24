@@ -25,10 +25,7 @@
 			"timeline": {
 				"0": [
 					"@s borgy:one_houndeye_attack"
-				],
-                "3.04": [
-                    "/camerashake add @a[r=24] 4"
-                ]
+				]
 			}
         },
         "animation.houndeye_two_shockwave": {
@@ -37,10 +34,7 @@
 			"timeline": {
 				"0": [
 					"@s borgy:two_houndeye_attack"
-				],
-                "3.04": [
-                    "/camerashake add @a[r=24] 4"
-                ]
+				]
 			}
         },
         "animation.houndeye_three_shockwave": {
@@ -49,10 +43,7 @@
 			"timeline": {
 				"0": [
 					"@s borgy:three_houndeye_attack"
-				],
-                "3.04": [
-                    "/camerashake add @a[r=24] 4"
-                ]
+				]
 			}
         },
         "animation.houndeye_four_shockwave": {
@@ -61,7 +52,12 @@
 			"timeline": {
 				"0": [
 					"@s borgy:four_houndeye_attack"
-				],
+				]
+			}
+        },
+		"animation.houndeye_shockwave_camera": {
+            "animation_length": 3.77,
+			"timeline": {
                 "3.04": [
                     "/camerashake add @a[r=24] 4"
                 ]

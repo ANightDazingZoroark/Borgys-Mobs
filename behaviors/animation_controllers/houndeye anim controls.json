@@ -349,6 +349,28 @@
                     ]
                 }
             }
+        },
+        "controller.animation.houndeye_shockwave_camera": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "shockwave": "query.is_roaring"
+                        }
+                    ]
+                },
+                "shockwave": {
+                    "animations": [
+                        "animShockwaveCamera"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_roaring"
+                        }
+                    ]
+                }
+            }
         }
     }
 }
