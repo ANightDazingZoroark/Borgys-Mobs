@@ -1,5 +1,7 @@
 entity.borgy:bullsquid.name=Bullsquid
 entity.borgy:houndeye.name=Houndeye
+entity.borgy:icthyosaur.name=Icthyosaur
 
 item.spawn_egg.entity.borgy:bullsquid.name=Spawn Bullsquid
 item.spawn_egg.entity.borgy:houndeye.name=Spawn Houndeye
+item.spawn_egg.entity.borgy:icthyosaur.name=Spawn Icthyosaur

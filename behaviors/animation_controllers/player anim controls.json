@@ -1,0 +1,52 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.player_control_icthyosaur": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "controlling": "query.is_in_water && query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:icthyosaur'"
+                        }
+                    ]
+                },
+                "controlling": {
+                    "animations": [
+                        "animControlIcthyosaur"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_riding || !query.is_in_Water"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.player_control_icthyosaur_bite": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "biting": "query.is_jumping && query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:icthyosaur'"
+                        }
+                    ]
+                },
+                "biting": {
+                    "animations": [
+                        "animControlIcthyosaurBite"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_jumping || !query.is_riding"
+                        }
+                    ],
+                    "on_exit": [
+                        "/event entity @e[type=borgy:icthyosaur, c=1] borgy:icthyosaur_stop_forced_bite"
+                    ]
+                }
+            }
+        }
+    }
+}

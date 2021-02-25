@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.icthyosaur_attack": {
+            "initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "attack": "query.is_delayed_attacking"
+                        }
+                    ]
+				},
+                "attack": {
+                    "animations": [
+                        "animBite"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_delayed_attacking"
+                        }
+                    ]
+                }
+			}
+        }
+    }
+}

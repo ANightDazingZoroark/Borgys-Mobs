@@ -144,23 +144,23 @@
                     "items": [
                         {
                             "item": "minecraft:cooked_beef",
-                            "value": 15
+                            "heal_amount": 15
                         },
                         {
                             "item": "minecraft:cooked_porkchop",
-                            "value": 15
+                            "heal_amount": 15
                         },
                         {
                             "item": "minecraft:cooked_chicken",
-                            "value": 15
+                            "heal_amount": 15
                         },
                         {
                             "item": "minecraft:muttoncooked",
-                            "value": 15
+                            "heal_amount": 15
                         },
                         {
                             "item": "minecraft:cooked_rabbit",
-                            "value": 15
+                            "heal_amount": 15
                         }
                     ]
                 }

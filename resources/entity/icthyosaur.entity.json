@@ -7,26 +7,28 @@
                 "default": "skeleton"
             },
             "textures": {
-                "default": "textures/icthyosaur"
+                "default": "textures/entity/icthyosaur"
             },
             "geometry": {
                 "default": "geometry.icthyosaur"
             },
             "animations": {
                 "animSwim": "animation.icthyosaur.swim",
-                "animBite": "animation.icthyosaur.bite"
+                "animBite": "animation.icthyosaur.bite",
+                "contAttack": "controller.animation.icthyosaur_attack"
             },
             "scripts": {
                 "animate": [
-                    "animSwim"
+                    "animSwim",
+                    "contAttack"
                 ]
             },
             "render_controllers": [
-                "render.controller.icthyosaur"
+                "controller.render.icthyosaur"
             ],
             "spawn_egg": {
-				"base_color": "#876724",
-				"overlay_color": "#722007"
+				"base_color": "#393919",
+				"overlay_color": "#262620"
 			}
         }
     }
