@@ -27,7 +27,6 @@
             },
             "minecraft:type_family": {
                 "family": [
-                    "headcrab",
                     "headcrab_zombie",
                     "mob"
                 ]
@@ -39,7 +38,6 @@
 				"avoid_damage_blocks": true
 			},
 			"minecraft:movement.basic": {},
-            "minecraft:behavior.float": {},
             "minecraft:jump.static": {},
             "minecraft:behavior.random_stroll": {},
             "minecraft:behavior.mount_pathing": {
@@ -83,6 +81,13 @@
                             ]
                         },
                         "max_dist": 24
+                    },
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "player"
+                        }
                     }
                 ]
             },
@@ -97,7 +102,8 @@
             "minecraft:rideable": {
                 "seat_count": 1,
                 "family_types": [
-                  "headcrab_hitbox"
+                  "headcrab_zombie",
+                  "headcrab"
                 ],
                 "seats": [
                     {

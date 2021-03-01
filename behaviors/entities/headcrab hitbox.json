@@ -7,10 +7,19 @@
             "is_summonable": true,
             "is_experimental": false
         },
+        "component_groups": {
+            "borgy:into_headcrab_zombie": {
+                "minecraft:instant_despawn": {}
+            }
+        },
         "components": {
             "minecraft:health": {
-                "value": 20
+                "value": 24
             },
+            "minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
             "minecraft:collision_box": {
                 "width": 1,
                 "height": 1
@@ -18,9 +27,12 @@
             "minecraft:scale": {
                 "value": 0.6
             },
+            "minecraft:movement": {
+                "value": 0.25
+            },
             "minecraft:type_family": {
                 "family": [
-                    "headcrab_hitbox",
+                    "headcrab_zombie",
                     "mob"
                 ]
             },
@@ -33,7 +45,15 @@
             "minecraft:movement.basic": {},
             "minecraft:behavior.float": {},
             "minecraft:jump.static": {},
+            "minecraft:behavior.random_stroll": {},
             "minecraft:is_hidden_when_invisible": {},
+            "minecraft:nameable": {},
+            "minecraft:experience_reward": {
+                "on_death": "query.last_hit_by_player ? Math.Random(1,2) : 0"
+            },
+            "minecraft:despawn": {
+                "despawn_from_distance": {}
+            },
             "minecraft:environment_sensor": {
                 "triggers": [
                     {
