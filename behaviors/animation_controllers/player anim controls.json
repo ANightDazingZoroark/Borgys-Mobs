@@ -43,7 +43,7 @@
                         }
                     ],
                     "on_exit": [
-                        "/event entity @e[type=borgy:icthyosaur, c=1] borgy:icthyosaur_stop_forced_bite"
+                        "/event entity @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] borgy:icthyosaur_stop_forced_bite"
                     ]
                 }
             }

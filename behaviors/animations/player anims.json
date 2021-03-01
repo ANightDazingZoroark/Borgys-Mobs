@@ -16,14 +16,14 @@
 			"loop": true,
 			"timeline": {
 				"0": [
-                    "/playanimation @e[type=borgy:icthyosaur, c=1] animation.icthyosaur.bite",
+                    "/playanimation @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] animation.icthyosaur.bite",
                     "/say yeet"
 				],
                 "0.52": [
-                    "/event entity @e[type=borgy:icthyosaur, c=1] borgy:icthyosaur_forced_bite"
+                    "/event entity @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] borgy:icthyosaur_forced_bite"
                 ],
                 "0.525": [
-                    "/event entity @e[type=borgy:icthyosaur, c=1] borgy:icthyosaur_stop_forced_bite"
+                    "/event entity @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] borgy:icthyosaur_stop_forced_bite"
                 ]
 			}
         }

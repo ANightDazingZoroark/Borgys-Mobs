@@ -1,0 +1,48 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.headcrab_movement": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"animIdle": "query.ground_speed == 0"
+						},
+						{
+							"animWalk": "query.ground_speed > 0"
+						}
+					],
+                    "transitions": [
+                        {
+                            "attack": "!query.is_on_ground"
+                        },
+                        {
+                            "riding": "query.is_riding"
+                        }
+                    ]
+				},
+                "attack": {
+                    "animations": [
+                        "animJump"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.is_on_ground"
+                        }
+                    ]
+                },
+                "riding": {
+                    "animations": [
+                        "animRide"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_riding"
+                        }
+                    ]
+                }
+			}
+		}
+    }
+}

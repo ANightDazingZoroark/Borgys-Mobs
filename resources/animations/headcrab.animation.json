@@ -56,6 +56,26 @@
 					"rotation": [60, 0, 0]
 				}
 			}
+		},
+		"animation.headcrab.riding": {
+			"loop": true,
+			"bones": {
+				"headcrab": {
+					"rotation": [0, "query.get_ride -> query.target_y_rotation", 0]
+				},
+				"frontLeftLeg1": {
+					"rotation": [115, 0, 0]
+				},
+				"frontRightLeg1": {
+					"rotation": [115, 0, 0]
+				},
+				"backLeftLeg1": {
+					"rotation": [12.5, 0, 0]
+				},
+				"backRightLeg1": {
+					"rotation": [12.5, 0, 0]
+				}
+			}
 		}
 	}
 }

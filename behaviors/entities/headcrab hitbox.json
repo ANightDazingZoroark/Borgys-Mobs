@@ -1,0 +1,61 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "borgy:headcrab_hitbox",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 20
+            },
+            "minecraft:collision_box": {
+                "width": 1,
+                "height": 1
+            },
+            "minecraft:scale": {
+                "value": 0.6
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "headcrab_hitbox",
+                    "mob"
+                ]
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {},
+            "minecraft:navigation.walk": {
+                "avoid_water": true,
+                "avoid_damage_blocks": true
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:behavior.float": {},
+            "minecraft:jump.static": {},
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "filters": {
+                            "test": "is_riding",
+                            "subject": "self",
+                            "value": false
+                        },
+                        "event": "borgy:stop_riding",
+                        "target": "self"
+                    }
+                ]
+            }
+        },
+        "events": {
+            "borgy:stop_riding": {
+                "run_command": {
+                    "command": [
+                        "kill @s"
+                    ]
+                }
+            }
+        }
+    }
+}

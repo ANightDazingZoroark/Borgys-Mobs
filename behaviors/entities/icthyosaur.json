@@ -60,6 +60,9 @@
                         }
                     ]
                 },
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 3
+                },
                 "minecraft:tameable": {
 					"probability": 0.25,
 					"tame_items": [
@@ -187,7 +190,7 @@
             },
             "borgy:icthyosaur_triggered_attack": {
                 "minecraft:area_attack": {
-					"damage_range": 1,
+					"damage_range": 5,
 					"damage_per_tick": 16,
 					"cause": "entity_attack",
 					"entity_filter": {
@@ -233,7 +236,7 @@
                 "generates_bubbles": false
 			},
             "minecraft:collision_box": {
-                "width": 1.25,
+                "width": 1.75,
                 "height": 1.75
             },
             "minecraft:scale": {
@@ -391,6 +394,11 @@
                 "add": {
                     "component_groups": [
                         "borgy:icthyosaur_saddled"
+                    ]
+                },
+                "run_command": {
+                    "command": [
+                        "tag @s add icthyosaurSaddled"
                     ]
                 }
             },

@@ -27,6 +27,18 @@
 					"death": "mob.houndeye.death",
                     "roar": "mob.houndeye.attack"
 				}
+            },
+			"borgy:icthyosaur": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.icthyosaur.idle",
+					"hurt": "mob.icthyosaur.hurt",
+					"death": "mob.icthyosaur.death"
+				}
             }
         }
     }

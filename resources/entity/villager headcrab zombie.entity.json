@@ -2,26 +2,26 @@
     "format_version": "1.10.0",
     "minecraft:client_entity": {
         "description": {
-            "identifier": "borgy:headcrab",
+            "identifier": "borgy:villager_headcrab_zombie",
             "materials": {
                 "default": "skeleton"
             },
             "textures": {
-                "default": "textures/entity/headcrab"
+                "default": "textures/entity/villager headcrab zombie"
             },
             "geometry": {
-                "default": "geometry.headcrab"
+                "default": "geometry.villager_headcrab_zombie"
             },
             "animations": {
-                "animIdle": "animation.headcrab.idle",
-                "animWalk": "animation.headcrab.walk",
-                "animJump": "animation.headcrab.jump",
-                "animRide": "animation.headcrab.riding",
-                "contMovement": "controller.animation.headcrab_movement"
+                "animAttack": "animation.headcrab_zombie.attacking",
+                "animMove": "animation.headcrab_zombie.move",
+                "contMove": "controller.animation.headcrab_zombie_movement",
+                "contAttack": "controller.animation.headcrab_zombie_attack"
             },
             "scripts": {
                 "animate": [
-                    "contMovement"
+                    "contMove",
+                    "contAttack"
                 ]
             },
             "render_controllers": [
