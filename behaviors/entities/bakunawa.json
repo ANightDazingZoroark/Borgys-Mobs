@@ -1,0 +1,39 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "borgy:bakunawa",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "borgy:bakunawa_baby": {},
+            "borgy:bakunawa_baby_wild": {},
+            "borgy:bakunawa_baby_tamed": {},
+            "borgy:bakunawa_adult": {},
+            "borgy:bakunawa_adult_wild": {},
+            "borgy:bakunawa_adult_tamed": {},
+            "borgy:bakunawa_wild": {},
+            "borgy:bakunawa_tamed": {},
+            "borgy:bakunawa_sittable": {},
+            "borgy:bakunawa_rideable": {},
+            "borgy:bakunawa_saddled": {},
+            "borgy:bakunawa_chested": {},
+            "borgy:bakunawa_on_land_wild": {},
+            "borgy:bakunawa_in_water_wild": {},
+            "borgy:bakunawa_on_air_wild": {},
+            "borgy:bakunawa_not_ridden": {},
+            "borgy:bakunawa_ridden": {},
+            "borgy:bakunawa_controlled_soar": {},
+            "borgy:bakunawa_controlled_flying": {},
+            "borgy:bakunawa_power_breath": {}
+        },
+        "components": {
+
+        },
+        "events": {
+
+        }
+    }
+}

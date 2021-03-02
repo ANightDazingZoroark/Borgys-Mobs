@@ -2451,7 +2451,7 @@
       },
       "become_headcrab_zombie": {
         "add": { "component_groups": [ "become_headcrab_zombie" ] },
-        "run_command": { "command": [ "say aaaa" ] }
+        "run_command": { "command": [ "say aaaa", "event entity @e[type=borgy:headcrab, c=1] borgy:into_headcrab_zombie" ] }
       }
     }
   }

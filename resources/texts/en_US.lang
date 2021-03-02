@@ -2,8 +2,14 @@ entity.borgy:bullsquid.name=Bullsquid
 entity.borgy:houndeye.name=Houndeye
 entity.borgy:icthyosaur.name=Icthyosaur
 entity.borgy:headcrab.name=Headcrab
+entity.borgy:villager_headcrab_zombie.name=Villager Headcrab Zombie
+entity.borgy:player_headcrab_zombie.name=Player Headcrab Zombie
+entity.borgy:bakunawa.name=Bakunawa
 
 item.spawn_egg.entity.borgy:bullsquid.name=Spawn Bullsquid
 item.spawn_egg.entity.borgy:houndeye.name=Spawn Houndeye
 item.spawn_egg.entity.borgy:icthyosaur.name=Spawn Icthyosaur
 item.spawn_egg.entity.borgy:headcrab.name=Spawn Headcrab
+item.spawn_egg.entity.borgy:villager_headcrab_zombie.name=Spawn Villager Headcrab Zombie
+item.spawn_egg.entity.borgy:player_headcrab_zombie.name=Spawn Player Headcrab Zombie
+item.spawn_egg.entity.borgy:bakunawa.name=Spawn Bakunawa

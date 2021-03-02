@@ -5,15 +5,7 @@
             "identifier": "borgy:headcrab",
             "is_spawnable": true,
             "is_summonable": true,
-            "is_experimental": false,
-            "animations": {
-                "contAttack": "controller.animation.player_headcrab_attack"
-            },
-            "scripts": {
-                "animate": [
-                    "contAttack"
-                ]
-            }
+            "is_experimental": false
         },
         "component_groups": {
             "borgy:into_headcrab_zombie": {
@@ -61,7 +53,7 @@
                 "priority": 3,
                 "speed_multiplier": 1.0,
                 "track_target": true,
-                "reach_multiplier": 1.5
+                "reach_multiplier": 1.75
             },
             "minecraft:behavior.leap_at_target": {
                 "set_persistent": true,
@@ -112,11 +104,6 @@
                 "add": {
                     "component_groups": [
                         "borgy:into_headcrab_zombie"
-                    ]
-                },
-                "run_command": {
-                    "command": [
-                        "say yeet"
                     ]
                 }
             }

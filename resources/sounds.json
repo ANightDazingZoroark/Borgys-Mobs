@@ -39,6 +39,19 @@
 					"hurt": "mob.icthyosaur.hurt",
 					"death": "mob.icthyosaur.death"
 				}
+            },
+			"borgy:headcrab": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab.idle",
+					"hurt": "mob.headcrab.hurt",
+					"death": "mob.headcrab.death",
+					"jump": "mob.headcrab.attack"
+				}
             }
         }
     }
