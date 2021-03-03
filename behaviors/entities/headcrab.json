@@ -79,6 +79,14 @@
                             "value": "villager"
                         },
                         "max_dist": 24
+                    },
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "piglin"
+                        },
+                        "max_dist": 24
                     }
                 ]
             },
