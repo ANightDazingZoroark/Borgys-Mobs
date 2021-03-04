@@ -1,0 +1,32 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.piglin_headcrab_zombie_find_environment": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "leaveNether": "!query.biome_has_all_tags('nether')"
+                        }
+                    ]
+                },
+                "leaveNether": {
+                    "on_entry": [
+                        "/say o no",
+                        "@s borgy:on_leave_nether"
+                    ],
+                    "on_exit": [
+                        "/say yay",
+                        "@s borgy:on_return_to_nether"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.biome_has_all_tags('nether')"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

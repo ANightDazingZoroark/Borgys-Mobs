@@ -15,13 +15,16 @@
             "animations": {
                 "animAttack": "animation.headcrab_zombie.attacking",
                 "animMove": "animation.headcrab_zombie.move",
+                "animShake": "animation.piglin_headcrab_zombie.shake",
                 "contMove": "controller.animation.headcrab_zombie_movement",
-                "contAttack": "controller.animation.headcrab_zombie_attack"
+                "contAttack": "controller.animation.headcrab_zombie_attack",
+                "contShake": "controller.animation.piglin_headcrab_zombie_shake"
             },
             "scripts": {
                 "animate": [
                     "contMove",
-                    "contAttack"
+                    "contAttack",
+                    "contShake"
                 ]
             },
             "render_controllers": [

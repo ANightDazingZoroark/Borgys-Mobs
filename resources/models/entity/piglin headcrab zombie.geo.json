@@ -12,15 +12,12 @@
 			},
 			"bones": [
 				{
-					"name": "body",
-					"pivot": [0, 24, 0],
-					"cubes": [
-						{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [16, 16]}
-					]
+					"name": "piglin",
+					"pivot": [0, 24, 0]
 				},
 				{
 					"name": "head",
-					"parent": "body",
+					"parent": "piglin",
 					"pivot": [0, 24, 0],
 					"cubes": [
 						{"origin": [-5, 24, -4], "size": [10, 8, 8], "inflate": -0.02, "uv": [0, 0]},
@@ -125,6 +122,14 @@
 					"rotation": [-87.5, 0, 0],
 					"cubes": [
 						{"origin": [-7.6, 20.5, 3.5], "size": [3, 6, 3], "inflate": -1, "uv": [85, 45]}
+					]
+				},
+				{
+					"name": "body",
+					"parent": "piglin",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [16, 16]}
 					]
 				},
 				{

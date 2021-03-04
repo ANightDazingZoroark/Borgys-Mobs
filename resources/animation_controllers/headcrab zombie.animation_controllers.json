@@ -44,6 +44,28 @@
                     ]
                 }
 			}
+        },
+        "controller.animation.piglin_headcrab_zombie_shake": {
+            "initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "attack": "query.is_sheared"
+                        }
+                    ]
+				},
+                "attack": {
+                    "animations": [
+                        "animShake"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared"
+                        }
+                    ]
+                }
+			}
         }
     }
 }

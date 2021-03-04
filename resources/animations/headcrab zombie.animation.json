@@ -1,19 +1,22 @@
 {
-    "format_version": "1.8.0",
-    "animations": {
-        "animation.headcrab_zombie.attacking": {
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.headcrab_zombie.attacking": {
 			"loop": true,
 			"bones": {
-				"leftArm" : {
-					"rotation" : [ "-90.0 - ((math.sin(variable.attack_time * 180.0) * 57.3) * 1.2 - (math.sin((1.0 - (1.0 - variable.attack_time) * (1.0 - variable.attack_time)) * 180.0) * 57.3) * 0.4) - (math.sin(query.life_time * 76.776372) * 2.865) - this", "5.73 - ((math.sin(variable.attack_time * 180.0) * 57.3) * 0.6) - this", "math.cos(query.life_time * 103.13244) * -2.865 - 2.865 - this" ]
+				"leftArm": {
+					"rotation": ["-90.0 - ((math.sin(variable.attack_time * 180.0) * 57.3) * 1.2 - (math.sin((1.0 - (1.0 - variable.attack_time) * (1.0 - variable.attack_time)) * 180.0) * 57.3) * 0.4) - (math.sin(query.life_time * 76.776372) * 2.865) - this", "5.73 - ((math.sin(variable.attack_time * 180.0) * 57.3) * 0.6) - this", "math.cos(query.life_time * 103.13244) * -2.865 - 2.865 - this"]
 				},
-				"rightArm" : {
-					"rotation" : [ "-90 - ((math.sin(variable.attack_time * 180.0) * 57.3) * 1.2 - (math.sin((1.0 - (1.0 - variable.attack_time) * (1.0 - variable.attack_time)) * 180.0) * 57.3) * 0.4) + (math.sin(query.life_time * 76.776372) * 2.865) - this", "(math.sin(variable.attack_time * 180.0) * 57.3) * 0.6 - 5.73 - this", "math.cos(query.life_time * 103.13244) * 2.865 + 2.865 - this" ]
+				"rightArm": {
+					"rotation": ["-90 - ((math.sin(variable.attack_time * 180.0) * 57.3) * 1.2 - (math.sin((1.0 - (1.0 - variable.attack_time) * (1.0 - variable.attack_time)) * 180.0) * 57.3) * 0.4) + (math.sin(query.life_time * 76.776372) * 2.865) - this", "(math.sin(variable.attack_time * 180.0) * 57.3) * 0.6 - 5.73 - this", "math.cos(query.life_time * 103.13244) * 2.865 + 2.865 - this"]
+				},
+				"body": {
+					"rotation": [0, 0, 0]
 				}
 			}
 		},
-        "animation.headcrab_zombie.move": {
-			"anim_time_update" : "query.modified_distance_moved",
+		"animation.headcrab_zombie.move": {
+			"anim_time_update": "query.modified_distance_moved",
 			"loop": true,
 			"bones": {
 				"leftLeg": {
@@ -23,6 +26,20 @@
 					"rotation": ["(math.cos(query.anim_time * 38.17) * 40.0) - this", "-this", 0]
 				}
 			}
+		},
+		"animation.piglin_headcrab_zombie.shake": {
+			"loop": true,
+			"animation_length": 0.12,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.04": [0, 5, 0],
+						"0.08": [0, -5, 0],
+						"0.12": [0, 0, 0]
+					}
+				}
+			}
 		}
-    }
+	}
 }

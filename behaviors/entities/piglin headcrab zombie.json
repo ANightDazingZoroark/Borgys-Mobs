@@ -5,7 +5,27 @@
             "identifier": "borgy:piglin_headcrab_zombie",
             "is_spawnable": true,
             "is_summonable": true,
-            "is_experimental": false
+            "is_experimental": false,
+            "animations": {
+                "contTestForNether": "controller.animation.piglin_headcrab_zombie_find_environment"
+            },
+            "scripts": {
+                "animate": [
+                    "contTestForNether"
+                ]
+            }
+        },
+        "component_groups": {
+            "borgy:outside_of_nether": {
+                "minecraft:is_sheared": {},
+                "minecraft:timer": {
+                    "time": 15,
+                    "time_down_event": {
+                        "event": "borgy:go_commit_die",
+                        "target": "self"
+                    }
+                }
+            }
         },
         "components": {
             "minecraft:health": {
@@ -119,8 +139,8 @@
             "minecraft:addrider": {
                 "entity_type": "borgy:headcrab_hitbox"
             },
-            "minecraft:environment_sensor": {
-                "triggers": [
+            "minecraft:scheduler": {
+                "scheduled_events": [
                     {
                         "filters": {
                             "test": "rider_count",
@@ -149,6 +169,18 @@
             }
         },
         "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "borgy:inside_nether"
+                    ]
+                },
+                "run_command": {
+                    "command": [
+                        "say eeeee"
+                    ]
+                }
+            },
             "borgy:on_unridden": {
                 "run_command": {
                     "command": [
@@ -160,6 +192,38 @@
                 "run_command": {
                     "command": [
                         "summon borgy:headcrab"
+                    ]
+                }
+            },
+            "borgy:on_leave_nether": {
+                "add": {
+                    "component_groups": [
+                        "borgy:outside_of_nether"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:inside_nether"
+                    ]
+                }
+            },
+            "borgy:on_return_to_nether": {
+                "add": {
+                    "component_groups": [
+                        "borgy:inside_nether"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:outside_of_nether"
+                    ]
+                }
+            },
+            "borgy:go_commit_die": {
+                "run_command": {
+                    "command": [
+                        "summon borgy:headcrab",
+                        "kill @s"
                     ]
                 }
             }

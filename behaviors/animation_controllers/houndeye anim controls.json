@@ -38,8 +38,7 @@
                         "animPackDetection"
                     ],
                     "on_entry": [
-                        "@s borgy:one_houndeye",
-                        "/say one houndeye"
+                        "@s borgy:one_houndeye"
                     ],
                     "transitions": [
                         {
@@ -61,8 +60,7 @@
                         "animPackDetection"
                     ],
                     "on_entry": [
-                        "@s borgy:two_houndeyes",
-                        "/say two houndeyes"
+                        "@s borgy:two_houndeyes"
                     ],
                     "transitions": [
                         {
@@ -84,8 +82,7 @@
                         "animPackDetection"
                     ],
                     "on_entry": [
-                        "@s borgy:three_houndeyes",
-                        "/say three houndeyes"
+                        "@s borgy:three_houndeyes"
                     ],
                     "transitions": [
                         {
@@ -107,8 +104,7 @@
                         "animPackDetection"
                     ],
                     "on_entry": [
-                        "@s borgy:four_houndeyes",
-                        "/say four houndeyes"
+                        "@s borgy:four_houndeyes"
                     ],
                     "transitions": [
                         {
@@ -164,8 +160,7 @@
                         "animTamedPackDetection"
                     ],
                     "on_entry": [
-                        "@s borgy:one_houndeye",
-                        "/say one houndeye"
+                        "@s borgy:one_houndeye"
                     ],
                     "transitions": [
                         {
@@ -187,8 +182,7 @@
                         "animTamedPackDetection"
                     ],
                     "on_entry": [
-                        "@s borgy:two_houndeyes",
-                        "/say two houndeyes"
+                        "@s borgy:two_houndeyes"
                     ],
                     "transitions": [
                         {
@@ -210,8 +204,7 @@
                         "animTamedPackDetection"
                     ],
                     "on_entry": [
-                        "@s borgy:three_houndeyes",
-                        "/say three houndeyes"
+                        "@s borgy:three_houndeyes"
                     ],
                     "transitions": [
                         {
@@ -233,8 +226,7 @@
                         "animTamedPackDetection"
                     ],
                     "on_entry": [
-                        "@s borgy:four_houndeyes",
-                        "/say four houndeyes"
+                        "@s borgy:four_houndeyes"
                     ],
                     "transitions": [
                         {
@@ -356,7 +348,7 @@
                 "default": {
                     "transitions": [
                         {
-                            "shockwave": "query.is_roaring"
+                            "shockwave": "query.is_sheared"
                         }
                     ]
                 },
@@ -366,7 +358,7 @@
                     ],
                     "transitions": [
                         {
-                            "default": "!query.is_roaring"
+                            "default": "!query.is_sheared"
                         }
                     ]
                 }
