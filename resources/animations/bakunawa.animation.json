@@ -134,12 +134,25 @@
 		},
 		"animation.bakunawa.look": {
 			"loop": true,
+			"animation_length": 0.52,
 			"bones": {
 				"neck": {
 					"rotation": ["math.clamp(query.target_x_rotation, -5, 7.5)", "math.clamp(query.target_y_rotation, -7.5, 7.5)", 0]
 				},
 				"head": {
 					"rotation": ["math.clamp(query.target_x_rotation, -5, 7.5)", "math.clamp(query.target_y_rotation, -7.5, 7.5)", 0]
+				}
+			}
+		},
+		"animation.bakunawa.attack": {
+			"animation_length": 0.52,
+			"bones": {
+				"lowerJaw": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.28": [30, 0, 0],
+						"0.52": [0, 0, 0]
+					}
 				}
 			}
 		}

@@ -18,7 +18,7 @@
                     "burst_shots": 3,
                     "burst_interval": 0.3,
                     "attack_interval_min": 1,
-                    "attack_interval_max": 4,
+                    "attack_interval_max": 3,
                     "attack_radius": 12
                 }
             },

@@ -1,0 +1,88 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.bakunawa_poses": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"animLandPose": "query.is_on_ground && !query.is_in_water"
+						},
+						{
+							"animFlyPose": "!query.is_on_ground && !query.is_in_water"
+						},
+                        {
+                            "animSwimPose": "query.is_in_water"
+                        }
+					]
+				}
+			}
+		},
+        "controller.animation.bakunawa_movement": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"animIdle": "query.ground_speed == 0"
+						},
+						{
+							"animWalk": "query.ground_speed > 0"
+						}
+					],
+                    "transitions": [
+                        {
+                            "flying": "!query.is_on_ground"
+                        }
+                    ]
+				},
+                "flying": {
+                    "animations": [
+                        "animFly"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.is_on_ground"
+                        },
+                        {
+                            "swimming": "query.is_in_water"
+                        }
+                    ]
+                },
+                "swimming": {
+                    "animations": [
+                        "animSwim"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_in_water"
+                        }
+                    ]
+                }
+			}
+		},
+        "controller.animation.bakunawa_attack": {
+            "initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "attack": "query.is_delayed_attacking"
+                        }
+                    ]
+				},
+                "attack": {
+                    "animations": [
+                        "animAttack"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_delayed_attacking"
+                        }
+                    ]
+                }
+			}
+        }
+    }
+}

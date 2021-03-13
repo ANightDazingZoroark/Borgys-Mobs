@@ -85,7 +85,6 @@
             },
             "borgy:icthyosaur_tamed": {
                 "minecraft:is_tamed": {},
-                "minecraft:sittable": {},
                 "minecraft:behavior.follow_owner": {},
                 "minecraft:behavior.owner_hurt_target": {},
                 "minecraft:behavior.owner_hurt_by_target": {},
@@ -157,6 +156,9 @@
                         }
                     ]
                 }
+            },
+            "borgy:icthyosaur_sittable": {
+                "minecraft:sittable": {}
             },
             "borgy:icthyosaur_rideable": {
                 "minecraft:rideable": {
@@ -246,7 +248,7 @@
                 "value": 0.10
             },
             "minecraft:underwater_movement": {
-                "value": 0.15
+                "value": 0.25
             },
             "minecraft:type_family": {
                 "family": [
@@ -364,6 +366,26 @@
                         },
                         "event": "borgy:on_unridden",
                         "target": "self"
+                    },
+                    {
+                        "filters": {
+                            "test": "rider_count",
+                            "subject": "self",
+                            "operator": ">",
+                            "value": 0
+                        },
+                        "event": "borgy:remove_sittable",
+                        "target": "self"
+                    },
+                    {
+                        "filters": {
+                            "test": "rider_count",
+                            "subject": "self",
+                            "operator": "==",
+                            "value": 0
+                        },
+                        "event": "borgy:readd_sittable",
+                        "target": "self"
                     }
                 ]
             }
@@ -381,7 +403,8 @@
                 "add": {
                     "component_groups": [
                         "borgy:icthyosaur_tamed",
-                        "borgy:icthyosaur_rideable"
+                        "borgy:icthyosaur_rideable",
+                        "borgy:icthyosaur_sittable"
                     ]
                 },
                 "remove": {
@@ -424,14 +447,16 @@
                 },
                 "remove": {
                     "component_groups": [
-                        "borgy:no_rider"
+                        "borgy:no_rider",
+                        "borgy:icthyosaur_sittable"
                     ]
                 }
             },
             "borgy:on_unridden": {
                 "add": {
                     "component_groups": [
-                        "borgy:no_rider"
+                        "borgy:no_rider",
+                        "borgy:icthyosaur_sittable"
                     ]
                 },
                 "remove": {
@@ -451,6 +476,20 @@
                 "remove": {
                     "component_groups": [
                         "borgy:icthyosaur_triggered_attack"
+                    ]
+                }
+            },
+            "borgy:remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:icthyosaur_sittable"
+                    ]
+                }
+            },
+            "borgy:readd_sittable": {
+                "add": {
+                    "component_groups": [
+                        "borgy:icthyosaur_sittable"
                     ]
                 }
             }

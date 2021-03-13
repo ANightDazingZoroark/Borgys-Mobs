@@ -52,7 +52,21 @@
 					"death": "mob.headcrab.death",
 					"jump": "mob.headcrab.attack"
 				}
-            }
+            },
+			"borgy:bakunawa": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.bakunawa.idle",
+					"hurt": "mob.bakunawa.hurt",
+					"death": "mob.bakunawa.death",
+					"roar": "mob.bakunawa.roar",
+					"shoot": "mob.bakunawa.fire_projectile"
+				}
+			}
         }
     }
 }

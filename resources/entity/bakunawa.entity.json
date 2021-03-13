@@ -20,11 +20,18 @@
                 "animWalk": "animation.bakunawa.walk",
                 "animFly": "animation.bakunawa.fly",
                 "animSwim": "animation.bakunawa.swim",
-                "animLook": "animation.bakunawa.look"
+                "animLook": "animation.bakunawa.look",
+                "animAttack": "animation.bakunawa.attack",
+                "contPose": "controller.animation.bakunawa_poses",
+                "contMove": "controller.animation.bakunawa_movement",
+                "contAttack": "controller.animation.bakunawa_attack"
             },
             "scripts": {
                 "animate": [
-                    "animLook"
+                    "animLook",
+                    "contPose",
+                    "contMove",
+                    "contAttack"
                 ]
             },
             "render_controllers": [
