@@ -12,20 +12,147 @@
                 "minecraft:is_baby": {},
                 "minecraft:attack": {
                     "damage": 6
+                },
+                "minecraft:scale_by_age": {
+                    "start_scale": 0.3,
+                    "end_scale": 0.75
+                },
+                "minecraft:breathable": {
+                    "total_supply": 15,
+                    "suffocate_time": 0,
+                    "breathes_air": false,
+                    "breathes_water": true,
+                    "generates_bubbles": false
+                },
+                "minecraft:movement": {
+                    "value": 0.05
+                },
+                "minecraft:underwater_movement": {
+                    "value": 0.25
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 0
+                },
+                "minecraft:physics": {
+                    "has_gravity": true
                 }
             },
             "borgy:bakunawa_baby_wild": {
                 "minecraft:health": {
                     "value": 30
+                },
+                "minecraft:ageable": {
+                    "duration": 1200,
+                    "grow_up": {
+                        "event": "borgy:baby_grow_up_wild",
+                        "target": "self"
+                    }
+                },
+                "minecraft:tameable": {
+					"probability": 0.25,
+					"tame_items": [
+                        "minecraft:fish",
+                        "minecraft:cooked_fish",
+                        "minecraft:salmon",
+                        "minecraft:cooked_salmon",
+                        "minecraft:tropical_fish",
+                        "minecraft:pufferfish"
+					],
+					"tame_event": {
+						"event": "borgy:on_tame",
+						"target": "self"
+					}
                 }
             },
-            "borgy:bakunawa_baby_tamed": {},
+            "borgy:bakunawa_baby_tamed": {
+                "minecraft:ageable": {
+                    "duration": 1200,
+                    "grow_up": {
+                        "event": "borgy:baby_grow_up_tamed",
+                        "target": "self"
+                    },
+                    "feed_items": [
+						{
+							"item": "minecraft:fish",
+							"growth": 0.1
+						},
+						{
+							"item": "minecraft:cooked_fish",
+							"growth": 0.125
+						},
+						{
+							"item": "minecraft:salmon",
+							"growth": 0.1
+						},
+						{
+							"item": "minecraft:cooked_salmon",
+							"growth": 0.125
+						},
+						{
+							"item": "minecraft:tropical_fish",
+							"growth": 0.1
+						},
+						{
+							"item": "minecraft:pufferfish",
+							"growth": 0.125
+						}
+                    ]
+                }
+            },
+            "borgy:bakunawa_baby_on_land": {
+                "minecraft:navigation.walk": {
+                    "avoid_water": false,
+                    "avoid_damage_blocks": true
+                },
+                "minecraft:behavior.random_stroll": {
+                    "priority": 4
+                },
+                "minecraft:behavior.move_to_water": {
+                    "priority": 2,
+                    "search_range": 16,
+                    "search_height": 5
+                }
+            },
+            "borgy:bakunawa_baby_in_water": {
+                "minecraft:navigation.generic": {
+                    "is_amphibious": false,
+                    "can_path_over_water": false,
+                    "can_swim": true,
+                    "can_walk": false,
+                    "can_breach": true,
+                    "can_sink": false
+                },
+                "minecraft:behavior.random_swim": {
+                    "priority": 4,
+                    "interval": 0,
+                    "xz_dist": 20
+                }
+            },
             "borgy:bakunawa_adult": {
                 "minecraft:attack": {
                     "damage": 24
                 },
                 "minecraft:scale": {
                     "value": 1
+                },
+                "minecraft:breathable": {
+                    "total_supply": 15,
+                    "suffocate_time": 0,
+                    "breathes_air": true,
+                    "breathes_water": true,
+                    "generates_bubbles": false
+                },
+                "minecraft:movement": {
+                    "value": 0.25
+                },
+                "minecraft:underwater_movement": {
+                    "value": 0.25
+                },
+                "minecraft:flying_speed":{
+                    "value": 0.25
+                },
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 3
                 }
             },
             "borgy:bakunawa_adult_wild": {
@@ -70,10 +197,11 @@
                 }
             },
             "borgy:bakunawa_adult_in_air": {
-                "minecraft:navigation.float":{
+                "minecraft:navigation.float": {
+                    "can_walk": false,
                     "can_path_over_water": true,
                     "can_sink": false,
-                    "avoid_sun":false,
+                    "avoid_sun": false,
                     "can_pass_doors": false,
                     "can_open_doors": false,
                     "avoid_water": true,
@@ -87,6 +215,11 @@
                 },
                 "minecraft:physics": {
                     "has_gravity": false
+                },
+                "minecraft:can_fly": {},
+                "minecraft:follow_range": {
+                    "value": 64,
+                    "max": 64
                 },
                 "minecraft:shooter": {
                     "def": "borgy:bakunawa_projectile"
@@ -171,7 +304,26 @@
                 }
             },
             "borgy:bakunawa_tamed": {
-                "minecraft:is_tamed": {}
+                "minecraft:is_tamed": {},
+                "minecraft:behavior.follow_owner": {
+                    "priority": 3
+                },
+                "minecraft:behavior.owner_attack_target": {
+                    "priority": 3
+                },
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "priority": 3
+                },
+                "minecraft:behavior.stay_while_sitting": {}
+            },
+            "borgy:bakunawa_sittable": {
+                "minecraft:sittable": {}
+            },
+            "borgy:bakunawa_saddled": {
+                "minecraft:is_saddled": {}
+            },
+            "borgy:bakunawa_chested": {
+                "minecraft:is_chested": {}
             }
         },
         "components": {
@@ -179,13 +331,6 @@
                 "height": 3,
                 "width": 3
             },
-            "minecraft:breathable": {
-				"total_supply": 15,
-				"suffocate_time": 0,
-                "breathes_air": true,
-                "breathes_water": true,
-                "generates_bubbles": false
-			},
             "minecraft:type_family": {
                 "family": [
                     "bakunawa",
@@ -194,22 +339,10 @@
             },
             "minecraft:pushable": {},
             "minecraft:movement.generic":{},
-            "minecraft:movement": {
-                "value": 0.25
-            },
-            "minecraft:underwater_movement": {
-                "value": 0.25
-            },
-            "minecraft:flying_speed":{
-                "value": 0.25
-            },
             "minecraft:jump.static": {},
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:nameable": {},
             "minecraft:behavior.stay_while_sitting": {},
-            "minecraft:behavior.hurt_by_target": {
-				"priority": 3
-			},
             "minecraft:scheduler": {
                 "scheduled_events": [
                     {
@@ -220,6 +353,12 @@
                                     "subject": "self",
                                     "operator": "!=",
                                     "value": "minecraft:is_tamed"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:is_baby"
                                 },
                                 {
                                     "test": "is_daytime",
@@ -245,6 +384,12 @@
                                     "value": "minecraft:is_tamed"
                                 },
                                 {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:is_baby"
+                                },
+                                {
                                     "test": "is_daytime",
                                     "value": true
                                 },
@@ -268,12 +413,66 @@
                                     "value": "minecraft:is_tamed"
                                 },
                                 {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:is_baby"
+                                },
+                                {
                                     "test": "is_daytime",
                                     "value": false
                                 }
                             ]
                         },
                         "event": "borgy:bakunawa_in_air_wild",
+                        "target": "self"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:is_tamed"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_baby"
+                                },
+                                {
+                                    "test": "is_underwater",
+                                    "subject": "self",
+                                    "value": false
+                                }
+                            ]
+                        },
+                        "event": "borgy:baby_find_water",
+                        "target": "self"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:is_tamed"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_baby"
+                                },
+                                {
+                                    "test": "is_underwater",
+                                    "subject": "self",
+                                    "value": true
+                                }
+                            ]
+                        },
+                        "event": "borgy:baby_in_water",
                         "target": "self"
                     }
                 ]
@@ -404,6 +603,38 @@
                 "remove": {
                     "component_groups": [
                         "borgy:bakunawa_adult_land_use_melee"
+                    ]
+                }
+            },
+            "borgy:spawn_as_baby": {
+                "add": {
+                    "component_groups": [
+                        "borgy:bakunawa_baby",
+                        "borgy:bakunawa_baby_wild"
+                    ]
+                }
+            },
+            "borgy:baby_find_water": {
+                "add": {
+                    "component_groups": [
+                        "borgy:bakunawa_baby_on_land"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:bakunawa_baby_in_water"
+                    ]
+                }
+            },
+            "borgy:baby_in_water": {
+                "add": {
+                    "component_groups": [
+                        "borgy:bakunawa_baby_in_water"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:bakunawa_baby_on_land"
                     ]
                 }
             }

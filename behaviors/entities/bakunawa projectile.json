@@ -8,25 +8,29 @@
             "is_experimental": false,
             "runtime_identifier": "minecraft:snowball"
         },
+        "component_groups": {
+            "borgy:commit_disappear": {
+                "minecraft:despawn": {}
+            }
+        },
         "components": {
             "minecraft:projectile": {
                 "on_hit": {
                     "impact_damage": {
                         "damage": 16,
-                        "destroy_on_hit": true
+                        "knockback": true
                     },
-                    "remove_on_hit": {}
+                    "remove_on_hit": {},
+                    "particle_on_hit": {
+                        "particle_type": "snowballpoof",
+                        "num_particles": 6,
+                        "on_entity_hit": true,
+                        "on_other_hit": true
+                    }
                 },
-                "power": 0.5,
-                "gravity": 0.05,
-                "inertia": 1,
-                "liquid_inertia": 1,
-                "anchor": 2,
-                "offset": [
-                    0,
-                    0.5,
-                    0
-                ]
+                "power": 1.5,
+                "gravity": 0.01,
+                "angle_offset": 0.0
             },
 			"minecraft:collision_box": {
                 "width": 0.25,

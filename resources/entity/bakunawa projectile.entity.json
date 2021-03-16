@@ -12,9 +12,20 @@
             "geometry": {
                 "default": "geometry.projectile"
             },
+            "animations": {
+                "animTrail": "animation.projectile.particles"
+            },
+            "scripts": {
+                "animate": [
+                    "animTrail"
+                ]
+            },
             "render_controllers": [
                 "render.controller.common"
-            ]
+            ],
+            "particle_effects": {
+			    "projectileTrail": "borgy:bakunawa_projectile_particle"
+			}
         }
     }
 }
