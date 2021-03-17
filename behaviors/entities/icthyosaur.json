@@ -81,6 +81,9 @@
 						"event": "borgy:on_tame",
 						"target": "self"
 					}
+                },
+                "minecraft:despawn": {
+                    "despawn_from_distance": {}
                 }
             },
             "borgy:icthyosaur_tamed": {
@@ -275,9 +278,6 @@
             "minecraft:nameable": {},
             "minecraft:experience_reward": {
                 "on_death": "query.last_hit_by_player ? Math.Random(1,3) : 0"
-            },
-            "minecraft:despawn": {
-                "despawn_from_distance": {}
             },
             "minecraft:behavior.stay_while_sitting": {},
             "minecraft:interact": {

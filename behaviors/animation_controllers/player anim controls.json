@@ -7,7 +7,7 @@
                 "default": {
                     "transitions": [
                         {
-                            "controlling": "query.is_in_water && query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:icthyosaur'"
+                            "controlling": "query.is_in_water && (query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:icthyosaur') && (query.is_riding ? (query.get_ride -> query.is_saddled))"
                         }
                     ]
                 },

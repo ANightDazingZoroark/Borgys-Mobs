@@ -1,50 +1,30 @@
 {
     "format_version": "1.10.0",
     "animation_controllers": {
-        "controller.animation.bakunawa_environment_sensor": {
+        "controller.animation.bakunawa_rider_sensor": {
             "initial_state": "default",
             "states": {
                 "default": {
                     "transitions": [
                         {
-                            "in_water": "query.is_in_water"
-                        },
-                        {
-                            "on_land_adult": "!query.is_in_water && !query.is_baby"
-                        },
-                        {
-                            "on_land_baby": "!query.is_in_water && query.is_baby"
+                            "has_rider": "query.is_tamed && query.has_rider"
                         }
                     ]
                 },
-                "in_water": {
-                    "on_entry": [
-                        "@s borgy:is_in_water"
-                    ],
+                "has_rider": {
                     "transitions": [
                         {
-                            "default": "!query.is_in_water"
+                            "default": "!query.has_rider"
                         }
-                    ]
-                },
-                "on_land_adult": {
-                    "on_entry": [
-                        "@s borgy:is_not_in_water_adult"
                     ],
-                    "transitions": [
-                        {
-                            "default": "query.is_in_water || query.is_baby"
-                        }
-                    ]
-                },
-                "on_land_baby": {
                     "on_entry": [
-                        "@s borgy:is_not_in_water_baby"
+                        "@s borgy:remove_sittable",
+                        "@s borgy:on_ridden",
+                        "/say has rider"
                     ],
-                    "transitions": [
-                        {
-                            "default": "query.is_in_water || !query.is_baby"
-                        }
+                    "on_exit": [
+                        "@s borgy:readd_sittable",
+                        "@s borgy:on_unridden"
                     ]
                 }
             }
