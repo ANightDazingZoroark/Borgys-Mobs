@@ -17,7 +17,7 @@
                     ],
                     "transitions": [
                         {
-                            "default": "!query.is_riding || !query.is_in_Water"
+                            "default": "!query.is_riding || !query.is_in_water"
                         }
                     ]
                 }
@@ -44,6 +44,73 @@
                     ],
                     "on_exit": [
                         "/event entity @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] borgy:icthyosaur_stop_forced_bite"
+                    ]
+                }
+            }
+        },
+        "controller.animation.player_control_bakunawa": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "hovering": "(query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:bakunawa') && (query.is_riding ? (query.get_ride -> query.is_saddled))"
+                        }
+                    ]
+                },
+                "hoveringTransition": {
+                    "transitions": [
+                        {
+                            "hovering": "!query.is_jumping"
+                        },
+                        {
+                            "default": "!query.is_riding"
+                        }
+                    ],
+                    "on_exit": [
+                        "@s borgy:clear_bakunawa_effects"
+                    ]
+                },
+                "hovering": {
+                    "transitions": [
+                        {
+                            "controllingTransition": "query.is_jumping"
+                        },
+                        {
+                            "default": "!query.is_riding"
+                        }
+                    ],
+                    "on_entry": [
+                        "/event entity @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] borgy:on_hover",
+                        "@s borgy:clear_bakunawa_effects_two",
+                        "/say am hovering"
+                    ]
+                },
+                "controllingTransition": {
+                    "transitions": [
+                        {
+                            "controlling": "!query.is_jumping"
+                        },
+                        {
+                            "default": "!query.is_riding"
+                        }
+                    ]
+                },
+                "controlling": {
+                    "animations": [
+                        "animControlBakunawa"
+                    ],
+                    "transitions": [
+                        {
+                            "hoveringTransition": "query.is_jumping"
+                        },
+                        {
+                            "default": "!query.is_riding"
+                        }
+                    ],
+                    "on_entry": [
+                        "/event entity @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] borgy:on_stop_hovering",
+                        "/say am controlled"
                     ]
                 }
             }

@@ -9,13 +9,16 @@
       "animations": {
         "contControlIcthyosaur": "controller.animation.player_control_icthyosaur",
         "contControlIcthyosaurBite": "controller.animation.player_control_icthyosaur_bite",
+        "contControlBakunawa": "controller.animation.player_control_bakunawa",
         "animControlIcthyosaur": "animation.player_control_icthyosaur",
-        "animControlIcthyosaurBite": "animation.player_control_icthyosaur_bite"
+        "animControlIcthyosaurBite": "animation.player_control_icthyosaur_bite",
+        "animControlBakunawa": "animation.player_control_bakunawa"
       },
       "scripts": {
         "animate": [
           "contControlIcthyosaur",
-          "contControlIcthyosaurBite"
+          "contControlIcthyosaurBite",
+          "contControlBakunawa"
         ]
       }
     },

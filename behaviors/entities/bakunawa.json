@@ -5,7 +5,18 @@
             "identifier": "borgy:bakunawa",
             "is_spawnable": true,
             "is_summonable": true,
-            "is_experimental": false
+            "is_experimental": false,
+            "animations": {
+                "contRiderSensor": "controller.animation.bakunawa_rider_sensor",
+                "contFasterInAir": "controller.animation.bakunawa_faster_with_rider",
+                "animFastInAir": "animation.bakunawa_fast_in_air"
+            },
+            "scripts": {
+                "animate": [
+                    "contRiderSensor",
+                    "contFasterInAir"
+                ]
+            }
         },
         "component_groups": {
             "borgy:bakunawa_baby": {
@@ -212,9 +223,6 @@
                     "value": 300,
                     "max": 400
                 },
-                "minecraft:physics": {
-                    "has_gravity": true
-                },
                 "minecraft:inventory": {
 					"container_type": "horse",
 					"inventory_size": 16,
@@ -244,12 +252,12 @@
             },
             "borgy:bakunawa_adult_tamed_no_rider": {
                 "minecraft:navigation.generic": {
-                    "is_amphibious": true,
-                    "can_path_over_water": false,
+                    "is_amphibious": false,
+                    "can_path_over_water": true,
                     "can_swim": true,
-                    "can_walk": true,
-                    "can_breach": true,
-                    "can_sink": false
+                    "can_walk": false,
+                    "can_breach": false,
+                    "can_sink": true
                 }
             },
             "borgy:bakunawa_adult_tamed_has_rider": {
@@ -260,6 +268,16 @@
                     "can_walk": false,
                     "can_breach": false,
                     "can_sink": true
+                }
+            },
+            "borgy:bakunawa_adult_tamed_has_gravity": {
+                "minecraft:physics": {
+                    "has_gravity": true
+                }
+            },
+            "borgy:bakunawa_adult_tamed_has_no_gravity": {
+                "minecraft:physics": {
+                    "has_gravity": false
                 }
             },
             "borgy:bakunawa_adult_on_land": {
@@ -398,7 +416,7 @@
 							"position": [
                                 0, 
                                 4.5, 
-                                4
+                                0
                             ]
 						}
 					]
@@ -417,12 +435,20 @@
             },
             "borgy:bakunawa_chested": {
                 "minecraft:is_chested": {}
+            },
+            "borgy:remove_bakunawa_effects": {
+                "minecraft:spell_effects": {
+                    "remove_effects": [
+                        "levitation",
+                        "slow_falling"
+                    ]
+                }
             }
         },
         "components": {
             "minecraft:collision_box": {
-                "height": 3,
-                "width": 3
+                "height": 5,
+                "width": 6
             },
             "minecraft:type_family": {
                 "family": [
@@ -865,7 +891,8 @@
                         "borgy:bakunawa_adult_tamed",
                         "borgy:bakunawa_rideable",
                         "borgy:bakunawa_adult_tamed_no_rider",
-                        "borgy:bakunawa_adult_land_target_sensor"
+                        "borgy:bakunawa_adult_land_target_sensor",
+                        "borgy:bakunawa_adult_tamed_has_gravity"
                     ]
                 },
                 "remove": {
@@ -931,6 +958,44 @@
                 "add": {
                     "component_groups": [
                         "borgy:bakunawa_chested"
+                    ]
+                }
+            },
+            "borgy:on_hover": {
+                "add": {
+                    "component_groups": [
+                        "borgy:bakunawa_adult_tamed_has_no_gravity"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:bakunawa_adult_tamed_has_gravity"
+                    ]
+                }
+            },
+            "borgy:on_stop_hovering": {
+                "add": {
+                    "component_groups": [
+                        "borgy:bakunawa_adult_tamed_has_gravity"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:bakunawa_adult_tamed_has_no_gravity"
+                    ]
+                }
+            },
+            "borgy:clear_bakunawa_effects": {
+                "add": {
+                    "component_groups": [
+                        "borgy:remove_bakunawa_effects"
+                    ]
+                }
+            },
+            "borgy:clear_bakunawa_effects_two": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:remove_bakunawa_effects"
                     ]
                 }
             }

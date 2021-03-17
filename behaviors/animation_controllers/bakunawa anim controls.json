@@ -9,6 +9,9 @@
                         {
                             "has_rider": "query.is_tamed && query.has_rider"
                         }
+                    ],
+                    "on_entry": [
+                        "@s borgy:clear_bakunawa_effects_two"
                     ]
                 },
                 "has_rider": {
@@ -18,13 +21,34 @@
                         }
                     ],
                     "on_entry": [
-                        "@s borgy:remove_sittable",
-                        "@s borgy:on_ridden",
-                        "/say has rider"
+                        "/tag @s add bakunawaHasRider"
                     ],
                     "on_exit": [
-                        "@s borgy:readd_sittable",
-                        "@s borgy:on_unridden"
+                        "/tag @s remove bakunawaHasRider",
+                        "@s borgy:clear_bakunawa_effects",
+                        "@s borgy:on_stop_hovering"
+                    ]
+                }
+            }
+        },
+        "controller.animation.bakunawa_faster_with_rider": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "has_rider": "query.is_tamed && query.has_rider && !query.is_on_ground && !query.is_in_water"
+                        }
+                    ]
+                },
+                "has_rider": {
+                    "transitions": [
+                        {
+                            "default": "!query.has_rider || query.is_on_ground || query.is_in_water"
+                        }
+                    ],
+                    "animations": [
+                        "animFastInAir"
                     ]
                 }
             }
