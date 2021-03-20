@@ -59,6 +59,9 @@
                     "mob"
                 ]
             },
+            "minecraft:loot": {
+                "table": "loot_tables/bullsquid.loot.json"
+            },
             "minecraft:physics": {},
             "minecraft:pushable": {},
 			"minecraft:navigation.walk": {

@@ -9,6 +9,15 @@
                     "/effect @s speed 1 15"
 				]
 			}
+        },
+        "animation.bakunawa_heart_effects": {
+            "animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": [
+                    "/effect @s regeneration 1 4"
+				]
+			}
         }
     }
 }

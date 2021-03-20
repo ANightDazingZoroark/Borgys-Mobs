@@ -9,12 +9,15 @@
             "animations": {
                 "contRiderSensor": "controller.animation.bakunawa_rider_sensor",
                 "contFasterInAir": "controller.animation.bakunawa_faster_with_rider",
-                "animFastInAir": "animation.bakunawa_fast_in_air"
+                "contHasHeart": "controller.animation.bakunawa_has_heart",
+                "animFastInAir": "animation.bakunawa_fast_in_air",
+                "animHeartEffects": "animation.bakunawa_heart_effects"
             },
             "scripts": {
                 "animate": [
                     "contRiderSensor",
-                    "contFasterInAir"
+                    "contFasterInAir",
+                    "contHasHeart"
                 ]
             }
         },
@@ -183,6 +186,9 @@
                 "minecraft:flying_speed":{
                     "value": 0.25
                 },
+                "minecraft:loot": {
+                    "table": "loot_tables/bakunawa.loot.json"
+                },
                 "minecraft:behavior.hurt_by_target": {
                     "priority": 3
                 }
@@ -228,6 +234,82 @@
 					"inventory_size": 16,
                     "restrict_to_owner": true,
 					"private": false
+				},
+                "minecraft:healable": {
+					"items": [
+						{
+							"item": "minecraft:beef",
+							"heal_amount": 16
+						},
+						{
+							"item": "minecraft:cooked_beef",
+							"heal_amount": 20
+						},
+						{
+							"item": "minecraft:porkchop",
+							"heal_amount": 16
+						},
+						{
+							"item": "minecraft:cooked_porkchop",
+							"heal_amount": 20
+						},
+						{
+							"item": "minecraft:chicken",
+							"heal_amount": 16
+						},
+						{
+							"item": "minecraft:cooked_chicken",
+							"heal_amount": 20
+						},
+						{
+							"item": "minecraft:muttonraw",
+							"heal_amount": 16
+						},
+						{
+							"item": "minecraft:muttoncooked",
+							"heal_amount": 20
+						},
+						{
+							"item": "minecraft:rabbit",
+							"heal_amount": 16
+						},
+						{
+							"item": "minecraft:cooked_rabbit",
+							"heal_amount": 20
+						},
+						{
+							"item": "minecraft:rotten_flesh",
+							"heal_amount": 12
+						},
+                        {
+                            "item": "minecraft:fish",
+                            "heal_amount": 15
+                        },
+                        {
+                            "item": "minecraft:cooked_fish",
+                            "heal_amount": 15
+                        },
+                        {
+                            "item": "minecraft:salmon",
+                            "heal_amount": 15
+                        },
+                        {
+                            "item": "minecraft:cooked_salmon",
+                            "heal_amount": 15
+                        },
+                        {
+                            "item": "minecraft:tropical_fish",
+                            "heal_amount": 15
+                        },
+                        {
+                            "item": "minecraft:pufferfish",
+                            "heal_amount": 15
+                        },
+                        {
+                            "item": "minecraft:rotten_flesh",
+                            "heal_amount": 15
+                        }
+					]
 				},
                 "minecraft:equippable": {
 					"slots": [
@@ -443,13 +525,43 @@
                         "slow_falling"
                     ]
                 }
+            },
+            "borgy:bakunawa_use_breath_attack": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+						{
+							"spawn_entity": "borgy:bakunawa_projectile",
+                            "spawn_event": "borgy:make_sounds_on_forced_launch",
+							"min_wait_time": 0,
+							"max_wait_time": 0
+						}
+					]
+                }
+            },
+            "borgy:default_collision": {
+                "minecraft:collision_box": {
+                    "height": 5,
+                    "width": 6
+                }
+            },
+            "borgy:small_collision": {
+                "minecraft:collision_box": {
+                    "height": 1,
+                    "width": 6
+                }
+            },
+            "borgy:bakunawa_has_received_heart": {
+                "minecraft:is_sheared": {},
+                "minecraft:timer": {
+                    "time": 480,
+                    "time_down_event": {
+                        "event": "borgy:heart_effect_expire",
+                        "target": "self"
+                    }
+                }
             }
         },
         "components": {
-            "minecraft:collision_box": {
-                "height": 5,
-                "width": 6
-            },
             "minecraft:type_family": {
                 "family": [
                     "bakunawa",
@@ -484,6 +596,12 @@
 										"subject": "self",
 										"value": "minecraft:is_tamed"
 									},
+                                    {
+										"test": "has_component",
+										"subject": "self",
+                                        "operator": "!=",
+										"value": "minecraft:is_baby"
+									},
 									{
 										"test": "is_sneaking",
 										"subject": "other",
@@ -495,6 +613,45 @@
 							"target": "self"
 						},
 						"interact_text": "action.interact.attachchest",
+						"use_item": true
+					},
+                    {
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "borgy:bakunawa_heart"
+									},
+									{
+										"test": "is_owner",
+										"subject": "other",
+										"value": true
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"value": "minecraft:is_tamed"
+									},
+                                    {
+										"test": "has_component",
+										"subject": "self",
+                                        "operator": "!=",
+										"value": "minecraft:is_baby"
+									},
+									{
+										"test": "is_sneaking",
+										"subject": "other",
+										"value": true
+									}
+								]
+							},
+							"event": "borgy:on_get_bakunawa_heart",
+							"target": "self"
+						},
+						"interact_text": "action.interact.usebakunawaheart",
 						"use_item": true
 					}
                 ]
@@ -705,7 +862,8 @@
                 "add": {
                     "component_groups": [
                         "borgy:bakunawa_adult",
-                        "borgy:bakunawa_adult_wild"
+                        "borgy:bakunawa_adult_wild",
+                        "borgy:default_collision"
                     ]
                 }
             },
@@ -824,7 +982,8 @@
                 "add": {
                     "component_groups": [
                         "borgy:bakunawa_baby",
-                        "borgy:bakunawa_baby_wild"
+                        "borgy:bakunawa_baby_wild",
+                        "borgy:default_collision"
                     ]
                 }
             },
@@ -996,6 +1155,51 @@
                 "remove": {
                     "component_groups": [
                         "borgy:remove_bakunawa_effects"
+                    ]
+                }
+            },
+            "borgy:force_use_breath_attack": {
+                "add": {
+                    "component_groups": [
+                        "borgy:bakunawa_use_breath_attack",
+                        "borgy:small_collision"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:default_collision"
+                    ]
+                }
+            },
+            "borgy:stop_force_use_breath_attack": {
+                "add": {
+                    "component_groups": [
+                        "borgy:default_collision"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:bakunawa_use_breath_attack",
+                        "borgy:small_collision"
+                    ]
+                }
+            },
+            "borgy:on_get_bakunawa_heart": {
+                "add": {
+                    "component_groups": [
+                        "borgy:bakunawa_has_received_heart"
+                    ]
+                },
+                "run_command": {
+                    "command": [
+                        "playsound random.eat @a[r=12]"
+                    ]
+                }
+            },
+            "borgy:heart_effect_expire": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:bakunawa_has_received_heart"
                     ]
                 }
             }

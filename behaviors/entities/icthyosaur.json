@@ -138,7 +138,7 @@
                             "heal_amount": 15
                         },
                         {
-                            "item": "minecraft:cod",
+                            "item": "minecraft:fish",
                             "heal_amount": 15
                         },
                         {
@@ -258,6 +258,9 @@
                     "icthyosaur",
                     "mob"
                 ]
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/icthyosaur.loot.json"
             },
             "minecraft:physics": {},
             "minecraft:pushable": {},

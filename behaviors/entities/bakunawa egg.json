@@ -1,0 +1,103 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "borgy:bakunawa_egg",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "borgy:is_hatching": {
+                "minecraft:is_sheared": {},
+                "minecraft:timer": {
+                    "time": 480,
+                    "time_down_event": {
+                        "event": "borgy:on_hatch",
+                        "target": "self"
+                    }
+                }
+            },
+            "borgy:hatched": {
+                "minecraft:transformation": {
+                    "into": "borgy:bakunawa<borgy:spawn_as_baby>"
+                }
+            }
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 1
+            },
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "filters": {
+                            "test": "is_underwater",
+                            "subject": "self",
+                            "value": true
+                        },
+                        "event": "borgy:start_hatching",
+                        "target": "self"
+                    },
+                    {
+                        "filters": {
+                            "test": "is_underwater",
+                            "subject": "self",
+                            "value": false
+                        },
+                        "event": "borgy:stop_hatching",
+                        "target": "self"
+                    }
+                ]
+            },
+            "minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"on_damage": {
+                            "event": "borgy:commit_crack",
+                            "target": "self"
+						}
+					}
+				]
+			}
+        },
+        "events": {
+            "borgy:commit_crack": {
+                "run_command": {
+                    "command": [
+                        "tp @s ~ -40 ~"
+                    ]
+                }
+            },
+            "borgy:start_hatching": {
+                "add": {
+                    "component_groups": [
+                        "borgy:is_hatching"
+                    ]
+                }
+            },
+            "borgy:stop_hatching": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:is_hatching"
+                    ]
+                }
+            },
+            "borgy:on_hatch": {
+                "add": {
+                    "component_groups": [
+                        "borgy:hatched"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -41,6 +41,15 @@
 				"is_pushable": true,
 				"is_pushable_by_piston": true
 			}
+        },
+        "events": {
+            "borgy:make_sounds_on_forced_launch": {
+                "run_command": {
+                    "command": [
+                        "playsound mob.bakunawa.fire_projectile @a[r=16]"
+                    ]
+                }
+            }
         }
     }
 }

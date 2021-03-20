@@ -1,0 +1,25 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:bakunawa_egg",
+			"category": "Nature"
+		},
+		"components": {
+			"minecraft:stacked_by_data": false,
+			"minecraft:foil": false,
+			"minecraft:max_stack_size": 1,
+			"minecraft:liquid_clipped": true,
+			"minecraft:entity_placer": {
+				"entity": "borgy:bakunawa_egg"
+			},
+			"minecraft:icon": {
+				"texture": "bakunawa egg"
+			},
+			"minecraft:display_name": {
+				"value": "item.borgy:bakunawa_egg.name"
+			},
+			"minecraft:use_animation": "apple"
+		}
+	}
+}

@@ -1,3 +1,6 @@
+action.hint.exit.borgy:icthyosaur=Look up or down to ascend/descend, Jump to attack, Sneak to dismount
+action.hint.exit.borgy:bakunawa=Look up or down to ascend/descend, Jump to stay in place, Sneak to dismount
+
 entity.borgy:bullsquid.name=Bullsquid
 entity.borgy:houndeye.name=Houndeye
 entity.borgy:icthyosaur.name=Icthyosaur
@@ -6,6 +9,15 @@ entity.borgy:villager_headcrab_zombie.name=Villager Headcrab Zombie
 entity.borgy:player_headcrab_zombie.name=Player Headcrab Zombie
 entity.borgy:piglin_headcrab_zombie.name=Piglin Headcrab Zombie
 entity.borgy:bakunawa.name=Bakunawa
+entity.borgy:bakunawa_egg.name=Bakunawa Egg
+
+item.borgy:bakunawa_heart.name=Bakunawa Heart
+item.borgy:bakunawa_egg.name=Bakunawa Egg
+item.borgy:bakunawa_staff.name=Bakunawa Staff
+item.borgy:cooked_alien_meat.name=Cooked Alien Meat
+item.borgy:cooked_headcrab.name=Cooked Headcrab
+item.borgy:raw_alien_meat.name=Raw Alien Meat
+item.borgy:raw_headcrab.name=Raw Headcrab
 
 item.spawn_egg.entity.borgy:bullsquid.name=Spawn Bullsquid
 item.spawn_egg.entity.borgy:houndeye.name=Spawn Houndeye

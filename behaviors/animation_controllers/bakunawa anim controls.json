@@ -26,7 +26,8 @@
                     "on_exit": [
                         "/tag @s remove bakunawaHasRider",
                         "@s borgy:clear_bakunawa_effects",
-                        "@s borgy:on_stop_hovering"
+                        "@s borgy:on_stop_hovering",
+                        "@s borgy:stop_force_use_breath_attack"
                     ]
                 }
             }
@@ -49,6 +50,28 @@
                     ],
                     "animations": [
                         "animFastInAir"
+                    ]
+                }
+            }
+        },
+        "controller.animation.bakunawa_has_heart": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "hasEatenHeart": "query.is_sheared"
+                        }
+                    ]
+                },
+                "hasEatenHeart": {
+                    "animations": [
+                        "animHeartEffects"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared"
+                        }
                     ]
                 }
             }

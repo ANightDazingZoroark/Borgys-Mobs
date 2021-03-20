@@ -1,0 +1,27 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:cooked_alien_meat",
+			"category": "Equipment"
+		},
+		"components": {
+			"minecraft:use_duration": 2,
+			"minecraft:food": {
+				"nutrition": 8,
+				"saturation_modifier": "normal"
+			},
+			"minecraft:icon": {
+				"texture": "cooked alien meat"
+			},
+			"minecraft:display_name": {
+				"value": "item.borgy:cooked_alien_meat.name"
+			},
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.cookedFood"
+			},
+			"minecraft:use_animation": "eat",
+			"minecraft:render_offsets": "apple"
+		}
+	}
+}

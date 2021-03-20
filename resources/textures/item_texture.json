@@ -1,0 +1,21 @@
+{
+	"resource_pack_name": "vanilla",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"bakunawa heart": {
+			"textures": "textures/items/bakunawa heart"
+		},
+        "bakunawa staff": {
+			"textures": "textures/items/bakunawa staff"
+		},
+		"bakunawa egg": {
+			"textures": "textures/items/bakunawa egg"
+		},
+        "raw alien meat": {
+			"textures": "textures/items/raw alien meat"
+		},
+		"cooked alien meat": {
+			"textures": "textures/items/cooked alien meat"
+		}
+    }
+}

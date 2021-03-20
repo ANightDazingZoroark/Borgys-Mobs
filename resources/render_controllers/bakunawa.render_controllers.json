@@ -11,7 +11,7 @@
                     "saddle*": "query.is_saddled",
                     "headSaddle*": "query.is_saddled",
                     "neckSaddle*": "query.is_saddled",
-                    "hideableBodyPart*": "query.is_saddled",
+                    "hideableBodyPart*": "!query.is_saddled",
                     "chest*": "query.is_chested"
                 }
             ]

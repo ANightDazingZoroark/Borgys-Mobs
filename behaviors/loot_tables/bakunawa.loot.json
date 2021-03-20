@@ -1,0 +1,48 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "random_chance",
+					"chance": 0.5
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "borgy:bakunawa_heart",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "set_count",
+							"count": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "random_chance",
+					"chance": 0.125
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "borgy:bakunawa_egg",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "set_count",
+							"count": 1
+						}
+					]
+				}
+			]
+		}
+	]
+}

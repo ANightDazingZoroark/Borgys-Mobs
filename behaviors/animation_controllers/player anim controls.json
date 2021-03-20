@@ -54,7 +54,7 @@
                 "default": {
                     "transitions": [
                         {
-                            "hovering": "(query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:bakunawa') && (query.is_riding ? (query.get_ride -> query.is_saddled))"
+                            "controlling": "(query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:bakunawa') && (query.is_riding ? (query.get_ride -> query.is_saddled))"
                         }
                     ]
                 },
@@ -72,6 +72,9 @@
                     ]
                 },
                 "hovering": {
+                    "animations": [
+                        "animStayBakunawa"
+                    ],
                     "transitions": [
                         {
                             "controllingTransition": "query.is_jumping"
@@ -83,7 +86,7 @@
                     "on_entry": [
                         "/event entity @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] borgy:on_hover",
                         "@s borgy:clear_bakunawa_effects_two",
-                        "/say am hovering"
+                        "/tellraw @p {\"rawtext\":[{\"text\":\"Currently in stay in place mode\"}]}"
                     ]
                 },
                 "controllingTransition": {
@@ -110,7 +113,54 @@
                     ],
                     "on_entry": [
                         "/event entity @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] borgy:on_stop_hovering",
-                        "/say am controlled"
+                        "/tellraw @p {\"rawtext\":[{\"text\":\"Currently in fly mode\"}]}"
+                    ]
+                }
+            }
+        },
+        "controller.animation.player_use_bakunawa_staff": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "using": "(query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:bakunawa') && (query.is_riding ? (query.get_ride -> query.is_saddled)) && query.get_equipped_item_name('main_hand') == 'bakunawa_staff' && query.is_using_item"
+                        }
+                    ]
+                },
+                "using": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_riding || query.get_equipped_item_name('main_hand') != 'bakunawa_staff' || !query.is_using_item"
+                        }
+                    ],
+                    "on_entry": [
+                        "/event entity @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] borgy:force_use_breath_attack"
+                    ],
+                    "on_exit": [
+                        "/event entity @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] borgy:stop_force_use_breath_attack"
+                    ]
+                }
+            }
+        },
+        "controller.animation.player_ride_bakunawa_with_heart": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "hasHeart": "(query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:bakunawa') && (query.is_riding ? (query.get_ride -> query.is_saddled)) && (query.is_riding ? (query.get_ride -> query.is_sheared))"
+                        }
+                    ]
+                },
+                "hasHeart": {
+                    "animations": [
+                        "animRideBakunawaWithHeart"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_riding || !(query.get_ride -> query.is_sheared)"
+                        }
                     ]
                 }
             }
