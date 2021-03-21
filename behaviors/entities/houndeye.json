@@ -207,29 +207,10 @@
 					"knockback_strength": 0,
 					"knockback_range": 24,
 					"damage_filters": {
-						"any_of": [
-							{
-								"test": "is_family",
-								"subject": "other",
-								"operator": "!=",
-								"value": "houndeye"
-							},
-                            {
-                                "all_of": [
-                                    {
-                                        "test": "has_component",
-                                        "subject": "self",
-                                        "operator": "!=",
-                                        "value": "minecraft:is_tamed"
-                                    },
-                                    {
-                                        "test": "is_owner",
-                                        "subject": "other",
-                                        "value": false
-                                    }
-                                ]
-                            }
-						]
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "houndeye"
 				    },
                     "on_roar_end": {
                         "event": "borgy:stop_shockwave"
@@ -245,29 +226,10 @@
 					"knockback_strength": 0,
 					"knockback_range": 24,
 					"damage_filters": {
-						"all_of": [
-							{
-								"test": "is_family",
-								"subject": "other",
-								"operator": "!=",
-								"value": "houndeye"
-							},
-                            {
-                                "all_of": [
-                                    {
-                                        "test": "has_component",
-                                        "subject": "self",
-                                        "operator": "!=",
-                                        "value": "minecraft:is_tamed"
-                                    },
-                                    {
-                                        "test": "is_owner",
-                                        "subject": "other",
-                                        "value": false
-                                    }
-                                ]
-                            }
-						]
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "houndeye"
 				    },
                     "on_roar_end": {
                         "event": "borgy:stop_shockwave"
@@ -283,29 +245,10 @@
 					"knockback_strength": 0,
 					"knockback_range": 24,
 					"damage_filters": {
-						"all_of": [
-							{
-								"test": "is_family",
-								"subject": "other",
-								"operator": "!=",
-								"value": "houndeye"
-							},
-                            {
-                                "all_of": [
-                                    {
-                                        "test": "has_component",
-                                        "subject": "self",
-                                        "operator": "!=",
-                                        "value": "minecraft:is_tamed"
-                                    },
-                                    {
-                                        "test": "is_owner",
-                                        "subject": "other",
-                                        "value": false
-                                    }
-                                ]
-                            }
-						]
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "houndeye"
 				    },
                     "on_roar_end": {
                         "event": "borgy:stop_shockwave"
@@ -321,29 +264,10 @@
 					"knockback_strength": 0,
 					"knockback_range": 24,
 					"damage_filters": {
-						"all_of": [
-							{
-								"test": "is_family",
-								"subject": "other",
-								"operator": "!=",
-								"value": "houndeye"
-							},
-                            {
-                                "all_of": [
-                                    {
-                                        "test": "has_component",
-                                        "subject": "self",
-                                        "operator": "!=",
-                                        "value": "minecraft:is_tamed"
-                                    },
-                                    {
-                                        "test": "is_owner",
-                                        "subject": "other",
-                                        "value": false
-                                    }
-                                ]
-                            }
-						]
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "houndeye"
 				    },
                     "on_roar_end": {
                         "event": "borgy:stop_shockwave",
@@ -406,7 +330,15 @@
                 "target": "self"
             },
             "minecraft:behavior.hurt_by_target": {
-				"priority": 3
+				"priority": 3,
+                "entity_types": {
+                    "filters": {
+                        "test": "is_family",
+                        "subject": "other",
+                        "operator": "!=",
+                        "value": "houndeye"
+                    }
+                }
 			},
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:nameable": {},

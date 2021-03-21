@@ -146,5 +146,27 @@
         "sounds": [
             "sounds/bakunawa/bakunawa death"
         ]
+    },
+    "mob.headcrab_zombie.idle": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/headcrab zombie/headcrab zombie idle 1",
+            "sounds/headcrab zombie/headcrab zombie idle 2",
+            "sounds/headcrab zombie/headcrab zombie idle 3"
+        ]
+    },
+    "mob.player_headcrab_zombie.hurt": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/headcrab zombie/player headcrab zombie hurt 1",
+            "sounds/headcrab zombie/player headcrab zombie hurt 2",
+            "sounds/headcrab zombie/player headcrab zombie hurt 3"
+        ]
+    },
+    "mob.player_headcrab_zombie.death": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/headcrab zombie/player headcrab zombie death"
+        ]
     }
 }

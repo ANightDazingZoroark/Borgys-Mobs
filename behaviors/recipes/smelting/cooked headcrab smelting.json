@@ -1,0 +1,16 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "borgy:cooked_headcrab_smelting"
+		},
+		"tags": [
+			"furnace",
+			"smoker",
+			"campfire",
+			"soul_campfire"
+		],
+		"input": "borgy:raw_headcrab",
+		"output": "borgy:cooked_headcrab"
+	}
+}

@@ -13,11 +13,9 @@
                 },
                 "leaveNether": {
                     "on_entry": [
-                        "/say o no",
                         "@s borgy:on_leave_nether"
                     ],
                     "on_exit": [
-                        "/say yay",
                         "@s borgy:on_return_to_nether"
                     ],
                     "transitions": [

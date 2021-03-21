@@ -16,7 +16,7 @@
                 }
 			},
 			"minecraft:icon": {
-				"texture": "placeholder"
+				"texture": "raw headcrab"
 			},
 			"minecraft:display_name": {
 				"value": "item.borgy:raw_headcrab.name"

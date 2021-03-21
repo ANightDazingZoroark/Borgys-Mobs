@@ -66,6 +66,42 @@
 					"roar": "mob.bakunawa.roar",
 					"shoot": "mob.bakunawa.fire_projectile"
 				}
+			},
+			"borgy:player_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.player_headcrab_zombie.hurt",
+					"death": "mob.player_headcrab_zombie.death"
+				}
+			},
+			"borgy:villager_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.villager.hit",
+					"death": "mob.villager.death"
+				}
+			},
+			"borgy:piglin_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.piglin.hurt",
+					"death": "mob.piglin.death"
+				}
 			}
         }
     }

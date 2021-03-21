@@ -678,7 +678,7 @@
                                     "value": true
                                 },
                                 {
-                                    "test": "is_underwater",
+                                    "test": "in_water",
                                     "subject": "self",
                                     "value": false
                                 }
@@ -707,7 +707,7 @@
                                     "value": true
                                 },
                                 {
-                                    "test": "is_underwater",
+                                    "test": "in_water",
                                     "subject": "self",
                                     "value": true
                                 }
@@ -755,7 +755,7 @@
                                     "value": "minecraft:is_baby"
                                 },
                                 {
-                                    "test": "is_underwater",
+                                    "test": "in_water",
                                     "subject": "self",
                                     "value": false
                                 }
@@ -779,7 +779,7 @@
                                     "value": "minecraft:is_baby"
                                 },
                                 {
-                                    "test": "is_underwater",
+                                    "test": "in_water",
                                     "subject": "self",
                                     "value": true
                                 }
@@ -879,11 +879,6 @@
                         "borgy:bakunawa_adult_in_water",
                         "borgy:bakunawa_adult_in_air"
                     ]
-                },
-                "run_command": {
-                    "command": [
-                        "say on land"
-                    ]
                 }
             },
             "borgy:bakunawa_in_water_wild": {
@@ -899,11 +894,6 @@
                         "borgy:bakunawa_adult_land_target_sensor",
                         "borgy:bakunawa_adult_land_use_melee",
                         "borgy:bakunawa_adult_land_use_ranged"
-                    ]
-                },
-                "run_command": {
-                    "command": [
-                        "say in water"
                     ]
                 }
             },
@@ -923,18 +913,13 @@
                                 "borgy:bakunawa_adult_land_use_melee",
                                 "borgy:bakunawa_adult_land_use_ranged"
                             ]
-                        },
-                        "run_command": {
-                            "command": [
-                                "say in air"
-                            ]
                         }
                     },
                     {
                         "filters": {
                             "all_of": [
                                 {
-                                    "test": "is_underwater",
+                                    "test": "in_water",
                                     "subject": "self",
                                     "value": true
                                 },

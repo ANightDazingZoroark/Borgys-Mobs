@@ -12,7 +12,7 @@
 				"saturation_modifier": "normal"
 			},
 			"minecraft:icon": {
-				"texture": "placeholder"
+				"texture": "cooked headcrab"
 			},
 			"minecraft:display_name": {
 				"value": "item.borgy:cooked_headcrab.name"

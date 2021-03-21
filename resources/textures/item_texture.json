@@ -16,6 +16,12 @@
 		},
 		"cooked alien meat": {
 			"textures": "textures/items/cooked alien meat"
+		},
+		"raw headcrab": {
+			"textures": "textures/items/raw headcrab"
+		},
+		"cooked headcrab": {
+			"textures": "textures/items/cooked headcrab"
 		}
     }
 }
