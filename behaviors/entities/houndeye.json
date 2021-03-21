@@ -103,7 +103,9 @@
                         "minecraft:cooked_porkchop",
                         "minecraft:cooked_chicken",
                         "minecraft:muttoncooked",
-                        "minecraft:cooked_rabbit"
+                        "minecraft:cooked_rabbit",
+                        "borgy:cooked_alien_meat",
+                        "borgy:cooked_headcrab"
                     ],
                     "tame_event": {
                         "event": "borgy:on_tame",

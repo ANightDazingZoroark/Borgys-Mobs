@@ -75,7 +75,9 @@
                         "minecraft:salmon",
                         "minecraft:tropical_fish",
                         "minecraft:pufferfish",
-                        "minecraft:rotten_flesh"
+                        "minecraft:rotten_flesh",
+                        "borgy:raw_alien_meat",
+                        "borgy:raw_headcrab"
 					],
 					"tame_event": {
 						"event": "borgy:on_tame",

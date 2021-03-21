@@ -308,7 +308,23 @@
                         {
                             "item": "minecraft:rotten_flesh",
                             "heal_amount": 15
-                        }
+                        },
+                        {
+							"item": "borgy:raw_alien_meat",
+							"heal_amount": 16
+						},
+						{
+							"item": "borgy:cooked_alien_meat",
+							"heal_amount": 20
+						},
+                        {
+							"item": "borgy:raw_headcrab",
+							"heal_amount": 16
+						},
+						{
+							"item": "borgy:cooked_headcrab",
+							"heal_amount": 20
+						}
 					]
 				},
                 "minecraft:equippable": {
