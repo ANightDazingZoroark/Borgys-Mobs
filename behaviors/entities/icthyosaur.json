@@ -464,7 +464,8 @@
                 },
                 "remove": {
                     "component_groups": [
-                        "borgy:has_rider"
+                        "borgy:has_rider",
+                        "borgy:icthyosaur_triggered_attack"
                     ]
                 }
             },

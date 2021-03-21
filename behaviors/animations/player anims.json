@@ -12,19 +12,12 @@
 			}
         },
         "animation.player_control_icthyosaur_bite": {
-            "animation_length": 0.525,
+            "animation_length": 0.52,
 			"loop": true,
 			"timeline": {
 				"0": [
-                    "/playanimation @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] animation.icthyosaur.bite",
-                    "/say yeet"
-				],
-                "0.52": [
-                    "/event entity @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] borgy:icthyosaur_forced_bite"
-                ],
-                "0.525": [
-                    "/event entity @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] borgy:icthyosaur_stop_forced_bite"
-                ]
+                    "/playanimation @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] animation.icthyosaur.bite"
+				]
 			}
         },
         "animation.player_control_bakunawa": {

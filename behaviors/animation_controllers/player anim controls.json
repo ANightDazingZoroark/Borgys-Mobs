@@ -42,6 +42,9 @@
                             "default": "!query.is_jumping || !query.is_riding"
                         }
                     ],
+                    "on_entry": [
+                        "/event entity @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] borgy:icthyosaur_forced_bite"
+                    ],
                     "on_exit": [
                         "/event entity @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] borgy:icthyosaur_stop_forced_bite"
                     ]
