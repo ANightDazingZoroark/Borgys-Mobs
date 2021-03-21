@@ -36,6 +36,24 @@
                 "is_pushable": true,
                 "is_pushable_by_piston": true
             },
+            "minecraft:interact": {
+                "interactions": [
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "test": "is_sneaking",
+                                "subject": "other",
+                                "value": true
+                            },
+                            "event": "borgy:bakunawa_egg_commit_disappear",
+                            "target": "self"
+                        },
+                        "spawn_items": {
+                            "table": "loot_tables/bakunawa egg.loot.json"
+                        }
+                    }
+                ]
+            },
             "minecraft:environment_sensor": {
                 "triggers": [
                     {
