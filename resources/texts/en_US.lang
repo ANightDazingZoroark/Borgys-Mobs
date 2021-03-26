@@ -8,6 +8,7 @@ entity.borgy:headcrab.name=Headcrab
 entity.borgy:villager_headcrab_zombie.name=Villager Headcrab Zombie
 entity.borgy:player_headcrab_zombie.name=Player Headcrab Zombie
 entity.borgy:piglin_headcrab_zombie.name=Piglin Headcrab Zombie
+entity.borgy:piglin_brute_headcrab_zombie.name=Piglin Brute Headcrab Zombie
 entity.borgy:bakunawa.name=Bakunawa
 entity.borgy:bakunawa_egg.name=Bakunawa Egg
 
@@ -26,4 +27,5 @@ item.spawn_egg.entity.borgy:headcrab.name=Spawn Headcrab
 item.spawn_egg.entity.borgy:villager_headcrab_zombie.name=Spawn Villager Headcrab Zombie
 item.spawn_egg.entity.borgy:player_headcrab_zombie.name=Spawn Player Headcrab Zombie
 item.spawn_egg.entity.borgy:piglin_headcrab_zombie.name=Spawn Piglin Headcrab Zombie
+item.spawn_egg.entity.borgy:piglin_brute_headcrab_zombie.name=Spawn Piglin Brute Headcrab Zombie
 item.spawn_egg.entity.borgy:bakunawa.name=Spawn Bakunawa

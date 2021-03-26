@@ -1,0 +1,39 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:piglin_brute_headcrab_zombie",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/piglin brute headcrab zombie"
+            },
+            "geometry": {
+                "default": "geometry.piglin_brute_headcrab_zombie"
+            },
+            "animations": {
+                "animAttack": "animation.headcrab_zombie.attacking",
+                "animMove": "animation.headcrab_zombie.move",
+                "animShake": "animation.piglin_headcrab_zombie.shake",
+                "contMove": "controller.animation.headcrab_zombie_movement",
+                "contAttack": "controller.animation.headcrab_zombie_attack",
+                "contShake": "controller.animation.piglin_headcrab_zombie_shake"
+            },
+            "scripts": {
+                "animate": [
+                    "contMove",
+                    "contAttack",
+                    "contShake"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#a7846b",
+				"overlay_color": "#3f0e0b"
+			}
+        }
+    }
+}

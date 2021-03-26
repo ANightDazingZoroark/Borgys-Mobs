@@ -2,30 +2,10 @@
     "format_version": "1.16.0",
     "minecraft:entity": {
         "description": {
-            "identifier": "borgy:piglin_headcrab_zombie",
+            "identifier": "borgy:vindicator_headcrab_zombie",
             "is_spawnable": true,
             "is_summonable": true,
-            "is_experimental": false,
-            "animations": {
-                "contTestForNether": "controller.animation.piglin_headcrab_zombie_find_environment"
-            },
-            "scripts": {
-                "animate": [
-                    "contTestForNether"
-                ]
-            }
-        },
-        "component_groups": {
-            "borgy:outside_of_nether": {
-                "minecraft:is_sheared": {},
-                "minecraft:timer": {
-                    "time": 15,
-                    "time_down_event": {
-                        "event": "borgy:go_commit_die",
-                        "target": "self"
-                    }
-                }
-            }
+            "is_experimental": false
         },
         "components": {
             "minecraft:health": {
@@ -48,7 +28,6 @@
             "minecraft:type_family": {
                 "family": [
                     "headcrab_zombie",
-                    "piglin_headcrab_zombie",
                     "mob"
                 ]
             },
@@ -107,7 +86,7 @@
                         "filters": {
                             "test": "is_family",
                             "subject": "other",
-                            "value": "piglin"
+                            "value": "player"
                         }
                     }
                 ]
@@ -139,8 +118,8 @@
             "minecraft:addrider": {
                 "entity_type": "borgy:headcrab_hitbox"
             },
-            "minecraft:scheduler": {
-                "scheduled_events": [
+            "minecraft:environment_sensor": {
+                "triggers": [
                     {
                         "filters": {
                             "test": "rider_count",
@@ -169,13 +148,6 @@
             }
         },
         "events": {
-            "minecraft:entity_spawned": {
-                "add": {
-                    "component_groups": [
-                        "borgy:inside_nether"
-                    ]
-                }
-            },
             "borgy:on_unridden": {
                 "run_command": {
                     "command": [
@@ -187,38 +159,6 @@
                 "run_command": {
                     "command": [
                         "summon borgy:headcrab"
-                    ]
-                }
-            },
-            "borgy:on_leave_nether": {
-                "add": {
-                    "component_groups": [
-                        "borgy:outside_of_nether"
-                    ]
-                },
-                "remove": {
-                    "component_groups": [
-                        "borgy:inside_nether"
-                    ]
-                }
-            },
-            "borgy:on_return_to_nether": {
-                "add": {
-                    "component_groups": [
-                        "borgy:inside_nether"
-                    ]
-                },
-                "remove": {
-                    "component_groups": [
-                        "borgy:outside_of_nether"
-                    ]
-                }
-            },
-            "borgy:go_commit_die": {
-                "run_command": {
-                    "command": [
-                        "summon borgy:headcrab",
-                        "kill @s"
                     ]
                 }
             }

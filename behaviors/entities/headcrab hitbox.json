@@ -36,9 +36,6 @@
                     "mob"
                 ]
             },
-            "minecraft:loot": {
-                "table": "loot_tables/headcrab.loot.json"
-            },
             "minecraft:physics": {},
             "minecraft:pushable": {},
             "minecraft:navigation.walk": {

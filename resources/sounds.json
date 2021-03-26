@@ -102,6 +102,30 @@
 					"hurt": "mob.piglin.hurt",
 					"death": "mob.piglin.death"
 				}
+			},
+			"borgy:piglin_brute_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.piglin.hurt",
+					"death": "mob.piglin.death"
+				}
+			},
+			"borgy:vindicator_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.vindicator.hurt",
+					"death": "mob.vindicator.death"
+				}
 			}
         }
     }

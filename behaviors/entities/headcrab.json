@@ -90,6 +90,24 @@
                             "value": "piglin"
                         },
                         "max_dist": 24
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "illager"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "ravager"
+                                }
+                            ]
+                        },
+                        "max_dist": 24
                     }
                 ]
             },

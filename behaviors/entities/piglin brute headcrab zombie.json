@@ -2,7 +2,7 @@
     "format_version": "1.16.0",
     "minecraft:entity": {
         "description": {
-            "identifier": "borgy:piglin_headcrab_zombie",
+            "identifier": "borgy:piglin_brute_headcrab_zombie",
             "is_spawnable": true,
             "is_summonable": true,
             "is_experimental": false,
@@ -32,7 +32,7 @@
                 "value": 20
             },
             "minecraft:attack": {
-                "damage": 7
+                "damage": 12
             },
             "minecraft:breathable": {
 				"total_supply": 15,
