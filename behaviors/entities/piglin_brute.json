@@ -127,6 +127,24 @@
               },
               "max_dist": 12,
               "priority": 1
+            },
+            {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "headcrab"
+              },
+              "max_dist": 12,
+              "priority": 2
+            },
+            {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "headcrab_zombie"
+              },
+              "max_dist": 12,
+              "priority": 2
             }
           ]
         }

@@ -2,7 +2,7 @@
     "format_version": "1.16.0",
     "minecraft:entity": {
         "description": {
-            "identifier": "borgy:player_headcrab_zombie",
+            "identifier": "borgy:pillager_headcrab_zombie",
             "is_spawnable": true,
             "is_summonable": true,
             "is_experimental": false
@@ -95,6 +95,12 @@
                                     "subject": "other",
                                     "operator": "!=",
                                     "value": "headcrab_zombie"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "vex"
                                 }
                             ]
                         },

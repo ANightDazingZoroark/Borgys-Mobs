@@ -126,6 +126,30 @@
 					"hurt": "mob.vindicator.hurt",
 					"death": "mob.vindicator.death"
 				}
+			},
+			"borgy:pillager_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.pillager.hurt",
+					"death": "mob.pillager.death"
+				}
+			},
+			"borgy:evoker_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.evoker.hurt",
+					"death": "mob.evoker.death"
+				}
 			}
         }
     }

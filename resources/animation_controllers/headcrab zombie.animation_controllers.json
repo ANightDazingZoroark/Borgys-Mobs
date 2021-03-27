@@ -66,6 +66,57 @@
                     ]
                 }
 			}
+        },
+        "controller.animation.evoker_headcrab_zombie_special": {
+            "initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "summon": "query.is_casting"
+                        },
+                        {
+                            "knockback": "query.is_roaring"
+                        }
+                    ]
+				},
+                "summon": {
+                    "animations": [
+                        "animSummon"
+                    ],
+                    "particle_effects" : [
+						{
+							"effect" : "spell",
+							"locator" : "left_hand"
+						},
+						{
+							"effect" : "spell",
+							"locator" : "right_hand"
+						}
+					],
+                    "transitions": [
+                        {
+                            "default": "!query.is_casting"
+                        },
+                        {
+                            "knockback": "query.is_roaring"
+                        }
+                    ]
+                },
+                "knockback": {
+                    "animations": [
+                        "animKnockback"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_roaring"
+                        },
+                        {
+                            "summon": "query.is_casting"
+                        }
+                    ]
+                }
+			}
         }
     }
 }

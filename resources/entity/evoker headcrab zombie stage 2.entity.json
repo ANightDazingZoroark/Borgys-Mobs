@@ -1,0 +1,41 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:evoker_headcrab_zombie_stage_two",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/evoker headcrab zombie"
+            },
+            "geometry": {
+                "default": "geometry.evoker_headcrab_zombie"
+            },
+            "animations": {
+                "animAttack": "animation.headcrab_zombie.attacking",
+                "animMove": "animation.headcrab_zombie.move",
+                "animSummon": "animation.evoker_headcrab_zombie.summon",
+                "animKnockback": "animation.evoker_headcrab_zombie.knockback",
+                "contMove": "controller.animation.headcrab_zombie_movement",
+                "contSpecial": "controller.animation.evoker_headcrab_zombie_special"
+            },
+            "scripts": {
+                "animate": [
+                    "contMove",
+                    "contSpecial"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#a7846b",
+				"overlay_color": "#3f0e0b"
+			},
+            "particle_effects": {
+                "spell": "minecraft:evoker_spell"
+            }
+        }
+    }
+}
