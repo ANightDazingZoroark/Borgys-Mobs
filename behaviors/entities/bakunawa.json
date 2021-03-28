@@ -184,7 +184,7 @@
                     "value": 0.25
                 },
                 "minecraft:flying_speed":{
-                    "value": 0.25
+                    "value": 0.1
                 },
                 "minecraft:loot": {
                     "table": "loot_tables/bakunawa.loot.json"
@@ -198,9 +198,8 @@
                     "value": 300
                 },
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 0,
+                    "priority": 2,
                     "within_radius": 64,
-                    "reselect_targets": true,
                     "entity_types": [
                         {
                             "filters": {
@@ -208,7 +207,7 @@
                                 "subject": "other",
                                 "value": "mob"
                             },
-                            "max_dist": 24
+                            "max_dist": 64
                         },
                         {
                             "filters": {
@@ -216,7 +215,7 @@
                                 "subject": "other",
                                 "value": "player"
                             },
-                            "max_dist": 24
+                            "max_dist": 64
                         }
                     ]
                 },
@@ -392,20 +391,10 @@
             },
             "borgy:bakunawa_adult_in_air": {
                 "minecraft:navigation.float": {
-                    "can_walk": false,
-                    "can_path_over_water": true,
-                    "can_sink": false,
-                    "avoid_sun": false,
-                    "can_pass_doors": false,
-                    "can_open_doors": false,
-                    "avoid_water": true,
-                    "avoid_portals": true
+                    "can_path_over_water": true
                 },
                 "minecraft:behavior.float_wander": {
-                    "priority": 4,
-                    "xz_dist": 4,
-                    "y_dist": 7,
-                    "y_offset": 0.0
+                    "priority": 2
                 },
                 "minecraft:physics": {
                     "has_gravity": false
@@ -754,6 +743,40 @@
                             ]
                         },
                         "event": "borgy:bakunawa_in_air_wild",
+                        "target": "self"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:is_tamed"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:is_baby"
+                                },
+                                {
+                                    "test": "is_daytime",
+                                    "value": false
+                                },
+                                {
+                                    "test": "on_ground",
+                                    "subject": "self",
+                                    "value": true
+                                },
+                                {
+                                    "test": "in_water",
+                                    "subject": "self",
+                                    "value": false
+                                }
+                            ]
+                        },
+                        "event": "borgy:bakunawa_force_return_to_air",
                         "target": "self"
                     },
                     {
@@ -1201,6 +1224,13 @@
                 "remove": {
                     "component_groups": [
                         "borgy:bakunawa_has_received_heart"
+                    ]
+                }
+            },
+            "borgy:bakunawa_force_return_to_air": {
+                "run_command": {
+                    "command": [
+                        "tp @s ~ ~+40 ~"
                     ]
                 }
             }

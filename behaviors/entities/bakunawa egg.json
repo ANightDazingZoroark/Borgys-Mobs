@@ -115,6 +115,13 @@
                         "borgy:hatched"
                     ]
                 }
+            },
+            "borgy:bakunawa_egg_commit_disappear": {
+                "run_command": {
+                    "command": [
+                        "tp @s ~ -40 ~"
+                    ]
+                }
             }
         }
     }
