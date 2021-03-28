@@ -137,11 +137,6 @@
                     "component_groups": [
                         "borgy:hatched"
                     ]
-                },
-                "run_command": {
-                    "command": [
-                        "say eee"
-                    ]
                 }
             },
             "borgy:bakunawa_egg_commit_disappear": {
