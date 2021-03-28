@@ -8,7 +8,35 @@
             "is_experimental": false
         },
         "component_groups": {
+            "borgy:is_not_hatching": {
+                "minecraft:environment_sensor": {
+                    "triggers": [
+                        {
+                            "filters": {
+                                "test": "is_underwater",
+                                "subject": "self",
+                                "value": true
+                            },
+                            "event": "borgy:start_hatching",
+                            "target": "self"
+                        }
+                    ]
+                }
+            },
             "borgy:is_hatching": {
+                "minecraft:environment_sensor": {
+                    "triggers": [
+                        {
+                            "filters": {
+                                "test": "is_underwater",
+                                "subject": "self",
+                                "value": false
+                            },
+                            "event": "borgy:stop_hatching",
+                            "target": "self"
+                        }
+                    ]
+                },
                 "minecraft:is_sheared": {},
                 "minecraft:timer": {
                     "time": 480,
@@ -54,28 +82,6 @@
                     }
                 ]
             },
-            "minecraft:environment_sensor": {
-                "triggers": [
-                    {
-                        "filters": {
-                            "test": "is_underwater",
-                            "subject": "self",
-                            "value": true
-                        },
-                        "event": "borgy:start_hatching",
-                        "target": "self"
-                    },
-                    {
-                        "filters": {
-                            "test": "is_underwater",
-                            "subject": "self",
-                            "value": false
-                        },
-                        "event": "borgy:stop_hatching",
-                        "target": "self"
-                    }
-                ]
-            },
             "minecraft:damage_sensor": {
 				"triggers": [
 					{
@@ -88,6 +94,13 @@
 			}
         },
         "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "borgy:is_not_hatching"
+                    ]
+                }
+            },
             "borgy:commit_crack": {
                 "run_command": {
                     "command": [
@@ -100,9 +113,19 @@
                     "component_groups": [
                         "borgy:is_hatching"
                     ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:is_not_hatching"
+                    ]
                 }
             },
             "borgy:stop_hatching": {
+                "add": {
+                    "component_groups": [
+                        "borgy:is_not_hatching"
+                    ]
+                },
                 "remove": {
                     "component_groups": [
                         "borgy:is_hatching"
@@ -113,6 +136,11 @@
                 "add": {
                     "component_groups": [
                         "borgy:hatched"
+                    ]
+                },
+                "run_command": {
+                    "command": [
+                        "say eee"
                     ]
                 }
             },
