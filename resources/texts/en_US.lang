@@ -14,6 +14,7 @@ entity.borgy:pillager_headcrab_zombie.name=Pillager Headcrab Zombie
 entity.borgy:evoker_headcrab_zombie.name=Evoker Headcrab Zombie
 entity.borgy:evoker_headcrab_zombie_stage_two.name=Evoker Headcrab Zombie
 entity.borgy:wandering_trader_headcrab_zombie.name=Wandering Trader Headcrab Zombie
+entity.borgy:witch_headcrab_zombie.name=Witch Headcrab Zombie
 entity.borgy:bakunawa.name=Bakunawa
 entity.borgy:bakunawa_egg.name=Bakunawa Egg
 
@@ -37,4 +38,5 @@ item.spawn_egg.entity.borgy:vindicator_headcrab_zombie.name=Spawn Vindicator Hea
 item.spawn_egg.entity.borgy:pillager_headcrab_zombie.name=Spawn Pillager Headcrab Zombie
 item.spawn_egg.entity.borgy:evoker_headcrab_zombie.name=Spawn Evoker Headcrab Zombie
 item.spawn_egg.entity.borgy:wandering_trader_headcrab_zombie.name=Spawn Wandering Trader Headcrab Zombie
+item.spawn_egg.entity.borgy:witch_headcrab_zombie.name=Spawn Witch Headcrab Zombie
 item.spawn_egg.entity.borgy:bakunawa.name=Spawn Bakunawa

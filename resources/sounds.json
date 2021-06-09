@@ -162,6 +162,18 @@
 					"hurt": "mob.villager.hit",
 					"death": "mob.villager.death"
 				}
+			},
+			"borgy:witch_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.witch.hurt",
+					"death": "mob.witch.death"
+				}
 			}
         }
     }

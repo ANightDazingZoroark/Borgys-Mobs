@@ -116,6 +116,14 @@
                             "value": "wandering_trader"
                         },
                         "max_dist": 24
+                    },
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "witch"
+                        },
+                        "max_dist": 24
                     }
                 ]
             },

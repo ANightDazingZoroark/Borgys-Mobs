@@ -295,6 +295,55 @@
                     }
                 ]
             },
+            "minecraft:entity_transformed": {
+                "randomize": [
+                    {
+                        "weight": 1,
+                        "add": {
+                            "component_groups": [
+                                "borgy:has_harming_potion",
+                                "borgy:can_rush_attack"
+                            ]
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "add": {
+                            "component_groups": [
+                                "borgy:has_poison_potion",
+                                "borgy:can_rush_attack"
+                            ]
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "add": {
+                            "component_groups": [
+                                "borgy:has_weakness_potion",
+                                "borgy:can_rush_attack"
+                            ]
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "add": {
+                            "component_groups": [
+                                "borgy:has_slowness_potion",
+                                "borgy:can_rush_attack"
+                            ]
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "add": {
+                            "component_groups": [
+                                "borgy:has_decay_potion",
+                                "borgy:can_rush_attack"
+                            ]
+                        }
+                    }
+                ]
+            },
             "borgy:on_unridden": {
                 "run_command": {
                     "command": [
@@ -330,7 +379,8 @@
                         "run_command": {
                             "command": [
                                 "replaceitem entity @s slot.weapon.mainhand 0 air",
-                                "effect @e[r=3.5] instant_damage 1 2"
+                                "effect @e[r=3.5] instant_damage 1 2",
+                                "playsound random.glass @a[r=16]"
                             ]
                         }
                     },
@@ -353,7 +403,8 @@
                         "run_command": {
                             "command": [
                                 "replaceitem entity @s slot.weapon.mainhand 0 air",
-                                "effect @e[r=3.5] poison 30 2"
+                                "effect @e[r=3.5] poison 30 2",
+                                "playsound random.glass @a[r=16]"
                             ]
                         }
                     },
@@ -376,7 +427,8 @@
                         "run_command": {
                             "command": [
                                 "replaceitem entity @s slot.weapon.mainhand 0 air",
-                                "effect @e[r=3.5] weakness 30 2"
+                                "effect @e[r=3.5] weakness 30 2",
+                                "playsound random.glass @a[r=16]"
                             ]
                         }
                     },
@@ -399,7 +451,8 @@
                         "run_command": {
                             "command": [
                                 "replaceitem entity @s slot.weapon.mainhand 0 air",
-                                "effect @e[r=3.5] slowness 30 2"
+                                "effect @e[r=3.5] slowness 30 2",
+                                "playsound random.glass @a[r=16]"
                             ]
                         }
                     },
@@ -422,7 +475,8 @@
                         "run_command": {
                             "command": [
                                 "replaceitem entity @s slot.weapon.mainhand 0 air",
-                                "effect @e[r=3.5] wither 30 2"
+                                "effect @e[r=3.5] wither 30 2",
+                                "playsound random.glass @a[r=16]"
                             ]
                         }
                     }
