@@ -75,6 +75,28 @@
                     ]
                 }
             }
+        },
+        "controller.animation.bakunawa_wild_force_fly": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "forceLand": "query.is_on_ground && (query.time_of_day == 0 || query.time_of_day == 0.75) && !query.is_in_water && !query.is_tamed && !query.is_baby"
+                        }
+                    ]
+                },
+                "forceLand": {
+                    "on_entry": [
+                        "@s borgy:bakunawa_force_return_to_air"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_on_ground"
+                        }
+                    ]
+                }
+            }
         }
     }
 }

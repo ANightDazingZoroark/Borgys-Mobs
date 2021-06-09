@@ -197,6 +197,12 @@
                                     "subject": "other",
                                     "operator": "!=",
                                     "value": "vex"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "monster"
                                 }
                             ]
                         },

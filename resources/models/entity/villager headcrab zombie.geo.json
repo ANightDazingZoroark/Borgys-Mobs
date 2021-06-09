@@ -116,7 +116,7 @@
 					]
 				},
 				{
-					"name": "leftArm",
+					"name": "arms",
 					"parent": "body",
 					"pivot": [0, 22, 0],
 					"rotation": [-90, 0, 0],
@@ -126,7 +126,12 @@
 					]
 				},
 				{
-					"name": "rightArm",
+					"name": "held_item",
+					"parent": "arms",
+					"pivot": [-6, 13, 0]
+				},
+				{
+					"name": "leftArm",
 					"parent": "body",
 					"pivot": [0, 22, 0],
 					"rotation": [-90, 0, 0],

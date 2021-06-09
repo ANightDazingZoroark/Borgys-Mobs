@@ -150,6 +150,18 @@
 					"hurt": "mob.evoker.hurt",
 					"death": "mob.evoker.death"
 				}
+			},
+			"borgy:wandering_trader_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.villager.hit",
+					"death": "mob.villager.death"
+				}
 			}
         }
     }

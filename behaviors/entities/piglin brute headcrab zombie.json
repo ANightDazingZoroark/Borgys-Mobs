@@ -116,6 +116,12 @@
                                     "subject": "other",
                                     "operator": "!=",
                                     "value": "headcrab_zombie"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "monster"
                                 }
                             ]
                         },

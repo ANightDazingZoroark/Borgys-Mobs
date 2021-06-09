@@ -10,6 +10,7 @@
                 "contRiderSensor": "controller.animation.bakunawa_rider_sensor",
                 "contFasterInAir": "controller.animation.bakunawa_faster_with_rider",
                 "contHasHeart": "controller.animation.bakunawa_has_heart",
+                "contReturnToAir": "controller.animation.bakunawa_wild_force_fly",
                 "animFastInAir": "animation.bakunawa_fast_in_air",
                 "animHeartEffects": "animation.bakunawa_heart_effects"
             },
@@ -17,7 +18,8 @@
                 "animate": [
                     "contRiderSensor",
                     "contFasterInAir",
-                    "contHasHeart"
+                    "contHasHeart",
+                    "contReturnToAir"
                 ]
             }
         },
@@ -1230,7 +1232,7 @@
             "borgy:bakunawa_force_return_to_air": {
                 "run_command": {
                     "command": [
-                        "tp @s ~ ~+40 ~"
+                        "tp @s ~ ~+5 ~"
                     ]
                 }
             }
