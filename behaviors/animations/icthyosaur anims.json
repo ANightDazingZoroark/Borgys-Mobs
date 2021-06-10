@@ -1,0 +1,16 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.forced_attack_icthyosaur": {
+			"animation_length": 0.52,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"/playanimation @s animation.icthyosaur.bite",
+                    "/summon borgy:icthyosaur_forced_attack",
+					"@s borgy:on_forced_attack_family"
+				]
+			}
+        }
+	}
+}

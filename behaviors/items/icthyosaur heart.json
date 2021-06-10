@@ -1,0 +1,18 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:icthyosaur_heart",
+			"category": "Items"
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "icthyosaur heart"
+			},
+			"minecraft:display_name": {
+				"value": "item.borgy:icthyosaur_heart.name"
+			},
+			"minecraft:render_offsets": "apple"
+		}
+	}
+}

@@ -12,6 +12,7 @@
         "contControlBakunawa": "controller.animation.player_control_bakunawa",
         "contBakunawaStaffUse": "controller.animation.player_use_bakunawa_staff",
         "contRideBakunawaWithHeart": "controller.animation.player_ride_bakunawa_with_heart",
+        "contDismount": "controller.animation.player_dismount",
         "animControlIcthyosaur": "animation.player_control_icthyosaur",
         "animControlIcthyosaurBite": "animation.player_control_icthyosaur_bite",
         "animControlBakunawa": "animation.player_control_bakunawa",
@@ -24,7 +25,8 @@
           "contControlIcthyosaurBite",
           "contControlBakunawa",
           "contBakunawaStaffUse",
-          "contRideBakunawaWithHeart"
+          "contRideBakunawaWithHeart",
+          "contDismount"
         ]
       }
     },

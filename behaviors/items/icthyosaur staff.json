@@ -1,0 +1,33 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:icthyosaur_staff",
+			"category": "Equipment"
+		},
+		"components": {
+			"minecraft:stacked_by_data": false,
+			"minecraft:foil": false,
+			"minecraft:hand_equipped": true,
+			"minecraft:max_stack_size": 1,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:food": {
+				"can_always_eat": true,
+				"nutrition": 0,
+				"saturation_modifier": "low"
+			},
+			"minecraft:use_duration": 6942066669420666,
+			"minecraft:icon": {
+				"texture": "icthyosaur staff"
+			},
+			"minecraft:display_name": {
+				"value": "item.borgy:icthyosaur_staff.name"
+			},
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.borgysMobsTools"
+			},
+			"minecraft:render_offsets": "tools",
+			"minecraft:use_animation": "bow"
+		}
+	}
+}
