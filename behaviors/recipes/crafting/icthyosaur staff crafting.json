@@ -1,0 +1,32 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "borgy:icthyosaur_staff_crafting"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			" +X",
+			" #+",
+			"#  "
+		],
+		"key": {
+			"X": {
+				"item": "borgy:icthyosaur_heart"
+			},
+			"#": {
+				"item": "minecraft:stick"
+			},
+            "+": {
+				"item": "minecraft:bone"
+			}
+		},
+		"result": [
+			{
+				"item": "borgy:icthyosaur_staff"
+			}
+		]
+	}
+}

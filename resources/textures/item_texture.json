@@ -5,8 +5,14 @@
 		"bakunawa heart": {
 			"textures": "textures/items/bakunawa heart"
 		},
+		"icthyosaur heart": {
+			"textures": "textures/items/icthyosaur heart"
+		},
         "bakunawa staff": {
 			"textures": "textures/items/bakunawa staff"
+		},
+		"icthyosaur staff": {
+			"textures": "textures/items/icthyosaur staff"
 		},
 		"bakunawa egg": {
 			"textures": "textures/items/bakunawa egg"
