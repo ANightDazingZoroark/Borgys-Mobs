@@ -2,15 +2,15 @@
 	"format_version": "1.16.100",
 	"minecraft:item": {
 		"description": {
-			"identifier": "borgy:bakunawa_heart",
+			"identifier": "borgy:sigbin_heart",
 			"category": "Items"
 		},
 		"components": {
 			"minecraft:icon": {
-				"texture": "bakunawa heart"
+				"texture": "sigbin heart"
 			},
 			"minecraft:display_name": {
-				"value": "item.borgy:bakunawa_heart.name"
+				"value": "item.borgy:sigbin_heart.name"
 			},
 			"minecraft:creative_category": {
 				"parent": "itemGroup.name.borgyHearts"

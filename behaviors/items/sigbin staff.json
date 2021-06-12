@@ -1,0 +1,27 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:sigbin_staff",
+			"category": "Equipment"
+		},
+		"components": {
+			"minecraft:stacked_by_data": false,
+			"minecraft:foil": false,
+			"minecraft:hand_equipped": true,
+			"minecraft:max_stack_size": 1,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:icon": {
+				"texture": "sigbin staff"
+			},
+			"minecraft:display_name": {
+				"value": "item.borgy:sigbin_staff.name"
+			},
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.borgysMobsTools"
+			},
+			"minecraft:render_offsets": "tools",
+			"minecraft:use_animation": "bow"
+		}
+	}
+}

@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.sigbin_invisibility": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "invisible": "query.is_sheared"
+                        }
+                    ]
+                },
+                "invisible": {
+                    "animations": [
+						"animInvisible"
+					],
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

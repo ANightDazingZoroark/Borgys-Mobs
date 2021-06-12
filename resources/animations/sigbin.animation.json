@@ -1,0 +1,150 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.sigbin.idle": {
+			"loop": true,
+			"animation_length": 2.08,
+			"bones": {
+				"neck": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"tail0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"tail1": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"tail2": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-2.5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.sigbin.walk": {
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"bones": {
+				"hips": {
+					"position": [0, "math.abs(math.sin(query.anim_time * 30))", 0]
+				},
+				"leftArm": {
+					"rotation": ["math.sin(!query.is_delayed_attacking * query.anim_time * 30) * -15", 0, 0]
+				},
+				"rightArm": {
+					"rotation": ["math.sin(query.anim_time * 30) * 15", 0, 0]
+				},
+				"leftLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * 15", 0, 0]
+				},
+				"rightLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * -15", 0, 0]
+				}
+			}
+		},
+		"animation.sigbin.sit": {
+			"loop": true,
+			"animation_length": 2.08,
+			"bones": {
+				"hips": {
+					"position": [0, -3.25, 0]
+				},
+				"leftArm": {
+					"rotation": [-62.5, 0, 0]
+				},
+				"leftElbow": {
+					"rotation": [7.5, 0, 0]
+				},
+				"leftHand": {
+					"rotation": [55, 0, 0]
+				},
+				"rightArm": {
+					"rotation": [-62.5, 0, 0]
+				},
+				"rightElbow": {
+					"rotation": [7.5, 0, 0]
+				},
+				"rightHand": {
+					"rotation": [55, 0, 0]
+				},
+				"neck": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"leftLeg": {
+					"rotation": [-30, 0, 0]
+				},
+				"leftShin": {
+					"rotation": [30, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-30, 0, 0]
+				},
+				"rightShin": {
+					"rotation": [30, 0, 0]
+				},
+				"tail0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.sigbin.attack": {
+			"animation_length": 0.6,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.12": [-60, 0, 0],
+						"0.32": [-60, 75, 27.5],
+						"0.48": [-60, -55, 27.5],
+						"0.6": [0, 0, 0]
+					}
+				},
+				"leftHand": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.12": [60, 95, -30],
+						"0.36": [60, 95, -30],
+						"0.48": [60, 95, -30],
+						"0.6": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

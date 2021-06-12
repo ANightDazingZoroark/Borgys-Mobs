@@ -8,11 +8,17 @@
 		"icthyosaur heart": {
 			"textures": "textures/items/icthyosaur heart"
 		},
+		"sigbin heart": {
+			"textures": "textures/items/sigbin heart"
+		},
         "bakunawa staff": {
 			"textures": "textures/items/bakunawa staff"
 		},
 		"icthyosaur staff": {
 			"textures": "textures/items/icthyosaur staff"
+		},
+		"sigbin staff": {
+			"textures": "textures/items/sigbin staff"
 		},
 		"bakunawa egg": {
 			"textures": "textures/items/bakunawa egg"

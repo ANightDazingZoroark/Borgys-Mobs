@@ -12,6 +12,9 @@
 			"minecraft:display_name": {
 				"value": "item.borgy:icthyosaur_heart.name"
 			},
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.borgyHearts"
+			},
 			"minecraft:render_offsets": "apple"
 		}
 	}

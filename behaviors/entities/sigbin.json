@@ -1,0 +1,328 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "borgy:sigbin",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false,
+            "animations": {
+                "contInvisibility": "controller.animation.sigbin_invisibility",
+                "animInvisible": "animation.sigbin_invisibility"
+            },
+            "scripts": {
+                "animate": [
+                    "contInvisibility"
+                ]
+            }
+        },
+        "component_groups": {
+            "borgy:wild": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 1,
+                    "within_radius": 24,
+                    "reselect_targets": true,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "operator": "!=",
+                                        "value": "rotten_flesh"
+                                    },
+                                    {
+                                        "any_of": [
+                                            {
+                                                "test": "is_sneaking",
+                                                "subject": "other",
+                                                "value": false
+                                            },
+                                            {
+                                                "test": "is_riding",
+                                                "subject": "other",
+                                                "value": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "max_dist": 24
+                        },
+                        {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "villager"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "wandering_trader"
+                                    }
+                                ]
+                            },
+                            "max_dist": 24
+                        }
+                    ]
+                },
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 3
+                },
+                "minecraft:behavior.random_stroll": {},
+                "minecraft:tameable": {
+                    "probability": 0.25,
+                    "tame_items": [
+                        "minecraft:rotten_flesh"
+                    ],
+                    "tame_event": {
+                        "event": "borgy:on_tame",
+                        "target": "self"
+                    }
+                }
+            },
+            "borgy:invisible": {
+                "minecraft:is_sheared": {}
+            },
+            "borgy:no_invisibility_countdown": {
+                "minecraft:timer": {
+                    "time": 10,
+                    "time_down_event": {
+                        "event": "borgy:return_to_invisibility",
+                        "target": "self"
+                    }
+                }
+            },
+            "borgy:tamed_invisibility": {
+                "minecraft:is_charged": {}
+            },
+            "borgy:tamed": {
+                "minecraft:is_tamed": {},
+                "minecraft:sittable": {},
+                "minecraft:behavior.follow_owner": {},
+                "minecraft:behavior.owner_hurt_target": {},
+                "minecraft:behavior.owner_hurt_by_target": {},
+                "minecraft:behavior.stay_while_sitting": {},
+                "minecraft:healable": {
+                    "items": [
+                        {
+                            "item": "minecraft:rotten_flesh",
+                            "heal_amount": 15
+                        }
+                    ]
+                }
+            }
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 30
+            },
+            "minecraft:attack": {
+                "damage": 5
+            },
+            "minecraft:behavior.delayed_attack": {
+                "priority": 0,
+                "attack_duration": 0.6,
+                "hit_delay_pct": 0.8,
+                "track_target": true,
+                "reach_multiplier": 2
+            },
+            "minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+            "minecraft:collision_box": {
+                "width": 1.25,
+                "height": 1.5
+            },
+            "minecraft:scale": {
+                "value": 0.6
+            },
+            "minecraft:movement": {
+                "value": 0.25
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "sigbin",
+                    "monster",
+                    "mob"
+                ]
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/sigbin.loot.json"
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {},
+			"minecraft:navigation.walk": {
+				"avoid_water": true,
+				"avoid_damage_blocks": true
+			},
+			"minecraft:movement.basic": {},
+            "minecraft:behavior.float": {},
+            "minecraft:jump.static": {},
+            "minecraft:behavior.random_look_around": {},
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:nameable": {},
+            "minecraft:experience_reward": {
+                "on_death": "query.last_hit_by_player ? Math.Random(16,24) : 0"
+            },
+            "minecraft:despawn": {
+                "despawn_from_distance": {}
+            },
+            "minecraft:interact": {
+                "interactions": [
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "operator": "!=",
+                                        "value": "minecraft:is_charged"
+                                    },
+                                    {
+                                        "test": "is_sneaking",
+                                        "subject": "other",
+                                        "value": true
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "borgy:sigbin_staff"
+                                    }
+                                ]
+                            },
+                            "event": "borgy:activate_tamed_invisibility"
+                        }
+                    },
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_charged"
+                                    },
+                                    {
+                                        "test": "is_sneaking",
+                                        "subject": "other",
+                                        "value": true
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "borgy:sigbin_staff"
+                                    }
+                                ]
+                            },
+                            "event": "borgy:deactivate_tamed_invisibility"
+                        }
+                    }
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "test": "is_owner",
+                                "subject": "other",
+                                "value": false
+                            },
+							"event": "borgy:lose_invisibility",
+							"target": "self"
+						}
+                    }
+                ]
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "borgy:wild",
+                        "borgy:invisible"
+                    ]
+                }
+            },
+            "borgy:on_tame": {
+                "add": {
+                    "component_groups": [
+                        "borgy:tamed"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:wild",
+                        "borgy:invisible",
+                        "borgy:no_invisibility_countdown"
+                    ]
+                }
+            },
+            "borgy:lose_invisibility": {
+                "add": {
+                    "component_groups": [
+                        "borgy:no_invisibility_countdown"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:invisible"
+                    ]
+                }
+            },
+            "borgy:return_to_invisibility": {
+                "add": {
+                    "component_groups": [
+                        "borgy:invisible"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:no_invisibility_countdown"
+                    ]
+                }
+            },
+            "borgy:activate_tamed_invisibility": {
+                "add": {
+                    "component_groups": [
+                        "borgy:tamed_invisibility",
+                        "borgy:invisible"
+                    ]
+                }
+            },
+            "borgy:deactivate_tamed_invisibility": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:tamed_invisibility",
+                        "borgy:invisible",
+                        "borgy:no_invisibility_countdown"
+                    ]
+                }
+            }
+        }
+    }
+}

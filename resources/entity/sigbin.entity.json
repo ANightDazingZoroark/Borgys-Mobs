@@ -1,0 +1,38 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:sigbin",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/sigbin"
+            },
+            "geometry": {
+                "default": "geometry.sigbin"
+            },
+            "animations": {
+                "animIdle": "animation.sigbin.idle",
+                "animWalk": "animation.sigbin.walk",
+                "animSit": "animation.sigbin.sit",
+                "animAttack": "animation.sigbin.attack",
+                "contMove": "controller.animation.sigbin_movement",
+                "contAttack": "controller.animation.sigbin_attack"
+            },
+            "scripts": {
+                "animate": [
+                    "contMove",
+                    "contAttack"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#474747",
+				"overlay_color": "#272727"
+			}
+        }
+    }
+}
