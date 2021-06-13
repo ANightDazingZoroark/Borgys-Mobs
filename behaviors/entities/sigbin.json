@@ -18,6 +18,45 @@
         },
         "component_groups": {
             "borgy:wild": {
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 3
+                },
+                "minecraft:behavior.random_stroll": {}
+            },
+            "borgy:wild_at_day": {
+                "minecraft:behavior.nap": {
+                    "priority": 0,
+                    "mob_detect_dist": 0,
+                    "mob_detect_height": 0,
+                    "can_nap_filters": {
+                        "all_of": [
+                            {
+                                "test": "in_water",
+                                "subject": "self",
+                                "operator": "==",
+                                "value": false
+                            },
+                            {
+                                "test": "on_ground",
+                                "subject": "self",
+                                "operator": "==",
+                                "value": true
+                            }
+                        ]
+                    }
+                }
+            },
+            "borgy:wild_at_night": {
+                "minecraft:tameable": {
+                    "probability": 0.25,
+                    "tame_items": [
+                        "minecraft:rotten_flesh"
+                    ],
+                    "tame_event": {
+                        "event": "borgy:on_tame",
+                        "target": "self"
+                    }
+                },
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 1,
                     "within_radius": 24,
@@ -75,19 +114,13 @@
                         }
                     ]
                 },
-                "minecraft:behavior.hurt_by_target": {
-                    "priority": 3
-                },
-                "minecraft:behavior.random_stroll": {},
-                "minecraft:tameable": {
-                    "probability": 0.25,
-                    "tame_items": [
-                        "minecraft:rotten_flesh"
-                    ],
-                    "tame_event": {
-                        "event": "borgy:on_tame",
-                        "target": "self"
-                    }
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 0,
+                    "speed_multiplier": 1.75,
+                    "attack_duration": 0.6,
+                    "hit_delay_pct": 0.8,
+                    "track_target": true,
+                    "reach_multiplier": 2
                 }
             },
             "borgy:invisible": {
@@ -108,17 +141,58 @@
             "borgy:tamed": {
                 "minecraft:is_tamed": {},
                 "minecraft:sittable": {},
-                "minecraft:behavior.follow_owner": {},
-                "minecraft:behavior.owner_hurt_target": {},
-                "minecraft:behavior.owner_hurt_by_target": {},
-                "minecraft:behavior.stay_while_sitting": {},
+                "minecraft:behavior.stay_while_sitting": {
+                    "priority": 1
+                },
                 "minecraft:healable": {
                     "items": [
                         {
                             "item": "minecraft:rotten_flesh",
-                            "heal_amount": 15
+                            "heal_amount": 10
                         }
                     ]
+                },
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 0,
+                    "speed_multiplier": 1.75,
+                    "attack_duration": 0.6,
+                    "hit_delay_pct": 0.8,
+                    "track_target": true,
+                    "reach_multiplier": 2
+                }
+            },
+            "borgy:tamed_at_day": {
+                "minecraft:behavior.nap": {
+                    "priority": 0,
+                    "mob_detect_dist": 0,
+                    "mob_detect_height": 0,
+                    "can_nap_filters": {
+                        "all_of": [
+                            {
+                                "test": "in_water",
+                                "subject": "self",
+                                "operator": "==",
+                                "value": false
+                            },
+                            {
+                                "test": "on_ground",
+                                "subject": "self",
+                                "operator": "==",
+                                "value": true
+                            }
+                        ]
+                    }
+                }
+            },
+            "borgy:tamed_at_night": {
+                "minecraft:behavior.follow_owner": {
+                    "priority": 4
+                },
+                "minecraft:behavior.owner_hurt_target": {
+                    "priority": 3
+                },
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "priority": 2
                 }
             }
         },
@@ -128,13 +202,6 @@
             },
             "minecraft:attack": {
                 "damage": 5
-            },
-            "minecraft:behavior.delayed_attack": {
-                "priority": 0,
-                "attack_duration": 0.6,
-                "hit_delay_pct": 0.8,
-                "track_target": true,
-                "reach_multiplier": 2
             },
             "minecraft:breathable": {
 				"total_supply": 15,
@@ -169,11 +236,13 @@
 			"minecraft:movement.basic": {},
             "minecraft:behavior.float": {},
             "minecraft:jump.static": {},
-            "minecraft:behavior.random_look_around": {},
+            "minecraft:behavior.random_look_around": {
+                "priority": 5
+            },
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:nameable": {},
             "minecraft:experience_reward": {
-                "on_death": "query.last_hit_by_player ? Math.Random(16,24) : 0"
+                "on_death": "query.last_hit_by_player ? Math.Random(7,12) : 0"
             },
             "minecraft:despawn": {
                 "despawn_from_distance": {}
@@ -208,7 +277,8 @@
                                     }
                                 ]
                             },
-                            "event": "borgy:activate_tamed_invisibility"
+                            "event": "borgy:activate_tamed_invisibility",
+                            "target": "self"
                         }
                     },
                     {
@@ -238,8 +308,83 @@
                                     }
                                 ]
                             },
-                            "event": "borgy:deactivate_tamed_invisibility"
+                            "event": "borgy:deactivate_tamed_invisibility",
+                            "target": "self"
                         }
+                    }
+                ]
+            },
+            "minecraft:scheduler": {
+                "scheduled_events": [
+                    {
+                        "filters": {
+                            "all_of":[
+                                { 
+                                    "test": "is_daytime", 
+                                    "value": false
+                                },
+                                { 
+                                    "test": "has_component", 
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "event": "borgy:wild_sigbin_at_night",
+                        "target": "self"
+                    },
+                    {
+                        "filters": {
+                            "all_of":[
+                                { 
+                                    "test": "is_daytime", 
+                                    "value": true
+                                },
+                                { 
+                                    "test": "has_component", 
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "event": "borgy:wild_sigbin_at_day",
+                        "target": "self"
+                    },
+                    {
+                        "filters": {
+                            "all_of":[
+                                { 
+                                    "test": "is_daytime", 
+                                    "value": false
+                                },
+                                { 
+                                    "test": "has_component", 
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "event": "borgy:tamed_sigbin_at_night",
+                        "target": "self"
+                    },
+                    {
+                        "filters": {
+                            "all_of":[
+                                { 
+                                    "test": "is_daytime", 
+                                    "value": true
+                                },
+                                { 
+                                    "test": "has_component", 
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "event": "borgy:tamed_sigbin_at_day",
+                        "target": "self"
                     }
                 ]
             },
@@ -278,7 +423,9 @@
                     "component_groups": [
                         "borgy:wild",
                         "borgy:invisible",
-                        "borgy:no_invisibility_countdown"
+                        "borgy:no_invisibility_countdown",
+                        "borgy:wild_at_day",
+                        "borgy:wild_at_night"
                     ]
                 }
             },
@@ -320,6 +467,54 @@
                         "borgy:tamed_invisibility",
                         "borgy:invisible",
                         "borgy:no_invisibility_countdown"
+                    ]
+                }
+            },
+            "borgy:wild_sigbin_at_night": {
+                "add": {
+                    "component_groups": [
+                        "borgy:wild_at_night"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:wild_at_day"
+                    ]
+                }
+            },
+            "borgy:wild_sigbin_at_day": {
+                "add": {
+                    "component_groups": [
+                        "borgy:wild_at_day"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:wild_at_night"
+                    ]
+                }
+            },
+            "borgy:tamed_sigbin_at_night": {
+                "add": {
+                    "component_groups": [
+                        "borgy:tamed_at_night"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:tamed_at_day"
+                    ]
+                }
+            },
+            "borgy:tamed_sigbin_at_day": {
+                "add": {
+                    "component_groups": [
+                        "borgy:tamed_at_day"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:tamed_at_night"
                     ]
                 }
             }

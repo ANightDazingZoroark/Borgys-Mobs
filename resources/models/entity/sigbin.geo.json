@@ -6,14 +6,14 @@
 				"identifier": "geometry.sigbin",
 				"texture_width": 128,
 				"texture_height": 128,
-				"visible_bounds_width": 9,
+				"visible_bounds_width": 11,
 				"visible_bounds_height": 6,
 				"visible_bounds_offset": [0, 2, 0]
 			},
 			"bones": [
 				{
 					"name": "hips",
-					"pivot": [0, -2, 0],
+					"pivot": [0, 14, 6],
 					"cubes": [
 						{"origin": [-6, 8.75, -2], "size": [12, 12, 12], "uv": [6, 63]}
 					]
@@ -192,7 +192,7 @@
 				{
 					"name": "leftFoot",
 					"parent": "leftShin",
-					"pivot": [0, -2, 1],
+					"pivot": [-8, 0.46429, 3.96429],
 					"cubes": [
 						{"origin": [-10, 0, 1.875], "size": [4, 2, 4], "uv": [93, 27]},
 						{"origin": [-8.5, 0, -0.125], "size": [1, 1, 2], "uv": [98, 33]},
@@ -222,7 +222,7 @@
 				{
 					"name": "rightFoot",
 					"parent": "rightShin",
-					"pivot": [0, -2, 1],
+					"pivot": [8, 0.46429, 3.96429],
 					"cubes": [
 						{"origin": [6, 0, 1.875], "size": [4, 2, 4], "uv": [111, 27], "mirror": true},
 						{"origin": [7.5, 0, -0.125], "size": [1, 1, 2], "uv": [116, 33], "mirror": true},

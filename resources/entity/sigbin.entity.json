@@ -17,6 +17,7 @@
                 "animWalk": "animation.sigbin.walk",
                 "animSit": "animation.sigbin.sit",
                 "animAttack": "animation.sigbin.attack",
+                "animSleep": "animation.sigbin.sleep",
                 "contMove": "controller.animation.sigbin_movement",
                 "contAttack": "controller.animation.sigbin_attack"
             },

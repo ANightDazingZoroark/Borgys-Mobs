@@ -16,6 +16,9 @@
                     "transitions": [
                         {
                             "sitting": "query.is_sitting"
+                        },
+                        {
+                            "sleeping": "query.is_sleeping"
                         }
                     ]
 				},
@@ -26,6 +29,19 @@
                     "transitions": [
                         {
                             "default": "!query.is_sitting"
+                        },
+                        {
+                            "sleeping": "query.is_sleeping"
+                        }
+                    ]
+                },
+                "sleeping": {
+                    "animations": [
+                        "animSleep"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_sleeping"
                         }
                     ]
                 }

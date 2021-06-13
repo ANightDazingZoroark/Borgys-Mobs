@@ -145,6 +145,72 @@
 					}
 				}
 			}
+		},
+		"animation.sigbin.sleep": {
+			"loop": true,
+			"bones": {
+				"hips": {
+					"rotation": [0, 0, -90],
+					"position": [0, -7, 0]
+				},
+				"leftFinger0": {
+					"rotation": [55, 0, 0]
+				},
+				"leftFinger1": {
+					"rotation": [55, 0, 0]
+				},
+				"leftFinger2": {
+					"rotation": [55, 0, 0]
+				},
+				"rightArm": {
+					"rotation": [0, 0, 20]
+				},
+				"rightElbow": {
+					"rotation": [12.5, 0, 0]
+				},
+				"rightHand": {
+					"rotation": [42.5, -95, 0]
+				},
+				"rightFinger0": {
+					"rotation": [65, 0, 0]
+				},
+				"rightFinger1": {
+					"rotation": [65, 0, 0]
+				},
+				"rightFinger2": {
+					"rotation": [65, 0, 0]
+				},
+				"neck": {
+					"rotation": [0, 22.5, 0]
+				},
+				"head": {
+					"rotation": [0, -22.5, 0]
+				},
+				"leftLeg": {
+					"position": [3, 0, 0]
+				},
+				"leftShin": {
+					"rotation": [-15, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 15]
+				},
+				"rightShin": {
+					"rotation": [-17.5, 0, 0]
+				},
+				"rightFoot": {
+					"rotation": [35, 0, 0]
+				},
+				"tail0": {
+					"rotation": [0, -7.5, 0]
+				},
+				"tail1": {
+					"rotation": [-5, -2.5, 0]
+				},
+				"tail2": {
+					"rotation": [-2.5, -2.5, 0]
+				}
+			}
 		}
 	}
 }
