@@ -13,7 +13,10 @@
 			"bones": [
 				{
 					"name": "houndeye",
-					"pivot": [0, 2, 0]
+					"pivot": [0, 2, 0],
+					"locators": {
+						"tamestatus": [0, 50, 1]
+					}
 				},
 				{
 					"name": "frontLeftLeg1",

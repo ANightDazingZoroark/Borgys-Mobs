@@ -16,7 +16,10 @@
 					"pivot": [0, 29.375, 0.125],
 					"cubes": [
 						{"origin": [-12, 3, -12], "size": [24, 24, 24], "uv": [10, 182]}
-					]
+					],
+					"locators": {
+						"tamestatus": [0, 68, -23]
+					}
 				},
 				{
 					"name": "hideableBodyPart",
