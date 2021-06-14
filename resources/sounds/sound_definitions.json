@@ -168,5 +168,23 @@
         "sounds": [
             "sounds/headcrab zombie/player headcrab zombie death"
         ]
+    },
+    "mob.sigbin.idle": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/sigbin/sigbin idle"
+        ]
+    },
+    "mob.sigbin.hurt": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/sigbin/sigbin hurt"
+        ]
+    },
+    "mob.sigbin.death": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/sigbin/sigbin death"
+        ]
     }
 }

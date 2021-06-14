@@ -18,6 +18,17 @@
                     "/effect @s regeneration 1 4"
 				]
 			}
+        },
+		"animation.forced_attack_bakunawa": {
+			"animation_length": 0.52,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"/playanimation @s animation.bakunawa.bite",
+                    "/summon borgy:bakunawa_forced_attack",
+					"@s borgy:on_forced_attack_family"
+				]
+			}
         }
     }
 }

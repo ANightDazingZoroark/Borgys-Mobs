@@ -12,6 +12,13 @@
 			},
 			"bones": [
 				{
+					"name": "status",
+					"pivot": [0, 0, 0],
+					"locators": {
+						"tamestatus": [0, 40, 0]
+					}
+				},
+				{
 					"name": "hips",
 					"pivot": [0, 14, 6],
 					"cubes": [

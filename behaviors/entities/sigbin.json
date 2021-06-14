@@ -21,7 +21,10 @@
                 "minecraft:behavior.hurt_by_target": {
                     "priority": 3
                 },
-                "minecraft:behavior.random_stroll": {}
+                "minecraft:behavior.random_stroll": {},
+                "minecraft:despawn": {
+                    "despawn_from_distance": {}
+                }
             },
             "borgy:wild_at_day": {
                 "minecraft:behavior.nap": {
@@ -198,10 +201,10 @@
         },
         "components": {
             "minecraft:health": {
-                "value": 30
+                "value": 40
             },
             "minecraft:attack": {
-                "damage": 5
+                "damage": 10
             },
             "minecraft:breathable": {
 				"total_supply": 15,
@@ -243,9 +246,6 @@
             "minecraft:nameable": {},
             "minecraft:experience_reward": {
                 "on_death": "query.last_hit_by_player ? Math.Random(7,12) : 0"
-            },
-            "minecraft:despawn": {
-                "despawn_from_distance": {}
             },
             "minecraft:interact": {
                 "interactions": [

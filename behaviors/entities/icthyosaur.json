@@ -95,9 +95,18 @@
                                                 "value": "player"
                                             },
                                             {
-                                                "test": "is_sneaking",
-                                                "subject": "other",
-                                                "value": false
+                                                "any_of": [
+                                                    {
+                                                        "test": "is_sneaking",
+                                                        "subject": "other",
+                                                        "value": false
+                                                    },
+                                                    {
+                                                        "test": "is_riding",
+                                                        "subject": "other",
+                                                        "value": false
+                                                    }
+                                                ]
                                             }
                                         ]
                                     }
@@ -640,12 +649,7 @@
 				  	"component_groups": [
 						"borgy:default_targets"
 				  	]
-				},
-                "run_command": {
-                    "command": [
-                        "say aaaa"
-                    ]
-                }
+				}
 			},
 			"borgy:no_force_attacked": {
 				"add": {

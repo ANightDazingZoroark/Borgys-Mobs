@@ -6,10 +6,10 @@
 			"loop": true,
 			"timeline": {
 				"0": [
-                    "/execute @s[rxm=-90, rx=-30] ~ ~ ~ effect @e[type=borgy:icthyosaur, c=1] levitation 1 10",
-					"/execute @s[rxm=-30, rx=15] ~ ~ ~ effect @e[type=borgy:icthyosaur, c=1] levitation 1 2",
-					"/execute @s[rxm=15, rx=30] ~ ~ ~ effect @e[type=borgy:icthyosaur, c=1] slow_falling 1 4",
-					"/execute @s[rxm=30, rx=90] ~ ~ ~ effect @e[type=borgy:icthyosaur, c=1] slow_falling 1 1"
+                    "/execute @s[rxm=-90, rx=-30] ~ ~ ~ effect @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] levitation 1 10",
+					"/execute @s[rxm=-30, rx=15] ~ ~ ~ effect @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] levitation 1 2",
+					"/execute @s[rxm=15, rx=30] ~ ~ ~ effect @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] slow_falling 1 4",
+					"/execute @s[rxm=30, rx=90] ~ ~ ~ effect @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] slow_falling 1 1"
 				]
 			}
         },

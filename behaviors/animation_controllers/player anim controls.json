@@ -7,7 +7,7 @@
                 "default": {
                     "transitions": [
                         {
-                            "controlling": "(query.is_riding ? (query.get_ride -> query.is_in_water)) && (query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:icthyosaur') && (query.is_riding ? (query.get_ride -> query.is_saddled)) && query.is_jumping && query.get_equipped_item_name('main_hand') != 'icthyosaur_staff'"
+                            "controlling": "(query.is_riding && query.is_riding ? (query.get_ride -> query.is_in_water)) && (query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:icthyosaur') && (query.is_riding ? (query.get_ride -> query.is_saddled)) && query.is_jumping && query.get_equipped_item_name('main_hand') != 'icthyosaur_staff'"
                         }
                     ]
                 },
@@ -60,14 +60,14 @@
                 "default": {
                     "transitions": [
                         {
-                            "controlling": "(query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:bakunawa') && (query.is_riding ? (query.get_ride -> query.is_saddled))"
+                            "hovering": "(query.is_riding && query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:bakunawa') && (query.is_riding ? (query.get_ride -> query.is_saddled))"
                         }
                     ]
                 },
                 "hoveringTransition": {
                     "transitions": [
                         {
-                            "hovering": "!query.is_jumping"
+                            "hovering": "!query.is_jumping || query.get_equipped_item_name('main_hand') == 'bakunawa_staff'"
                         },
                         {
                             "default": "!query.is_riding"
@@ -78,12 +78,9 @@
                     ]
                 },
                 "hovering": {
-                    "animations": [
-                        "animStayBakunawa"
-                    ],
                     "transitions": [
                         {
-                            "controllingTransition": "query.is_jumping"
+                            "controllingTransition": "query.is_jumping && query.get_equipped_item_name('main_hand') != 'bakunawa_staff'"
                         },
                         {
                             "default": "!query.is_riding"
@@ -92,7 +89,10 @@
                     "on_entry": [
                         "/event entity @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] borgy:on_hover",
                         "@s borgy:clear_bakunawa_effects_two",
-                        "/tellraw @p {\"rawtext\":[{\"text\":\"Currently in stay in place mode\"}]}"
+                        "/tellraw @p {\"rawtext\":[{\"text\":\"Currently in hover mode\"}]}",
+                        "/event entity @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] borgy:on_hover",
+                        "/execute  @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] ~ ~ ~ tp @s ~ ~ ~",
+                        "/execute  @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] ~ ~ ~ effect @s clear"
                     ]
                 },
                 "controllingTransition": {
@@ -102,6 +102,9 @@
                         },
                         {
                             "default": "!query.is_riding"
+                        },
+                        {
+                            "hovering": "query.get_equipped_item_name('main_hand') == 'bakunawa_staff'"
                         }
                     ]
                 },
@@ -115,6 +118,9 @@
                         },
                         {
                             "default": "!query.is_riding"
+                        },
+                        {
+                            "hovering": "query.get_equipped_item_name('main_hand') == 'bakunawa_staff'"
                         }
                     ],
                     "on_entry": [
@@ -130,14 +136,72 @@
                 "default": {
                     "transitions": [
                         {
-                            "using": "(query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:bakunawa') && (query.is_riding ? (query.get_ride -> query.is_saddled)) && query.get_equipped_item_name('main_hand') == 'bakunawa_staff' && query.is_using_item"
+                            "biteMode": "(query.is_riding && query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:bakunawa') && (query.is_riding ? (query.get_ride -> query.is_saddled)) && query.get_equipped_item_name('main_hand') == 'bakunawa_staff'"
                         }
+                    ],
+					"on_entry": [
+						"/event entity @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] borgy:no_forced_attack_family"
+					],
+					"on_exit": [
+						"/tellraw @s {\"rawtext\":[{\"text\":\"Ability set to Bite Mode\"}]}"
+					]
+                },
+                "biteMode": {
+					"transitions": [
+						{
+							"default": "(query.get_equipped_item_name('main_hand') != 'bakunawa_staff') || !query.is_riding || (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa'"
+						},
+						{
+							"biteToBreath": "query.is_jumping && query.is_riding"
+						},
+						{
+							"useBiteMode": "query.is_using_item && (query.get_ride -> query.is_saddled)"
+						}
+					]
+                },
+                "useBiteMode": {
+                    "transitions": [
+						{
+							"biteMode": "(query.get_equipped_item_name('main_hand') != 'bakunawa_staff') || !query.is_using_item"
+						}
+					],
+                    "on_entry": [
+                        "/event entity @e[type=borgy:bakunawa, tag=bakunawaHasRider, c=1] borgy:bakunawa_forced_bite"
+                    ],
+                    "on_exit": [
+                        "/event entity @e[type=borgy:bakunawa, tag=bakunawaHasRider, c=1] borgy:bakunawa_stop_forced_bite"
                     ]
                 },
-                "using": {
+                "biteToBreath": {
+                    "transitions": [
+						{
+							"default": "(query.get_equipped_item_name('main_hand') != 'bakunawa_staff') || !query.is_riding || (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa'"
+						},
+						{
+							"breathMode": "!query.is_jumping"
+						}
+					],
+					"on_exit": [
+						"/tellraw @s {\"rawtext\":[{\"text\":\"Ability set to Breath Mode\"}]}"
+					]
+                },
+                "breathMode": {
+                    "transitions": [
+						{
+							"default": "(query.get_equipped_item_name('main_hand') != 'bakunawa_staff') || !query.is_riding || (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa'"
+						},
+						{
+							"breathToBite": "query.is_jumping && query.is_riding"
+						},
+						{
+							"useBreathMode": "query.is_using_item"
+						}
+					]
+                },
+                "useBreathMode": {
                     "transitions": [
                         {
-                            "default": "!query.is_riding || query.get_equipped_item_name('main_hand') != 'bakunawa_staff' || !query.is_using_item"
+                            "breathMode": "!query.is_riding || query.get_equipped_item_name('main_hand') != 'bakunawa_staff' || !query.is_using_item"
                         }
                     ],
                     "on_entry": [
@@ -146,6 +210,19 @@
                     "on_exit": [
                         "/event entity @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] borgy:stop_force_use_breath_attack"
                     ]
+                },
+                "breathToBite": {
+                    "transitions": [
+						{
+							"default": "(query.get_equipped_item_name('main_hand') != 'bakunawa_staff') || !query.is_riding || (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa'"
+						},
+						{
+							"biteMode": "!query.is_jumping"
+						}
+					],
+					"on_exit": [
+						"/tellraw @s {\"rawtext\":[{\"text\":\"Ability set to Bite Mode\"}]}"
+					]
                 }
             }
         },

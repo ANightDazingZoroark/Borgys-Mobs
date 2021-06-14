@@ -11,6 +11,8 @@
                 "contFasterInAir": "controller.animation.bakunawa_faster_with_rider",
                 "contHasHeart": "controller.animation.bakunawa_has_heart",
                 "contReturnToAir": "controller.animation.bakunawa_wild_force_fly",
+                "contForcedAttack": "controller.animation.bakunawa_forced_attack",
+                "animForcedAttack": "animation.forced_attack_bakunawa",
                 "animFastInAir": "animation.bakunawa_fast_in_air",
                 "animHeartEffects": "animation.bakunawa_heart_effects"
             },
@@ -19,7 +21,8 @@
                     "contRiderSensor",
                     "contFasterInAir",
                     "contHasHeart",
-                    "contReturnToAir"
+                    "contReturnToAir",
+                    "contForcedAttack"
                 ]
             }
         },
@@ -192,13 +195,26 @@
                     "table": "loot_tables/bakunawa.loot.json"
                 },
                 "minecraft:behavior.hurt_by_target": {
-                    "priority": 3
+                    "priority": 3,
+                    "entity_types": {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "operator": "!=",
+                            "value": "forcedAttack"
+                        }
+                    }
                 }
             },
             "borgy:bakunawa_adult_wild": {
                 "minecraft:health": {
                     "value": 300
                 },
+                "minecraft:despawn": {
+                    "despawn_from_distance": {}
+                }
+            },
+            "borgy:default_targets": {
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 2,
                     "within_radius": 64,
@@ -213,16 +229,41 @@
                         },
                         {
                             "filters": {
-                                "test": "is_family",
-                                "subject": "other",
-                                "value": "player"
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "is_riding",
+                                        "subject": "other",
+                                        "value": false
+                                    }
+                                ]
+                            },
+                            "max_dist": 64
+                        }
+                    ]
+                }
+            },
+            "borgy:attack_forced_attack_entity": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 2,
+                    "entity_types": [
+                        {
+                            "filters": {
+                              "test": "is_family",
+                              "subject": "other",
+                              "value": "isForcedAttacking"
                             },
                             "max_dist": 64
                         }
                     ]
                 },
-                "minecraft:despawn": {
-                    "despawn_from_distance": {}
+                "minecraft:on_target_escape": {
+                    "event": "borgy:no_force_attacked",
+                    "target": "self"
                 }
             },
             "borgy:bakunawa_adult_tamed": {
@@ -356,10 +397,20 @@
                     "can_swim": true,
                     "can_walk": false,
                     "can_breach": false,
-                    "can_sink": true
+                    "can_sink": false
                 }
             },
-            "borgy:bakunawa_adult_tamed_has_rider": {
+            "borgy:bakunawa_adult_tamed_has_rider_hovering": {
+                "minecraft:navigation.generic": {
+                    "is_amphibious": false,
+                    "can_path_over_water": true,
+                    "can_swim": true,
+                    "can_walk": false,
+                    "can_breach": false,
+                    "can_sink": false
+                }
+            },
+            "borgy:bakunawa_adult_tamed_has_rider_controlled": {
                 "minecraft:navigation.generic": {
                     "is_amphibious": false,
                     "can_path_over_water": true,
@@ -484,15 +535,14 @@
             "borgy:bakunawa_tamed": {
                 "minecraft:is_tamed": {},
                 "minecraft:behavior.follow_owner": {
-                    "priority": 3,
-                    "start_distance": 8,
-					"stop_distance": 40
+                    "priority": 4,
+                    "start_distance": 8
                 },
                 "minecraft:behavior.owner_hurt_target": {
                     "priority": 3
                 },
                 "minecraft:behavior.owner_hurt_by_target": {
-                    "priority": 3
+                    "priority": 2
                 }
             },
             "borgy:bakunawa_sittable": {
@@ -566,16 +616,41 @@
                         "target": "self"
                     }
                 }
+            },
+            "borgy:is_pushable": {
+			    "minecraft:pushable": {
+				    "is_pushable": true,
+				    "is_pushable_by_piston": true
+			    }
+            },
+            "borgy:is_unpushable": {
+			    "minecraft:pushable": {
+				    "is_pushable": false,
+				    "is_pushable_by_piston": false
+			    }
+            },
+            "borgy:bakunawa_forced_attack": {
+                "minecraft:is_charged": {}
+            },
+            "borgy:default_family": {
+                "minecraft:type_family": {
+                    "family": [
+                        "bakunawa",
+                        "mob"
+                    ]
+                }
+            },
+            "borgy:forced_attack_family": {
+                "minecraft:type_family": {
+                    "family": [
+                        "bakunawa",
+                        "mob",
+						"isForcedAttacking"
+                    ]
+                }
             }
         },
         "components": {
-            "minecraft:type_family": {
-                "family": [
-                    "bakunawa",
-                    "mob"
-                ]
-            },
-            "minecraft:pushable": {},
             "minecraft:movement.generic":{},
             "minecraft:jump.static": {},
             "minecraft:is_hidden_when_invisible": {},
@@ -894,6 +969,38 @@
 					{
 						"deals_damage": false,
 						"cause": "fall"
+					},
+					{
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+								  		"test": "is_family",
+								  		"subject": "other",
+								  		"value": "forcedAttack"
+									},
+									{
+								  		"test": "has_target",
+								  		"subject": "self",
+								  		"value": false
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "!=",
+										"value": "minecraft:is_baby"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "!=",
+										"value": "minecraft:is_tamed"
+									}
+							  	]
+							},
+							"event": "borgy:on_force_attacked",
+							"target": "self"
+						}
 					}
 				]
 			}
@@ -904,7 +1011,9 @@
                     "component_groups": [
                         "borgy:bakunawa_adult",
                         "borgy:bakunawa_adult_wild",
-                        "borgy:default_collision"
+                        "borgy:default_collision",
+                        "borgy:is_pushable",
+                        "borgy:default_family"
                     ]
                 }
             },
@@ -1009,7 +1118,9 @@
                     "component_groups": [
                         "borgy:bakunawa_baby",
                         "borgy:bakunawa_baby_wild",
-                        "borgy:default_collision"
+                        "borgy:default_collision",
+                        "borgy:is_pushable",
+                        "borgy:default_family"
                     ]
                 }
             },
@@ -1113,29 +1224,38 @@
                     "component_groups": [
                         "borgy:bakunawa_sittable"
                     ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:bakunawa_forced_attack"
+                    ]
                 }
             },
             "borgy:on_ridden": {
                 "add": {
                     "component_groups": [
-                        "borgy:bakunawa_adult_tamed_has_rider"
+                        "borgy:bakunawa_adult_tamed_has_rider_hovering",
+                        "borgy:is_unpushable"
                     ]
                 },
                 "remove": {
                     "component_groups": [
-                        "borgy:bakunawa_adult_tamed_no_rider"
+                        "borgy:bakunawa_adult_tamed_no_rider",
+                        "borgy:is_pushable"
                     ]
                 }
             },
             "borgy:on_unridden": {
                 "add": {
                     "component_groups": [
-                        "borgy:bakunawa_adult_tamed_no_rider"
+                        "borgy:bakunawa_adult_tamed_no_rider",
+                        "borgy:is_pushable"
                     ]
                 },
                 "remove": {
                     "component_groups": [
-                        "borgy:bakunawa_adult_tamed_has_rider"
+                        "borgy:bakunawa_adult_tamed_has_rider_hovering",
+                        "borgy:is_unpushable"
                     ]
                 }
             },
@@ -1149,11 +1269,13 @@
             "borgy:on_hover": {
                 "add": {
                     "component_groups": [
+                        "borgy:bakunawa_adult_tamed_has_rider_hovering",
                         "borgy:bakunawa_adult_tamed_has_no_gravity"
                     ]
                 },
                 "remove": {
                     "component_groups": [
+                        "borgy:bakunawa_adult_tamed_has_rider_controlled",
                         "borgy:bakunawa_adult_tamed_has_gravity"
                     ]
                 }
@@ -1161,11 +1283,13 @@
             "borgy:on_stop_hovering": {
                 "add": {
                     "component_groups": [
+                        "borgy:bakunawa_adult_tamed_has_rider_controlled",
                         "borgy:bakunawa_adult_tamed_has_gravity"
                     ]
                 },
                 "remove": {
                     "component_groups": [
+                        "borgy:bakunawa_adult_tamed_has_rider_hovering",
                         "borgy:bakunawa_adult_tamed_has_no_gravity"
                     ]
                 }
@@ -1235,7 +1359,69 @@
                         "tp @s ~ ~+5 ~"
                     ]
                 }
-            }
+            },
+            "borgy:bakunawa_forced_bite": {
+                "add": {
+                    "component_groups": [
+                        "borgy:bakunawa_forced_attack"
+                    ]
+                }
+            },
+            "borgy:bakunawa_stop_forced_bite": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:bakunawa_forced_attack"
+                    ]
+                }
+            },
+            "borgy:on_forced_attack_family": {
+                "add": {
+                    "component_groups": [
+                        "borgy:forced_attack_family"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:default_family"
+                    ]
+                }
+            },
+            "borgy:no_forced_attack_family": {
+                "add": {
+                    "component_groups": [
+                        "borgy:default_family"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:forced_attack_family"
+                    ]
+                }
+            },
+			"borgy:on_force_attacked": {
+				"add": {
+				  	"component_groups": [
+						"borgy:attack_forced_attack_entity"
+				  	]
+				},
+				"remove": {
+				  	"component_groups": [
+						"borgy:default_targets"
+				  	]
+				}
+			},
+			"borgy:no_force_attacked": {
+				"add": {
+					"component_groups": [
+						"borgy:default_targets"
+				  	]
+				},
+				"remove": {
+				  	"component_groups": [
+						"borgy:attack_forced_attack_entity"
+				  	]
+				}
+			}
         }
     }
 }

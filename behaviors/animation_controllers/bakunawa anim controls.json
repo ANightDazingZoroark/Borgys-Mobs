@@ -97,6 +97,28 @@
                     ]
                 }
             }
+        },
+        "controller.animation.bakunawa_forced_attack": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "forceAttack": "query.is_powered"
+                        }
+                    ]
+                },
+                "forceAttack": {
+                    "animations": [
+						"animForcedAttack"
+					],
+                    "transitions": [
+                        {
+                            "default": "!query.is_powered"
+                        }
+                    ]
+                }
+            }
         }
     }
 }
