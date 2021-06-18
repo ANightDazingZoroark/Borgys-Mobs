@@ -25,7 +25,7 @@
 
   "pack_info": { 
     "type": "label",
-    "text": "§7[§6You are currently playing Borgy's Mobs§7]\n[§aYOU CAN ONLY GET THIS ADDON FROM MCPEDL§7]\n§7[§6Addon by ANightDazingZoroark§7]",
+    "text": "§7[§6You are currently playing Borgy's Mobs§7]\n[§ahttps://mcpedl.com/borgys-mobs/§7]\n§7[§6Addon by ANightDazingZoroark§7]",
     "color": [ 1.0, 1.0, 1.0 ],
     "shadow": true,
     "font_size": "medium",

@@ -1,9 +1,10 @@
-action.hint.exit.borgy:icthyosaur=Look up or down to ascend/descend, Jump to attack, Sneak to dismount
-action.hint.exit.borgy:bakunawa=Look up or down to ascend/descend, Jump to stay in place, Sneak to dismount
+action.hint.exit.borgy:icthyosaur=Look up or down while jumping to ascend/descend, Sneak to dismount
+action.hint.exit.borgy:bakunawa=Look up or down to ascend/descend, Jump to hover, Sneak to dismount
 
 entity.borgy:bullsquid.name=Bullsquid
 entity.borgy:houndeye.name=Houndeye
 entity.borgy:icthyosaur.name=Icthyosaur
+entity.borgy:fast_headcrab.name=Fast Headcrab
 entity.borgy:headcrab.name=Headcrab
 entity.borgy:villager_headcrab_zombie.name=Villager Headcrab Zombie
 entity.borgy:player_headcrab_zombie.name=Player Headcrab Zombie
@@ -34,6 +35,7 @@ item.borgy:sigbin_staff.name=Sigbin Staff
 item.spawn_egg.entity.borgy:bullsquid.name=Spawn Bullsquid
 item.spawn_egg.entity.borgy:houndeye.name=Spawn Houndeye
 item.spawn_egg.entity.borgy:icthyosaur.name=Spawn Icthyosaur
+item.spawn_egg.entity.borgy:fast_headcrab.name=Spawn Fast Headcrab
 item.spawn_egg.entity.borgy:headcrab.name=Spawn Headcrab
 item.spawn_egg.entity.borgy:villager_headcrab_zombie.name=Spawn Villager Headcrab Zombie
 item.spawn_egg.entity.borgy:player_headcrab_zombie.name=Spawn Player Headcrab Zombie

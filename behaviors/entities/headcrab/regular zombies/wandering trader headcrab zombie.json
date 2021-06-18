@@ -65,6 +65,12 @@
                                 "test": "is_family",
                                 "subject": "other",
                                 "operator": "!=",
+                                "value": "fastHeadcrab"
+                            },
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "operator": "!=",
                                 "value": "headcrab_zombie"
                             }
                         ]
@@ -76,7 +82,7 @@
                 "speed_modifier": -0.2,
                 "potions": [
                     {
-                        "id": 7, // Short invisibility
+                        "id": 7,
                         "chance": 1.0,
                         "filters": {
                             "all_of": [
@@ -127,6 +133,12 @@
                                     "subject": "other",
                                     "operator": "!=",
                                     "value": "headcrab"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "fastHeadcrab"
                                 },
                                 {
                                     "test": "is_family",

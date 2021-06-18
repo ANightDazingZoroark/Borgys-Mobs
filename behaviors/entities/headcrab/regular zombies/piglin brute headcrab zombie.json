@@ -86,6 +86,12 @@
                                 "test": "is_family",
                                 "subject": "other",
                                 "operator": "!=",
+                                "value": "fastHeadcrab"
+                            },
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "operator": "!=",
                                 "value": "headcrab_zombie"
                             }
                         ]
@@ -110,6 +116,12 @@
                                     "subject": "other",
                                     "operator": "!=",
                                     "value": "headcrab"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "fastHeadcrab"
                                 },
                                 {
                                     "test": "is_family",

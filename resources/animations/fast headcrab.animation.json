@@ -1,0 +1,56 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.fast_headcrab.idle": {
+			"loop": true,
+			"animation_length": 2.08,
+			"bones": {
+				"head": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.04": [0, -1, 0],
+						"2.08": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.fast_headcrab.walk": {
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"bones": {
+				"frontLeftLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * -15", 0, 0]
+				},
+				"frontRightLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * 15", 0, 0]
+				},
+				"backLeftLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * -15", 0, 0]
+				},
+				"backRightLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * 15", 0, 0]
+				}
+			}
+		},
+		"animation.fast_headcrab.jump": {
+			"loop": true,
+			"bones": {
+				"fastHeadcrab": {
+					"rotation": [-90, 0, 0]
+				},
+				"frontLeftShin": {
+					"rotation": [-30, 0, 0]
+				},
+				"frontRightShin": {
+					"rotation": [-30, 0, 0]
+				},
+				"backLeftShin": {
+					"rotation": [30, 0, 0]
+				},
+				"backRightShin": {
+					"rotation": [30, 0, 0]
+				}
+			}
+		}
+	}
+}
