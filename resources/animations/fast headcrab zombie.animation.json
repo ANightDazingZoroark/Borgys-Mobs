@@ -1,0 +1,137 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.fast_headcrab_zombie.idle": {
+			"loop": true,
+			"animation_length": 2.08,
+			"bones": {
+				"body": {
+					"rotation": [-65, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [-15, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-15, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [50, 0, 0]
+				},
+				"rightArm": {
+					"rotation": [50, 0, 0]
+				},
+				"head": {
+					"rotation": [65, 0, 0],
+					"position": [0, 3, 0]
+				},
+				"rightShoulder": {
+					"rotation": [37.5, 0, 0]
+				},
+				"leftShoulder": {
+					"rotation": [37.5, 0, 0]
+				},
+				"zombie": {
+					"position": [0, 1, -6]
+				},
+				"rightShin": {
+					"rotation": [-22.5, 0, 0]
+				},
+				"leftShin": {
+					"rotation": [-22.5, 0, 0]
+				}
+			}
+		},
+		"animation.fast_headcrab_zombie.move": {
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"bones": {
+				"leftLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * -12.5", 0, 0]
+				},
+				"rightLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * -12.5", 0, 0]
+				},
+				"leftArm": {
+					"rotation": ["math.sin(query.anim_time * 30) * 12.5", 0, 0]
+				},
+				"rightArm": {
+					"rotation": ["math.sin(query.anim_time * 30) * 12.5", 0, 0]
+				}
+			}
+		},
+		"animation.fast_headcrab_zombie.attack": {
+			"loop": true,
+			"animation_length": 0.64,
+			"bones": {
+				"body": {
+					"rotation": [-65, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [-15, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-15, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [50, 0, 0],
+						"0.32": [50, 0, 0],
+						"0.4": [5, 0, -40],
+						"0.48": [5, 0, 22.5],
+						"0.64": [50, 0, 0]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [50, 0, 0],
+						"0.08": [5, 0, 40],
+						"0.16": [5, 0, -22.5],
+						"0.32": [50, 0, 0]
+					}
+				},
+				"head": {
+					"rotation": [65, 0, 0],
+					"position": [0, 3, 0]
+				},
+				"rightShoulder": {
+					"rotation": [37.5, 0, 0]
+				},
+				"leftShoulder": {
+					"rotation": [37.5, 0, 0]
+				},
+				"zombie": {
+					"position": [0, 1, -6]
+				},
+				"rightShin": {
+					"rotation": [-22.5, 0, 0]
+				},
+				"leftShin": {
+					"rotation": [-22.5, 0, 0]
+				}
+			}
+		},
+		"animation.fast_headcrab_zombie.jump": {
+			"loop": true,
+			"bones": {
+				"leftLeg": {
+					"rotation": [35, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [35, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [-120, -50, 0]
+				},
+				"rightArm": {
+					"rotation": [-120, 50, 0]
+				},
+				"leftShoulder": {
+					"rotation": [30, 0, 0]
+				},
+				"rightShoulder": {
+					"rotation": [30, 0, 0]
+				}
+			}
+		}
+	}
+}

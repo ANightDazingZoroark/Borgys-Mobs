@@ -1,0 +1,36 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:fast_headcrab_zombie",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/fast headcrab zombie"
+            },
+            "geometry": {
+                "default": "geometry.fast_headcrab_zombie"
+            },
+            "animations": {
+                "animIdle": "animation.fast_headcrab_zombie.idle",
+                "animMove": "animation.fast_headcrab_zombie.move",
+                "animAttack": "animation.fast_headcrab_zombie.attack",
+                "animJump": "animation.fast_headcrab_zombie.jump",
+                "contMovement": "controller.animation.fast_headcrab_zombie_movement"
+            },
+            "scripts": {
+                "animate": [
+                    "contMovement"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#8f8057",
+				"overlay_color": "#3c0606"
+			}
+        }
+    }
+}

@@ -2,37 +2,17 @@
     "format_version": "1.16.0",
     "minecraft:entity": {
         "description": {
-            "identifier": "borgy:piglin_headcrab_zombie",
+            "identifier": "borgy:fast_headcrab_zombie",
             "is_spawnable": true,
             "is_summonable": true,
-            "is_experimental": false,
-            "animations": {
-                "contTestForNether": "controller.animation.piglin_headcrab_zombie_find_environment"
-            },
-            "scripts": {
-                "animate": [
-                    "contTestForNether"
-                ]
-            }
-        },
-        "component_groups": {
-            "borgy:outside_of_nether": {
-                "minecraft:is_sheared": {},
-                "minecraft:timer": {
-                    "time": 15,
-                    "time_down_event": {
-                        "event": "borgy:go_commit_die",
-                        "target": "self"
-                    }
-                }
-            }
+            "is_experimental": false
         },
         "components": {
             "minecraft:health": {
-                "value": 20
+                "value": 12
             },
             "minecraft:attack": {
-                "damage": 7
+                "damage": 10
             },
             "minecraft:breathable": {
 				"total_supply": 15,
@@ -43,18 +23,17 @@
                 "height": 1.9
             },
             "minecraft:movement": {
-                "value": 0.25
+                "value": 0.35
             },
             "minecraft:type_family": {
                 "family": [
-                    "headcrab_zombie",
-                    "piglin_headcrab_zombie",
+                    "fast_headcrab_zombie",
                     "mob"
                 ]
             },
             "minecraft:physics": {},
             "minecraft:pushable": {},
-			"minecraft:navigation.walk": {
+			"minecraft:navigation.climb": {
 				"avoid_water": true,
 				"avoid_damage_blocks": true
 			},
@@ -66,11 +45,24 @@
                 "speed_multiplier": 1,
                 "target_dist": 0.0,
                 "track_target": true
-            },
-            "minecraft:behavior.melee_attack": {
+            },				
+            "minecraft:behavior.stalk_and_pounce_on_target": {
                 "priority": 0,
-                "reach_multiplier": 1.5
+                "stalk_speed": 1.2,
+                "max_stalk_dist": 12.0,
+                "leap_height": 0.9,
+                "leap_dist": 1.5,
+                "pounce_max_dist": 11,
+                "interest_time": 0,
+                "strike_dist": 8
             },
+			"minecraft:behavior.delayed_attack": {
+				"priority": 1,
+				"attack_duration": 0.64,
+				"hit_delay_pct": 0.8125,
+				"track_target": true,
+				"reach_multiplier": 1.5
+			},
             "minecraft:behavior.hurt_by_target": {
 				"priority": 3,
                 "entity_types": {
@@ -105,7 +97,7 @@
                 }
 			},
             "minecraft:behavior.nearest_attackable_target": {
-                "priority": 1,
+                "priority": 2,
                 "within_radius": 24,
                 "reselect_targets": true,
                 "entity_types": [
@@ -155,10 +147,13 @@
                         "filters": {
                             "test": "is_family",
                             "subject": "other",
-                            "value": "piglin"
+                            "value": "player"
                         }
                     }
                 ]
+            },
+            "minecraft:behavior.random_look_around": {
+                "priority": 5
             },
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:nameable": {},
@@ -167,38 +162,6 @@
             },
             "minecraft:despawn": {
                 "despawn_from_distance": {}
-            },
-            "minecraft:rideable": {
-                "seat_count": 1,
-                "family_types": [
-                  "headcrab_zombie",
-                  "headcrab"
-                ],
-                "seats": [
-                    {
-                        "position": [
-                            0, 
-                            1.7, 
-                            0.1
-                        ]
-                    }
-                ]
-            },
-            "minecraft:addrider": {
-                "entity_type": "borgy:headcrab_hitbox"
-            },
-            "minecraft:scheduler": {
-                "scheduled_events": [
-                    {
-                        "filters": {
-                            "test": "rider_count",
-                            "operator": "==",
-                            "value": 0
-                        },
-                        "event": "borgy:on_unridden",
-                        "target": "self"
-                    }
-                ]
             },
             "minecraft:damage_sensor": {
                 "triggers": [
@@ -212,61 +175,19 @@
                             "event": "borgy:leave_headcrab_behind",
                             "target": "self"
                         }
-                    }
+                    },
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
                 ]
             }
         },
         "events": {
-            "minecraft:entity_spawned": {
-                "add": {
-                    "component_groups": [
-                        "borgy:inside_nether"
-                    ]
-                }
-            },
-            "borgy:on_unridden": {
-                "run_command": {
-                    "command": [
-                        "kill @s"
-                    ]
-                }
-            },
             "borgy:leave_headcrab_behind": {
                 "run_command": {
                     "command": [
-                        "summon borgy:headcrab"
-                    ]
-                }
-            },
-            "borgy:on_leave_nether": {
-                "add": {
-                    "component_groups": [
-                        "borgy:outside_of_nether"
-                    ]
-                },
-                "remove": {
-                    "component_groups": [
-                        "borgy:inside_nether"
-                    ]
-                }
-            },
-            "borgy:on_return_to_nether": {
-                "add": {
-                    "component_groups": [
-                        "borgy:inside_nether"
-                    ]
-                },
-                "remove": {
-                    "component_groups": [
-                        "borgy:outside_of_nether"
-                    ]
-                }
-            },
-            "borgy:go_commit_die": {
-                "run_command": {
-                    "command": [
-                        "summon borgy:headcrab",
-                        "kill @s"
+                        "summon borgy:fast_headcrab"
                     ]
                 }
             }

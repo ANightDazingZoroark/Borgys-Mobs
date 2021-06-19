@@ -52,6 +52,11 @@
         "minecraft:transformation": {
           "into": "borgy:witch_headcrab_zombie"
         }
+      },
+      "minecraft:become_fast_headcrab_zombie": {
+        "minecraft:transformation": {
+          "into": "borgy:fast_headcrab_zombie"
+        }
       }
     },
     "components": {
@@ -182,6 +187,18 @@
               "event": "borgy:become_headcrab_zombie",
               "target": "self"
             }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "value": "fastHeadcrab" },
+                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "fast_headcrab_zombie" }
+                ]
+              },
+              "event": "borgy:become_fast_headcrab_zombie",
+              "target": "self"
+            }
           }
         ]
       }
@@ -203,6 +220,10 @@
       "borgy:become_headcrab_zombie": {
         "add": { "component_groups": [ "minecraft:become_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:headcrab, c=1] borgy:into_headcrab_zombie" ] }
+      },
+      "borgy:become_fast_headcrab_zombie": {
+        "add": { "component_groups": [ "minecraft:become_fast_headcrab_zombie" ] },
+        "run_command": { "command": [ "event entity @e[type=borgy:fast_headcrab, c=1] borgy:into_fast_headcrab_zombie" ] }
       }
     }
   }

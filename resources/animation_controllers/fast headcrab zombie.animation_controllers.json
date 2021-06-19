@@ -1,0 +1,51 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.fast_headcrab_zombie_movement": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+                    "animations": [
+                        {
+                            "animIdle": "query.ground_speed == 0"
+                        },
+                        {
+                            "animMove": "query.ground_speed > 0"
+                        }
+                    ],
+					"transitions": [
+						{
+							"jump": "!query.is_on_ground"
+						},
+						{
+							"attack": "query.is_delayed_attacking"
+						}
+					]
+				},
+                "jump": {
+                    "animations": [
+                        "animJump"
+                    ],
+					"transitions": [
+						{
+							"default": "query.is_on_ground"
+						},
+						{
+							"attack": "query.is_delayed_attacking"
+						}
+					]
+                },
+                "attack": {
+                    "animations": [
+                        "animAttack"
+                    ],
+					"transitions": [
+						{
+							"default": "!query.is_delayed_attacking"
+						}
+					]
+                }
+			}
+		}
+    }
+}

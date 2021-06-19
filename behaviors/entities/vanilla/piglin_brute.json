@@ -145,6 +145,24 @@
               },
               "max_dist": 12,
               "priority": 2
+            },
+            {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "fastHeadcrab"
+              },
+              "max_dist": 12,
+              "priority": 2
+            },
+            {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "fast_headcrab_zombie"
+              },
+              "max_dist": 12,
+              "priority": 2
             }
           ]
         }
@@ -180,6 +198,11 @@
       "become_headcrab_zombie": {
         "minecraft:transformation": {
           "into": "borgy:piglin_brute_headcrab_zombie"
+        }
+      },
+      "become_fast_headcrab_zombie": {
+        "minecraft:transformation": {
+          "into": "borgy:fast_headcrab_zombie"
         }
       }
     },
@@ -316,11 +339,22 @@
               "filters": {
                 "all_of": [
                   { "test": "is_family", "subject": "other", "value": "headcrab" },
-                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "headcrab_zombie" },
-                  { "test": "has_equipment", "domain": "head", "subject": "self", "operator": "==", "value": "" }
+                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "headcrab_zombie" }
                 ]
               },
               "event": "borgy:become_headcrab_zombie",
+              "target": "self"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "value": "fastHeadcrab" },
+                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "fast_headcrab_zombie" }
+                ]
+              },
+              "event": "borgy:become_fast_headcrab_zombie",
               "target": "self"
             }
           }
@@ -417,6 +451,18 @@
         "run_command": {
           "command": [
             "event entity @e[type=borgy:headcrab, c=1] borgy:into_headcrab_zombie"
+          ]
+        }
+      },
+      "borgy:become_fast_headcrab_zombie": {
+        "add": {
+          "component_groups": [
+            "become_fast_headcrab_zombie"
+          ]
+        },
+        "run_command": {
+          "command": [
+            "event entity @e[type=borgy:fast_headcrab, c=1] borgy:into_fast_headcrab_zombie"
           ]
         }
       }

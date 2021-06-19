@@ -141,6 +141,18 @@
                 "event": "minecraft:become_headcrab_zombie",
                 "target": "self"
               }
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    { "test": "is_family", "subject": "other", "value": "fastHeadcrab" },
+                    { "test": "is_family", "subject": "other", "operator": "!=", "value": "fast_headcrab_zombie" }
+                  ]
+                },
+                "event": "minecraft:become_fast_headcrab_zombie",
+                "target": "self"
+              }
             }
           ]
         },
@@ -198,6 +210,18 @@
                   ]
                 },
                 "event": "minecraft:become_headcrab_zombie",
+                "target": "self"
+              }
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    { "test": "is_family", "subject": "other", "value": "fastHeadcrab" },
+                    { "test": "is_family", "subject": "other", "operator": "!=", "value": "fast_headcrab_zombie" }
+                  ]
+                },
+                "event": "minecraft:become_fast_headcrab_zombie",
                 "target": "self"
               }
             }
@@ -265,6 +289,11 @@
       "minecraft:become_headcrab_zombie": {
         "minecraft:transformation": {
           "into": "borgy:pillager_headcrab_zombie"
+        }
+      },
+      "minecraft:become_fast_headcrab_zombie": {
+        "minecraft:transformation": {
+          "into": "borgy:fast_headcrab_zombie"
         }
       }
     },
@@ -388,6 +417,16 @@
                   "test": "is_family",
                   "subject": "other",
                   "value": "headcrab_zombie"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "fastHeadcrab"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "fast_headcrab_zombie"
                 }
               ]
             },
@@ -459,6 +498,18 @@
                 ]
               },
               "event": "minecraft:become_headcrab_zombie",
+              "target": "self"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "value": "fastHeadcrab" },
+                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "fast_headcrab_zombie" }
+                ]
+              },
+              "event": "minecraft:become_fast_headcrab_zombie",
               "target": "self"
             }
           }
@@ -541,6 +592,10 @@
       "minecraft:become_headcrab_zombie": {
         "add": { "component_groups": [ "minecraft:become_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:headcrab, c=1] borgy:into_headcrab_zombie" ] }
+      },
+      "minecraft:become_fast_headcrab_zombie": {
+        "add": { "component_groups": [ "minecraft:become_fast_headcrab_zombie" ] },
+        "run_command": { "command": [ "event entity @e[type=borgy:fast_headcrab, c=1] borgy:into_fast_headcrab_zombie" ] }
       }
     }
   }

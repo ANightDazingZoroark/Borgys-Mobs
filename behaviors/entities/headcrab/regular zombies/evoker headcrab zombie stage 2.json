@@ -175,6 +175,12 @@
                                 "subject": "other",
                                 "operator": "!=",
                                 "value": "headcrab_zombie"
+                            },
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "operator": "!=",
+                                "value": "fast_headcrab_zombie"
                             }
                         ]
                     }
@@ -210,6 +216,12 @@
                                     "subject": "other",
                                     "operator": "!=",
                                     "value": "headcrab_zombie"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "fast_headcrab_zombie"
                                 },
                                 {
                                     "test": "is_family",
