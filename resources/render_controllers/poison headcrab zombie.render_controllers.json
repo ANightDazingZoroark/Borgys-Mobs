@@ -1,0 +1,50 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.poison_headcrab_zombie": {
+            "textures": [
+                "Texture.default"
+            ],
+            "geometry": "Geometry.default",
+            "part_visibility": [
+                {
+                    "poisonHeadcrab3*": "query.variant > 1",
+
+                    "leftFrontLeg3*": "query.variant > 1",
+                    "leftFrontKnee3*": "query.variant > 1",
+                    "leftFrontFoot3*": "query.variant > 1",
+
+                    "leftBackLeg3*": "query.variant > 1",
+                    "leftBackKnee3*": "query.variant > 1",
+                    "leftBackFoot3*": "query.variant > 1",
+
+                    "rightFrontLeg3*": "query.variant > 1",
+                    "rightFrontKnee3*": "query.variant > 1",
+                    "rightFrontFoot3*": "query.variant > 1",
+
+                    "rightBackLeg3*": "query.variant > 1",
+                    "rightBackKnee3*": "query.variant > 1",
+                    "rightBackFoot3*": "query.variant > 1",
+                    
+                    "poisonHeadcrab2*": "query.variant > 0",
+
+                    "leftFrontLeg2*": "query.variant > 0",
+                    "leftFrontKnee2*": "query.variant > 0",
+                    "leftFrontFoot2*": "query.variant > 0",
+
+                    "leftBackLeg2*": "query.variant > 0",
+                    "leftBackKnee2*": "query.variant > 0",
+                    "leftBackFoot2*": "query.variant > 0",
+
+                    "rightFrontLeg2*": "query.variant > 0",
+                    "rightFrontKnee2*": "query.variant > 0",
+                    "rightFrontFoot2*": "query.variant > 0",
+
+                    "rightBackLeg2*": "query.variant > 0",
+                    "rightBackKnee2*": "query.variant > 0",
+                    "rightBackFoot2*": "query.variant > 0"
+                }
+            ]
+        }
+    }
+}

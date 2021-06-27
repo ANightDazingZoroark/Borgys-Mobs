@@ -2,13 +2,16 @@
     "format_version": "1.16.0",
     "minecraft:entity": {
         "description": {
-            "identifier": "borgy:evoker_headcrab_zombie_stage_two",
-            "is_spawnable": false,
+            "identifier": "borgy:poison_headcrab_zombie",
+            "is_spawnable": true,
             "is_summonable": true,
             "is_experimental": false
         },
         "component_groups": {
-            "borgy:not_using_knockback": {
+            "borgy:no_passengers": {
+                "minecraft:variant": {
+                    "value": 0
+                },
                 "minecraft:entity_sensor": {
                     "sensor_range": 2.5,
                     "relative_range": false,
@@ -16,85 +19,92 @@
                     "event_filters": {
                         "all_of": [
                             {
+                                "test": "is_variant",
+                                "subject": "self",
+                                "operator": "==",
+                                "value": 0
+                            },
+                            {
                                 "test": "is_family",
                                 "subject": "other",
-                                "operator": "!=",
-                                "value": "headcrab"
+                                "value": "poisonHeadcrab"
                             },
                             {
                                 "test": "is_family",
                                 "subject": "other",
                                 "operator": "!=",
-                                "value": "fastHeadcrab"
-                            },
-                            {
-                                "test": "is_family",
-                                "subject": "other",
-                                "operator": "!=",
-                                "value": "headcrab_zombie"
-                            },
-                            {
-                                "test": "is_family",
-                                "subject": "other",
-                                "operator": "!=",
-                                "value": "vex"
+                                "value": "poison_headcrab_zombie"
                             }
                         ]
                     },
-                    "event": "borgy:use_knockback"
+                    "event": "borgy:to_one_passenger"
                 }
             },
-            "borgy:using_knockback": {
-                "minecraft:behavior.knockback_roar": {
-                    "priority": 0,
-                    "duration": 1.24,
-                    "attack_time": 0.36,
-                    "knockback_damage": 6,
-                    "knockback_strength": 6,
-                    "knockback_range": 6,
-                    "knockback_filters": {
-                        "test": "is_family",
-                        "subject": "other",
-                        "operator": "!=",
-                        "value": "vex"
-                    },
-                    "damage_filters": {
+            "borgy:passenger_cooldown": {
+                "minecraft:timer": {
+                    "time": 3,
+                    "time_down_event": {
+                        "event": "borgy:no_cooldown",
+                        "target": "self"
+                    }
+                }
+            },
+            "borgy:one_passenger": {
+                "minecraft:variant": {
+                    "value": 1
+                },
+                "minecraft:entity_sensor": {
+                    "sensor_range": 2.5,
+                    "relative_range": false,
+                    "minimum_count": 1,
+                    "event_filters": {
                         "all_of": [
                             {
+                                "test": "is_variant",
+                                "subject": "self",
+                                "operator": "==",
+                                "value": 1
+                            },
+                            {
+                                "test": "has_component",
+                                "subject": "self",
+                                "operator": "!=",
+                                "value": "minecraft:timer"
+                            },
+                            {
                                 "test": "is_family",
                                 "subject": "other",
-                                "operator": "!=",
-                                "value": "headcrab"
+                                "value": "poisonHeadcrab"
                             },
                             {
                                 "test": "is_family",
                                 "subject": "other",
                                 "operator": "!=",
-                                "value": "fastHeadcrab"
+                                "value": "poison_headcrab_zombie"
                             },
                             {
-                                "test": "is_family",
-                                "subject": "other",
+                                "test": "has_damage",
+                                "subject": "self",
                                 "operator": "!=",
-                                "value": "headcrab_zombie"
-                            },
-                            {
-                                "test": "is_family",
-                                "subject": "other",
-                                "operator": "!=",
-                                "value": "vex"
+                                "value": "fatal"
                             }
                         ]
                     },
-                    "on_roar_end": {
-                        "event": "borgy:end_knockback"
-                    }
+                    "event": "borgy:to_two_passengers"
+                }
+            },
+            "borgy:two_passengers": {
+                "minecraft:variant": {
+                    "value": 2
                 }
             }
         },
         "components": {
             "minecraft:health": {
-                "value": 50
+                "value": 40
+            },
+            "minecraft:attack": {
+                "damage": 7
             },
             "minecraft:breathable": {
 				"total_supply": 15,
@@ -105,11 +115,11 @@
                 "height": 1.9
             },
             "minecraft:movement": {
-                "value": 0.25
+                "value": 0.15
             },
             "minecraft:type_family": {
                 "family": [
-                    "headcrab_zombie",
+                    "poison_headcrab_zombie",
                     "mob"
                 ]
             },
@@ -122,42 +132,15 @@
 			"minecraft:movement.basic": {},
             "minecraft:jump.static": {},
             "minecraft:behavior.random_stroll": {},
-            "minecraft:behavior.mount_pathing": {
-                "priority": 1,
-                "speed_multiplier": 1,
-                "target_dist": 0.0,
-                "track_target": true
-            },
-            "minecraft:behavior.summon_entity": {
-                "priority": 1,
-                "summon_choices": [
-                    {
-                        "weight": 1,
-                        "cooldown_time": 5.0,
-                        "cast_duration": 3.12,
-                        "do_casting": true,
-                        "particle_color": "#FF664D59",
-                        "start_sound_event": "cast.spell",
-                        "sequence": [
-                            {
-                                "shape": "circle",
-                                "target": "self",
-                                "num_entities_spawned": 8,
-                                "entity_type": "minecraft:vex",
-                                "summon_cap": 8,
-                                "summon_cap_radius": 16.0,
-                                "size": 1.0,
-                                "sound_event": "prepare.summon"
-                            }
-                        ]
-                    }
-                ]
+            "minecraft:behavior.melee_attack": {
+                "priority": 0,
+                "reach_multiplier": 1.5
             },
             "minecraft:behavior.hurt_by_target": {
 				"priority": 3,
                 "entity_types": {
                     "filters": {
-                        "all_of": [
+                        "any_of": [
                             {
                                 "test": "is_family",
                                 "subject": "other",
@@ -251,12 +234,6 @@
                                     "test": "is_family",
                                     "subject": "other",
                                     "operator": "!=",
-                                    "value": "vex"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
                                     "value": "monster"
                                 }
                             ]
@@ -280,60 +257,47 @@
             "minecraft:despawn": {
                 "despawn_from_distance": {}
             },
-            "minecraft:rideable": {
-                "seat_count": 1,
-                "family_types": [
-                  "headcrab_zombie",
-                  "headcrab"
-                ],
-                "seats": [
-                    {
-                        "position": [
-                            0, 
-                            1.7, 
-                            0.1
-                        ]
-                    }
-                ]
-            },
-            "minecraft:addrider": {
-                "entity_type": "borgy:headcrab_hitbox"
-            },
-            "minecraft:environment_sensor": {
-                "triggers": [
-                    {
-                        "filters": {
-                            "test": "rider_count",
-                            "operator": "==",
-                            "value": 0
-                        },
-                        "event": "borgy:on_unridden",
-                        "target": "self"
-                    }
-                ]
-            },
             "minecraft:damage_sensor": {
                 "triggers": [
                     {
                         "on_damage": {
                             "filters": {
-                                "test": "has_damage",
-                                "subject": "self",
-                                "value": "fatal"
+                                "all_of": [
+                                    {
+                                        "test": "has_damage",
+                                        "subject": "self",
+                                        "value": "fatal"
+                                    },
+                                    {
+                                        "test": "is_variant",
+                                        "subject": "self",
+                                        "value": 2
+                                    }
+                                ]
                             },
-                            "event": "borgy:leave_headcrab_behind",
+                            "event": "borgy:leave_two_headcrabs_behind",
                             "target": "self"
                         }
                     },
                     {
                         "on_damage": {
                             "filters": {
-                                "test": "is_family",
-                                "subject": "other",
-                                "value": "evocation_fang"
-                            }
-                        },
-                        "deals_damage": false
+                                "all_of": [
+                                    {
+                                        "test": "has_damage",
+                                        "subject": "self",
+                                        "value": "fatal"
+                                    },
+                                    {
+                                        "test": "is_variant",
+                                        "subject": "self",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            "event": "borgy:leave_one_headcrab_behind",
+                            "target": "self"
+                        }
                     }
                 ]
             }
@@ -342,45 +306,73 @@
             "minecraft:entity_spawned": {
                 "add": {
                     "component_groups": [
-                        "borgy:not_using_knockback"
+                        "borgy:two_passengers"
                     ]
                 }
             },
-            "borgy:on_unridden": {
-                "run_command": {
-                    "command": [
-                        "kill @s"
-                    ]
-                }
-            },
-            "borgy:leave_headcrab_behind": {
-                "run_command": {
-                    "command": [
-                        "summon borgy:headcrab"
-                    ]
-                }
-            },
-            "borgy:use_knockback": {
+            "borgy:has_no_passengers": {
                 "add": {
                     "component_groups": [
-                        "borgy:using_knockback"
+                        "borgy:no_passengers"
+                    ]
+                }
+            },
+            "borgy:to_one_passenger": {
+                "add": {
+                    "component_groups": [
+                        "borgy:one_passenger",
+                        "borgy:passenger_cooldown"
                     ]
                 },
                 "remove": {
                     "component_groups": [
-                        "borgy:not_using_knockback"
+                        "borgy:no_passengers"
+                    ]
+                },
+                "run_command": {
+                    "command": [
+                        "event entity @e[type=borgy:poison_headcrab, c=1] borgy:into_poison_headcrab_zombie",
+                        "say to one"
                     ]
                 }
             },
-            "borgy:end_knockback": {
+            "borgy:no_cooldown": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:passenger_cooldown"
+                    ]
+                }
+            },
+            "borgy:to_two_passengers": {
                 "add": {
                     "component_groups": [
-                        "borgy:not_using_knockback"
+                        "borgy:two_passengers"
                     ]
                 },
                 "remove": {
                     "component_groups": [
-                        "borgy:using_knockback"
+                        "borgy:one_passenger"
+                    ]
+                },
+                "run_command": {
+                    "command": [
+                        "event entity @e[type=borgy:poison_headcrab, c=1] borgy:into_poison_headcrab_zombie",
+                        "say to two"
+                    ]
+                }
+            },
+            "borgy:leave_two_headcrabs_behind": {
+                "run_command": {
+                    "command": [
+                        "summon borgy:poison_headcrab",
+                        "summon borgy:poison_headcrab"
+                    ]
+                }
+            },
+            "borgy:leave_one_headcrab_behind": {
+                "run_command": {
+                    "command": [
+                        "summon borgy:poison_headcrab"
                     ]
                 }
             }

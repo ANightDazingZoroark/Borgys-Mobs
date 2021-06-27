@@ -25,6 +25,32 @@
                     ]
                 }
             }
+        },
+        "controller.animation.poison_headcrab_zombie_drop_headcrabs": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "dropOne": "query.variant == 1 && !query.is_alive"
+                        },
+                        {
+                            "dropTwo": "query.variant == 2 && !query.is_alive"
+                        }
+                    ]
+                },
+                "dropOne": {
+                    "on_entry": [
+                        "/summon borgy:poison_headcrab"
+                    ]
+                },
+                "dropTwo": {
+                    "on_entry": [
+                        "/summon borgy:poison_headcrab",
+                        "/summon borgy:poison_headcrab"
+                    ]
+                }
+            }
         }
     }
 }

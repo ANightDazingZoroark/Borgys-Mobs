@@ -1,0 +1,71 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.poison_headcrab.idle": {
+			"loop": true,
+			"animation_length": 2.08,
+			"bones": {
+				"head": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.04": [0, -1, 0],
+						"2.08": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.poison_headcrab.walk": {
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"bones": {
+				"leftFrontLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * -15", 0, 0]
+				},
+				"rightFrontLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * 15", 0, 0]
+				},
+				"leftBackLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * -15", 0, 0]
+				},
+				"rightBackLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * 15", 0, 0]
+				}
+			}
+		},
+		"animation.poison_headcrab.jump": {
+			"loop": true,
+			"bones": {
+				"poisonHeadcrab": {
+					"rotation": [-90, 0, 0]
+				},
+				"leftFrontKnee": {
+					"rotation": [-37.5, 0, 0]
+				},
+				"leftFrontFoot": {
+					"rotation": [-12.5, 0, 0]
+				},
+				"rightFrontKnee": {
+					"rotation": [-37.5, 0, 0]
+				},
+				"rightFrontFoot": {
+					"rotation": [-12.5, 0, 0]
+				},
+				"leftBackLeg": {
+					"rotation": [0, 0, 0]
+				},
+				"leftBackKnee": {
+					"rotation": [37.5, 0, 0]
+				},
+				"leftBackFoot": {
+					"rotation": [12.5, 0, 0]
+				},
+				"rightBackKnee": {
+					"rotation": [37.5, 0, 0]
+				},
+				"rightBackFoot": {
+					"rotation": [12.5, 0, 0]
+				}
+			}
+		}
+	}
+}

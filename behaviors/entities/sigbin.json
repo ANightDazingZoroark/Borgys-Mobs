@@ -393,9 +393,19 @@
                     {
                         "on_damage": {
                             "filters": {
-                                "test": "is_owner",
-                                "subject": "other",
-                                "value": false
+                                "all_of": [
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": false
+                                    },
+                                    { 
+                                        "test": "has_mob_effect", 
+                                        "subject": "self", 
+                                        "operator": "!=", 
+                                        "value": "invisibility" 
+                                    }
+                                ]
                             },
 							"event": "borgy:lose_invisibility",
 							"target": "self"

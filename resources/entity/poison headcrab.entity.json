@@ -1,0 +1,35 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:poison_headcrab",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/poison headcrab"
+            },
+            "geometry": {
+                "default": "geometry.poison_headcrab"
+            },
+            "animations": {
+                "animIdle": "animation.poison_headcrab.idle",
+                "animWalk": "animation.poison_headcrab.walk",
+                "animJump": "animation.poison_headcrab.jump",
+                "contMovement": "controller.animation.headcrab_movement"
+            },
+            "scripts": {
+                "animate": [
+                    "contMovement"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#1c1c1c",
+				"overlay_color": "#340606"
+			}
+        }
+    }
+}

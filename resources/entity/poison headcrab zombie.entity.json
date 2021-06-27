@@ -1,0 +1,36 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:poison_headcrab_zombie",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/poison headcrab zombie"
+            },
+            "geometry": {
+                "default": "geometry.poison_headcrab_zombie"
+            },
+            "animations": {
+                "animAttack": "animation.headcrab_zombie.attacking",
+                "animMove": "animation.headcrab_zombie.move",
+                "contMove": "controller.animation.headcrab_zombie_movement",
+                "contAttack": "controller.animation.headcrab_zombie_attack"
+            },
+            "scripts": {
+                "animate": [
+                    "contMove",
+                    "contAttack"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.poison_headcrab_zombie"
+            ],
+            "spawn_egg": {
+				"base_color": "#1c1c1c",
+				"overlay_color": "#340606"
+			}
+        }
+    }
+}

@@ -185,8 +185,7 @@
               "filters": {
                 "all_of": [
                   { "test": "is_family", "subject": "other", "value": "headcrab" },
-                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "headcrab_zombie" },
-                  { "test": "has_equipment", "domain": "head", "subject": "self", "operator": "==", "value": "" }
+                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "headcrab_zombie" }
                 ]
               },
               "event": "borgy:become_headcrab_zombie",
@@ -198,11 +197,24 @@
               "filters": {
                 "all_of": [
                   { "test": "is_family", "subject": "other", "value": "fastHeadcrab" },
-                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "fast_headcrab_zombie" },
-                  { "test": "has_equipment", "domain": "head", "subject": "self", "operator": "==", "value": "" }
+                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "fast_headcrab_zombie" }
                 ]
               },
               "event": "borgy:become_fast_headcrab_zombie",
+              "target": "self"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "value": "poisonHeadcrab" },
+                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "poison_headcrab_zombie" },
+                  { "test": "has_mob_effect", "subject": "self", "operator": "==", "value": "poison" },
+                  { "test": "has_damage", "subject": "self", "operator": "equals", "value": "attack" }
+                ]
+              },
+              "event": "borgy:become_poison_headcrab_zombie",
               "target": "self"
             }
           }
@@ -254,6 +266,15 @@
           "command": [
             "event entity @e[type=borgy:fast_headcrab, c=1] borgy:into_fast_headcrab_zombie",
             "summon borgy:fast_headcrab_zombie",
+            "kill @s"
+          ]
+        }
+      },
+      "borgy:become_poison_headcrab_zombie": {
+        "run_command": {
+          "command": [
+            "event entity @e[type=borgy:poison_headcrab, c=1] borgy:into_poison_headcrab_zombie",
+            "summon borgy:poison_headcrab_zombie ~ ~ ~ borgy:has_no_passengers",
             "kill @s"
           ]
         }
