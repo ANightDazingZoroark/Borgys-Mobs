@@ -53,6 +53,32 @@
 					"jump": "mob.headcrab.attack"
 				}
             },
+			"borgy:fast_headcrab": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab.idle",
+					"hurt": "mob.headcrab.hurt",
+					"death": "mob.headcrab.death",
+					"jump": "mob.headcrab.attack"
+				}
+            },
+			"borgy:poison_headcrab": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.poison_headcrab.idle",
+					"hurt": "mob.poison_headcrab.hurt",
+					"death": "mob.poison_headcrab.death",
+					"jump": "mob.poison_headcrab.attack"
+				}
+            },
 			"borgy:bakunawa": {
 				"volume": 2,
 				"pitch": [
@@ -175,6 +201,30 @@
 					"death": "mob.witch.death"
 				}
 			},
+			"borgy:fast_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.fast_headcrab_zombie.idle",
+					"hurt": "mob.fast_headcrab_zombie.hurt",
+					"death": "mob.fast_headcrab_zombie.death"
+				}
+			},
+			"borgy:poison_headcrab_zombie": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.poison_headcrab_zombie.idle",
+					"hurt": "mob.poison_headcrab_zombie.hurt",
+					"death": "mob.poison_headcrab_zombie.death"
+				}
+            },
 			"borgy:sigbin": {
 				"volume": 2,
 				"pitch": [

@@ -114,6 +114,43 @@
                                 ]
                             },
                             "max_dist": 24
+                        },
+                        {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "headcrab"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "headcrab_zombie"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "fastHeadcrab"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "fast_headcrab_zombie"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "poisonHeadcrab"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "poison_headcrab_zombie"
+                                    }
+                                ]
+                            },
+                            "max_dist": 24
                         }
                     ]
                 },
@@ -152,6 +189,14 @@
                         {
                             "item": "minecraft:rotten_flesh",
                             "heal_amount": 10
+                        },
+                        {
+                            "item": "borgy:raw_headcrab",
+                            "heal_amount": 10
+                        },
+                        {
+                            "item": "borgy:cooked_headcrab",
+                            "heal_amount": 15
                         }
                     ]
                 },
@@ -402,7 +447,7 @@
                                     { 
                                         "test": "has_mob_effect", 
                                         "subject": "self", 
-                                        "operator": "!=", 
+                                        "operator": "==", 
                                         "value": "invisibility" 
                                     }
                                 ]

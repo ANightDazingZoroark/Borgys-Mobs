@@ -33,7 +33,7 @@
                 "value": 0.6
             },
             "minecraft:movement": {
-                "value": 0.35
+                "value": 0.225
             },
             "minecraft:type_family": {
                 "family": [

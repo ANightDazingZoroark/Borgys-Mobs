@@ -28,6 +28,28 @@
             "sounds/headcrab/headcrab death 2"
         ]
     },
+    "mob.poison_headcrab.idle": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/poison headcrab/poison headcrab idle 1",
+            "sounds/poison headcrab/poison headcrab idle 2",
+            "sounds/poison headcrab/poison headcrab idle 3"
+        ]
+    },
+    "mob.poison_headcrab.hurt": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/poison headcrab/poison headcrab hurt 1",
+            "sounds/poison headcrab/poison headcrab hurt 2",
+            "sounds/poison headcrab/poison headcrab hurt 3"
+        ]
+    },
+    "mob.poison_headcrab.death": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/poison headcrab/poison headcrab death"
+        ]
+    },
     "mob.houndeye.idle": {
         "category": "hostile",
         "sounds": [
@@ -167,6 +189,44 @@
         "category": "hostile",
         "sounds": [
             "sounds/headcrab zombie/player headcrab zombie death"
+        ]
+    },
+    "mob.fast_headcrab_zombie.idle": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/fast headcrab zombie/fast headcrab zombie idle 1",
+            "sounds/fast headcrab zombie/fast headcrab zombie idle 2"
+        ]
+    },
+    "mob.fast_headcrab_zombie.hurt": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/fast headcrab zombie/fast headcrab zombie hurt"
+        ]
+    },
+    "mob.fast_headcrab_zombie.death": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/fast headcrab zombie/fast headcrab zombie death"
+        ]
+    },
+    "mob.poison_headcrab_zombie.idle": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/poison headcrab zombie/poison headcrab zombie idle 1",
+            "sounds/poison headcrab zombie/poison headcrab zombie idle 2"
+        ]
+    },
+    "mob.poison_headcrab_zombie.hurt": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/poison headcrab zombie/poison headcrab zombie hurt"
+        ]
+    },
+    "mob.poison_headcrab_zombie.death": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/poison headcrab zombie/poison headcrab zombie death"
         ]
     },
     "mob.sigbin.idle": {
