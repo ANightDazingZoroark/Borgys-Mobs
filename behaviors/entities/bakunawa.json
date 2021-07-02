@@ -204,6 +204,10 @@
                             "value": "forcedAttack"
                         }
                     }
+                },
+                "minecraft:knockback_resistance": {
+                    "value": 100,
+                    "max": 100
                 }
             },
             "borgy:bakunawa_adult_wild": {
@@ -590,7 +594,8 @@
 							"spawn_entity": "borgy:bakunawa_projectile",
                             "spawn_event": "borgy:make_sounds_on_forced_launch",
 							"min_wait_time": 0,
-							"max_wait_time": 0
+							"max_wait_time": 0,            
+                            "single_use": true
 						}
 					]
                 }
