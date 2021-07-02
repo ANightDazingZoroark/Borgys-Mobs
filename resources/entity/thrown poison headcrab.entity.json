@@ -2,30 +2,27 @@
     "format_version": "1.10.0",
     "minecraft:client_entity": {
         "description": {
-            "identifier": "borgy:bakunawa_projectile",
+            "identifier": "borgy:thrown_poison_headcrab",
             "materials": {
-                "default": "entity_alphablend"
+                "default": "skeleton"
             },
             "textures": {
-                "default": "textures/entity/bakunawa projectile"
+                "default": "textures/entity/poison headcrab"
             },
             "geometry": {
-                "default": "geometry.projectile"
+                "default": "geometry.poison_headcrab"
             },
             "animations": {
-                "animTrail": "animation.projectile.particles"
+                "animJump": "animation.poison_headcrab.jump"
             },
             "scripts": {
                 "animate": [
-                    "animTrail"
+                    "animJump"
                 ]
             },
             "render_controllers": [
                 "controller.render.common"
-            ],
-            "particle_effects": {
-			    "projectileTrail": "borgy:bakunawa_projectile_particle"
-			}
+            ]
         }
     }
 }

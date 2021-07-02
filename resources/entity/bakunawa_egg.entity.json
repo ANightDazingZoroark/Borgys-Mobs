@@ -21,7 +21,7 @@
 				"default": "geometry.borgy.egg"
 			},
 			"render_controllers": [
-				"controller.render.default"
+				"controller.render.common"
 			],
 			"particle_effects": {
 				"egg_growth": "borgy:egg_particles"

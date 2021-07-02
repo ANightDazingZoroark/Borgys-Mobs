@@ -5,7 +5,17 @@
             "identifier": "borgy:poison_headcrab_zombie",
             "is_spawnable": true,
             "is_summonable": true,
-            "is_experimental": false
+            "is_experimental": false,
+            "animations": {
+                "contThrowSystem": "controller.animation.poison_headcrab_zombie_throwing",
+                "animThrowHeadcrab": "animation.start_throwing_poison_headcrab",
+                "animThrowCooldown": "animation.throw_poison_headcrab_cooldown"
+            },
+            "scripts": {
+                "animate": [
+                    "contThrowSystem"
+                ]
+            }
         },
         "component_groups": {
             "borgy:no_passengers": {
@@ -41,6 +51,7 @@
                 }
             },
             "borgy:passenger_cooldown": {
+                "minecraft:is_sheared": {},
                 "minecraft:timer": {
                     "time": 3,
                     "time_down_event": {
@@ -69,7 +80,7 @@
                                 "test": "has_component",
                                 "subject": "self",
                                 "operator": "!=",
-                                "value": "minecraft:timer"
+                                "value": "minecraft:is_sheared"
                             },
                             {
                                 "test": "is_family",
@@ -91,11 +102,59 @@
                         ]
                     },
                     "event": "borgy:to_two_passengers"
+                },
+                "minecraft:on_target_acquired": {
+                    "filters": {
+                        "test": "has_component",
+                        "subject": "self",
+                        "operator": "!=",
+                        "value": "minecraft:is_charged"
+                    },
+                    "event": "borgy:throw_poison_headcrab",
+                    "target": "self"
                 }
             },
             "borgy:two_passengers": {
                 "minecraft:variant": {
                     "value": 2
+                },
+                "minecraft:on_target_acquired": {
+                    "filters": {
+                        "test": "has_component",
+                        "subject": "self",
+                        "operator": "!=",
+                        "value": "minecraft:is_charged"
+                    },
+                    "event": "borgy:throw_poison_headcrab",
+                    "target": "self"
+                }
+            },
+            "borgy:on_throw_poison_headcrab": {
+                "minecraft:is_charged": {}
+            },
+            "borgy:target_by_throwing": {
+                "minecraft:behavior.ranged_attack": {
+                    "priority": 0,
+                    "attack_radius": 6
+                }
+            },
+            "borgy:start_throwing_poison_headcrab": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+                        {
+                            "min_wait_time": 0,
+                            "max_wait_time": 0,
+                            "spawn_entity": "borgy:thrown_poison_headcrab",
+                            "single_use": true,
+                            "num_to_spawn": 1
+                        }
+                    ]
+                }
+            },
+            "borgy:can_melee": {
+                "minecraft:behavior.melee_attack": {
+                    "priority": 0,
+                    "reach_multiplier": 1.5
                 }
             }
         },
@@ -132,10 +191,6 @@
 			"minecraft:movement.basic": {},
             "minecraft:jump.static": {},
             "minecraft:behavior.random_stroll": {},
-            "minecraft:behavior.melee_attack": {
-                "priority": 0,
-                "reach_multiplier": 1.5
-            },
             "minecraft:behavior.hurt_by_target": {
 				"priority": 3,
                 "entity_types": {
@@ -306,7 +361,8 @@
             "minecraft:entity_spawned": {
                 "add": {
                     "component_groups": [
-                        "borgy:two_passengers"
+                        "borgy:two_passengers",
+                        "borgy:can_melee"
                     ]
                 }
             },
@@ -331,8 +387,7 @@
                 },
                 "run_command": {
                     "command": [
-                        "event entity @e[type=borgy:poison_headcrab, c=1] borgy:into_poison_headcrab_zombie",
-                        "say to one"
+                        "event entity @e[type=borgy:poison_headcrab, c=1] borgy:into_poison_headcrab_zombie"
                     ]
                 }
             },
@@ -356,8 +411,7 @@
                 },
                 "run_command": {
                     "command": [
-                        "event entity @e[type=borgy:poison_headcrab, c=1] borgy:into_poison_headcrab_zombie",
-                        "say to two"
+                        "event entity @e[type=borgy:poison_headcrab, c=1] borgy:into_poison_headcrab_zombie"
                     ]
                 }
             },
@@ -373,6 +427,77 @@
                 "run_command": {
                     "command": [
                         "summon borgy:poison_headcrab"
+                    ]
+                }
+            },
+            "borgy:throw_poison_headcrab": {
+                "add": {
+                    "component_groups": [
+                        "borgy:target_by_throwing",
+                        "borgy:on_throw_poison_headcrab"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:can_melee"
+                    ]
+                }
+            },
+            "borgy:start_to_throw_poison_headcrab": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "borgy:can_melee",
+                                "borgy:start_throwing_poison_headcrab"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "borgy:target_by_throwing"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "is_variant",
+                            "subject": "self",
+                            "value": 2
+                        },
+                        "add": {
+                            "component_groups": [
+                                "borgy:one_passenger"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "borgy:two_passengers"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "is_variant",
+                            "subject": "self",
+                            "value": 1
+                        },
+                        "add": {
+                            "component_groups": [
+                                "borgy:no_passengers"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "borgy:one_passenger"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "borgy:end_throw_cooldown": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:on_throw_poison_headcrab"
                     ]
                 }
             }

@@ -1,0 +1,23 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.throw_poison_headcrab_cooldown": {
+            "animation_length": 16,
+			"loop": true,
+			"timeline": {
+				"15": [
+                    "@s borgy:end_throw_cooldown"
+				]
+			}
+        },
+        "animation.start_throwing_poison_headcrab": {
+            "animation_length": 6,
+			"loop": true,
+			"timeline": {
+				"5": [
+                    "@s borgy:start_to_throw_poison_headcrab"
+				]
+			}
+        }
+    }
+}

@@ -7,7 +7,7 @@
                 "default": "skeleton"
             },
             "textures": {
-                "default": "textures/bullsquid"
+                "default": "textures/entity/bullsquid projectile"
             },
             "geometry": {
                 "default": "geometry.projectile"
@@ -21,7 +21,7 @@
                 ]
             },
             "render_controllers": [
-                "render.controller.common"
+                "controller.render.common"
             ],
             "particle_effects": {
 			    "projectileTrail": "borgy:bullsquid_projectile_particle"

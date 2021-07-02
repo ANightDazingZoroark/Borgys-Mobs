@@ -1,0 +1,28 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.poison_headcrab_zombie_throwing": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "throw": "query.is_powered"
+                        }
+                    ]
+                },
+                "throw": {
+                    "animations": [
+						"animThrowHeadcrab",
+                        "animThrowCooldown"
+					],
+                    "transitions": [
+                        {
+                            "default": "!query.is_powered"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
