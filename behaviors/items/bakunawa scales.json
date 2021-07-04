@@ -1,0 +1,18 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:bakunawa_scales",
+			"category": "Items"
+		},
+		"components": {
+			"minecraft:display_name": {
+				"value": "item.borgy:bakunawa_scales.name"
+			},
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.borgyMobDrops"
+			},
+			"minecraft:render_offsets": "apple"
+		}
+	}
+}

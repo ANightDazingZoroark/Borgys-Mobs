@@ -23,6 +23,9 @@
 		"bakunawa egg": {
 			"textures": "textures/items/bakunawa egg"
 		},
+        "bile gland": {
+			"textures": "textures/items/bile gland"
+		},
         "raw alien meat": {
 			"textures": "textures/items/raw alien meat"
 		},
@@ -34,6 +37,9 @@
 		},
 		"cooked headcrab": {
 			"textures": "textures/items/cooked headcrab"
+		},
+		"bile launcher": {
+			"textures": "textures/items/bile launcher"
 		}
     }
 }

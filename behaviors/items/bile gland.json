@@ -1,0 +1,21 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:bile_gland",
+			"category": "Items"
+		},
+		"components": {
+			"minecraft:display_name": {
+				"value": "item.borgy:bile_gland.name"
+			},
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.borgyMobDrops"
+			},
+			"minecraft:icon": {
+				"texture": "bile gland"
+			},
+			"minecraft:render_offsets": "apple"
+		}
+	}
+}

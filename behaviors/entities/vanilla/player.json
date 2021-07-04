@@ -13,6 +13,7 @@
         "contBakunawaStaffUse": "controller.animation.player_use_bakunawa_staff",
         "contRideBakunawaWithHeart": "controller.animation.player_ride_bakunawa_with_heart",
         "contDismount": "controller.animation.player_dismount",
+        "contUseBileLauncher": "controller.animation.player_use_bile_launcher",
         "animControlIcthyosaur": "animation.player_control_icthyosaur",
         "animControlIcthyosaurBite": "animation.player_control_icthyosaur_bite",
         "animControlBakunawa": "animation.player_control_bakunawa",
@@ -26,7 +27,8 @@
           "contControlBakunawa",
           "contBakunawaStaffUse",
           "contRideBakunawaWithHeart",
-          "contDismount"
+          "contDismount",
+          "contUseBileLauncher"
         ]
       }
     },
@@ -64,6 +66,20 @@
         },
         "minecraft:spell_effects": {
           "remove_effects": "bad_omen"
+        }
+      },
+
+      "borgy:fire_bile": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "spawn_entity": "borgy:bullsquid_projectile",
+              "spawn_event": "borgy:when_fired_by_player",
+              "min_wait_time": 0,
+              "max_wait_time": 0,            
+              "single_use": true
+            }
+          ]
         }
       }
     },
@@ -276,6 +292,20 @@
             "event entity @e[type=borgy:poison_headcrab, c=1] borgy:into_poison_headcrab_zombie",
             "summon borgy:poison_headcrab_zombie ~ ~ ~ borgy:has_no_passengers",
             "kill @s"
+          ]
+        }
+      },
+      "borgy:start_firing_bile": {
+        "add": {
+          "component_groups": [
+            "borgy:fire_bile"
+          ]
+        }
+      },
+      "borgy:stop_firing_bile": {
+        "remove": {
+          "component_groups": [
+            "borgy:fire_bile"
           ]
         }
       }

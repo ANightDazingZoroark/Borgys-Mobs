@@ -1,0 +1,32 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "borgy:bile_launcher_crafting"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			"## ",
+			"+X#",
+			"## "
+		],
+		"key": {
+			"#": {
+				"item": "minecraft:iron_ingot"
+			},
+			"X": {
+				"item": "minecraft:redstone"
+			},
+			"+": {
+				"item": "borgy:bile_gland"
+			}
+		},
+		"result": [
+			{
+				"item": "borgy:bile_launcher"
+			}
+		]
+	}
+}

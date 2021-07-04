@@ -9,7 +9,7 @@
             "runtime_identifier": "minecraft:snowball"
         },
         "component_groups": {
-            "borgy:commit_disappear": {
+            "borgy:go_commit_disappear": {
                 "minecraft:despawn": {}
             }
         },
@@ -40,13 +40,27 @@
 			"minecraft:pushable": {
 				"is_pushable": true,
 				"is_pushable_by_piston": true
-			}
+			},
+            "minecraft:timer": {
+                "time": 1.5,
+                "time_down_event": {
+                    "event": "borgy:commit_disappear",
+                    "target": "self"
+                }
+            }
         },
         "events": {
             "borgy:make_sounds_on_forced_launch": {
                 "run_command": {
                     "command": [
                         "playsound mob.bakunawa.fire_projectile @a[r=16]"
+                    ]
+                }
+            },
+            "borgy:commit_disappear": {
+                "add": {
+                    "component_groups": [
+                        "borgy:go_commit_disappear"
                     ]
                 }
             }
