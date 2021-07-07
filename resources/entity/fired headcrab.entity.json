@@ -1,0 +1,28 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:fired_headcrab",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/headcrab"
+            },
+            "geometry": {
+                "default": "geometry.headcrab"
+            },
+            "animations": {
+                "animJump": "animation.headcrab.jump"
+            },
+            "scripts": {
+                "animate": [
+                    "animJump"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ]
+        }
+    }
+}

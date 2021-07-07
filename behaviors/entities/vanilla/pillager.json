@@ -571,6 +571,17 @@
             }
           }
         ]
+      },
+      "minecraft:entity_sensor": {
+        "sensor_range": 1.75,
+        "relative_range": false,
+        "minimum_count": 1,
+        "event_filters": {
+          "test": "is_family",
+          "subject": "other",
+          "value": "firedHeadcrab"
+        },
+        "event": "minecraft:become_headcrab_zombie_from_fired_headcrab"
       }
     },
 
@@ -657,6 +668,14 @@
       "minecraft:become_poison_headcrab_zombie": {
         "add": { "component_groups": [ "minecraft:become_poison_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:poison_headcrab, c=1] borgy:into_poison_headcrab_zombie" ] }
+      },
+      "minecraft:become_headcrab_zombie_from_fired_headcrab": {
+        "add": { "component_groups": [ "minecraft:become_headcrab_zombie" ] },
+        "run_command": {
+          "command": [
+            "event entity @e[type=borgy:fired_headcrab, c=1] borgy:commit_disappear"
+          ]
+        }
       }
     }
   }

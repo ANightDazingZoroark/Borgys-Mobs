@@ -1,0 +1,98 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "borgy:fired_headcrab",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false,
+            "runtime_identifier": "minecraft:snowball"
+        },
+        "component_groups": {
+            "borgy:become_regular_headcrab": {
+                "minecraft:transformation": {
+                    "into": "borgy:headcrab"
+                }
+            },
+            "borgy:go_commit_disappear": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:projectile": {
+                "on_hit": {				
+                    "stick_in_ground": {
+						"shake_time" : 0
+					},
+                    "event_trigger": {
+                        "event": "borgy:commit_disappear",
+                        "target": "self"
+                    }
+                },
+                "power": 1.3,
+                "gravity": 0.10,
+                "inertia": 1,
+                "liquid_inertia": 1,
+                "anchor": 2,
+                "offset": [
+                    0,
+                    0.5,
+                    0
+                ]
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "firedHeadcrab"
+                ]
+            },
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "filters": {
+                            "test": "on_ground",
+                            "subject": "self",
+                            "value": true
+                        },
+                        "event": "borgy:become_normal_headcrab",
+                        "target": "self"
+                    }
+                ]
+            },
+			"minecraft:collision_box": {
+                "width": 0.25,
+            	"height": 0.25
+            },
+			"minecraft:physics": {
+                "has_gravity": true,
+                "has_collision": true
+            },
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			}
+        },
+        "events": {
+            "borgy:when_fired_by_player": {
+                "add": {
+                    "component_groups": [
+                        "borgy:fired_by_player"
+                    ]
+                }
+            },
+            "borgy:commit_disappear": {
+                "add": {
+                    "component_groups": [
+                        "borgy:go_commit_disappear"
+                    ]
+                }
+            },
+            "borgy:become_normal_headcrab": {
+                "add": {
+                    "component_groups": [
+                        "borgy:become_regular_headcrab"
+                    ]
+                }
+            }
+        }
+    }
+}

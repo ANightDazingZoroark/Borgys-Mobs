@@ -14,6 +14,7 @@
         "contRideBakunawaWithHeart": "controller.animation.player_ride_bakunawa_with_heart",
         "contDismount": "controller.animation.player_dismount",
         "contUseBileLauncher": "controller.animation.player_use_bile_launcher",
+        "contUseHeadcrabLauncher": "controller.animation.player_use_headcrab_launcher",
         "animControlIcthyosaur": "animation.player_control_icthyosaur",
         "animControlIcthyosaurBite": "animation.player_control_icthyosaur_bite",
         "animControlBakunawa": "animation.player_control_bakunawa",
@@ -28,7 +29,8 @@
           "contBakunawaStaffUse",
           "contRideBakunawaWithHeart",
           "contDismount",
-          "contUseBileLauncher"
+          "contUseBileLauncher",
+          "contUseHeadcrabLauncher"
         ]
       }
     },
@@ -75,6 +77,18 @@
             {
               "spawn_entity": "borgy:bullsquid_projectile",
               "spawn_event": "borgy:when_fired_by_player",
+              "min_wait_time": 0,
+              "max_wait_time": 0,            
+              "single_use": true
+            }
+          ]
+        }
+      },
+      "borgy:fire_headcrab": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "spawn_entity": "borgy:fired_headcrab",
               "min_wait_time": 0,
               "max_wait_time": 0,            
               "single_use": true
@@ -306,6 +320,25 @@
         "remove": {
           "component_groups": [
             "borgy:fire_bile"
+          ]
+        }
+      },
+      "borgy:start_firing_headcrab": {
+        "add": {
+          "component_groups": [
+            "borgy:fire_headcrab"
+          ]
+        },
+        "run_command": {
+          "command": [
+            "playsound mob.headcrab.attack @a[r=16]"
+          ]
+        }
+      },
+      "borgy:stop_firing_headcrab": {
+        "remove": {
+          "component_groups": [
+            "borgy:fire_headcrab"
           ]
         }
       }
