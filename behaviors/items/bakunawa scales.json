@@ -12,6 +12,9 @@
 			"minecraft:creative_category": {
 				"parent": "itemGroup.name.borgyMobDrops"
 			},
+			"minecraft:icon": {
+				"texture": "bakunawa scales"
+			},
 			"minecraft:render_offsets": "apple"
 		}
 	}

@@ -40,6 +40,12 @@
 		},
 		"bile launcher": {
 			"textures": "textures/items/bile launcher"
+		},
+		"bakunawa scales": {
+			"textures": "textures/items/bakunawa scales"
+		},
+		"headcrab launcher": {
+			"textures": "textures/items/headcrab launcher"
 		}
     }
 }
