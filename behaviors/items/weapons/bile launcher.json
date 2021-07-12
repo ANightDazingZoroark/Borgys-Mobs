@@ -28,7 +28,21 @@
 			"minecraft:cooldown": {
                 "category": "reload",
                 "duration": 3
-            }
+            },
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "borgy:fire"
+				}
+			}
+		},
+		"events": {
+			"borgy:fire": {			
+				"shoot": {
+					"projectile": "borgy:bullsquid_projectile<borgy:when_fired_by_player>",
+					"launch_power": 0.8,
+					"angle_offset": 0
+				}
+			}
 		}
 	}
 }

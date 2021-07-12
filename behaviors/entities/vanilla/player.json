@@ -13,13 +13,13 @@
         "contBakunawaStaffUse": "controller.animation.player_use_bakunawa_staff",
         "contRideBakunawaWithHeart": "controller.animation.player_ride_bakunawa_with_heart",
         "contDismount": "controller.animation.player_dismount",
-        "contUseBileLauncher": "controller.animation.player_use_bile_launcher",
-        "contUseHeadcrabLauncher": "controller.animation.player_use_headcrab_launcher",
+        "contWearBakunawaArmor": "controller.animation.player_wear_bakunawa_armor",
         "animControlIcthyosaur": "animation.player_control_icthyosaur",
         "animControlIcthyosaurBite": "animation.player_control_icthyosaur_bite",
         "animControlBakunawa": "animation.player_control_bakunawa",
         "animStayBakunawa": "animation.player_bakunawa_stay",
-        "animRideBakunawaWithHeart": "animation.player_ride_bakunawa_with_heart"
+        "animRideBakunawaWithHeart": "animation.player_ride_bakunawa_with_heart",
+        "animWearBakunawaArmor": "animation.player_wear_bakunawa_armor"
       },
       "scripts": {
         "animate": [
@@ -29,8 +29,7 @@
           "contBakunawaStaffUse",
           "contRideBakunawaWithHeart",
           "contDismount",
-          "contUseBileLauncher",
-          "contUseHeadcrabLauncher"
+          "contWearBakunawaArmor"
         ]
       }
     },
@@ -71,29 +70,14 @@
         }
       },
 
-      "borgy:fire_bile": {
-        "minecraft:spawn_entity": {
-          "entities": [
-            {
-              "spawn_entity": "borgy:bullsquid_projectile",
-              "spawn_event": "borgy:when_fired_by_player",
-              "min_wait_time": 0,
-              "max_wait_time": 0,            
-              "single_use": true
-            }
-          ]
+      "borgy:no_special_things": {
+        "minecraft:skin_id": {
+          "value": 0
         }
       },
-      "borgy:fire_headcrab": {
-        "minecraft:spawn_entity": {
-          "entities": [
-            {
-              "spawn_entity": "borgy:fired_headcrab",
-              "min_wait_time": 0,
-              "max_wait_time": 0,            
-              "single_use": true
-            }
-          ]
+      "borgy:has_bakunawa_armor": {
+        "minecraft:skin_id": {
+          "value": 1
         }
       }
     },
@@ -190,23 +174,91 @@
       },
       "minecraft:scaffolding_climber": {},
       "minecraft:environment_sensor": {
-        "triggers": {
-          "filters": {
-            "all_of": [
-              {
-                "test": "has_mob_effect",
-                "subject": "self",
-                "value": "bad_omen"
-              },
-              {
-                "test": "is_in_village",
-                "subject": "self",
-                "value": true
-              }
-            ]
+        "triggers": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_mob_effect",
+                  "subject": "self",
+                  "value": "bad_omen"
+                },
+                {
+                  "test": "is_in_village",
+                  "subject": "self",
+                  "value": true
+                }
+              ]
+            },
+            "event": "minecraft:trigger_raid"
           },
-          "event": "minecraft:trigger_raid"
-        }
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "head",
+                  "value": "borgy:bakunawa_helmet"
+                },
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "torso",
+                  "value": "borgy:bakunawa_chestplate"
+                },
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "leg",
+                  "value": "borgy:bakunawa_leggings"
+                },
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "feet",
+                  "value": "borgy:bakunawa_boots"
+                }
+              ]
+            },
+            "event": "borgy:put_on_bakunawa_armor"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "head",
+                  "operator": "!=",
+                  "value": "borgy:bakunawa_helmet"
+                },
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "torso",
+                  "operator": "!=",
+                  "value": "borgy:bakunawa_chestplate"
+                },
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "leg",
+                  "operator": "!=",
+                  "value": "borgy:bakunawa_leggings"
+                },
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "feet",
+                  "operator": "!=",
+                  "value": "borgy:bakunawa_boots"
+                }
+              ]
+            },
+            "event": "borgy:remove_bakunawa_armor"
+          }
+        ]
       },
       "minecraft:damage_sensor": {
         "triggers": [
@@ -309,36 +361,27 @@
           ]
         }
       },
-      "borgy:start_firing_bile": {
+      "borgy:put_on_bakunawa_armor": {
         "add": {
           "component_groups": [
-            "borgy:fire_bile"
-          ]
-        }
-      },
-      "borgy:stop_firing_bile": {
-        "remove": {
-          "component_groups": [
-            "borgy:fire_bile"
-          ]
-        }
-      },
-      "borgy:start_firing_headcrab": {
-        "add": {
-          "component_groups": [
-            "borgy:fire_headcrab"
+            "borgy:has_bakunawa_armor"
           ]
         },
-        "run_command": {
-          "command": [
-            "playsound mob.headcrab.attack @a[r=16]"
+        "remove": {
+          "component_groups": [
+            "borgy:no_special_things"
           ]
         }
       },
-      "borgy:stop_firing_headcrab": {
+      "borgy:remove_bakunawa_armor": {
+        "add": {
+          "component_groups": [
+            "borgy:no_special_things"
+          ]
+        },
         "remove": {
           "component_groups": [
-            "borgy:fire_headcrab"
+            "borgy:has_bakunawa_armor"
           ]
         }
       }

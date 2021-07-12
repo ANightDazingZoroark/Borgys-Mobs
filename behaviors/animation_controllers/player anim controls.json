@@ -270,52 +270,24 @@
                 }
             }
         },
-        "controller.animation.player_use_bile_launcher": {
+        "controller.animation.player_wear_bakunawa_armor": {
             "initial_state": "default",
             "states": {
                 "default": {
                     "transitions": [
                         {
-                            "firing": "query.get_equipped_item_name('main_hand') == 'bile_launcher' && query.is_using_item"
+                            "wearing": "query.skin_id == 1"
                         }
                     ]
                 },
-                "firing": {
+                "wearing": {
                     "transitions": [
                         {
-                            "default": "query.get_equipped_item_name('main_hand') != 'bile_launcher' || !query.is_using_item"
+                            "default": "query.skin_id == 0"
                         }
                     ],
-                    "on_entry": [
-                        "@s borgy:start_firing_bile"
-                    ],
-                    "on_exit": [
-                        "@s borgy:stop_firing_bile"
-                    ]
-                }
-            }
-        },
-        "controller.animation.player_use_headcrab_launcher": {
-            "initial_state": "default",
-            "states": {
-                "default": {
-                    "transitions": [
-                        {
-                            "firing": "query.get_equipped_item_name('main_hand') == 'headcrab_launcher' && query.is_using_item"
-                        }
-                    ]
-                },
-                "firing": {
-                    "transitions": [
-                        {
-                            "default": "query.get_equipped_item_name('main_hand') != 'headcrab_launcher' || !query.is_using_item"
-                        }
-                    ],
-                    "on_entry": [
-                        "@s borgy:start_firing_headcrab"
-                    ],
-                    "on_exit": [
-                        "@s borgy:stop_firing_headcrab"
+                    "animations": [
+                        "animWearBakunawaArmor"
                     ]
                 }
             }

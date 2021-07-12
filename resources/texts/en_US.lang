@@ -23,8 +23,12 @@ entity.borgy:bakunawa.name=Bakunawa
 entity.borgy:bakunawa_egg.name=Bakunawa Egg
 entity.borgy:sigbin.name=Sigbin
 
-item.borgy:bakunawa_heart.name=Bakunawa Heart
+item.borgy:bakunawa_boots.name=Bakunawa Boots
+item.borgy:bakunawa_chestplate.name=Bakunawa Chestplate
 item.borgy:bakunawa_egg.name=Bakunawa Egg
+item.borgy:bakunawa_heart.name=Bakunawa Heart
+item.borgy:bakunawa_helmet.name=Bakunawa Helmet
+item.borgy:bakunawa_leggings.name=Bakunawa Leggings
 item.borgy:bakunawa_scales.name=Bakunawa Scales
 item.borgy:bakunawa_staff.name=Bakunawa Staff
 item.borgy:bile_gland.name=Bile Gland

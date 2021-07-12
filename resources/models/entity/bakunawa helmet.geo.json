@@ -1,0 +1,37 @@
+{
+	"format_version": "1.10.0",
+	"geometry.bakunawa_helmet": {
+		"texturewidth": 64,
+		"textureheight": 64,
+		"visible_bounds_width": 4,
+		"visible_bounds_height": 5,
+		"visible_bounds_offset": [0, 2.5, 0],
+		"bones": [
+			{
+				"name": "head",
+				"pivot": [0, 24, 0],
+				"cubes": [
+					{"origin": [-4, 24, -4], "size": [8, 8, 8], "uv": [0, 0], "inflate": 1}
+				]
+			},
+			{
+				"name": "leftFin",
+				"parent": "head",
+				"pivot": [-4, 30, 5],
+				"rotation": [0, -45, 0],
+				"cubes": [
+					{"origin": [-4, 21.75, 5], "size": [0, 15, 10], "uv": [0, 39]}
+				]
+			},
+			{
+				"name": "rightFin",
+				"parent": "head",
+				"pivot": [4, 30, 5],
+				"rotation": [0, 45, 0],
+				"cubes": [
+					{"origin": [4, 21.75, 5], "size": [0, 15, 10], "uv": [0, 39], "mirror": true}
+				]
+			}
+		]
+	}
+}

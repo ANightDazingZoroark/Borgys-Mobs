@@ -28,7 +28,27 @@
 			"minecraft:cooldown": {
                 "category": "reload",
                 "duration": 3
-            }
+            },
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "borgy:fire"
+				}
+			}
+		},
+		"events": {
+			"borgy:fire": {			
+				"shoot": {
+					"projectile": "borgy:fired_headcrab",
+					"launch_power": 1,
+					"angle_offset": 0
+				},
+				"run_command": {
+					"command": [
+						"playsound mob.headcrab.attack @a[r=16]"
+					],
+					"target": "self"
+				}
+			}
 		}
 	}
 }

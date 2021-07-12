@@ -26,6 +26,9 @@
         "bile gland": {
 			"textures": "textures/items/bile gland"
 		},
+		"bakunawa scales": {
+			"textures": "textures/items/bakunawa scales"
+		},
         "raw alien meat": {
 			"textures": "textures/items/raw alien meat"
 		},
@@ -41,11 +44,20 @@
 		"bile launcher": {
 			"textures": "textures/items/bile launcher"
 		},
-		"bakunawa scales": {
-			"textures": "textures/items/bakunawa scales"
-		},
 		"headcrab launcher": {
 			"textures": "textures/items/headcrab launcher"
+		},
+		"bakunawa helmet": {
+			"textures": "textures/items/bakunawa helmet"
+		},
+		"bakunawa chestplate": {
+			"textures": "textures/items/bakunawa chestplate"
+		},
+		"bakunawa leggings": {
+			"textures": "textures/items/bakunawa leggings"
+		},
+		"bakunawa boots": {
+			"textures": "textures/items/bakunawa boots"
 		}
     }
 }
