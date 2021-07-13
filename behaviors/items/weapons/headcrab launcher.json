@@ -25,14 +25,23 @@
             "minecraft:food": {
 				"can_always_eat": true
 			},
-			"minecraft:cooldown": {
-                "category": "reload",
-                "duration": 3
-            },
 			"minecraft:on_use": {
 				"on_use": {
 					"event": "borgy:fire"
 				}
+			},
+			"minecraft:durability": {
+				"max_durability": 30
+			},
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"minecraft:ender_pearl"
+						],
+						"repair_amount": 5
+					}
+				]
 			}
 		},
 		"events": {
@@ -46,6 +55,11 @@
 					"command": [
 						"playsound mob.headcrab.attack @a[r=16]"
 					],
+					"target": "self"
+				},
+				"damage": {
+					"amount": 1,
+					"type": "durability",
 					"target": "self"
 				}
 			}
