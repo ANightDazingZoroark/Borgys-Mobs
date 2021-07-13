@@ -134,7 +134,7 @@
             },
             "borgy:target_by_throwing": {
                 "minecraft:behavior.ranged_attack": {
-                    "priority": 0,
+                    "priority": 4,
                     "attack_radius": 6
                 }
             },
@@ -153,7 +153,7 @@
             },
             "borgy:can_melee": {
                 "minecraft:behavior.melee_attack": {
-                    "priority": 0,
+                    "priority": 4,
                     "reach_multiplier": 1.5
                 }
             }
@@ -190,12 +190,14 @@
 			},
 			"minecraft:movement.basic": {},
             "minecraft:jump.static": {},
-            "minecraft:behavior.random_stroll": {},
+            "minecraft:behavior.random_stroll": {
+                "priority": 6
+            },
             "minecraft:behavior.hurt_by_target": {
-				"priority": 3,
+				"priority": 2,
                 "entity_types": {
                     "filters": {
-                        "any_of": [
+                        "all_of": [
                             {
                                 "test": "is_family",
                                 "subject": "other",
@@ -231,13 +233,34 @@
                                 "subject": "other",
                                 "operator": "!=",
                                 "value": "poison_headcrab_zombie"
+                            },
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "operator": "!=",
+                                "value": "sigbin"
                             }
                         ]
                     }
                 }
 			},
-            "minecraft:behavior.nearest_attackable_target": {
+            "minecraft:behavior.avoid_mob_type": {
                 "priority": 1,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "sigbin"
+                        },
+                        "max_dist": 10,
+                        "walk_speed_multiplier": 1.5,
+                        "sprint_speed_multiplier": 1.5
+                    }
+                ]
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 3,
                 "within_radius": 24,
                 "reselect_targets": true,
                 "entity_types": [

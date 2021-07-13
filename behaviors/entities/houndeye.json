@@ -31,7 +31,7 @@
         "component_groups": {
             "borgy:houndeye_wild": {
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 1,
+                    "priority": 3,
                     "within_radius": 24,
                     "reselect_targets": true,
                     "entity_types": [
@@ -40,6 +40,14 @@
                                 "test": "is_family",
                                 "subject": "other",
                                 "value": "villager"
+                            },
+                            "max_dist": 24
+                        },
+                        {
+                            "filters": {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "pig"
                             },
                             "max_dist": 24
                         },
@@ -112,8 +120,23 @@
                         "target": "self"
                     }
                 },
-                "minecraft:behavior.random_stroll": {},
-                "minecraft:behavior.random_look_around": {}
+                "minecraft:behavior.random_stroll": {
+                    "priority": 6
+                },
+                "minecraft:behavior.random_look_around": {
+                    "priority": 7
+                },
+                "minecraft:behavior.hurt_by_target": {
+				    "priority": 2,
+                    "entity_types": {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "operator": "!=",
+                            "value": "houndeye"
+                        }
+                    }
+			    }
             },
             "borgy:houndeye_wild_calm": {
                 "minecraft:on_target_acquired": {
@@ -139,9 +162,15 @@
             "borgy:houndeye_tamed": {
                 "minecraft:is_tamed": {},
                 "minecraft:sittable": {},
-                "minecraft:behavior.follow_owner": {},
-                "minecraft:behavior.owner_hurt_target": {},
-                "minecraft:behavior.owner_hurt_by_target": {},
+                "minecraft:behavior.follow_owner": {
+                    "priority": 4
+                },
+                "minecraft:behavior.owner_hurt_target": {
+                    "priority": 3
+                },
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "priority": 2
+                },
                 "minecraft:healable": {
                     "items": [
                         {
@@ -192,7 +221,7 @@
                     "damage": 0
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 0,
+                    "priority": 4,
                     "speed_multiplier": 1.75,
                     "reach_multiplier": 0.0
                 }
@@ -331,17 +360,6 @@
                 "event": "borgy:no_target",
                 "target": "self"
             },
-            "minecraft:behavior.hurt_by_target": {
-				"priority": 3,
-                "entity_types": {
-                    "filters": {
-                        "test": "is_family",
-                        "subject": "other",
-                        "operator": "!=",
-                        "value": "houndeye"
-                    }
-                }
-			},
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:nameable": {},
             "minecraft:experience_reward": {
@@ -350,7 +368,9 @@
             "minecraft:despawn": {
                 "despawn_from_distance": {}
             },
-            "minecraft:behavior.stay_while_sitting": {}
+            "minecraft:behavior.stay_while_sitting": {
+                "priority": 0
+            }
         },
         "events": {
             "minecraft:entity_spawned": {

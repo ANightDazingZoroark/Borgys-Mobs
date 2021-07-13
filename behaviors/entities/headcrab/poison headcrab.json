@@ -53,7 +53,9 @@
             "minecraft:movement.basic": {},
             "minecraft:behavior.float": {},
             "minecraft:jump.static": {},
-            "minecraft:behavior.random_stroll": {},
+            "minecraft:behavior.random_stroll": {
+                "priority": 5
+            },
             "minecraft:behavior.panic": {
                 "priority": 0,
                 "speed_multiplier": 1.75
@@ -69,7 +71,7 @@
                 "yd": 0.6
             },
             "minecraft:behavior.nearest_attackable_target": {
-                "priority": 1,
+                "priority": 2,
                 "within_radius": 24,
                 "reselect_targets": true,
                 "entity_types": [
@@ -130,6 +132,21 @@
                             "value": "witch"
                         },
                         "max_dist": 24
+                    }
+                ]
+            },
+            "minecraft:behavior.avoid_mob_type": {
+                "priority": 1,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "sigbin"
+                        },
+                        "max_dist": 10,
+                        "walk_speed_multiplier": 1.5,
+                        "sprint_speed_multiplier": 1.5
                     }
                 ]
             },

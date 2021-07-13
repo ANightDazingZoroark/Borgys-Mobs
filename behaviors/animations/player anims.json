@@ -53,13 +53,13 @@
 			}
         },
         "animation.player_wear_bakunawa_armor": {
-            "animation_length": 0.05,
+            "animation_length": 0.01,
 			"loop": true,
 			"timeline": {
 				"0": [
-                    "/effect @s conduit_power 1 2 true",
-                    "/effect @s strength 1 2 true",
-                    "/effect @s slow_falling 1 2 true"
+                    "/effect @s conduit_power 3 2 true",
+                    "/effect @s strength 3 2 true",
+                    "/effect @s slow_falling 3 2 true"
 				]
 			}
         }

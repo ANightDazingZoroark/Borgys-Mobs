@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "borgy:tamed_houndeye_standing_ok",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/particles/tame statuses/houndeye/houndeye standing ok"
 			}
 		},

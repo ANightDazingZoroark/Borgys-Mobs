@@ -39,15 +39,11 @@
 			},
 			"minecraft:movement.basic": {},
             "minecraft:jump.static": {},
-            "minecraft:behavior.random_stroll": {},
-            "minecraft:behavior.mount_pathing": {
-                "priority": 1,
-                "speed_multiplier": 1,
-                "target_dist": 0.0,
-                "track_target": true
-            },				
+            "minecraft:behavior.random_stroll": {
+                "priority": 6
+            },
             "minecraft:behavior.stalk_and_pounce_on_target": {
-                "priority": 0,
+                "priority": 4,
                 "stalk_speed": 1.2,
                 "max_stalk_dist": 12.0,
                 "leap_height": 0.9,
@@ -57,17 +53,17 @@
                 "strike_dist": 8
             },
 			"minecraft:behavior.delayed_attack": {
-				"priority": 1,
+				"priority": 5,
 				"attack_duration": 0.64,
 				"hit_delay_pct": 0.8125,
 				"track_target": true,
 				"reach_multiplier": 1.5
 			},
             "minecraft:behavior.hurt_by_target": {
-				"priority": 3,
+				"priority": 2,
                 "entity_types": {
                     "filters": {
-                        "any_of": [
+                        "all_of": [
                             {
                                 "test": "is_family",
                                 "subject": "other",
@@ -103,13 +99,34 @@
                                 "subject": "other",
                                 "operator": "!=",
                                 "value": "poison_headcrab_zombie"
+                            },
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "operator": "!=",
+                                "value": "sigbin"
                             }
                         ]
                     }
                 }
 			},
+            "minecraft:behavior.avoid_mob_type": {
+                "priority": 1,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "sigbin"
+                        },
+                        "max_dist": 10,
+                        "walk_speed_multiplier": 1.5,
+                        "sprint_speed_multiplier": 1.5
+                    }
+                ]
+            },
             "minecraft:behavior.nearest_attackable_target": {
-                "priority": 2,
+                "priority": 3,
                 "within_radius": 24,
                 "reselect_targets": true,
                 "entity_types": [
