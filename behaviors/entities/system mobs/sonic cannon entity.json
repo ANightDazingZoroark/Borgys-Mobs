@@ -1,0 +1,98 @@
+{
+	"format_version": "1.14.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "borgy:sonic_cannon_entity",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:behavior.knockback_roar": {
+				"priority": 1,
+				"duration": 1,
+				"attack_time": 0.05,
+				"knockback_damage": 20,
+				"knockback_strength": 0,
+				"knockback_range": 24,
+				"damage_filters": {
+                    "any_of": [
+                        {
+                            "all_of": [
+                                {
+                                    "test": "has_component",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "minecraft:is_tamed"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "houndeye"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "on_roar_end": {
+                    "event": "borgy:die",
+                    "target": "self"
+                }
+			},
+			"minecraft:physics": {
+				"has_collision": false,
+				"has_gravity": false
+			},
+			"minecraft:fire_immune": true,
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:timer": {
+				"time": 0.05,
+                "looping": false,
+				"time_down_event": {
+					"event": "borgy:sonic_cannon_effects",
+                    "target": "self"
+				}
+			},
+			"minecraft:type_family": {
+				"family": [
+					"forcedAttack"
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "attack",
+						"deals_damage": false
+					}
+				]
+			}
+		},
+		"events": {
+            "borgy:sonic_cannon_effects": {
+                "run_command": {
+                    "command": [
+                        "camerashake add @a[r=24] 4",
+						"playsound sound.sonic_attack @a[r=24]"
+                    ]
+                }
+            },
+			"borgy:die": {
+				"run_command": {
+					"command": [
+						"kill @s"
+					]
+				}
+			}
+		}
+	}
+}

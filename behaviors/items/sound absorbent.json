@@ -1,0 +1,21 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:sound_absorbent",
+			"category": "Items"
+		},
+		"components": {
+			"minecraft:display_name": {
+				"value": "item.borgy:sound_absorbent.name"
+			},
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.borgyMobMaterials"
+			},
+			"minecraft:icon": {
+				"texture": "sound absorbent"
+			},
+			"minecraft:render_offsets": "apple"
+		}
+	}
+}

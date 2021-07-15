@@ -26,6 +26,9 @@
         "bile gland": {
 			"textures": "textures/items/bile gland"
 		},
+        "houndeye lung": {
+			"textures": "textures/items/houndeye lung"
+		},
 		"bakunawa scales": {
 			"textures": "textures/items/bakunawa scales"
 		},
@@ -40,6 +43,9 @@
 		},
 		"cooked headcrab": {
 			"textures": "textures/items/cooked headcrab"
+		},
+		"sound absorbent": {
+			"textures": "textures/items/sound absorbent"
 		},
 		"bile launcher": {
 			"textures": "textures/items/bile launcher"

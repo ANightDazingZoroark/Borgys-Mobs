@@ -246,5 +246,11 @@
         "sounds": [
             "sounds/sigbin/sigbin death"
         ]
+    },
+    "sound.sonic_attack": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/sonic attack"
+        ]
     }
 }

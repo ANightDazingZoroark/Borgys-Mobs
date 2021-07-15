@@ -1,0 +1,32 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.sonic_absorber",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 5.5,
+				"visible_bounds_offset": [0, 2.25, 0]
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-8, 0, -8], "size": [16, 2, 16], "uv": [0, 0]},
+						{"origin": [-1, 2, -1], "size": [2, 28, 2], "uv": [28, 56]},
+						{"origin": [-6.5, 28.5, -0.5], "size": [13, 1, 1], "uv": [18, 86], "mirror": true},
+						{"origin": [-0.5, 28.5, -6.5], "size": [1, 1, 13], "uv": [18, 88], "mirror": true},
+						{"origin": [-7.5, 2, -1], "size": [2, 27, 2], "uv": [0, 30]},
+						{"origin": [-1, 2, 5.5], "size": [2, 27, 2], "uv": [56, 30]},
+						{"origin": [-1, 2, -7.5], "size": [2, 27, 2], "uv": [56, 30]},
+						{"origin": [5.5, 2, -1], "size": [2, 27, 2], "uv": [0, 30], "mirror": true},
+						{"origin": [-6, 2, -6], "size": [12, 26, 12], "uv": [8, 18]}
+					]
+				}
+			]
+		}
+	]
+}

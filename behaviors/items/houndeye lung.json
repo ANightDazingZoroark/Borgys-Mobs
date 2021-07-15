@@ -1,0 +1,21 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:houndeye_lung",
+			"category": "Items"
+		},
+		"components": {
+			"minecraft:display_name": {
+				"value": "item.borgy:houndeye_lung.name"
+			},
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.borgyMobDrops"
+			},
+			"minecraft:icon": {
+				"texture": "houndeye lung"
+			},
+			"minecraft:render_offsets": "apple"
+		}
+	}
+}

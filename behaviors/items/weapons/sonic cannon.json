@@ -1,0 +1,67 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:sonic_cannon",
+			"category": "Equipment"
+		},
+		"components": {
+			"minecraft:stacked_by_data": false,
+			"minecraft:foil": false,
+			"minecraft:hand_equipped": true,
+			"minecraft:max_stack_size": 1,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:display_name": {
+				"value": "item.borgy:sonic_cannon.name"
+			},
+			"minecraft:icon": {
+				"texture": "sonic cannon"
+			},
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.borgysMobsWeapons"
+			},
+			"minecraft:render_offsets": "tools",
+			"minecraft:use_animation": "bow",
+            "minecraft:food": {
+				"can_always_eat": true
+			},
+			"minecraft:cooldown": {
+                "category": "reload",
+                "duration": 10
+            },
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "borgy:fire"
+				}
+			},
+			"minecraft:durability": {
+				"max_durability": 15
+			},
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"borgy:houndeye_lungs"
+						],
+						"repair_amount": 5
+					}
+				]
+			}
+		},
+		"events": {
+			"borgy:fire": {
+				"run_command": {
+					"command": [
+						"summon borgy:sonic_cannon_entity ~ ~ ~"
+					],
+					"target": "holder"
+				},
+				"damage": {
+					"amount": 1,
+					"type": "durability",
+					"target": "self"
+				}
+			}
+		}
+	}
+}
