@@ -11,20 +11,24 @@
                 "contTamedPackDetection": "controller.animation.tamed_houndeye_pack",
                 "contShockwave": "controller.animation.houndeye_shockwave",
                 "contShockwaveCamera": "controller.animation.houndeye_shockwave_camera",
+                "contDetectSonicAbsorber": "controller.animation.houndeye_detect_sonic_absorber",
                 "animPackDetection": "animation.houndeye_pack_detection",
                 "animTamedPackDetection": "animation.houndeye_tamed_pack_detection",
                 "animShockwaveOne": "animation.houndeye_one_shockwave",
                 "animShockwaveTwo": "animation.houndeye_two_shockwave",
                 "animShockwaveThree": "animation.houndeye_three_shockwave",
                 "animShockwaveFour": "animation.houndeye_four_shockwave",
-                "animShockwaveCamera": "animation.houndeye_shockwave_camera"
+                "animShockwaveNone": "animation.houndeye_no_shockwave",
+                "animShockwaveCamera": "animation.houndeye_shockwave_camera",
+                "animSonicAbsorberDetection": "animation.houndeye_sonic_absorber_detection"
             },
             "scripts": {
                 "animate": [
                     "contPackDetection",
                     "contTamedPackDetection",
                     "contShockwave",
-                    "contShockwaveCamera"
+                    "contShockwaveCamera",
+                    "contDetectSonicAbsorber"
                 ]
             }
         },
@@ -196,6 +200,9 @@
                     ]
                 }
             },
+            "borgy:shockwave_disabled": {
+                "minecraft:is_charged": {}
+            },
             "borgy:houndeye_one": {
                 "minecraft:mark_variant": {
                     "value": 0
@@ -244,7 +251,8 @@
 						"value": "houndeye"
 				    },
                     "on_roar_end": {
-                        "event": "borgy:stop_shockwave"
+                        "event": "borgy:stop_shockwave",
+                        "target": "self"
                     }
                 }
             },
@@ -263,7 +271,8 @@
 						"value": "houndeye"
 				    },
                     "on_roar_end": {
-                        "event": "borgy:stop_shockwave"
+                        "event": "borgy:stop_shockwave",
+                        "target": "self"
                     }
                 }
             },
@@ -282,7 +291,8 @@
 						"value": "houndeye"
 				    },
                     "on_roar_end": {
-                        "event": "borgy:stop_shockwave"
+                        "event": "borgy:stop_shockwave",
+                        "target": "self"
                     }
                 }
             },
@@ -299,6 +309,35 @@
 						"subject": "other",
 						"operator": "!=",
 						"value": "houndeye"
+				    },
+                    "on_roar_end": {
+                        "event": "borgy:stop_shockwave",
+                        "target": "self"
+                    }
+                }
+            },
+            "borgy:houndeye_attacking_none": {
+                "minecraft:behavior.knockback_roar": {
+					"priority": 0,
+					"duration": 3.77,
+					"attack_time": 3.04,
+					"knockback_damage": 0,
+					"knockback_strength": 0,
+					"knockback_range": 24,
+					"damage_filters": {
+                        "all_of": [
+                            {
+						        "test": "is_family",
+						        "subject": "other",
+						        "value": "abcdefg"
+                            },
+                            {
+						        "test": "is_family",
+						        "subject": "other",
+						        "operator": "!=",
+						        "value": "houndeye"
+                            }
+                        ]
 				    },
                     "on_roar_end": {
                         "event": "borgy:stop_shockwave",
@@ -447,7 +486,8 @@
                     "component_groups": [
                         "borgy:houndeye_attacking_two",
                         "borgy:houndeye_attacking_three",
-                        "borgy:houndeye_attacking_four"
+                        "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_none"
                     ]
                 }
             },
@@ -461,7 +501,8 @@
                     "component_groups": [
                         "borgy:houndeye_attacking_one",
                         "borgy:houndeye_attacking_three",
-                        "borgy:houndeye_attacking_four"
+                        "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_none"
                     ]
                 }
             },
@@ -475,7 +516,8 @@
                     "component_groups": [
                         "borgy:houndeye_attacking_one",
                         "borgy:houndeye_attacking_two",
-                        "borgy:houndeye_attacking_four"
+                        "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_none"
                     ]
                 }
             },
@@ -489,7 +531,23 @@
                     "component_groups": [
                         "borgy:houndeye_attacking_one",
                         "borgy:houndeye_attacking_two",
-                        "borgy:houndeye_attacking_three"
+                        "borgy:houndeye_attacking_three",
+                        "borgy:houndeye_attacking_none"
+                    ]
+                }
+            },
+            "borgy:no_houndeye_attack": {
+                "add": {
+                    "component_groups": [
+                        "borgy:houndeye_attacking_none"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:houndeye_attacking_one",
+                        "borgy:houndeye_attacking_two",
+                        "borgy:houndeye_attacking_three",
+                        "borgy:houndeye_attacking_four"
                     ]
                 }
             },
@@ -499,7 +557,8 @@
                         "borgy:houndeye_attacking_one",
                         "borgy:houndeye_attacking_two",
                         "borgy:houndeye_attacking_three",
-                        "borgy:houndeye_attacking_four"
+                        "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_none"
                     ]
                 }
             },
@@ -584,6 +643,20 @@
                 "remove": {
                     "component_groups": [
                         "borgy:houndeye_wild_angry"
+                    ]
+                }
+            },
+            "borgy:disable_shockwave": {
+                "add": {
+                    "component_groups": [
+                        "borgy:shockwave_disabled"
+                    ]
+                }
+            },
+            "borgy:enable_shockwave": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:shockwave_disabled"
                     ]
                 }
             }

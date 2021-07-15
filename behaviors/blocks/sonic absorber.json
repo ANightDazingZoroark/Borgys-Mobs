@@ -1,0 +1,73 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:block": {
+        "description": {
+            "identifier": "borgy:sonic_absorber"
+        },
+        "components": {
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "sonic absorber",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:geometry": "geometry.sonic_absorber",
+            "minecraft:entity_collision": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:pick_collision": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    16,
+                    16
+                ]
+            },
+            "minecraft:destroy_time": 0.8,
+            "minecraft:block_light_absorption": 0.0,
+            "minecraft:immovable": true,
+            "minecraft:on_placed": {
+                "event": "borgy:place_entity"
+            },
+            "minecraft:ticking": {
+                "range": [
+                    0, 
+                    0
+                ],
+                "on_tick": {
+                    "event": "borgy:destroy_above",
+                    "target": "self"
+                }
+            }
+        },
+        "events": {
+            "borgy:place_entity": {
+                "run_command": {
+                    "command": [
+                        "summon borgy:sonic_absorber_entity ~ ~ ~"
+                    ]
+                }
+            },
+            "borgy:destroy_above": {
+                "run_command": {
+                    "command": [
+                        "setblock ~ ~+1 ~ air 0 destroy"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -19,6 +19,15 @@
 				]
 			}
         },
+		"animation.houndeye_sonic_absorber_detection": {
+            "animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"v.y = 0.0; for_each(t.sonic_absorber, query.get_nearby_entities_except_self(24, 'borgy:sonic_absorber_entity'), { v.y = v.y + (t.sonic_absorber -> query.has_any_family('sonicAbsorber')); }); return v.y > 0.0;"
+				]
+			}
+        },
         "animation.houndeye_one_shockwave": {
             "animation_length": 3.77,
 			"loop": true,
@@ -52,6 +61,15 @@
 			"timeline": {
 				"0": [
 					"@s borgy:four_houndeye_attack"
+				]
+			}
+        },
+        "animation.houndeye_no_shockwave": {
+            "animation_length": 3.77,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"@s borgy:no_houndeye_attack"
 				]
 			}
         },

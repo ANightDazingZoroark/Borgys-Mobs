@@ -251,32 +251,35 @@
                 "default": {
                     "transitions": [
                         {
-                            "shockwave_one": "query.is_sheared && query.mark_variant == 0"
+                            "shockwave_absorbed": "query.is_sheared && query.is_powered"
                         },
                         {
-                            "shockwave_two": "query.is_sheared && query.mark_variant == 1"
+                            "shockwave_one": "!query.is_powered && query.is_sheared && query.mark_variant == 0"
                         },
                         {
-                            "shockwave_three": "query.is_sheared && query.mark_variant == 2"
+                            "shockwave_two": "!query.is_powered && query.is_sheared && query.mark_variant == 1"
                         },
                         {
-                            "shockwave_four": "query.is_sheared && query.mark_variant == 3"
+                            "shockwave_three": "!query.is_powered && query.is_sheared && query.mark_variant == 2"
+                        },
+                        {
+                            "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
                         }
                     ]
                 },
                 "shockwave_one": {
                     "transitions": [
                         {
-                            "default": "!query.is_sheared"
+                            "default": "!query.is_sheared || query.is_powered"
                         },
                         {
-                            "shockwave_two": "query.is_sheared && query.mark_variant == 1"
+                            "shockwave_two": "!query.is_powered && query.is_sheared && query.mark_variant == 1"
                         },
                         {
-                            "shockwave_three": "query.is_sheared && query.mark_variant == 2"
+                            "shockwave_three": "!query.is_powered && query.is_sheared && query.mark_variant == 2"
                         },
                         {
-                            "shockwave_four": "query.is_sheared && query.mark_variant == 3"
+                            "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
                         }
                     ],
                     "animations": [
@@ -286,16 +289,16 @@
                 "shockwave_two": {
                     "transitions": [
                         {
-                            "default": "!query.is_sheared"
+                            "default": "!query.is_sheared || query.is_powered"
                         },
                         {
-                            "shockwave_one": "query.is_sheared && query.mark_variant == 0"
+                            "shockwave_one": "!query.is_powered && query.is_sheared && query.mark_variant == 0"
                         },
                         {
-                            "shockwave_three": "query.is_sheared && query.mark_variant == 2"
+                            "shockwave_three": "!query.is_powered && query.is_sheared && query.mark_variant == 2"
                         },
                         {
-                            "shockwave_four": "query.is_sheared && query.mark_variant == 3"
+                            "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
                         }
                     ],
                     "animations": [
@@ -305,16 +308,16 @@
                 "shockwave_three": {
                     "transitions": [
                         {
-                            "default": "!query.is_sheared"
+                            "default": "!query.is_sheared || query.is_powered"
                         },
                         {
-                            "shockwave_one": "query.is_sheared && query.mark_variant == 0"
+                            "shockwave_one": "!query.is_powered && query.is_sheared && query.mark_variant == 0"
                         },
                         {
-                            "shockwave_three": "query.is_sheared && query.mark_variant == 2"
+                            "shockwave_three": "!query.is_powered && query.is_sheared && query.mark_variant == 2"
                         },
                         {
-                            "shockwave_four": "query.is_sheared && query.mark_variant == 3"
+                            "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
                         }
                     ],
                     "animations": [
@@ -324,20 +327,42 @@
                 "shockwave_four": {
                     "transitions": [
                         {
-                            "default": "!query.is_sheared"
+                            "default": "!query.is_sheared || query.is_powered"
                         },
                         {
-                            "shockwave_one": "query.is_sheared && query.mark_variant == 0"
+                            "shockwave_one": "!query.is_powered && query.is_sheared && query.mark_variant == 0"
                         },
                         {
-                            "shockwave_three": "query.is_sheared && query.mark_variant == 1"
+                            "shockwave_three": "!query.is_powered && query.is_sheared && query.mark_variant == 1"
                         },
                         {
-                            "shockwave_three": "query.is_sheared && query.mark_variant == 2"
+                            "shockwave_three": "!query.is_powered && query.is_sheared && query.mark_variant == 2"
                         }
                     ],
                     "animations": [
                         "animShockwaveFour"
+                    ]
+                },
+                "shockwave_absorbed": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared || !query.is_powered"
+                        },
+                        {
+                            "shockwave_one": "!query.is_powered && query.is_sheared && query.mark_variant == 0"
+                        },
+                        {
+                            "shockwave_two": "!query.is_powered && query.is_sheared && query.mark_variant == 1"
+                        },
+                        {
+                            "shockwave_three": "!query.is_powered && query.is_sheared && query.mark_variant == 2"
+                        },
+                        {
+                            "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
+                        }
+                    ],
+                    "animations": [
+                        "animShockwaveNone"
                     ]
                 }
             }
@@ -348,7 +373,7 @@
                 "default": {
                     "transitions": [
                         {
-                            "shockwave": "query.is_sheared"
+                            "shockwave": "query.is_sheared && !query.is_powered"
                         }
                     ]
                 },
@@ -358,7 +383,38 @@
                     ],
                     "transitions": [
                         {
-                            "default": "!query.is_sheared"
+                            "default": "!query.is_sheared || query.is_powered"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.houndeye_detect_sonic_absorber": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        "animSonicAbsorberDetection"
+                    ],
+                    "transitions": [
+                        {
+                            "absorbed": "v.y > 0"
+                        }
+                    ]
+                },
+                "absorbed": {
+                    "animations": [
+                        "animSonicAbsorberDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:disable_shockwave"
+                    ],
+                    "on_exit": [
+                        "@s borgy:enable_shockwave"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "v.y == 0"
                         }
                     ]
                 }

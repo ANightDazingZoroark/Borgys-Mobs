@@ -1,0 +1,25 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "borgy:sound_absorbent_crafting"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "priority": 0,
+        "ingredients": [
+            {
+                "item": "minecraft:slime_ball",
+                "count": 1
+            },
+            {
+                "item": "minecraft:wool",
+                "count": 1
+            }
+        ],
+        "result": {
+            "item": "borgy:sound_absorbent"
+        }
+    }
+}
