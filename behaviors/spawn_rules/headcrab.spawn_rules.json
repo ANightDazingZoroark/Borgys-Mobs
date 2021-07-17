@@ -10,7 +10,7 @@
 				"minecraft:spawns_on_surface": {},
 				"minecraft:spawns_underground": {},
 				"minecraft:weight": {
-					"default": 15
+					"default": 5
 				},
 				"minecraft:biome_filter": {
 					"any_of": [
@@ -22,7 +22,7 @@
 					]
 				},
 				"minecraft:density_limit": {
-					"surface": 8
+					"surface": 2
 				}
 			}
 		]
