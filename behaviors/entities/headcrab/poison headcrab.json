@@ -10,6 +10,11 @@
         "component_groups": {
             "borgy:into_poison_headcrab_zombie": {
                 "minecraft:instant_despawn": {}
+            },
+            "borgy:remove_poison": {
+                "minecraft:spell_effects": {
+                    "remove_effects": "poison"
+                }
             }
         },
         "components": {
@@ -70,6 +75,29 @@
                 "set_persistent": true,
                 "yd": 0.6
             },
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "filters": {
+                            "test": "has_mob_effect",
+                            "subject": "self",
+                            "value": "poison"
+                        },
+                        "event": "borgy:remove_poison_effect",
+                        "subject": "self"
+                    },
+                    {
+                        "filters": {
+                            "test": "has_mob_effect",
+                            "subject": "self",
+                            "operator": "!=",
+                            "value": "poison"
+                        },
+                        "event": "borgy:stop_remove_poison_effect",
+                        "subject": "self"
+                    }
+                ]
+            },
             "minecraft:behavior.nearest_attackable_target": {
                 "priority": 2,
                 "within_radius": 24,
@@ -77,9 +105,18 @@
                 "entity_types": [
                     {
                         "filters": {
-                            "test": "is_family",
-                            "subject": "other",
-                            "value": "player"
+                            "all_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "is_riding",
+                                    "subject": "other",
+                                    "value": false
+                                }
+                            ]
                         },
                         "max_dist": 24
                     },
@@ -172,6 +209,20 @@
                 "add": {
                     "component_groups": [
                         "borgy:into_poison_headcrab_zombie"
+                    ]
+                }
+            },
+            "borgy:remove_poison_effect": {
+                "add": {
+                    "component_groups": [
+                        "borgy:remove_poison"
+                    ]
+                }
+            },
+            "borgy:stop_remove_poison_effect": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:remove_poison"
                     ]
                 }
             }

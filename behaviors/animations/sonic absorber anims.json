@@ -9,6 +9,15 @@
                     "/execute @s ~ ~ ~ detect ~ ~ ~ air 0 kill @s"
 				]
 			}
+        },
+        "animation.disable_sonic_cannons": {
+            "animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": [
+                    "/event entity @e[type=borgy:sonic_cannon_entity, r=32] borgy:nullified"
+				]
+			}
         }
     }
 }

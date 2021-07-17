@@ -1,0 +1,29 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "borgy:sonic_absorber_crafting"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			"#+#",
+			"#+#",
+			"+++"
+		],
+		"key": {
+			"#": {
+				"item": "borgy:sound_absorbent"
+			},
+            "+": {
+				"item": "minecraft:iron_ingot"
+			}
+		},
+		"result": [
+			{
+				"item": "borgy:sonic_absorber"
+			}
+		]
+	}
+}

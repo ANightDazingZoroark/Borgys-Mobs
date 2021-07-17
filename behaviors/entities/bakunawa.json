@@ -12,6 +12,7 @@
                 "contHasHeart": "controller.animation.bakunawa_has_heart",
                 "contReturnToAir": "controller.animation.bakunawa_wild_force_fly",
                 "contForcedAttack": "controller.animation.bakunawa_forced_attack",
+                "contAddTameTag": "controller.animation.add_tame_tag",
                 "animForcedAttack": "animation.forced_attack_bakunawa",
                 "animFastInAir": "animation.bakunawa_fast_in_air",
                 "animHeartEffects": "animation.bakunawa_heart_effects"
@@ -22,7 +23,8 @@
                     "contFasterInAir",
                     "contHasHeart",
                     "contReturnToAir",
-                    "contForcedAttack"
+                    "contForcedAttack",
+                    "contAddTameTag"
                 ]
             }
         },
@@ -50,7 +52,7 @@
                     "value": 0.25
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 0
+                    "priority": 4
                 },
                 "minecraft:physics": {
                     "has_gravity": true
@@ -195,7 +197,7 @@
                     "table": "loot_tables/bakunawa.loot.json"
                 },
                 "minecraft:behavior.hurt_by_target": {
-                    "priority": 3,
+                    "priority": 2,
                     "entity_types": {
                         "filters": {
                             "test": "is_family",
@@ -220,7 +222,7 @@
             },
             "borgy:default_targets": {
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 2,
+                    "priority": 3,
                     "within_radius": 64,
                     "entity_types": [
                         {
@@ -253,7 +255,7 @@
             },
             "borgy:attack_forced_attack_entity": {
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 2,
+                    "priority": 3,
                     "entity_types": [
                         {
                             "filters": {
@@ -392,6 +394,43 @@
 							}
 						}
 					]
+				},
+                "minecraft:breedable": {
+                    "breeds_with": {
+                        "mate_type": "borgy:bakunawa",
+                        "baby_type": "borgy:bakunawa_egg",
+                        "breed_event": {
+                            "event": "minecraft:entity_spawned",
+                            "target": "baby"
+                        }
+                    },
+                    "breed_items": [
+                        "minecraft:beef",
+                        "minecraft:cooked_beef",
+                        "minecraft:porkchop",
+                        "minecraft:cooked_porkchop",
+                        "minecraft:chicken",
+                        "minecraft:cooked_chicken",
+                        "minecraft:mutton",
+                        "minecraft:cooked_mutton",
+                        "minecraft:rabbit",
+                        "minecraft:cooked_rabbit",
+                        "minecraft:rotten_flesh",
+                        "minecraft:fish",
+                        "minecraft:cooked_fish",
+                        "minecraft:salmon",
+                        "minecraft:cooked_salmon",
+                        "minecraft:tropical_fish",
+                        "minecraft:pufferfish",
+                        "borgy:raw_alien_meat",
+                        "borgy:cooked_alien_meat",
+                        "borgy:raw_headcrab",
+                        "borgy:cooked_headcrab"
+                    ],
+                    "require_tame": true,
+                    "require_full_health": true,
+                    "inherit_tamed": false,
+                    "breed_cooldown": 1200
 				}
             },
             "borgy:bakunawa_adult_tamed_no_rider": {
@@ -399,7 +438,7 @@
                     "is_amphibious": false,
                     "can_path_over_water": true,
                     "can_swim": true,
-                    "can_walk": false,
+                    "can_walk": true,
                     "can_breach": false,
                     "can_sink": false
                 }
@@ -409,7 +448,7 @@
                     "is_amphibious": false,
                     "can_path_over_water": true,
                     "can_swim": true,
-                    "can_walk": false,
+                    "can_walk": true,
                     "can_breach": false,
                     "can_sink": false
                 }
@@ -419,7 +458,7 @@
                     "is_amphibious": false,
                     "can_path_over_water": true,
                     "can_swim": true,
-                    "can_walk": false,
+                    "can_walk": true,
                     "can_breach": false,
                     "can_sink": true
                 }
@@ -440,7 +479,7 @@
                     "avoid_damage_blocks": true
                 },
                 "minecraft:behavior.random_stroll": {
-                    "priority": 4
+                    "priority": 5
                 },
                 "minecraft:physics": {
                     "has_gravity": true
@@ -451,7 +490,7 @@
                     "can_path_over_water": true
                 },
                 "minecraft:behavior.float_wander": {
-                    "priority": 2
+                    "priority": 5
                 },
                 "minecraft:physics": {
                     "has_gravity": false
@@ -465,7 +504,7 @@
                     "def": "borgy:bakunawa_projectile"
                 },
                 "minecraft:behavior.ranged_attack": {
-                    "priority": 1,
+                    "priority": 4,
                     "speed_multiplier": 1,
                     "burst_shots": 3,
                     "burst_interval": 0.3,
@@ -479,12 +518,12 @@
                     "is_amphibious": false,
                     "can_path_over_water": false,
                     "can_swim": true,
-                    "can_walk": false,
+                    "can_walk": true,
                     "can_breach": true,
                     "can_sink": false
                 },
                 "minecraft:behavior.random_swim": {
-                    "priority": 4,
+                    "priority": 5,
                     "interval": 0,
                     "xz_dist": 20
                 },
@@ -492,7 +531,7 @@
                     "has_gravity": true
                 },
                 "minecraft:behavior.delayed_attack": {
-                    "priority": 1,
+                    "priority": 4,
                     "attack_duration": 0.52,
                     "hit_delay_pct": 1,
                     "track_target": true,
@@ -515,7 +554,7 @@
             },
             "borgy:bakunawa_adult_land_use_melee": {
                 "minecraft:behavior.delayed_attack": {
-                    "priority": 1,
+                    "priority": 4,
                     "attack_duration": 0.52,
                     "hit_delay_pct": 1,
                     "track_target": true,
@@ -527,7 +566,7 @@
                     "def": "borgy:bakunawa_projectile"
                 },
                 "minecraft:behavior.ranged_attack": {
-                    "priority": 1,
+                    "priority": 4,
                     "speed_multiplier": 1,
                     "burst_shots": 3,
                     "burst_interval": 0.3,
@@ -539,7 +578,7 @@
             "borgy:bakunawa_tamed": {
                 "minecraft:is_tamed": {},
                 "minecraft:behavior.follow_owner": {
-                    "priority": 4,
+                    "priority": 7,
                     "start_distance": 8
                 },
                 "minecraft:behavior.owner_hurt_target": {
@@ -660,7 +699,12 @@
             "minecraft:jump.static": {},
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:nameable": {},
-            "minecraft:behavior.stay_while_sitting": {},
+            "minecraft:behavior.stay_while_sitting": {
+                "priority": 0
+            },
+            "minecraft:behavior.breed": {
+                "priority": 1
+            },
             "minecraft:interact": {
                 "interactions": [
 					{
@@ -1018,7 +1062,8 @@
                         "borgy:bakunawa_adult_wild",
                         "borgy:default_collision",
                         "borgy:is_pushable",
-                        "borgy:default_family"
+                        "borgy:default_family",
+                        "borgy:default_targets"
                     ]
                 }
             },
@@ -1157,7 +1202,8 @@
                 "add": {
                     "component_groups": [
                         "borgy:bakunawa_adult",
-                        "borgy:bakunawa_adult_wild"
+                        "borgy:bakunawa_adult_wild",
+                        "borgy:default_targets"
                     ]
                 },
                 "remove": {

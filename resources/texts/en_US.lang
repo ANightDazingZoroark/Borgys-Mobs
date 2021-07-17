@@ -43,6 +43,10 @@ item.borgy:raw_alien_meat.name=Raw Alien Meat
 item.borgy:raw_headcrab.name=Raw Headcrab
 item.borgy:sigbin_heart.name=Sigbin Heart
 item.borgy:sigbin_staff.name=Sigbin Staff
+item.borgy:sonic_absorbtion_boots.name=Sonic Absorbtion Boots
+item.borgy:sonic_absorbtion_chestplate.name=Sonic Absorbtion Chestplate
+item.borgy:sonic_absorbtion_helmet.name=Sonic Absorbtion Helmet
+item.borgy:sonic_absorbtion_leggings.name=Sonic Absorbtion Leggings
 item.borgy:sonic_cannon.name=Sonic Cannon
 item.borgy:sound_absorbent.name=Sound Absorbent
 

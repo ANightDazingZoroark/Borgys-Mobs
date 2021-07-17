@@ -8,23 +8,53 @@
             "is_experimental": false,
             "animations": {
                 "contForcedAttack": "controller.animation.icthyosaur_forced_attack",
+                "contAddTameTag": "controller.animation.add_tame_tag",
                 "animForcedAttack": "animation.forced_attack_icthyosaur"
             },
             "scripts": {
                 "animate": [
-                    "contForcedAttack"
+                    "contForcedAttack",
+                    "contAddTameTag"
                 ]
             }
         },
         "component_groups": {
+            "borgy:icthyosaur_baby": {
+                "minecraft:is_baby": {},
+                "minecraft:scale_by_age": {
+                    "start_scale": 0.2,
+                    "end_scale": 0.9
+                },
+                "minecraft:ageable": {
+                    "duration": 1200,
+                    "feed_items": [
+						"minecraft:beef",
+                        "minecraft:porkchop",
+                        "minecraft:muttonraw",
+                        "minecraft:chicken",
+                        "minecraft:rabbit",
+                        "minecraft:fish",
+                        "minecraft:salmon",
+                        "minecraft:tropical_fish",
+                        "minecraft:pufferfish",
+                        "minecraft:rotten_flesh",
+                        "borgy:raw_alien_meat",
+                        "borgy:raw_headcrab"
+                    ],
+                    "grow_up": {
+                        "event": "borgy:grow_up",
+                        "target": "self"
+                    }
+                }
+            },
             "borgy:icthyosaur_wild": {
                 "minecraft:behavior.random_swim": {
-                    "priority": 2,
+                    "priority": 5,
                     "interval": 0,
                     "xz_dist": 20
                 },
                 "minecraft:behavior.hurt_by_target": {
-                    "priority": 3,
+                    "priority": 2,
                     "entity_types": {
                         "filters": {
                             "test": "is_family",
@@ -61,6 +91,7 @@
             },
             "borgy:default_targets": {
                 "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 3,
                     "within_radius": 24,
                     "entity_types": [
                         {
@@ -118,6 +149,7 @@
             },
             "borgy:attack_forced_attack_entity": {
                 "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 3,
                     "entity_types": [
                         {
                             "filters": {
@@ -136,9 +168,27 @@
             },
             "borgy:icthyosaur_tamed": {
                 "minecraft:is_tamed": {},
-                "minecraft:behavior.follow_owner": {},
-                "minecraft:behavior.owner_hurt_target": {},
-                "minecraft:behavior.owner_hurt_by_target": {},
+                "minecraft:behavior.follow_owner": {
+                    "priority": 4
+                },
+                "minecraft:behavior.owner_hurt_target": {
+                    "filters": {
+                        "test": "has_component",
+                        "subject": "self",
+                        "operator": "!=",
+                        "value": "minecraft:is_baby"
+                    },
+                    "priority": 3
+                },
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "filters": {
+                        "test": "has_component",
+                        "subject": "self",
+                        "operator": "!=",
+                        "value": "minecraft:is_baby"
+                    },
+                    "priority": 2
+                },
                 "minecraft:inventory": {
 					"container_type": "horse",
 					"inventory_size": 16
@@ -206,7 +256,35 @@
                             "heal_amount": 15
                         }
                     ]
-                }
+                },
+                "minecraft:breedable": {
+                    "breeds_with": {
+                        "mate_type": "borgy:icthyosaur",
+                        "baby_type": "borgy:icthyosaur",
+                        "breed_event": {
+                            "event": "minecraft:entity_born",
+                            "target": "baby"
+                        }
+                    },
+                    "breed_items": [
+						"minecraft:beef",
+                        "minecraft:porkchop",
+                        "minecraft:muttonraw",
+                        "minecraft:chicken",
+                        "minecraft:rabbit",
+                        "minecraft:fish",
+                        "minecraft:salmon",
+                        "minecraft:tropical_fish",
+                        "minecraft:pufferfish",
+                        "minecraft:rotten_flesh",
+                        "borgy:raw_alien_meat",
+                        "borgy:raw_headcrab"
+                    ],
+                    "require_tame": true,
+                    "require_full_health": true,
+                    "inherit_tamed": true,
+                    "breed_cooldown": 30
+				}
             },
             "borgy:icthyosaur_sittable": {
                 "minecraft:sittable": {}
@@ -309,9 +387,6 @@
                 "width": 1.75,
                 "height": 1.75
             },
-            "minecraft:scale": {
-                "value": 1
-            },
             "minecraft:movement": {
                 "value": 0.10
             },
@@ -325,7 +400,7 @@
             "minecraft:movement.generic": {},
             "minecraft:jump.static": {},
             "minecraft:behavior.delayed_attack": {
-                "priority": 0,
+                "priority": 4,
                 "attack_duration": 0.52,
                 "hit_delay_pct": 1,
                 "track_target": true,
@@ -337,7 +412,12 @@
             "minecraft:experience_reward": {
                 "on_death": "query.last_hit_by_player ? Math.Random(1,3) : 0"
             },
-            "minecraft:behavior.stay_while_sitting": {},
+            "minecraft:behavior.stay_while_sitting": {
+                "priority": 0
+            },
+            "minecraft:behavior.breed": {
+                "priority": 1
+            },
             "minecraft:interact": {
                 "interactions": [
 					{
@@ -493,6 +573,29 @@
                         "borgy:is_pushable",
                         "borgy:default_family",
                         "borgy:default_targets"
+                    ]
+                }
+            },
+            "minecraft:entity_born": {
+                "add": {
+                    "component_groups": [
+                        "borgy:icthyosaur_tamed",
+                        "borgy:icthyosaur_baby",
+                        "borgy:swim_floating",
+                        "borgy:is_pushable",
+                        "borgy:icthyosaur_sittable"
+                    ]
+                }
+            },
+            "borgy:grow_up": {
+                "add": {
+                    "component_groups": [
+                        "borgy:icthyosaur_rideable"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:icthyosaur_baby"
                     ]
                 }
             },

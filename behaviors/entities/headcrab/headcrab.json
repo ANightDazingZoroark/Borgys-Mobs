@@ -71,9 +71,18 @@
                 "entity_types": [
                     {
                         "filters": {
-                            "test": "is_family",
-                            "subject": "other",
-                            "value": "player"
+                            "all_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "is_riding",
+                                    "subject": "other",
+                                    "value": false
+                                }
+                            ]
                         },
                         "max_dist": 24
                     },

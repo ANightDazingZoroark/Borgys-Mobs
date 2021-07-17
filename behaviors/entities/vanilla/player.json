@@ -19,7 +19,9 @@
         "animControlBakunawa": "animation.player_control_bakunawa",
         "animStayBakunawa": "animation.player_bakunawa_stay",
         "animRideBakunawaWithHeart": "animation.player_ride_bakunawa_with_heart",
-        "animWearBakunawaArmor": "animation.player_wear_bakunawa_armor"
+        "animBakunawaDescend": "animation.player_control_bakunawa_descend",
+        "animBakunawaAscend": "animation.player_control_bakunawa_ascend",
+        "animIcthyosaurAscend": "animation.player_control_icthyosaur_ascend"
       },
       "scripts": {
         "animate": [
@@ -28,8 +30,7 @@
           "contControlBakunawa",
           "contBakunawaStaffUse",
           "contRideBakunawaWithHeart",
-          "contDismount",
-          "contWearBakunawaArmor"
+          "contDismount"
         ]
       }
     },
@@ -78,6 +79,11 @@
       "borgy:has_bakunawa_armor": {
         "minecraft:skin_id": {
           "value": 1
+        }
+      },
+      "borgy:has_sonic_absorbtion_armor": {
+        "minecraft:skin_id": {
+          "value": 2
         }
       }
     },
@@ -225,38 +231,69 @@
           },
           {
             "filters": {
+              "all_of": [
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "head",
+                  "value": "borgy:sonic_absorbtion_helmet"
+                },
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "torso",
+                  "value": "borgy:sonic_absorbtion_chestplate"
+                },
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "leg",
+                  "value": "borgy:sonic_absorbtion_leggings"
+                },
+                {
+                  "test": "has_equipment",
+                  "subject": "self",
+                  "domain": "feet",
+                  "value": "borgy:sonic_absorbtion_boots"
+                }
+              ]
+            },
+            "event": "borgy:put_on_sonic_absorbtion_armor"
+          },
+          {
+            "filters": {
               "any_of": [
                 {
                   "test": "has_equipment",
                   "subject": "self",
                   "domain": "head",
                   "operator": "!=",
-                  "value": "borgy:bakunawa_helmet"
+                  "value": "borgy:sonic_absorbtion_helmet"
                 },
                 {
                   "test": "has_equipment",
                   "subject": "self",
                   "domain": "torso",
                   "operator": "!=",
-                  "value": "borgy:bakunawa_chestplate"
+                  "value": "borgy:sonic_absorbtion_chestplate"
                 },
                 {
                   "test": "has_equipment",
                   "subject": "self",
                   "domain": "leg",
                   "operator": "!=",
-                  "value": "borgy:bakunawa_leggings"
+                  "value": "borgy:sonic_absorbtion_leggings"
                 },
                 {
                   "test": "has_equipment",
                   "subject": "self",
                   "domain": "feet",
                   "operator": "!=",
-                  "value": "borgy:bakunawa_boots"
+                  "value": "borgy:sonic_absorbtion_boots"
                 }
               ]
             },
-            "event": "borgy:remove_bakunawa_armor"
+            "event": "borgy:remove_sonic_absorbtion_armor"
           }
         ]
       },
@@ -266,6 +303,96 @@
             "on_damage": {
               "filters": {
                 "all_of": [
+                  { "test": "is_family", "subject": "other", "value": "houndeye" },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "value": "borgy:sonic_absorbtion_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "torso",
+                    "value": "borgy:sonic_absorbtion_chestplate"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "leg",
+                    "value": "borgy:sonic_absorbtion_leggings"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "feet",
+                    "value": "borgy:sonic_absorbtion_boots"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:leather_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:gold_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:chainmail_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:iron_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:diamond_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:netherite_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:bakunawa_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:sonic_absorbtion_helmet"
+                  },
                   { "test": "is_family", "subject": "other", "value": "headcrab" },
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "headcrab_zombie" }
                 ]
@@ -278,6 +405,62 @@
             "on_damage": {
               "filters": {
                 "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:leather_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:gold_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:chainmail_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:iron_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:diamond_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:netherite_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:bakunawa_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:sonic_absorbtion_helmet"
+                  },
                   { "test": "is_family", "subject": "other", "value": "fastHeadcrab" },
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "fast_headcrab_zombie" }
                 ]
@@ -290,6 +473,62 @@
             "on_damage": {
               "filters": {
                 "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:leather_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:gold_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:chainmail_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:iron_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:diamond_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:netherite_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:bakunawa_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:sonic_absorbtion_helmet"
+                  },
                   { "test": "is_family", "subject": "other", "value": "poisonHeadcrab" },
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "poison_headcrab_zombie" },
                   { "test": "has_mob_effect", "subject": "self", "operator": "==", "value": "poison" },
@@ -362,26 +601,25 @@
         }
       },
       "borgy:put_on_bakunawa_armor": {
-        "add": {
-          "component_groups": [
-            "borgy:has_bakunawa_armor"
-          ]
-        },
-        "remove": {
-          "component_groups": [
-            "borgy:no_special_things"
+        "run_command": {
+          "command": [
+            "effect @s conduit_power 3 2 true",
+            "effect @s strength 3 2 true",
+            "effect @s slow_falling 3 2 true"
           ]
         }
       },
-      "borgy:remove_bakunawa_armor": {
-        "add": {
-          "component_groups": [
-            "borgy:no_special_things"
+      "borgy:put_on_sonic_absorbtion_armor": {
+        "run_command": {
+          "command": [
+            "tag @s add hasSonicAbsorb"
           ]
-        },
-        "remove": {
-          "component_groups": [
-            "borgy:has_bakunawa_armor"
+        }
+      },
+      "borgy:remove_sonic_absorbtion_armor": {
+        "run_command": {
+          "command": [
+            "tag @s remove hasSonicAbsorb"
           ]
         }
       }

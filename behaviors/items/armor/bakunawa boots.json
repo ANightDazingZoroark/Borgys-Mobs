@@ -29,13 +29,13 @@
 						"items": [
 							"borgy:bakunawa_scales"
 						],
-						"repair_amount": "query.max_damage * 0.25"
+						"repair_amount": 107
 					},
                     {
                         "items": [
-                            "borgy:bakunawa_chestplate"
+                            "borgy:bakunawa_boots"
                         ],
-                        "repair_amount": "context.other->query.remaining_health + 0.12 * context.other->query.max-damage"
+                        "repair_amount": 150
                     }
 				]
 			},

@@ -156,6 +156,11 @@
                     "priority": 4,
                     "reach_multiplier": 1.5
                 }
+            },
+            "borgy:remove_poison": {
+                "minecraft:spell_effects": {
+                    "remove_effects": "poison"
+                }
             }
         },
         "components": {
@@ -320,10 +325,20 @@
                     },
                     {
                         "filters": {
-                            "test": "is_family",
-                            "subject": "other",
-                            "value": "player"
-                        }
+                            "all_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "is_riding",
+                                    "subject": "other",
+                                    "value": false
+                                }
+                            ]
+                        },
+                        "max_dist": 24
                     }
                 ]
             },
@@ -334,6 +349,29 @@
             },
             "minecraft:despawn": {
                 "despawn_from_distance": {}
+            },
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "filters": {
+                            "test": "has_mob_effect",
+                            "subject": "self",
+                            "value": "poison"
+                        },
+                        "event": "borgy:remove_poison_effect",
+                        "subject": "self"
+                    },
+                    {
+                        "filters": {
+                            "test": "has_mob_effect",
+                            "subject": "self",
+                            "operator": "!=",
+                            "value": "poison"
+                        },
+                        "event": "borgy:stop_remove_poison_effect",
+                        "subject": "self"
+                    }
+                ]
             },
             "minecraft:damage_sensor": {
                 "triggers": [
@@ -521,6 +559,20 @@
                 "remove": {
                     "component_groups": [
                         "borgy:on_throw_poison_headcrab"
+                    ]
+                }
+            },
+            "borgy:remove_poison_effect": {
+                "add": {
+                    "component_groups": [
+                        "borgy:remove_poison"
+                    ]
+                }
+            },
+            "borgy:stop_remove_poison_effect": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:remove_poison"
                     ]
                 }
             }

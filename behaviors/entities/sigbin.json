@@ -8,20 +8,41 @@
             "is_experimental": false,
             "animations": {
                 "contInvisibility": "controller.animation.sigbin_invisibility",
+                "contAddTameTag": "controller.animation.add_tame_tag",
                 "animInvisible": "animation.sigbin_invisibility"
             },
             "scripts": {
                 "animate": [
-                    "contInvisibility"
+                    "contInvisibility",
+                    "contAddTameTag"
                 ]
             }
         },
         "component_groups": {
+            "borgy:sigbin_baby": {
+                "minecraft:is_baby": {},
+                "minecraft:scale_by_age": {
+                    "start_scale": 0.2,
+                    "end_scale": 0.6
+                },
+                "minecraft:ageable": {
+                    "duration": 1200,
+                    "feed_items": [
+                        "minecraft:rotten_flesh"
+                    ],
+                    "grow_up": {
+                        "event": "borgy:grow_up",
+                        "target": "self"
+                    }
+                }
+            },
             "borgy:wild": {
                 "minecraft:behavior.hurt_by_target": {
-                    "priority": 3
+                    "priority": 2
                 },
-                "minecraft:behavior.random_stroll": {},
+                "minecraft:behavior.random_stroll": {
+                    "priority": 6
+                },
                 "minecraft:despawn": {
                     "despawn_from_distance": {}
                 }
@@ -61,7 +82,7 @@
                     }
                 },
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 1,
+                    "priority": 3,
                     "within_radius": 24,
                     "reselect_targets": true,
                     "entity_types": [
@@ -155,7 +176,7 @@
                     ]
                 },
                 "minecraft:behavior.delayed_attack": {
-                    "priority": 0,
+                    "priority": 4,
                     "speed_multiplier": 1.75,
                     "attack_duration": 0.6,
                     "hit_delay_pct": 0.8,
@@ -201,7 +222,7 @@
                     ]
                 },
                 "minecraft:behavior.delayed_attack": {
-                    "priority": 0,
+                    "priority": 4,
                     "speed_multiplier": 1.75,
                     "attack_duration": 0.6,
                     "hit_delay_pct": 0.8,
@@ -234,12 +255,44 @@
             },
             "borgy:tamed_at_night": {
                 "minecraft:behavior.follow_owner": {
-                    "priority": 4
+                    "priority": 5
                 },
                 "minecraft:behavior.owner_hurt_target": {
+                    "filters": {
+                        "test": "has_component",
+                        "subject": "self",
+                        "operator": "!=",
+                        "value": "minecraft:is_baby"
+                    },
                     "priority": 3
                 },
                 "minecraft:behavior.owner_hurt_by_target": {
+                    "filters": {
+                        "test": "has_component",
+                        "subject": "self",
+                        "operator": "!=",
+                        "value": "minecraft:is_baby"
+                    },
+                    "priority": 2
+                },
+                "minecraft:breedable": {
+                    "breeds_with": {
+                        "mate_type": "borgy:sigbin",
+                        "baby_type": "borgy:sigbin",
+                        "breed_event": {
+                            "event": "minecraft:entity_born",
+                            "target": "baby"
+                        }
+                    },
+                    "breed_items": [
+                        "minecraft:rotten_flesh"
+                    ],
+                    "require_tame": true,
+                    "require_full_health": true,
+                    "inherit_tamed": true,
+                    "breed_cooldown": 30
+				},
+                "minecraft:behavior.breed": {
                     "priority": 2
                 }
             }
@@ -307,6 +360,12 @@
                                         "test": "has_component",
                                         "subject": "self",
                                         "operator": "!=",
+                                        "value": "minecraft:is_baby"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "operator": "!=",
                                         "value": "minecraft:is_charged"
                                     },
                                     {
@@ -334,6 +393,12 @@
                                         "test": "has_component",
                                         "subject": "self",
                                         "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "operator": "!=",
+                                        "value": "minecraft:is_baby"
                                     },
                                     {
                                         "test": "has_component",
@@ -465,6 +530,21 @@
                     "component_groups": [
                         "borgy:wild",
                         "borgy:invisible"
+                    ]
+                }
+            },
+            "minecraft:entity_born": {
+                "add": {
+                    "component_groups": [
+                        "borgy:sigbin_baby",
+                        "borgy:tamed"
+                    ]
+                }
+            },
+            "borgy:grow_up": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:sigbin_baby"
                     ]
                 }
             },

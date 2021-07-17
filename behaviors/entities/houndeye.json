@@ -12,6 +12,7 @@
                 "contShockwave": "controller.animation.houndeye_shockwave",
                 "contShockwaveCamera": "controller.animation.houndeye_shockwave_camera",
                 "contDetectSonicAbsorber": "controller.animation.houndeye_detect_sonic_absorber",
+                "contAddTameTag": "controller.animation.add_tame_tag",
                 "animPackDetection": "animation.houndeye_pack_detection",
                 "animTamedPackDetection": "animation.houndeye_tamed_pack_detection",
                 "animShockwaveOne": "animation.houndeye_one_shockwave",
@@ -28,11 +29,33 @@
                     "contTamedPackDetection",
                     "contShockwave",
                     "contShockwaveCamera",
-                    "contDetectSonicAbsorber"
+                    "contDetectSonicAbsorber",
+                    "contAddTameTag"
                 ]
             }
         },
         "component_groups": {
+            "borgy:houndeye_baby": {
+                "minecraft:is_baby": {},
+                "minecraft:scale_by_age": {
+                    "start_scale": 0.2,
+                    "end_scale": 0.6
+                },
+                "minecraft:ageable": {
+                    "duration": 1200,
+                    "feed_items": [
+                        "minecraft:cooked_beef",
+                        "minecraft:cooked_porkchop",
+                        "minecraft:cooked_chicken",
+                        "minecraft:cooked_mutton",
+                        "minecraft:cooked_rabbit"
+                    ],
+                    "grow_up": {
+                        "event": "borgy:grow_up",
+                        "target": "self"
+                    }
+                }
+            },
             "borgy:houndeye_wild": {
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 3,
@@ -64,41 +87,54 @@
                                         "value": "player"
                                     },
                                     {
-                                        "test": "is_sneaking",
-                                        "subject": "other",
-                                        "value": false
-                                    },
-                                    {
                                         "any_of": [
                                             {
-                                                "test": "has_equipment",
+                                                "test": "is_riding",
                                                 "subject": "other",
-                                                "operator": "!=",
-                                                "value": "minecraft:cooked_beef"
+                                                "value": false
                                             },
                                             {
-                                                "test": "has_equipment",
-                                                "subject": "other",
-                                                "operator": "!=",
-                                                "value": "minecraft:cooked_porkchop"
-                                            },
-                                            {
-                                                "test": "has_equipment",
-                                                "subject": "other",
-                                                "operator": "!=",
-                                                "value": "minecraft:cooked_chicken"
-                                            },
-                                            {
-                                                "test": "has_equipment",
-                                                "subject": "other",
-                                                "operator": "!=",
-                                                "value": "minecraft:muttoncooked"
-                                            },
-                                            {
-                                                "test": "has_equipment",
-                                                "subject": "other",
-                                                "operator": "!=",
-                                                "value": "minecraft:cooked_rabbit"
+                                                "all_of": [
+                                                    {
+                                                        "test": "is_sneaking",
+                                                        "subject": "other",
+                                                        "value": false
+                                                    },
+                                                    {
+                                                        "any_of": [
+                                                            {
+                                                                "test": "has_equipment",
+                                                                "subject": "other",
+                                                                "operator": "!=",
+                                                                "value": "minecraft:cooked_beef"
+                                                            },
+                                                            {
+                                                                "test": "has_equipment",
+                                                                "subject": "other",
+                                                                "operator": "!=",
+                                                                "value": "minecraft:cooked_porkchop"
+                                                            },
+                                                            {
+                                                                "test": "has_equipment",
+                                                                "subject": "other",
+                                                                "operator": "!=",
+                                                                "value": "minecraft:cooked_chicken"
+                                                            },
+                                                            {
+                                                                "test": "has_equipment",
+                                                                "subject": "other",
+                                                                "operator": "!=",
+                                                                "value": "minecraft:muttoncooked"
+                                                            },
+                                                            {
+                                                                "test": "has_equipment",
+                                                                "subject": "other",
+                                                                "operator": "!=",
+                                                                "value": "minecraft:cooked_rabbit"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
                                             }
                                         ]
                                     }
@@ -170,9 +206,21 @@
                     "priority": 4
                 },
                 "minecraft:behavior.owner_hurt_target": {
+                    "filters": {
+                        "test": "has_component",
+                        "subject": "self",
+                        "operator": "!=",
+                        "value": "minecraft:is_baby"
+                    },
                     "priority": 3
                 },
                 "minecraft:behavior.owner_hurt_by_target": {
+                    "filters": {
+                        "test": "has_component",
+                        "subject": "self",
+                        "operator": "!=",
+                        "value": "minecraft:is_baby"
+                    },
                     "priority": 2
                 },
                 "minecraft:healable": {
@@ -198,7 +246,28 @@
                             "heal_amount": 15
                         }
                     ]
-                }
+                },
+                "minecraft:breedable": {
+                    "breeds_with": {
+                        "mate_type": "borgy:houndeye",
+                        "baby_type": "borgy:houndeye",
+                        "breed_event": {
+                            "event": "minecraft:entity_born",
+                            "target": "baby"
+                        }
+                    },
+                    "breed_items": [
+                        "minecraft:cooked_beef",
+                        "minecraft:cooked_porkchop",
+                        "minecraft:cooked_chicken",
+                        "minecraft:cooked_mutton",
+                        "minecraft:cooked_rabbit"
+                    ],
+                    "require_tame": true,
+                    "require_full_health": true,
+                    "inherit_tamed": true,
+                    "breed_cooldown": 30
+				}
             },
             "borgy:shockwave_disabled": {
                 "minecraft:is_charged": {}
@@ -409,6 +478,9 @@
             },
             "minecraft:behavior.stay_while_sitting": {
                 "priority": 0
+            },
+            "minecraft:behavior.breed": {
+                "priority": 1
             }
         },
         "events": {
@@ -417,6 +489,21 @@
                     "component_groups": [
                         "borgy:houndeye_wild",
                         "borgy:houndeye_wild_calm"
+                    ]
+                }
+            },
+            "minecraft:entity_born": {
+                "add": {
+                    "component_groups": [
+                        "borgy:houndeye_baby",
+                        "borgy:houndeye_tamed"
+                    ]
+                }
+            },
+            "borgy:grow_up": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:houndeye_baby"
                     ]
                 }
             },

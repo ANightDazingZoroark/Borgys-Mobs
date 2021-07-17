@@ -15,7 +15,7 @@
 					"name": "status",
 					"pivot": [0, 0, 0],
 					"locators": {
-						"tamestatus": [0, 40, 0]
+						"tamestatus": [0, 60, 0]
 					}
 				},
 				{

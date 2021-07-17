@@ -13,6 +13,15 @@
 				]
 			}
         },
+		"animation.player_control_icthyosaur_ascend": {
+            "animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": [
+                    "/effect @e[type=borgy:icthyosaur, c=1, tag=tamed] levitation 1 4"
+				]
+			}
+        },
         "animation.player_control_icthyosaur_bite": {
             "animation_length": 0.52,
 			"loop": true,
@@ -34,6 +43,24 @@
 				]
 			}
         },
+		"animation.player_control_bakunawa_descend": {
+            "animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": [
+                    "/effect @e[type=borgy:bakunawa, c=1, tag=tamed] slow_falling 1 1"
+				]
+			}
+        },
+		"animation.player_control_bakunawa_ascend": {
+            "animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": [
+                    "/effect @e[type=borgy:bakunawa, c=1, tag=tamed] levitation 1 2"
+				]
+			}
+        },
         "animation.player_bakunawa_stay": {
             "animation_length": 0.05,
 			"loop": true,
@@ -49,17 +76,6 @@
 			"timeline": {
 				"0": [
                     "/effect @s conduit_power 1 1"
-				]
-			}
-        },
-        "animation.player_wear_bakunawa_armor": {
-            "animation_length": 0.01,
-			"loop": true,
-			"timeline": {
-				"0": [
-                    "/effect @s conduit_power 3 2 true",
-                    "/effect @s strength 3 2 true",
-                    "/effect @s slow_falling 3 2 true"
 				]
 			}
         }

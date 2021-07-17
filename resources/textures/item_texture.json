@@ -53,6 +53,9 @@
 		"headcrab launcher": {
 			"textures": "textures/items/headcrab launcher"
 		},
+		"sonic cannon": {
+			"textures": "textures/items/sonic cannon"
+		},
 		"bakunawa helmet": {
 			"textures": "textures/items/bakunawa helmet"
 		},
@@ -64,6 +67,18 @@
 		},
 		"bakunawa boots": {
 			"textures": "textures/items/bakunawa boots"
+		},
+		"sonic absorbtion helmet": {
+			"textures": "textures/items/sonic absorbtion helmet"
+		},
+		"sonic absorbtion chestplate": {
+			"textures": "textures/items/sonic absorbtion chestplate"
+		},
+		"sonic absorbtion leggings": {
+			"textures": "textures/items/sonic absorbtion leggings"
+		},
+		"sonic absorbtion boots": {
+			"textures": "textures/items/sonic absorbtion boots"
 		}
     }
 }

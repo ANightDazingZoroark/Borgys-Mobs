@@ -7,11 +7,13 @@
 			"is_summonable": true,
 			"is_experimental": false,
             "animations": {
-                "animDetectIfSonicAbsorberDestroyed": "animation.detect_if_sonic_absorber_is_destroyed"
+                "animDetectIfSonicAbsorberDestroyed": "animation.detect_if_sonic_absorber_is_destroyed",
+                "animDisableSonicCannons": "animation.disable_sonic_cannons"
             },
             "scripts": {
                 "animate": [
-                    "animDetectIfSonicAbsorberDestroyed"
+                    "animDetectIfSonicAbsorberDestroyed",
+                    "animDisableSonicCannons"
                 ]
             }
 		},

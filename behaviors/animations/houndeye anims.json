@@ -15,7 +15,7 @@
 			"loop": true,
 			"timeline": {
 				"0": [
-					"v.x = 0.0; for_each(t.houndeye, query.get_nearby_entities_except_self(24, 'borgy:houndeye'), { v.x = v.x + (t.houndeye -> query.is_tamed); }); return v.x > 0.0;"
+					"v.x = 0.0; for_each(t.houndeye, query.get_nearby_entities_except_self(24, 'borgy:houndeye'), { v.x = v.x + ((t.houndeye -> query.is_tamed) && !(t.houndeye -> query.is_baby)); }); return v.x > 0.0;"
 				]
 			}
         },
@@ -77,7 +77,7 @@
             "animation_length": 3.77,
 			"timeline": {
                 "3.04": [
-                    "/camerashake add @a[r=24] 4"
+                    "/camerashake add @a[r=24, tag=!hasSonicAbsorb] 4"
                 ]
 			}
         }

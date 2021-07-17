@@ -7,45 +7,48 @@
 			"is_summonable": true,
 			"is_experimental": false
 		},
-		"components": {
-			"minecraft:behavior.knockback_roar": {
-				"priority": 1,
-				"duration": 1,
-				"attack_time": 0.05,
-				"knockback_damage": 20,
-				"knockback_strength": 0,
-				"knockback_range": 24,
-				"damage_filters": {
-                    "any_of": [
-                        {
-                            "all_of": [
-                                {
-                                    "test": "has_component",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "minecraft:is_tamed"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "player"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "houndeye"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                "on_roar_end": {
-                    "event": "borgy:die",
-                    "target": "self"
-                }
+		"component_groups": {
+			"borgy:sonic_attack": {
+				"minecraft:behavior.knockback_roar": {
+					"priority": 1,
+					"duration": 1,
+					"attack_time": 0.05,
+					"knockback_damage": 20,
+					"knockback_strength": 0,
+					"knockback_range": 24,
+					"damage_filters": {
+						"all_of": [
+							{
+								"test": "has_component",
+								"subject": "other",
+								"operator": "!=",
+								"value": "minecraft:is_tamed"
+							},
+							{
+								"test": "is_family",
+								"subject": "other",
+								"operator": "!=",
+								"value": "player"
+							},
+							{
+								"test": "is_family",
+								"subject": "other",
+								"operator": "!=",
+								"value": "houndeye"
+							}
+						]
+					},
+					"on_roar_end": {
+						"event": "borgy:die",
+						"target": "self"
+					}
+				}
 			},
+			"borgy:nullified": {
+				"minecraft:is_sheared": {}
+			}
+		},
+		"components": {
 			"minecraft:physics": {
 				"has_collision": false,
 				"has_gravity": false
@@ -78,13 +81,48 @@
 			}
 		},
 		"events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": [
+						"borgy:sonic_attack"
+					]
+				}
+			},
+            "borgy:nullified": {
+				"add": {
+					"component_groups": [
+						"borgy:nullified"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"borgy:sonic_attack"
+					]
+				}
+            },
             "borgy:sonic_cannon_effects": {
-                "run_command": {
-                    "command": [
-                        "camerashake add @a[r=24] 4",
-						"playsound sound.sonic_attack @a[r=24]"
-                    ]
-                }
+				"sequence": [
+					{
+						"run_command": {
+							"command": [
+								"playsound sound.sonic_attack @a[r=24]"
+							]
+						}
+					},
+					{
+						"filters": {
+							"test": "has_component",
+							"subject": "self",
+							"operator": "!=",
+							"value": "minecraft:is_sheared"
+						},
+						"run_command": {
+							"command": [
+								"camerashake add @a[r=24, tag=!hasSonicAbsorb] 4"
+							]
+						}
+					}
+				]
             },
 			"borgy:die": {
 				"run_command": {
