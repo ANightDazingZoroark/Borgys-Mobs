@@ -218,6 +218,9 @@
                 },
                 "minecraft:despawn": {
                     "despawn_from_distance": {}
+                },
+                "minecraft:experience_reward": {
+                    "on_death": "query.last_hit_by_player ? Math.Random(20,32) : 0"
                 }
             },
             "borgy:default_targets": {

@@ -1,0 +1,21 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:sarimanok_food",
+			"category": "Items"
+		},
+		"components": {
+			"minecraft:display_name": {
+				"value": "item.borgy:sarimanok_food.name"
+			},
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.borgyMobDrops"
+			},
+			"minecraft:icon": {
+				"texture": "sarimanok food"
+			},
+			"minecraft:render_offsets": "apple"
+		}
+	}
+}

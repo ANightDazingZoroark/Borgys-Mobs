@@ -1,0 +1,38 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:sarimanok",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/sarimanok"
+            },
+            "geometry": {
+                "default": "geometry.sarimanok"
+            },
+            "animations": {
+                "animIdle": "animation.sarimanok.idle",
+                "animWalk": "animation.sarimanok.walk",
+                "animLook": "animation.sarimanok.look",
+                "animWingFlap": "animation.sarimanok.wing_flap",
+                "animFall": "animation.sarimanok.fall",
+                "contMove": "controller.animation.sarimanok_movement"
+            },
+            "scripts": {
+                "animate": [
+                    "contMove",
+                    "animLook"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#de3700",
+				"overlay_color": "#f28937"
+			}
+        }
+    }
+}

@@ -1,0 +1,114 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.sarimanok.walk": {
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"bones": {
+				"leftLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * 10", 0, 0]
+				},
+				"rightLeg": {
+					"rotation": ["math.sin(query.anim_time * 30) * -10", 0, 0]
+				}
+			}
+		},
+		"animation.sarimanok.idle": {
+			"loop": true,
+			"animation_length": 2.08,
+			"bones": {
+				"neck0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"tailBase": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-2.5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.sarimanok.look": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": ["math.clamp(query.target_x_rotation, -7.5, 7.5)", "math.clamp(query.target_y_rotation, -2.5, 2.5)", 0]
+				}
+			}
+		},
+		"animation.sarimanok.wing_flap": {
+			"animation_length": 1.04,
+			"bones": {
+				"leftWingUpper": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.28": [-35, 0, 90],
+						"0.52": [-35, 0, 135],
+						"0.68": [-35, 0, 0],
+						"0.84": [0, 0, 0]
+					}
+				},
+				"leftWingLower": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.28": [-52.5, 0, 0],
+						"0.84": [-52.5, 0, 0],
+						"1.04": [0, 0, 0]
+					}
+				},
+				"rightWingUpper": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.28": [-35, 0, -90],
+						"0.52": [-35, 0, -135],
+						"0.68": [-35, 0, 0],
+						"0.84": [0, 0, 0]
+					}
+				},
+				"rightWingLower": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.28": [-52.5, 0, 0],
+						"0.84": [-52.5, 0, 0],
+						"1.04": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.sarimanok.fall": {
+			"loop": true,
+			"bones": {
+				"leftWingUpper": {
+					"rotation": [-35, 0, "90+(math.sin(query.anim_time * -225)*30)"]
+				},
+				"leftWingLower": {
+					"rotation": [-52.5, 0, 0]
+				},
+				"rightWingUpper": {
+					"rotation": [-35, 0, "-90+(math.sin(query.anim_time * -225)*-30)"]
+				},
+				"rightWingLower": {
+					"rotation": [-52.5, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": ["math.sin(query.anim_time * 225) * 12.5", 0, 0]
+				},
+				"rightLeg": {
+					"rotation": ["math.sin(query.anim_time * 225) * -12.5", 0, 0]
+				}
+			}
+		}
+	}
+}
