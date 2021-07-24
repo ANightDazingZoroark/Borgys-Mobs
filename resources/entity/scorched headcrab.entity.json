@@ -1,0 +1,43 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:scorched_headcrab",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/scorched headcrab"
+            },
+            "geometry": {
+                "default": "geometry.headcrab"
+            },
+            "animations": {
+                "animIdle": "animation.headcrab.idle",
+                "animWalk": "animation.headcrab.walk",
+                "animJump": "animation.headcrab.jump",
+                "animScorchedHeadcrabFire": "animation.scorched_headcrab.scorched_headcrab_fire",
+                "animScorchedHeadcrabSizzle": "animation.scorched_headcrab.scorched_headcrab_sizzle",
+                "contMovement": "controller.animation.headcrab_movement",
+                "contScorchedHeadcrabSizzle": "controller.animation.scorched_headcrab_sizzle"
+            },
+            "scripts": {
+                "animate": [
+                    "contMovement",
+                    "contScorchedHeadcrabSizzle"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "particle_effects": {
+			    "scorchedHeadcrabFire": "borgy:scorched_headcrab_fire",
+                "scorchedHeadcrabSizzle": "borgy:scorched_headcrab_sizzle"
+			},
+            "spawn_egg": {
+				"base_color": "#cb7004",
+				"overlay_color": "#9f5803"
+			}
+        }
+    }
+}

@@ -16,7 +16,6 @@
                 "animIdle": "animation.headcrab.idle",
                 "animWalk": "animation.headcrab.walk",
                 "animJump": "animation.headcrab.jump",
-                "animRide": "animation.headcrab.riding",
                 "contMovement": "controller.animation.headcrab_movement"
             },
             "scripts": {

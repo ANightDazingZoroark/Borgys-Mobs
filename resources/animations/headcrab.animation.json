@@ -57,24 +57,52 @@
 				}
 			}
 		},
-		"animation.headcrab.riding": {
+		"animation.scorched_headcrab.scorched_headcrab_fire": {
 			"loop": true,
-			"bones": {
-				"headcrab": {
-					"rotation": [0, "query.get_ride -> query.target_y_rotation", 0]
-				},
-				"frontLeftLeg1": {
-					"rotation": [115, 0, 0]
-				},
-				"frontRightLeg1": {
-					"rotation": [115, 0, 0]
-				},
-				"backLeftLeg1": {
-					"rotation": [12.5, 0, 0]
-				},
-				"backRightLeg1": {
-					"rotation": [12.5, 0, 0]
-				}
+			"animation_length": 0.5,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "scorchedHeadcrabFire",
+						"locator": "particlelocatorone"
+					},
+					{
+						"effect": "scorchedHeadcrabFire",
+						"locator": "particlelocatortwo"
+					},
+					{
+						"effect": "scorchedHeadcrabFire",
+						"locator": "particlelocatorthree"
+					},
+					{
+						"effect": "scorchedHeadcrabFire",
+						"locator": "particlelocatorfour"
+					}
+				]
+			}
+		},
+		"animation.scorched_headcrab.scorched_headcrab_sizzle": {
+			"loop": true,
+			"animation_length": 0.5,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "scorchedHeadcrabSizzle",
+						"locator": "particlelocatorone"
+					},
+					{
+						"effect": "scorchedHeadcrabSizzle",
+						"locator": "particlelocatortwo"
+					},
+					{
+						"effect": "scorchedHeadcrabSizzle",
+						"locator": "particlelocatorthree"
+					},
+					{
+						"effect": "scorchedHeadcrabSizzle",
+						"locator": "particlelocatorfour"
+					}
+				]
 			}
 		}
 	}

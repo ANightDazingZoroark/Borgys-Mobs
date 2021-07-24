@@ -79,6 +79,19 @@
 					"jump": "mob.poison_headcrab.attack"
 				}
             },
+			"borgy:scorched_headcrab": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab.idle",
+					"hurt": "mob.headcrab.hurt",
+					"death": "mob.headcrab.death",
+					"jump": "mob.headcrab.attack"
+				}
+            },
 			"borgy:bakunawa": {
 				"volume": 2,
 				"pitch": [
@@ -235,6 +248,18 @@
 					"ambient": "mob.sigbin.idle",
 					"hurt": "mob.sigbin.hurt",
 					"death": "mob.sigbin.death"
+				}
+			},
+			"borgy:sarimanok": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.chicken.say",
+					"hurt": "mob.chicken.hurt",
+					"death": "mob.chicken.hurt"
 				}
 			}
         }

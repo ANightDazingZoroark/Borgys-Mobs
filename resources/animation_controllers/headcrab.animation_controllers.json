@@ -16,9 +16,6 @@
                     "transitions": [
                         {
                             "attack": "!query.is_on_ground"
-                        },
-                        {
-                            "riding": "query.is_riding"
                         }
                     ]
 				},
@@ -31,17 +28,22 @@
                             "default": "query.is_on_ground"
                         }
                     ]
-                },
-                "riding": {
+                }
+			}
+		},
+        "controller.animation.scorched_headcrab_sizzle": {
+			"initial_state": "default",
+			"states": {
+				"default": {
                     "animations": [
-                        "animRide"
-                    ],
-                    "transitions": [
                         {
-                            "default": "!query.is_riding"
+                            "animScorchedHeadcrabFire": "!query.is_in_water"
+                        },
+                        {
+                            "animScorchedHeadcrabSizzle": "query.is_in_water"
                         }
                     ]
-                }
+				}
 			}
 		}
     }

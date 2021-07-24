@@ -88,6 +88,42 @@
 					"cubes": [
 						{"origin": [-7.5, 4, -5.5], "size": [15, 8, 16], "uv": [0, 0]}
 					]
+				},
+				{
+					"name": "particleLocatorBoneOne",
+					"parent": "head",
+					"pivot": [-5, 8, -3],
+					"rotation": [45, 0, 0],
+					"locators": {
+						"particlelocatorone": [-5, 8, -3]
+					}
+				},
+				{
+					"name": "particleLocatorBoneTwo",
+					"parent": "head",
+					"pivot": [5, 8, -3],
+					"rotation": [45, 0, 0],
+					"locators": {
+						"particlelocatortwo": [5, 8, -3]
+					}
+				},
+				{
+					"name": "particleLocatorBoneThree",
+					"parent": "head",
+					"pivot": [5, 8, 9],
+					"rotation": [45, 0, 0],
+					"locators": {
+						"particlelocatorthree": [5, 8, 9]
+					}
+				},
+				{
+					"name": "particleLocatorBoneFour",
+					"parent": "head",
+					"pivot": [-5, 8, 9],
+					"rotation": [45, 0, 0],
+					"locators": {
+						"particlelocatorfour": [-5, 8, 9]
+					}
 				}
 			]
 		}
