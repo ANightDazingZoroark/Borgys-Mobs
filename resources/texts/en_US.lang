@@ -22,6 +22,7 @@ entity.borgy:poison_headcrab_zombie.name=Poison Headcrab Zombie
 entity.borgy:bakunawa.name=Bakunawa
 entity.borgy:bakunawa_egg.name=Bakunawa Egg
 entity.borgy:sigbin.name=Sigbin
+entity.borgy:sarimanok.name=Sarimanok
 
 item.borgy:bakunawa_boots.name=Bakunawa Boots
 item.borgy:bakunawa_chestplate.name=Bakunawa Chestplate
@@ -41,6 +42,9 @@ item.borgy:icthyosaur_heart.name=Icthyosaur Heart
 item.borgy:icthyosaur_staff.name=Icthyosaur Staff
 item.borgy:raw_alien_meat.name=Raw Alien Meat
 item.borgy:raw_headcrab.name=Raw Headcrab
+item.borgy:sarimanok_feather.name=Sarimanok Feather
+item.borgy:sarimanok_food.name=Sarimanok Food
+item.borgy:sarimanok_sword.name=Sarimanok Sword
 item.borgy:sigbin_heart.name=Sigbin Heart
 item.borgy:sigbin_staff.name=Sigbin Staff
 item.borgy:sonic_absorbtion_boots.name=Sonic Absorbtion Boots
@@ -69,5 +73,6 @@ item.spawn_egg.entity.borgy:fast_headcrab_zombie.name=Spawn Fast Headcrab Zombie
 item.spawn_egg.entity.borgy:poison_headcrab_zombie.name=Spawn Poison Headcrab Zombie
 item.spawn_egg.entity.borgy:bakunawa.name=Spawn Bakunawa
 item.spawn_egg.entity.borgy:sigbin.name=Spawn Sigbin
+item.spawn_egg.entity.borgy:sarimanok.name=Spawn Sarimanok
 
 tile.borgy:sonic_absorber.name=Sonic Absorber

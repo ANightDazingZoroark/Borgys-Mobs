@@ -32,6 +32,9 @@
 		"bakunawa scales": {
 			"textures": "textures/items/bakunawa scales"
 		},
+		"sarimanok feather": {
+			"textures": "textures/items/sarimanok feather"
+		},
         "raw alien meat": {
 			"textures": "textures/items/raw alien meat"
 		},
@@ -44,6 +47,9 @@
 		"cooked headcrab": {
 			"textures": "textures/items/cooked headcrab"
 		},
+		"sarimanok food": {
+			"textures": "textures/items/sarimanok food"
+		},
 		"sound absorbent": {
 			"textures": "textures/items/sound absorbent"
 		},
@@ -55,6 +61,9 @@
 		},
 		"sonic cannon": {
 			"textures": "textures/items/sonic cannon"
+		},
+		"sarimanok sword": {
+			"textures": "textures/items/sarimanok sword"
 		},
 		"bakunawa helmet": {
 			"textures": "textures/items/bakunawa helmet"
