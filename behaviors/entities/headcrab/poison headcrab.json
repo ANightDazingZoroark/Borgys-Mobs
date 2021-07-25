@@ -43,6 +43,7 @@
             "minecraft:type_family": {
                 "family": [
                     "poisonHeadcrab",
+                    "headcrabGeneral",
                     "mob"
                 ]
             },

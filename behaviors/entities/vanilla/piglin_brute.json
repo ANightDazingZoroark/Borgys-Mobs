@@ -227,6 +227,11 @@
         "minecraft:transformation": {
           "into": "borgy:poison_headcrab_zombie<borgy:has_no_passengers>"
         }
+      },
+      "become_scorched_headcrab_zombie": {
+        "minecraft:transformation": {
+          "into": "borgy:scorched_headcrab_zombie<minecraft:entity_spawned>"
+        }
       }
     },
 
@@ -562,6 +567,74 @@
               "event": "borgy:become_poison_headcrab_zombie",
               "target": "self"
             }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:leather_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:gold_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:chainmail_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:iron_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:diamond_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:netherite_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:bakunawa_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:sonic_absorbtion_helmet"
+                  },
+                  { "test": "is_family", "subject": "other", "value": "scorchedHeadcrab" },
+                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "scorched_headcrab_zombie" }
+                ]
+              },
+              "event": "borgy:become_scorched_headcrab_zombie",
+              "target": "self"
+            }
           }
         ]
       },
@@ -685,6 +758,10 @@
       "borgy:become_poison_headcrab_zombie": {
         "add": { "component_groups": [ "become_poison_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:poison_headcrab, c=1] borgy:into_poison_headcrab_zombie" ] }
+      },
+      "borgy:become_scorched_headcrab_zombie": {
+        "add": { "component_groups": [ "become_scorched_headcrab_zombie" ] },
+        "run_command": { "command": [ "event entity @e[type=borgy:scorched_headcrab, c=1] borgy:into_scorched_headcrab_zombie" ] }
       },
       "become_headcrab_zombie_from_fired_headcrab": {
         "add": { "component_groups": [ "become_headcrab_zombie" ] },

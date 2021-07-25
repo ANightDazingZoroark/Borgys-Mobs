@@ -28,6 +28,7 @@
             "minecraft:type_family": {
                 "family": [
                     "headcrab_zombie",
+                    "headcrab_zombie_general",
                     "mob"
                 ]
             },
@@ -61,37 +62,13 @@
                                 "test": "is_family",
                                 "subject": "other",
                                 "operator": "!=",
-                                "value": "headcrab"
+                                "value": "headcrabGeneral"
                             },
                             {
                                 "test": "is_family",
                                 "subject": "other",
                                 "operator": "!=",
-                                "value": "fastHeadcrab"
-                            },
-                            {
-                                "test": "is_family",
-                                "subject": "other",
-                                "operator": "!=",
-                                "value": "poisonHeadcrab"
-                            },
-                            {
-                                "test": "is_family",
-                                "subject": "other",
-                                "operator": "!=",
-                                "value": "headcrab_zombie"
-                            },
-                            {
-                                "test": "is_family",
-                                "subject": "other",
-                                "operator": "!=",
-                                "value": "fast_headcrab_zombie"
-                            },
-                            {
-                                "test": "is_family",
-                                "subject": "other",
-                                "operator": "!=",
-                                "value": "poison_headcrab_zombie"
+                                "value": "headcrab_zombie_general"
                             },
                             {
                                 "test": "is_family",
@@ -135,37 +112,13 @@
                                     "test": "is_family",
                                     "subject": "other",
                                     "operator": "!=",
-                                    "value": "headcrab"
+                                    "value": "headcrabGeneral"
                                 },
                                 {
                                     "test": "is_family",
                                     "subject": "other",
                                     "operator": "!=",
-                                    "value": "fastHeadcrab"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "poisonHeadcrab"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "headcrab_zombie"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "fast_headcrab_zombie"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "poison_headcrab_zombie"
+                                    "value": "headcrab_zombie_general"
                                 },
                                 {
                                     "test": "is_family",

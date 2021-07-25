@@ -8,7 +8,7 @@
             "is_experimental": false
         },
         "component_groups": {
-            "borgy:into_headcrab_zombie": {
+            "borgy:into_scorched_headcrab_zombie": {
                 "minecraft:instant_despawn": {}
             },
             "borgy:not_in_water": {
@@ -70,6 +70,7 @@
             "minecraft:type_family": {
                 "family": [
                     "scorchedHeadcrab",
+                    "headcrabGeneral",
                     "mob"
                 ]
             },
@@ -237,10 +238,10 @@
                     ]
                 }
             },
-            "borgy:into_headcrab_zombie": {
+            "borgy:into_scorched_headcrab_zombie": {
                 "add": {
                     "component_groups": [
-                        "borgy:into_headcrab_zombie"
+                        "borgy:into_scorched_headcrab_zombie"
                     ]
                 }
             }

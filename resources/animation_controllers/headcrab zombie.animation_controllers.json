@@ -117,6 +117,21 @@
                     ]
                 }
 			}
-        }
+        },
+        "controller.animation.scorched_headcrab_zombie_sizzle": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+                    "animations": [
+                        {
+                            "animFire": "!query.is_in_water"
+                        },
+                        {
+                            "animSizzle": "query.is_in_water"
+                        }
+                    ]
+				}
+			}
+		}
     }
 }

@@ -96,6 +96,46 @@
 					}
 				}
 			}
+		},
+		"animation.scorched_headcrab_zombie.fire": {
+			"loop": true,
+			"animation_length": 0.5,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "scorchedHeadcrabFire",
+						"locator": "leftarmemitter"
+					},
+					{
+						"effect": "scorchedHeadcrabFire",
+						"locator": "rightarmemitter"
+					},
+					{
+						"effect": "scorchedHeadcrabZombieFire",
+						"locator": "particleemitter"
+					}
+				]
+			}
+		},
+		"animation.scorched_headcrab_zombie.sizzle": {
+			"loop": true,
+			"animation_length": 0.5,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "scorchedHeadcrabSizzle",
+						"locator": "leftarmemitter"
+					},
+					{
+						"effect": "scorchedHeadcrabSizzle",
+						"locator": "rightarmemitter"
+					},
+					{
+						"effect": "scorchedHeadcrabZombieSizzle",
+						"locator": "particleemitter"
+					}
+				]
+			}
 		}
 	}
 }
