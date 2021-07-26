@@ -98,7 +98,7 @@
 			}
 		},
 		"animation.scorched_headcrab_zombie.fire": {
-			"loop": true,
+			"loop": false,
 			"animation_length": 0.5,
 			"particle_effects": {
 				"0.0": [
@@ -118,7 +118,7 @@
 			}
 		},
 		"animation.scorched_headcrab_zombie.sizzle": {
-			"loop": true,
+			"loop": false,
 			"animation_length": 0.5,
 			"particle_effects": {
 				"0.0": [

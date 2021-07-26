@@ -1,0 +1,15 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.frostbite_headcrab_zombie_effects": {
+            "animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": [
+                    "/effect @e[r=3.5, type=!borgy:frostbite_headcrab, type=!borgy:frostbite_headcrab_zombie, type=!borgy:frostbite_headcrab_hitbox] slowness 5 2",
+                    "/effect @e[r=3.5, type=!borgy:frostbite_headcrab, type=!borgy:frostbite_headcrab_zombie, type=!borgy:frostbite_headcrab_hitbox] weakness 5 2"
+				]
+			}
+        }
+    }
+}

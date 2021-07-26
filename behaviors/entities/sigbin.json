@@ -142,32 +142,12 @@
                                     {
                                         "test": "is_family",
                                         "subject": "other",
-                                        "value": "headcrab"
+                                        "value": "headcrabGeneral"
                                     },
                                     {
                                         "test": "is_family",
                                         "subject": "other",
-                                        "value": "headcrab_zombie"
-                                    },
-                                    {
-                                        "test": "is_family",
-                                        "subject": "other",
-                                        "value": "fastHeadcrab"
-                                    },
-                                    {
-                                        "test": "is_family",
-                                        "subject": "other",
-                                        "value": "fast_headcrab_zombie"
-                                    },
-                                    {
-                                        "test": "is_family",
-                                        "subject": "other",
-                                        "value": "poisonHeadcrab"
-                                    },
-                                    {
-                                        "test": "is_family",
-                                        "subject": "other",
-                                        "value": "poison_headcrab_zombie"
+                                        "value": "headcrab_zombie_general"
                                     }
                                 ]
                             },

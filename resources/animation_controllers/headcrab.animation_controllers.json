@@ -31,19 +31,59 @@
                 }
 			}
 		},
-        "controller.animation.scorched_headcrab_sizzle": {
+        "controller.animation.scorched_headcrab_particles": {
 			"initial_state": "default",
 			"states": {
 				"default": {
-                    "animations": [
+                    "transitions": [
                         {
-                            "animScorchedHeadcrabFire": "!query.is_in_water"
+                            "sizzling": "query.is_in_water"
+                        }
+                    ],
+                    "particle_effects": [
+                        {
+                            "effect": "scorchedHeadcrabFire",
+                            "locator": "particlelocatorone"
                         },
                         {
-                            "animScorchedHeadcrabSizzle": "query.is_in_water"
+                            "effect": "scorchedHeadcrabFire",
+                            "locator": "particlelocatortwo"
+                        },
+                        {
+                            "effect": "scorchedHeadcrabFire",
+                            "locator": "particlelocatorthree"
+                        },
+                        {
+                            "effect": "scorchedHeadcrabFire",
+                            "locator": "particlelocatorfour"
                         }
                     ]
-				}
+				},
+                "sizzling": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_in_water"
+                        }
+                    ],
+                    "particle_effects": [
+                        {
+                            "effect": "scorchedHeadcrabSizzle",
+                            "locator": "particlelocatorone"
+                        },
+                        {
+                            "effect": "scorchedHeadcrabSizzle",
+                            "locator": "particlelocatortwo"
+                        },
+                        {
+                            "effect": "scorchedHeadcrabSizzle",
+                            "locator": "particlelocatorthree"
+                        },
+                        {
+                            "effect": "scorchedHeadcrabSizzle",
+                            "locator": "particlelocatorfour"
+                        }
+                    ]
+                }
 			}
 		}
     }

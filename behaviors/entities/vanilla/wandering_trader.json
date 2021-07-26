@@ -51,6 +51,11 @@
         "minecraft:transformation": {
           "into": "borgy:scorched_headcrab_zombie<minecraft:entity_spawned>"
         }
+      },
+      "become_frostbite_headcrab_zombie": {
+        "minecraft:transformation": {
+          "into": "borgy:frostbite_headcrab_zombie<minecraft:entity_spawned>"
+        }
       }
     },
 
@@ -217,6 +222,18 @@
                 ]
               },
               "event": "become_scorched_headcrab_zombie",
+              "target": "self"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "value": "frostbiteHeadcrab" },
+                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "frostbite_headcrab_zombie" }
+                ]
+              },
+              "event": "become_frostbite_headcrab_zombie",
               "target": "self"
             }
           }
@@ -387,6 +404,10 @@
       "become_scorched_headcrab_zombie": {
         "add": { "component_groups": [ "become_scorched_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:scorched_headcrab, c=1] borgy:into_scorched_headcrab_zombie" ] }
+      },
+      "become_frostbite_headcrab_zombie": {
+        "add": { "component_groups": [ "become_frostbite_headcrab_zombie" ] },
+        "run_command": { "command": [ "event entity @e[type=borgy:frostbite_headcrab, c=1] borgy:into_frostbite_headcrab_zombie" ] }
       },
       "become_headcrab_zombie_from_fired_headcrab": {
         "add": { "component_groups": [ "become_headcrab_zombie" ] },

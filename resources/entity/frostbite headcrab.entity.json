@@ -2,39 +2,38 @@
     "format_version": "1.10.0",
     "minecraft:client_entity": {
         "description": {
-            "identifier": "borgy:scorched_headcrab",
+            "identifier": "borgy:frostbite_headcrab",
             "materials": {
                 "default": "skeleton"
             },
             "textures": {
-                "default": "textures/entity/scorched headcrab"
+                "default": "textures/entity/frostbite headcrab"
             },
             "geometry": {
-                "default": "geometry.headcrab"
+                "default": "geometry.frostbite_headcrab"
             },
             "animations": {
                 "animIdle": "animation.headcrab.idle",
                 "animWalk": "animation.headcrab.walk",
                 "animJump": "animation.headcrab.jump",
-                "contMovement": "controller.animation.headcrab_movement",
-                "contScorchedHeadcrabParticles": "controller.animation.scorched_headcrab_particles"
+                "animFrostbiteHeadcrabFrost": "animation.frostbite_headcrab.frostbite_headcrab_frost",
+                "contMovement": "controller.animation.headcrab_movement"
             },
             "scripts": {
                 "animate": [
                     "contMovement",
-                    "contScorchedHeadcrabParticles"
+                    "animFrostbiteHeadcrabFrost"
                 ]
             },
             "render_controllers": [
                 "controller.render.common"
             ],
             "particle_effects": {
-			    "scorchedHeadcrabFire": "borgy:scorched_headcrab_fire",
-                "scorchedHeadcrabSizzle": "borgy:scorched_headcrab_sizzle"
+			    "frostbiteHeadcrabFrost": "borgy:frostbite_headcrab_frost"
 			},
             "spawn_egg": {
-				"base_color": "#cb7004",
-				"overlay_color": "#9f5803"
+				"base_color": "#669aff",
+				"overlay_color": "#ffffff"
 			}
         }
     }

@@ -58,7 +58,7 @@
 			}
 		},
 		"animation.scorched_headcrab.scorched_headcrab_fire": {
-			"loop": true,
+			"loop": false,
 			"animation_length": 0.5,
 			"particle_effects": {
 				"0.0": [
@@ -82,7 +82,7 @@
 			}
 		},
 		"animation.scorched_headcrab.scorched_headcrab_sizzle": {
-			"loop": true,
+			"loop": false,
 			"animation_length": 0.5,
 			"particle_effects": {
 				"0.0": [
@@ -101,6 +101,18 @@
 					{
 						"effect": "scorchedHeadcrabSizzle",
 						"locator": "particlelocatorfour"
+					}
+				]
+			}
+		},
+		"animation.frostbite_headcrab.frostbite_headcrab_frost": {
+			"loop": false,
+			"animation_length": 1.5,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "frostbiteHeadcrabFrost",
+						"locator": "particleemitter"
 					}
 				]
 			}
