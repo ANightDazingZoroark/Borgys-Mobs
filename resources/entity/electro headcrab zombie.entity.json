@@ -1,0 +1,42 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:electro_headcrab_zombie",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/electro headcrab zombie"
+            },
+            "geometry": {
+                "default": "geometry.player_headcrab_zombie"
+            },
+            "animations": {
+                "animAttack": "animation.headcrab_zombie.attacking",
+                "animMove": "animation.headcrab_zombie.move",
+                "contMove": "controller.animation.headcrab_zombie_movement",
+                "contAttack": "controller.animation.headcrab_zombie_attack",
+                "contParticles": "controller.animation.electro_headcrab_zombie_particles"
+            },
+            "scripts": {
+                "animate": [
+                    "contMove",
+                    "contAttack",
+                    "contParticles"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],            
+            "particle_effects": {
+			    "electroHeadcrabElectricity": "borgy:electro_headcrab_electricity",
+                "electroHeadcrabZombieElectricity": "borgy:electro_headcrab_zombie_electricity"
+			},
+            "spawn_egg": {
+				"base_color": "#bd38c9",
+				"overlay_color": "#ed8804"
+			}
+        }
+    }
+}

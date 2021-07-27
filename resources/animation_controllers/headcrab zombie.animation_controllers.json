@@ -177,6 +177,32 @@
                     ]
 				}
 			}
+		},
+        "controller.animation.electro_headcrab_zombie_particles": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "sizzling": "query.is_in_water"
+                        }
+                    ],
+                    "particle_effects":  [
+                        {
+                            "effect": "electroHeadcrabElectricity",
+                            "locator": "leftarmemitter"
+                        },
+                        {
+                            "effect": "electroHeadcrabElectricity",
+                            "locator": "rightarmemitter"
+                        },
+                        {
+                            "effect": "electroHeadcrabZombieElectricity",
+                            "locator": "particleemitter"
+                        }
+                    ]
+				}
+			}
 		}
     }
 }

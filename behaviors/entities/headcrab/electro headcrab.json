@@ -2,13 +2,13 @@
     "format_version": "1.16.0",
     "minecraft:entity": {
         "description": {
-            "identifier": "borgy:frostbite_headcrab",
+            "identifier": "borgy:electro_headcrab",
             "is_spawnable": true,
             "is_summonable": true,
             "is_experimental": false
         },
         "component_groups": {
-            "borgy:into_frostbite_headcrab_zombie": {
+            "borgy:into_electro_headcrab_zombie": {
                 "minecraft:instant_despawn": {}
             }
         },
@@ -35,7 +35,7 @@
             },
             "minecraft:type_family": {
                 "family": [
-                    "frostbiteHeadcrab",
+                    "electroHeadcrab",
                     "headcrabGeneral",
                     "mob"
                 ]
@@ -154,19 +154,6 @@
                     }
                 ]
             },
-            "minecraft:hurt_on_condition": {
-                "damage_conditions": [
-                    {
-                        "filters": { 
-                            "test": "is_temperature_value", 
-                            "operator": ">", 
-                            "value": 1.0 
-                        },
-                        "cause": "temperature",
-                        "damage_per_tick": 1
-                    }
-                ]
-            },
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:nameable": {},
             "minecraft:experience_reward": {
@@ -185,10 +172,10 @@
 			}
         },
         "events": {
-            "borgy:into_frostbite_headcrab_zombie": {
+            "borgy:into_electro_headcrab_zombie": {
                 "add": {
                     "component_groups": [
-                        "borgy:into_frostbite_headcrab_zombie"
+                        "borgy:into_electro_headcrab_zombie"
                     ]
                 }
             }

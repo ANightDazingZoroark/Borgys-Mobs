@@ -30,7 +30,10 @@
 					"rotation": [-115, 0, 0],
 					"cubes": [
 						{"origin": [-10.25, 4.5, -12.5], "size": [3, 3, 11], "inflate": -0.3, "pivot": [-8.75, 6, -3], "rotation": [-15, 0, 0], "uv": [28, 24]}
-					]
+					],
+					"locators": {
+						"legparticleemitter1": [-8.75, 6, -3]
+					}
 				},
 				{
 					"name": "frontRightLeg1",
@@ -47,7 +50,10 @@
 					"rotation": [-115, 0, 0],
 					"cubes": [
 						{"origin": [7.25, 4.5, -12.5], "size": [3, 3, 11], "inflate": -0.3, "pivot": [8.75, 6, -3], "rotation": [-15, 0, 0], "uv": [28, 24], "mirror": true}
-					]
+					],
+					"locators": {
+						"legparticleemitter2": [8.75, 6, -3]
+					}
 				},
 				{
 					"name": "backLeftLeg1",
@@ -87,7 +93,10 @@
 					"pivot": [0, 8, 8],
 					"cubes": [
 						{"origin": [-7.5, 4, -5.5], "size": [15, 8, 16], "uv": [0, 0]}
-					]
+					],
+					"locators": {
+						"centralparticleemitter": [0, 0, 3]
+					}
 				},
 				{
 					"name": "particleLocatorBoneOne",

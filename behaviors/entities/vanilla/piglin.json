@@ -458,6 +458,11 @@
         "minecraft:transformation": {
           "into": "borgy:frostbite_headcrab_zombie<minecraft:entity_spawned>"
         }
+      },
+      "become_electro_headcrab_zombie": {
+        "minecraft:transformation": {
+          "into": "borgy:electro_headcrab_zombie<minecraft:entity_spawned>"
+        }
       }
     },
 
@@ -1332,6 +1337,74 @@
               "event": "borgy:become_frostbite_headcrab_zombie",
               "target": "self"
             }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:leather_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:gold_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:chainmail_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:iron_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:diamond_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "minecraft:netherite_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:bakunawa_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:sonic_absorbtion_helmet"
+                  },
+                  { "test": "is_family", "subject": "other", "value": "electroHeadcrab" },
+                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "electro_headcrab_zombie" }
+                ]
+              },
+              "event": "borgy:become_electro_headcrab_zombie",
+              "target": "self"
+            }
           }
         ]
       },
@@ -1585,6 +1658,10 @@
       "borgy:become_frostbite_headcrab_zombie": {
         "add": { "component_groups": [ "become_frostbite_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:frostbite_headcrab, c=1] borgy:into_frostbite_headcrab_zombie" ] }
+      },
+      "borgy:become_electro_headcrab_zombie": {
+        "add": { "component_groups": [ "become_electro_headcrab_zombie" ] },
+        "run_command": { "command": [ "event entity @e[type=borgy:electro_headcrab, c=1] borgy:into_electro_headcrab_zombie" ] }
       },
       "borgy:become_headcrab_zombie_from_fired_headcrab": {
         "add": { "component_groups": [ "become_headcrab_zombie" ] },

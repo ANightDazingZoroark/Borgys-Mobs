@@ -2,18 +2,10 @@
     "format_version": "1.16.0",
     "minecraft:entity": {
         "description": {
-            "identifier": "borgy:frostbite_headcrab_zombie",
+            "identifier": "borgy:electro_headcrab_zombie",
             "is_spawnable": true,
             "is_summonable": true,
-            "is_experimental": false,
-            "animations": {
-                "animFrostbiteHeadcrabZombieEffects": "animation.frostbite_headcrab_zombie_effects"
-            },
-            "scripts": {
-                "animate": [
-                    "animFrostbiteHeadcrabZombieEffects"
-                ]
-            }
+            "is_experimental": false
         },
         "components": {
             "minecraft:health": {
@@ -31,11 +23,11 @@
                 "height": 1.9
             },
             "minecraft:movement": {
-                "value": 0.15
+                "value": 0.35
             },
             "minecraft:type_family": {
                 "family": [
-                    "frostbite_headcrab_zombie",
+                    "electro_headcrab_zombie",
                     "headcrab_zombie_general",
                     "mob"
                 ]
@@ -88,6 +80,27 @@
                     }
                 }
 			},
+            "minecraft:area_attack": {
+                "damage_range": 2,
+                "damage_per_tick": 2,
+                "cause": "contact",
+                "entity_filter": {
+                    "all_of": [
+                        {
+                            "test": "is_family",
+                            "subject": "other",
+                            "operator": "!=",
+                            "value": "electroHeadcrab"
+                        },
+                        {
+                            "test": "is_family",
+                            "subject": "other",
+                            "operator": "!=",
+                            "value": "electro_headcrab_zombie"
+                        }
+                    ]
+                }
+            },            
             "minecraft:behavior.avoid_mob_type": {
                 "priority": 1,
                 "entity_types": [
@@ -100,19 +113,6 @@
                         "max_dist": 10,
                         "walk_speed_multiplier": 1.5,
                         "sprint_speed_multiplier": 1.5
-                    }
-                ]
-            },
-            "minecraft:hurt_on_condition": {
-                "damage_conditions": [
-                    {
-                        "filters": { 
-                            "test": "is_temperature_value", 
-                            "operator": ">", 
-                            "value": 1.0 
-                        },
-                        "cause": "temperature",
-                        "damage_per_tick": 1
                     }
                 ]
             },
@@ -181,8 +181,8 @@
             "minecraft:rideable": {
                 "seat_count": 1,
                 "family_types": [
-                  "frostbite_headcrab_zombie",
-                  "frostbiteHeadcrab"
+                  "electro_headcrab_zombie",
+                  "electroHeadcrab"
                 ],
                 "seats": [
                     {
@@ -195,7 +195,7 @@
                 ]
             },
             "minecraft:addrider": {
-                "entity_type": "borgy:frostbite_headcrab_hitbox"
+                "entity_type": "borgy:electro_headcrab_hitbox"
             },
             "minecraft:environment_sensor": {
                 "triggers": [
@@ -222,6 +222,27 @@
                             "event": "borgy:leave_headcrab_behind",
                             "target": "self"
                         }
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_damage",
+                                        "subject": "self",
+                                        "operator": "!=",
+                                        "value": "fatal"
+                                    },
+                                    {
+										"test": "random_chance",
+										"value": 3,
+										"subject": "self"
+									}
+                                ]
+                            },
+                            "event": "borgy:use_electro_shock",
+                            "target": "self"
+                        }
                     }
                 ]
             }
@@ -238,7 +259,16 @@
             "borgy:leave_headcrab_behind": {
                 "run_command": {
                     "command": [
-                        "summon borgy:frostbite_headcrab"
+                        "summon borgy:electro_headcrab"
+                    ]
+                }
+            },
+            "borgy:use_electro_shock": {
+                "run_command": {
+                    "command": [
+                        "effect @e[r=7.5, family=!electroHeadcrab, family=!electro_headcrab_zombie] slowness 3 255",
+                        "execute @e[r=7.5, family=!electroHeadcrab, family=!electro_headcrab_zombie] ~ ~ ~ particle borgy:electro_headcrab_zombie_electricity ~ ~ ~",
+                        "say reeeeeeeeeeee"
                     ]
                 }
             }

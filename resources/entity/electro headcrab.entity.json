@@ -2,22 +2,22 @@
     "format_version": "1.10.0",
     "minecraft:client_entity": {
         "description": {
-            "identifier": "borgy:frostbite_headcrab",
+            "identifier": "borgy:electro_headcrab",
             "materials": {
                 "default": "skeleton"
             },
             "textures": {
-                "default": "textures/entity/frostbite headcrab"
+                "default": "textures/entity/electro headcrab"
             },
             "geometry": {
-                "default": "geometry.frostbite_headcrab"
+                "default": "geometry.headcrab"
             },
             "animations": {
                 "animIdle": "animation.headcrab.idle",
                 "animWalk": "animation.headcrab.walk",
                 "animJump": "animation.headcrab.jump",
                 "contMovement": "controller.animation.headcrab_movement",
-                "contParticles": "controller.animation.frostbite_headcrab_particles"
+                "contParticles": "controller.animation.electro_headcrab_particles"
             },
             "scripts": {
                 "animate": [
@@ -29,11 +29,11 @@
                 "controller.render.common"
             ],
             "particle_effects": {
-			    "frostbiteHeadcrabFrost": "borgy:frostbite_headcrab_frost"
+			    "electroHeadcrabElectricity": "borgy:electro_headcrab_electricity"
 			},
             "spawn_egg": {
-				"base_color": "#669aff",
-				"overlay_color": "#ffffff"
+				"base_color": "#bd38c9",
+				"overlay_color": "#ed8804"
 			}
         }
     }

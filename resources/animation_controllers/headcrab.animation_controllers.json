@@ -85,6 +85,36 @@
                     ]
                 }
 			}
+		},
+        "controller.animation.frostbite_headcrab_particles": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+                    "particle_effects": [
+                        {
+                            "effect": "frostbiteHeadcrabFrost",
+                            "locator": "particleemitter"
+                        }
+                    ]
+				}
+			}
+		},
+        "controller.animation.electro_headcrab_particles": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+                    "particle_effects": [
+                        {
+                            "effect": "electroHeadcrabElectricity",
+                            "locator": "legparticleemitter1"
+                        },
+                        {
+                            "effect": "electroHeadcrabElectricity",
+                            "locator": "legparticleemitter2"
+                        }
+                    ]
+				}
+			}
 		}
     }
 }
