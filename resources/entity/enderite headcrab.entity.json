@@ -1,0 +1,40 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:enderite_headcrab",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/enderite headcrab"
+            },
+            "geometry": {
+                "default": "geometry.headcrab"
+            },
+            "animations": {
+                "animIdle": "animation.headcrab.idle",
+                "animWalk": "animation.headcrab.walk",
+                "animJump": "animation.headcrab.jump",
+                "contMovement": "controller.animation.headcrab_movement",
+                "contEnderiteHeadcrabParticles": "controller.animation.enderite_headcrab_particles"
+            },
+            "scripts": {
+                "animate": [
+                    "contMovement",
+                    "contEnderiteHeadcrabParticles"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "particle_effects": {
+			    "enderiteHeadcrabDust": "borgy:enderite_headcrab_dust"
+			},
+            "spawn_egg": {
+				"base_color": "#121212",
+				"overlay_color": "#2c0835"
+			}
+        }
+    }
+}

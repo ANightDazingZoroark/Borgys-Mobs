@@ -1,0 +1,246 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "borgy:enderite_headcrab_zombie",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 20
+            },
+            "minecraft:attack": {
+                "damage": 7
+            },
+            "minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+            "minecraft:collision_box": {
+                "width": 0.6,
+                "height": 1.9
+            },
+            "minecraft:movement": {
+                "value": 0.25
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "enderite_headcrab_zombie",
+                    "headcrab_zombie_general",
+                    "mob"
+                ]
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {},
+			"minecraft:navigation.walk": {
+				"avoid_water": true,
+				"avoid_damage_blocks": true
+			},
+			"minecraft:movement.basic": {},
+            "minecraft:jump.static": {},
+            "minecraft:behavior.random_stroll": {
+                "priority": 6
+            },
+            "minecraft:behavior.mount_pathing": {
+                "priority": 0,
+                "speed_multiplier": 1,
+                "target_dist": 0.0,
+                "track_target": true
+            },
+            "minecraft:behavior.melee_attack": {
+                "priority": 4,
+                "reach_multiplier": 1.5
+            },
+            "minecraft:teleport": {
+                "random_teleports": true,
+                "max_random_teleport_time": 30,
+                "random_teleport_cube": [ 24, 24, 24 ],
+                "target_distance": 16,
+                "target_teleport_chance": 0.05,
+                "light_teleport_chance": 0.05
+            },
+            "minecraft:behavior.hurt_by_target": {
+				"priority": 2,
+                "entity_types": {
+                    "filters": {
+                        "all_of": [
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "operator": "!=",
+                                "value": "headcrabGeneral"
+                            },
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "operator": "!=",
+                                "value": "headcrab_zombie_general"
+                            },
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "operator": "!=",
+                                "value": "sigbin"
+                            }
+                        ]
+                    }
+                }
+			},
+            "minecraft:behavior.avoid_mob_type": {
+                "priority": 1,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "sigbin"
+                        },
+                        "max_dist": 10,
+                        "walk_speed_multiplier": 1.5,
+                        "sprint_speed_multiplier": 1.5
+                    }
+                ]
+            },
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [
+                    {
+                        "filters": { 
+                            "test": "in_water_or_rain", 
+                            "subject": "self",
+                            "value": true 
+                        },
+                        "cause": "temperature",
+                        "damage_per_tick": 4
+                    }
+                ]
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 3,
+                "within_radius": 24,
+                "reselect_targets": true,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "mob"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "headcrabGeneral"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "headcrab_zombie_general"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "monster"
+                                }
+                            ]
+                        },
+                        "max_dist": 24
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "enderite"
+                                },
+                                {
+                                    "test": "is_riding",
+                                    "subject": "other",
+                                    "value": false
+                                }
+                            ]
+                        },
+                        "max_dist": 24
+                    }
+                ]
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:nameable": {},
+            "minecraft:experience_reward": {
+                "on_death": "query.last_hit_by_player ? Math.Random(3,6) : 0"
+            },
+            "minecraft:despawn": {
+                "despawn_from_distance": {}
+            },
+            "minecraft:rideable": {
+                "seat_count": 1,
+                "family_types": [
+                  "enderite_headcrab_zombie",
+                  "enderiteHeadcrab"
+                ],
+                "seats": [
+                    {
+                        "position": [
+                            0, 
+                            1.7, 
+                            0.1
+                        ]
+                    }
+                ]
+            },
+            "minecraft:addrider": {
+                "entity_type": "borgy:enderite_headcrab_hitbox"
+            },
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "filters": {
+                            "test": "rider_count",
+                            "operator": "==",
+                            "value": 0
+                        },
+                        "event": "borgy:on_unridden",
+                        "target": "self"
+                    }
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "test": "has_damage",
+                                "subject": "self",
+                                "value": "fatal"
+                            },
+                            "event": "borgy:leave_headcrab_behind",
+                            "target": "self"
+                        }
+                    }
+                ]
+            }
+        },
+        "events": {
+            "borgy:on_unridden": {
+                "run_command": {
+                    "command": [
+                        "kill @s"
+                    ]
+                }
+            },
+            "borgy:leave_headcrab_behind": {
+                "run_command": {
+                    "command": [
+                        "summon borgy:enderite_headcrab"
+                    ]
+                }
+            }
+        }
+    }
+}

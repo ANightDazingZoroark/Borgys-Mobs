@@ -182,11 +182,6 @@
 			"initial_state": "default",
 			"states": {
 				"default": {
-                    "transitions": [
-                        {
-                            "sizzling": "query.is_in_water"
-                        }
-                    ],
                     "particle_effects":  [
                         {
                             "effect": "electroHeadcrabElectricity",
@@ -198,6 +193,19 @@
                         },
                         {
                             "effect": "electroHeadcrabZombieElectricity",
+                            "locator": "particleemitter"
+                        }
+                    ]
+				}
+			}
+		},
+        "controller.animation.enderite_headcrab_zombie_particles": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+                    "particle_effects":  [
+                        {
+                            "effect": "enderiteHeadcrabDust",
                             "locator": "particleemitter"
                         }
                     ]

@@ -115,6 +115,19 @@
                     ]
 				}
 			}
+		},
+        "controller.animation.enderite_headcrab_particles": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+                    "particle_effects": [
+                        {
+                            "effect": "enderiteHeadcrabDust",
+                            "locator": "particleemitter"
+                        }
+                    ]
+				}
+			}
 		}
     }
 }

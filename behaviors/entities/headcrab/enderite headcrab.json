@@ -2,48 +2,14 @@
     "format_version": "1.16.0",
     "minecraft:entity": {
         "description": {
-            "identifier": "borgy:scorched_headcrab",
+            "identifier": "borgy:enderite_headcrab",
             "is_spawnable": true,
             "is_summonable": true,
             "is_experimental": false
         },
         "component_groups": {
-            "borgy:into_scorched_headcrab_zombie": {
+            "borgy:into_enderite_headcrab_zombie": {
                 "minecraft:instant_despawn": {}
-            },
-            "borgy:not_in_water": {
-                "minecraft:environment_sensor": {
-                    "triggers": [
-                        {
-                            "filters": {
-                                "test": "in_water_or_rain",
-                                "subject": "self",
-                                "value": true
-                            },
-                            "event": "borgy:start_sizzling",
-                            "target": "self"
-                        }
-                    ]
-                }
-            },
-            "borgy:in_water": {
-                "minecraft:damage_over_time": {
-                    "damage_per_hurt": 1,
-                    "time_between_hurt": 0
-                },
-                "minecraft:environment_sensor": {
-                    "triggers": [
-                        {
-                            "filters": {
-                                "test": "in_water_or_rain",
-                                "subject": "self",
-                                "value": false
-                            },
-                            "event": "borgy:stop_sizzling",
-                            "target": "self"
-                        }
-                    ]
-                }
             }
         },
         "components": {
@@ -69,7 +35,7 @@
             },
             "minecraft:type_family": {
                 "family": [
-                    "scorchedHeadcrab",
+                    "enderiteHeadcrab",
                     "headcrabGeneral",
                     "mob"
                 ]
@@ -77,7 +43,6 @@
             "minecraft:loot": {
                 "table": "loot_tables/headcrab.loot.json"
             },
-            "minecraft:fire_immune": {},
             "minecraft:physics": {},
             "minecraft:pushable": {},
             "minecraft:navigation.walk": {
@@ -99,6 +64,14 @@
             "minecraft:behavior.leap_at_target": {
                 "set_persistent": true,
                 "yd": 0.6
+            },
+            "minecraft:teleport": {
+                "random_teleports": true,
+                "max_random_teleport_time": 10,
+                "random_teleport_cube": [ 16, 16, 16 ],
+                "target_distance": 16,
+                "target_teleport_chance": 0.05,
+                "light_teleport_chance": 0.05
             },
             "minecraft:behavior.nearest_attackable_target": {
                 "priority": 2,
@@ -189,6 +162,19 @@
                     }
                 ]
             },
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [
+                    {
+                        "filters": { 
+                            "test": "in_water_or_rain", 
+                            "subject": "self",
+                            "value": true 
+                        },
+                        "cause": "temperature",
+                        "damage_per_tick": 4
+                    }
+                ]
+            },
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:nameable": {},
             "minecraft:experience_reward": {
@@ -207,41 +193,10 @@
 			}
         },
         "events": {
-            "minecraft:entity_spawned": {
+            "borgy:into_enderite_headcrab_zombie": {
                 "add": {
                     "component_groups": [
-                        "borgy:not_in_water"
-                    ]
-                }
-            },
-            "borgy:start_sizzling": {
-                "add": {
-                    "component_groups": [
-                        "borgy:in_water"
-                    ]
-                },
-                "remove": {
-                    "component_groups": [
-                        "borgy:not_in_water"
-                    ]
-                }
-            },
-            "borgy:stop_sizzling": {
-                "add": {
-                    "component_groups": [
-                        "borgy:not_in_water"
-                    ]
-                },
-                "remove": {
-                    "component_groups": [
-                        "borgy:in_water"
-                    ]
-                }
-            },
-            "borgy:into_scorched_headcrab_zombie": {
-                "add": {
-                    "component_groups": [
-                        "borgy:into_scorched_headcrab_zombie"
+                        "borgy:into_enderite_headcrab_zombie"
                     ]
                 }
             }
