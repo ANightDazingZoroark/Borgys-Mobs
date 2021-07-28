@@ -1,0 +1,35 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:hoteye",
+            "materials": {
+                "default": "entity_emissive"
+            },
+            "textures": {
+                "default": "textures/entity/hoteye"
+            },
+            "geometry": {
+                "default": "geometry.houndeye"
+            },
+            "animations": {
+                "animIdle": "animation.houndeye.idle",
+                "animWalk": "animation.houndeye.walk",
+                "contMove": "controller.animation.houndeye_movement",
+                "contAttack": "controller.animation.houndeye_attack"
+            },
+            "scripts": {
+                "animate": [
+                    "contMove"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#d3533a",
+				"overlay_color": "#bdbd65"
+			}
+        }
+    }
+}
