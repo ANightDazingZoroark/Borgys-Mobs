@@ -367,6 +367,44 @@
                 }
             }
         },
+        "controller.animation.bull_houndeye_shockwave": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "shockwave_absorbed": "query.is_sheared && query.is_powered"
+                        },
+                        {
+                            "shockwave": "!query.is_powered && query.is_sheared"
+                        }
+                    ]
+                },
+                "shockwave": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared || query.is_powered"
+                        }
+                    ],
+                    "animations": [
+                        "animShockwave"
+                    ]
+                },
+                "shockwave_absorbed": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared || !query.is_powered"
+                        },
+                        {
+                            "shockwave": "!query.is_powered && query.is_sheared"
+                        }
+                    ],
+                    "animations": [
+                        "animShockwaveNone"
+                    ]
+                }
+            }
+        },
         "controller.animation.houndeye_shockwave_camera": {
             "initial_state": "default",
             "states": {

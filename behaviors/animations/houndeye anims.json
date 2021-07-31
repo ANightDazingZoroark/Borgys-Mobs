@@ -64,6 +64,15 @@
 				]
 			}
         },
+        "animation.bull_houndeye_shockwave": {
+            "animation_length": 3.77,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"@s borgy:bull_houndeye_attack"
+				]
+			}
+        },
         "animation.houndeye_no_shockwave": {
             "animation_length": 3.77,
 			"loop": true,

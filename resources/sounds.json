@@ -28,6 +28,29 @@
                     "roar": "mob.houndeye.attack"
 				}
             },
+            "borgy:hoteye": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.houndeye.idle"
+				}
+            },
+            "borgy:bull_houndeye": {
+                "volume": 2,
+				"pitch": [
+					0.6,
+					1.0
+				],
+				"events": {
+					"ambient": "mob.houndeye.idle",
+					"hurt": "mob.houndeye.hurt",
+					"death": "mob.houndeye.death",
+                    "roar": "mob.houndeye.attack"
+				}
+            },
 			"borgy:icthyosaur": {
                 "volume": 2,
 				"pitch": [
@@ -80,6 +103,45 @@
 				}
             },
 			"borgy:scorched_headcrab": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab.idle",
+					"hurt": "mob.headcrab.hurt",
+					"death": "mob.headcrab.death",
+					"jump": "mob.headcrab.attack"
+				}
+            },
+			"borgy:frostbite_headcrab": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab.idle",
+					"hurt": "mob.headcrab.hurt",
+					"death": "mob.headcrab.death",
+					"jump": "mob.headcrab.attack"
+				}
+            },
+			"borgy:electro_headcrab": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab.idle",
+					"hurt": "mob.headcrab.hurt",
+					"death": "mob.headcrab.death",
+					"jump": "mob.headcrab.attack"
+				}
+            },
+			"borgy:enderite_headcrab": {
                 "volume": 2,
 				"pitch": [
 					0.8,

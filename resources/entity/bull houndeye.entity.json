@@ -1,0 +1,54 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:bull_houndeye",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/bull houndeye"
+            },
+            "geometry": {
+                "default": "geometry.bull_houndeye"
+            },
+            "animations": {
+                "animIdle": "animation.bull_houndeye.idle",
+                "animWalk": "animation.bull_houndeye.walk",
+                "animSit": "animation.bull_houndeye.sit",
+                "animAttack": "animation.bull_houndeye.attack",
+                "animStatusStandingGood": "animation.tame_status.standing_good",
+                "animStatusStandingOk": "animation.tame_status.standing_ok",
+                "animStatusStandingBad": "animation.tame_status.standing_bad",
+                "animStatusSittingGood": "animation.tame_status.sitting_good",
+                "animStatusSittingOk": "animation.tame_status.sitting_ok",
+                "animStatusSittingBad": "animation.tame_status.sitting_bad",
+                "contMove": "controller.animation.houndeye_movement",
+                "contAttack": "controller.animation.houndeye_attack",
+                "contTameStatus": "controller.animation.tame_status"
+            },
+            "scripts": {
+                "animate": [
+                    "contMove",
+                    "contAttack",
+                    "contTameStatus"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "particle_effects": {
+			    "tamedStandingGood": "borgy:tamed_bull_houndeye_standing_good",
+                "tamedStandingOk": "borgy:tamed_bull_houndeye_standing_ok",
+                "tamedStandingBad": "borgy:tamed_bull_houndeye_standing_bad",
+			    "tamedSittingGood": "borgy:tamed_bull_houndeye_sitting_good",
+                "tamedSittingOk": "borgy:tamed_bull_houndeye_sitting_ok",
+                "tamedSittingBad": "borgy:tamed_bull_houndeye_sitting_bad"
+			},
+            "spawn_egg": {
+				"base_color": "#97621e",
+				"overlay_color": "#8d6d20"
+			}
+        }
+    }
+}
