@@ -2,21 +2,41 @@
 	"format_version": "1.8.0",
 	"minecraft:spawn_rules": {
 		"description": {
-			"identifier": "borgy:poison_headcrab",
+			"identifier": "borgy:frostbite_headcrab",
 			"population_control": "monster"
 		},
 		"conditions": [
 			{
 				"minecraft:spawns_underground": {},
 				"minecraft:weight": {
-					"default": 5
+					"default": 10
 				},
 				"minecraft:biome_filter": {
 					"any_of": [
 						{
 							"test": "has_biome_tag",
 							"operator": "==",
-							"value": "monster"
+							"value": "taiga"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "cold"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "frozen"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "ice"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "ice_plains"
 						}
 					]
 				},

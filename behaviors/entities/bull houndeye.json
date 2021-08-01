@@ -228,7 +228,7 @@
 					"priority": 0,
 					"duration": 3.77,
 					"attack_time": 3.04,
-					"knockback_damage": 30,
+					"knockback_damage": 24,
 					"knockback_strength": 5,
 					"knockback_range": 24,
 					"knockback_filters": {
@@ -420,9 +420,10 @@
                     ]
                 }
             },
-            "borgy:from_baby_houndeye_to_adutlt_bull_houndeye": {
+            "borgy:become_baby_bull_houndeye": {
                 "add": {
                     "component_groups": [
+                        "borgy:houndeye_baby",
                         "borgy:houndeye_tamed"
                     ]
                 }

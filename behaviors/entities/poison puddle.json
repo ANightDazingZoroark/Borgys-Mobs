@@ -1,0 +1,77 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "borgy:poison_puddle",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "borgy:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:timer": {
+                "time": 15,
+                "looping": false,
+                "time_down_event": {
+                    "event": "borgy:commit_disappear",
+                    "target": "self"
+                }
+            },
+            "minecraft:mob_effect": {
+                "effect_range": 5,
+                "mob_effect": "poison",
+                "effect_time": 45,
+                "entity_filter": {
+                    "all_of": [
+                        {
+                            "test": "is_family",
+                            "subject": "other",
+                            "operator": "!=",
+                            "value": "poisonHeadcrab"
+                        },
+                        {
+                            "test": "is_family",
+                            "subject": "other",
+                            "operator": "!=",
+                            "value": "poison_headcrab_zombie"
+                        }
+                    ]
+                }
+            },
+            "minecraft:physics": {
+                "has_gravity": true,
+                "has_collision": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "run_command": {
+                    "command": [
+                        "teleport @s ~ ~-0.01 ~"
+                    ]
+                }
+            },
+            "borgy:commit_disappear": {
+                "add": {
+                    "component_groups": [
+                        "borgy:despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

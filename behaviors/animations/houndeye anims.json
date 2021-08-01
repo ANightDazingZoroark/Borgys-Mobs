@@ -64,6 +64,42 @@
 				]
 			}
         },
+        "animation.houndeye_five_shockwave": {
+            "animation_length": 3.77,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"@s borgy:five_houndeye_attack"
+				]
+			}
+        },
+        "animation.houndeye_six_shockwave": {
+            "animation_length": 3.77,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"@s borgy:six_houndeye_attack"
+				]
+			}
+        },
+        "animation.houndeye_seven_shockwave": {
+            "animation_length": 3.77,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"@s borgy:seven_houndeye_attack"
+				]
+			}
+        },
+        "animation.houndeye_eight_shockwave": {
+            "animation_length": 3.77,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"@s borgy:eight_houndeye_attack"
+				]
+			}
+        },
         "animation.bull_houndeye_shockwave": {
             "animation_length": 3.77,
 			"loop": true,

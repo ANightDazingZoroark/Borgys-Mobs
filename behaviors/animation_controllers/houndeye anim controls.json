@@ -30,6 +30,18 @@
                         },
                         {
                             "four": "v.x == 3"
+                        },
+                        {
+                            "five": "v.x == 4"
+                        },
+                        {
+                            "six": "v.x == 5"
+                        },
+                        {
+                            "seven": "v.x == 6"
+                        },
+                        {
+                            "eight": "v.x == 7"
                         }
                     ]
                 },
@@ -118,6 +130,142 @@
                         },
                         {
                             "three": "v.x == 2"
+                        }
+                    ]
+                },                
+                "five": {
+                    "animations": [
+                        "animPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:five_houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        },
+                        {
+                            "six": "v.x == 5"
+                        },
+                        {
+                            "seven": "v.x == 6"
+                        },
+                        {
+                            "eight": "v.x == 7"
+                        }
+                    ]
+                },                
+                "six": {
+                    "animations": [
+                        "animPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:six_houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        },
+                        {
+                            "five": "v.x == 4"
+                        },
+                        {
+                            "seven": "v.x == 6"
+                        },
+                        {
+                            "eight": "v.x == 7"
+                        }
+                    ]
+                },                
+                "seven": {
+                    "animations": [
+                        "animPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:seven_houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        },
+                        {
+                            "five": "v.x == 4"
+                        },
+                        {
+                            "six": "v.x == 5"
+                        },
+                        {
+                            "eight": "v.x == 7"
+                        }
+                    ]
+                },                
+                "eight": {
+                    "animations": [
+                        "animPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:eight_houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        },
+                        {
+                            "five": "v.x == 4"
+                        },
+                        {
+                            "six": "v.x == 5"
+                        },
+                        {
+                            "seven": "v.x == 6"
                         }
                     ]
                 }
@@ -152,6 +300,18 @@
                         },
                         {
                             "four": "v.x == 3"
+                        },
+                        {
+                            "five": "v.x == 4"
+                        },
+                        {
+                            "six": "v.x == 5"
+                        },
+                        {
+                            "seven": "v.x == 6"
+                        },
+                        {
+                            "eight": "v.x == 7"
                         }
                     ]
                 },
@@ -174,6 +334,18 @@
                         },
                         {
                             "four": "v.x == 3"
+                        },
+                        {
+                            "five": "v.x == 4"
+                        },
+                        {
+                            "six": "v.x == 5"
+                        },
+                        {
+                            "seven": "v.x == 6"
+                        },
+                        {
+                            "eight": "v.x == 7"
                         }
                     ]
                 },
@@ -196,6 +368,18 @@
                         },
                         {
                             "four": "v.x == 3"
+                        },
+                        {
+                            "five": "v.x == 4"
+                        },
+                        {
+                            "six": "v.x == 5"
+                        },
+                        {
+                            "seven": "v.x == 6"
+                        },
+                        {
+                            "eight": "v.x == 7"
                         }
                     ]
                 },
@@ -218,6 +402,18 @@
                         },
                         {
                             "four": "v.x == 3"
+                        },
+                        {
+                            "five": "v.x == 4"
+                        },
+                        {
+                            "six": "v.x == 5"
+                        },
+                        {
+                            "seven": "v.x == 6"
+                        },
+                        {
+                            "eight": "v.x == 7"
                         }
                     ]
                 },
@@ -240,6 +436,154 @@
                         },
                         {
                             "three": "v.x == 2"
+                        },
+                        {
+                            "five": "v.x == 4"
+                        },
+                        {
+                            "six": "v.x == 5"
+                        },
+                        {
+                            "seven": "v.x == 6"
+                        },
+                        {
+                            "eight": "v.x == 7"
+                        }
+                    ]
+                },                
+                "five": {
+                    "animations": [
+                        "animTamedPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:five_houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        },
+                        {
+                            "six": "v.x == 5"
+                        },
+                        {
+                            "seven": "v.x == 6"
+                        },
+                        {
+                            "eight": "v.x == 7"
+                        }
+                    ]
+                },                
+                "six": {
+                    "animations": [
+                        "animTamedPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:six_houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        },
+                        {
+                            "five": "v.x == 4"
+                        },
+                        {
+                            "seven": "v.x == 6"
+                        },
+                        {
+                            "eight": "v.x == 7"
+                        }
+                    ]
+                },                
+                "seven": {
+                    "animations": [
+                        "animTamedPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:seven_houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        },
+                        {
+                            "five": "v.x == 4"
+                        },
+                        {
+                            "six": "v.x == 5"
+                        },
+                        {
+                            "eight": "v.x == 7"
+                        }
+                    ]
+                },                
+                "eight": {
+                    "animations": [
+                        "animTamedPackDetection"
+                    ],
+                    "on_entry": [
+                        "@s borgy:eight_houndeyes"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
+                        },
+                        {
+                            "one": "v.x == 0"
+                        },
+                        {
+                            "two": "v.x == 1"
+                        },
+                        {
+                            "three": "v.x == 2"
+                        },
+                        {
+                            "four": "v.x == 3"
+                        },
+                        {
+                            "five": "v.x == 4"
+                        },
+                        {
+                            "six": "v.x == 5"
+                        },
+                        {
+                            "seven": "v.x == 6"
                         }
                     ]
                 }
@@ -264,6 +608,18 @@
                         },
                         {
                             "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
+                        },
+                        {
+                            "shockwave_five": "!query.is_powered && query.is_sheared && query.mark_variant == 4"
+                        },
+                        {
+                            "shockwave_six": "!query.is_powered && query.is_sheared && query.mark_variant == 5"
+                        },
+                        {
+                            "shockwave_seven": "!query.is_powered && query.is_sheared && query.mark_variant == 6"
+                        },
+                        {
+                            "shockwave_eight": "!query.is_powered && query.is_sheared && query.mark_variant == 7"
                         }
                     ]
                 },
@@ -280,6 +636,18 @@
                         },
                         {
                             "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
+                        },
+                        {
+                            "shockwave_five": "!query.is_powered && query.is_sheared && query.mark_variant == 4"
+                        },
+                        {
+                            "shockwave_six": "!query.is_powered && query.is_sheared && query.mark_variant == 5"
+                        },
+                        {
+                            "shockwave_seven": "!query.is_powered && query.is_sheared && query.mark_variant == 6"
+                        },
+                        {
+                            "shockwave_eight": "!query.is_powered && query.is_sheared && query.mark_variant == 7"
                         }
                     ],
                     "animations": [
@@ -299,6 +667,18 @@
                         },
                         {
                             "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
+                        },
+                        {
+                            "shockwave_five": "!query.is_powered && query.is_sheared && query.mark_variant == 4"
+                        },
+                        {
+                            "shockwave_six": "!query.is_powered && query.is_sheared && query.mark_variant == 5"
+                        },
+                        {
+                            "shockwave_seven": "!query.is_powered && query.is_sheared && query.mark_variant == 6"
+                        },
+                        {
+                            "shockwave_eight": "!query.is_powered && query.is_sheared && query.mark_variant == 7"
                         }
                     ],
                     "animations": [
@@ -318,6 +698,18 @@
                         },
                         {
                             "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
+                        },
+                        {
+                            "shockwave_five": "!query.is_powered && query.is_sheared && query.mark_variant == 4"
+                        },
+                        {
+                            "shockwave_six": "!query.is_powered && query.is_sheared && query.mark_variant == 5"
+                        },
+                        {
+                            "shockwave_seven": "!query.is_powered && query.is_sheared && query.mark_variant == 6"
+                        },
+                        {
+                            "shockwave_eight": "!query.is_powered && query.is_sheared && query.mark_variant == 7"
                         }
                     ],
                     "animations": [
@@ -337,10 +729,146 @@
                         },
                         {
                             "shockwave_three": "!query.is_powered && query.is_sheared && query.mark_variant == 2"
+                        },
+                        {
+                            "shockwave_five": "!query.is_powered && query.is_sheared && query.mark_variant == 4"
+                        },
+                        {
+                            "shockwave_six": "!query.is_powered && query.is_sheared && query.mark_variant == 5"
+                        },
+                        {
+                            "shockwave_seven": "!query.is_powered && query.is_sheared && query.mark_variant == 6"
+                        },
+                        {
+                            "shockwave_eight": "!query.is_powered && query.is_sheared && query.mark_variant == 7"
                         }
                     ],
                     "animations": [
                         "animShockwaveFour"
+                    ]
+                },
+                "shockwave_five": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared || query.is_powered"
+                        },
+                        {
+                            "shockwave_one": "!query.is_powered && query.is_sheared && query.mark_variant == 0"
+                        },
+                        {
+                            "shockwave_two": "!query.is_powered && query.is_sheared && query.mark_variant == 1"
+                        },
+                        {
+                            "shockwave_three": "!query.is_powered && query.is_sheared && query.mark_variant == 2"
+                        },
+                        {
+                            "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
+                        },
+                        {
+                            "shockwave_six": "!query.is_powered && query.is_sheared && query.mark_variant == 5"
+                        },
+                        {
+                            "shockwave_seven": "!query.is_powered && query.is_sheared && query.mark_variant == 6"
+                        },
+                        {
+                            "shockwave_eight": "!query.is_powered && query.is_sheared && query.mark_variant == 7"
+                        }
+                    ],
+                    "animations": [
+                        "animShockwaveFive"
+                    ]
+                },
+                "shockwave_six": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared || query.is_powered"
+                        },
+                        {
+                            "shockwave_one": "!query.is_powered && query.is_sheared && query.mark_variant == 0"
+                        },
+                        {
+                            "shockwave_two": "!query.is_powered && query.is_sheared && query.mark_variant == 1"
+                        },
+                        {
+                            "shockwave_three": "!query.is_powered && query.is_sheared && query.mark_variant == 2"
+                        },
+                        {
+                            "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
+                        },
+                        {
+                            "shockwave_five": "!query.is_powered && query.is_sheared && query.mark_variant == 4"
+                        },
+                        {
+                            "shockwave_seven": "!query.is_powered && query.is_sheared && query.mark_variant == 6"
+                        },
+                        {
+                            "shockwave_eight": "!query.is_powered && query.is_sheared && query.mark_variant == 7"
+                        }
+                    ],
+                    "animations": [
+                        "animShockwaveSix"
+                    ]
+                },
+                "shockwave_seven": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared || query.is_powered"
+                        },
+                        {
+                            "shockwave_one": "!query.is_powered && query.is_sheared && query.mark_variant == 0"
+                        },
+                        {
+                            "shockwave_two": "!query.is_powered && query.is_sheared && query.mark_variant == 1"
+                        },
+                        {
+                            "shockwave_three": "!query.is_powered && query.is_sheared && query.mark_variant == 2"
+                        },
+                        {
+                            "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
+                        },
+                        {
+                            "shockwave_five": "!query.is_powered && query.is_sheared && query.mark_variant == 4"
+                        },
+                        {
+                            "shockwave_six": "!query.is_powered && query.is_sheared && query.mark_variant == 5"
+                        },
+                        {
+                            "shockwave_eight": "!query.is_powered && query.is_sheared && query.mark_variant == 7"
+                        }
+                    ],
+                    "animations": [
+                        "animShockwaveSeven"
+                    ]
+                },
+                "shockwave_eight": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_sheared || query.is_powered"
+                        },
+                        {
+                            "shockwave_one": "!query.is_powered && query.is_sheared && query.mark_variant == 0"
+                        },
+                        {
+                            "shockwave_two": "!query.is_powered && query.is_sheared && query.mark_variant == 1"
+                        },
+                        {
+                            "shockwave_three": "!query.is_powered && query.is_sheared && query.mark_variant == 2"
+                        },
+                        {
+                            "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
+                        },
+                        {
+                            "shockwave_five": "!query.is_powered && query.is_sheared && query.mark_variant == 4"
+                        },
+                        {
+                            "shockwave_six": "!query.is_powered && query.is_sheared && query.mark_variant == 5"
+                        },
+                        {
+                            "shockwave_seven": "!query.is_powered && query.is_sheared && query.mark_variant == 6"
+                        }
+                    ],
+                    "animations": [
+                        "animShockwaveEight"
                     ]
                 },
                 "shockwave_absorbed": {
@@ -359,6 +887,18 @@
                         },
                         {
                             "shockwave_four": "!query.is_powered && query.is_sheared && query.mark_variant == 3"
+                        },
+                        {
+                            "shockwave_five": "!query.is_powered && query.is_sheared && query.mark_variant == 4"
+                        },
+                        {
+                            "shockwave_six": "!query.is_powered && query.is_sheared && query.mark_variant == 5"
+                        },
+                        {
+                            "shockwave_seven": "!query.is_powered && query.is_sheared && query.mark_variant == 6"
+                        },
+                        {
+                            "shockwave_eight": "!query.is_powered && query.is_sheared && query.mark_variant == 7"
                         }
                     ],
                     "animations": [

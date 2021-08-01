@@ -367,6 +367,26 @@
                             "event": "borgy:leave_one_headcrab_behind",
                             "target": "self"
                         }
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_damage",
+                                        "subject": "self",
+                                        "value": "fatal"
+                                    },
+                                    {
+                                        "test": "is_variant",
+                                        "subject": "self",
+                                        "value": 0
+                                    }
+                                ]
+                            },
+                            "event": "borgy:leave_no_headcrabs_behind",
+                            "target": "self"
+                        }
                     }
                 ]
             }
@@ -433,14 +453,23 @@
                 "run_command": {
                     "command": [
                         "summon borgy:poison_headcrab",
-                        "summon borgy:poison_headcrab"
+                        "summon borgy:poison_headcrab",
+                        "summon borgy:poison_puddle"
                     ]
                 }
             },
             "borgy:leave_one_headcrab_behind": {
                 "run_command": {
                     "command": [
-                        "summon borgy:poison_headcrab"
+                        "summon borgy:poison_headcrab",
+                        "summon borgy:poison_puddle"
+                    ]
+                }
+            },
+            "borgy:leave_no_headcrabs_behind": {
+                "run_command": {
+                    "command": [
+                        "summon borgy:poison_puddle"
                     ]
                 }
             },

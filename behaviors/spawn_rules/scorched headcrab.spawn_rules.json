@@ -2,30 +2,30 @@
 	"format_version": "1.8.0",
 	"minecraft:spawn_rules": {
 		"description": {
-			"identifier": "borgy:fast_headcrab",
+			"identifier": "borgy:scorched_headcrab",
 			"population_control": "monster"
 		},
 		"conditions": [
 			{
 				"minecraft:spawns_underground": {},
 				"minecraft:weight": {
-					"default": 15
+					"default": 10
 				},
 				"minecraft:biome_filter": {
 					"any_of": [
 						{
 							"test": "has_biome_tag",
 							"operator": "==",
-							"value": "monster"
+							"value": "nether_wastes"
 						}
 					]
 				},
 				"minecraft:density_limit": {
-					"surface": 2
+					"surface": 8
 				},
 				"minecraft:height_filter": {
-				  	"min": -63,
-				  	"max": 63
+				  	"min": 0,
+				  	"max": 40
 				}
 			}
 		]

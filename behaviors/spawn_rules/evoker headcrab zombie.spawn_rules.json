@@ -2,7 +2,7 @@
 	"format_version": "1.8.0",
 	"minecraft:spawn_rules": {
 		"description": {
-			"identifier": "borgy:fast_headcrab_zombie",
+			"identifier": "borgy:evoker_headcrab_zombie",
 			"population_control": "monster"
 		},
 		"conditions": [
@@ -20,10 +20,6 @@
 				},
 				"minecraft:weight": {
 				  	"default": 100
-				},
-				"minecraft:herd": {
-				  	"min_size": 2,
-				  	"max_size": 4
 				},
 				"minecraft:biome_filter": {
 				  	"test": "has_biome_tag", "operator": "==", "value": "monster"

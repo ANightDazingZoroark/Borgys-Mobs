@@ -2,7 +2,7 @@
 	"format_version": "1.8.0",
 	"minecraft:spawn_rules": {
 		"description": {
-			"identifier": "borgy:fast_headcrab_zombie",
+			"identifier": "borgy:electro_headcrab_zombie",
 			"population_control": "monster"
 		},
 		"conditions": [
@@ -14,19 +14,29 @@
 				  	"max": 7,
 				  	"adjust_for_weather": true
 				},
-				"minecraft:difficulty_filter": {
-				  	"min": "easy",
-				  	"max": "hard"
-				},
 				"minecraft:weight": {
-				  	"default": 100
+					"default": 100
 				},
 				"minecraft:herd": {
 				  	"min_size": 2,
 				  	"max_size": 4
 				},
 				"minecraft:biome_filter": {
-				  	"test": "has_biome_tag", "operator": "==", "value": "monster"
+					"any_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "mountain"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "extreme_hills"
+						}
+					]
+				},
+				"minecraft:density_limit": {
+					"surface": 8
 				}
 			}
 		]

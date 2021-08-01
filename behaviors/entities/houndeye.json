@@ -19,6 +19,10 @@
                 "animShockwaveTwo": "animation.houndeye_two_shockwave",
                 "animShockwaveThree": "animation.houndeye_three_shockwave",
                 "animShockwaveFour": "animation.houndeye_four_shockwave",
+                "animShockwaveFive": "animation.houndeye_five_shockwave",
+                "animShockwaveSix": "animation.houndeye_six_shockwave",
+                "animShockwaveSeven": "animation.houndeye_seven_shockwave",
+                "animShockwaveEight": "animation.houndeye_eight_shockwave",
                 "animShockwaveNone": "animation.houndeye_no_shockwave",
                 "animShockwaveCamera": "animation.houndeye_shockwave_camera",
                 "animSonicAbsorberDetection": "animation.houndeye_sonic_absorber_detection"
@@ -302,6 +306,26 @@
                     "value": 3
                 }
             },
+            "borgy:houndeye_five": {
+                "minecraft:mark_variant": {
+                    "value": 4
+                }
+            },
+            "borgy:houndeye_six": {
+                "minecraft:mark_variant": {
+                    "value": 5
+                }
+            },
+            "borgy:houndeye_seven": {
+                "minecraft:mark_variant": {
+                    "value": 6
+                }
+            },
+            "borgy:houndeye_eight": {
+                "minecraft:mark_variant": {
+                    "value": 7
+                }
+            },
             "borgy:houndeye_finding_target": {
                 "minecraft:attack": {
                     "damage": 0
@@ -320,7 +344,7 @@
 					"priority": 0,
 					"duration": 3.77,
 					"attack_time": 3.04,
-					"knockback_damage": 5,
+					"knockback_damage": 3,
 					"knockback_strength": 0,
 					"knockback_range": 24,
 					"damage_filters": {
@@ -340,7 +364,7 @@
 					"priority": 0,
 					"duration": 3.77,
 					"attack_time": 3.04,
-					"knockback_damage": 10,
+					"knockback_damage": 6,
 					"knockback_strength": 0,
 					"knockback_range": 24,
 					"damage_filters": {
@@ -360,7 +384,7 @@
 					"priority": 0,
 					"duration": 3.77,
 					"attack_time": 3.04,
-					"knockback_damage": 15,
+					"knockback_damage": 9,
 					"knockback_strength": 0,
 					"knockback_range": 24,
 					"damage_filters": {
@@ -380,7 +404,87 @@
 					"priority": 0,
 					"duration": 3.77,
 					"attack_time": 3.04,
-					"knockback_damage": 20,
+					"knockback_damage": 12,
+					"knockback_strength": 0,
+					"knockback_range": 24,
+					"damage_filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "houndeye"
+				    },
+                    "on_roar_end": {
+                        "event": "borgy:stop_shockwave",
+                        "target": "self"
+                    }
+                }
+            },
+            "borgy:houndeye_attacking_five": {
+                "minecraft:behavior.knockback_roar": {
+					"priority": 0,
+					"duration": 3.77,
+					"attack_time": 3.04,
+					"knockback_damage": 15,
+					"knockback_strength": 0,
+					"knockback_range": 24,
+					"damage_filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "houndeye"
+				    },
+                    "on_roar_end": {
+                        "event": "borgy:stop_shockwave",
+                        "target": "self"
+                    }
+                }
+            },
+            "borgy:houndeye_attacking_six": {
+                "minecraft:behavior.knockback_roar": {
+					"priority": 0,
+					"duration": 3.77,
+					"attack_time": 3.04,
+					"knockback_damage": 18,
+					"knockback_strength": 0,
+					"knockback_range": 24,
+					"damage_filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "houndeye"
+				    },
+                    "on_roar_end": {
+                        "event": "borgy:stop_shockwave",
+                        "target": "self"
+                    }
+                }
+            },
+            "borgy:houndeye_attacking_seven": {
+                "minecraft:behavior.knockback_roar": {
+					"priority": 0,
+					"duration": 3.77,
+					"attack_time": 3.04,
+					"knockback_damage": 21,
+					"knockback_strength": 0,
+					"knockback_range": 24,
+					"damage_filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "houndeye"
+				    },
+                    "on_roar_end": {
+                        "event": "borgy:stop_shockwave",
+                        "target": "self"
+                    }
+                }
+            },
+            "borgy:houndeye_attacking_eight": {
+                "minecraft:behavior.knockback_roar": {
+					"priority": 0,
+					"duration": 3.77,
+					"attack_time": 3.04,
+					"knockback_damage": 24,
 					"knockback_strength": 0,
 					"knockback_range": 24,
 					"damage_filters": {
@@ -424,10 +528,20 @@
                     }
                 }
             },
-            "borgy:become_bull_houndeye": {
+            "borgy:become_baby_bull_houndeye": {
                 "minecraft:transformation": {
-                    "into": "borgy:bull_houndeye<borgy:from_baby_houndeye_to_adutlt_bull_houndeye>",
+                    "into": "borgy:bull_houndeye<borgy:become_baby_bull_houndeye>",
                     "keep_owner": true
+                }
+            },
+            "borgy:can_move": {   
+                "minecraft:movement": {
+                    "value": 0.25
+                }
+            },
+            "borgy:cannot_move": {   
+                "minecraft:movement": {
+                    "value": 0
                 }
             }
         },
@@ -445,9 +559,6 @@
             },
             "minecraft:scale": {
                 "value": 0.6
-            },
-            "minecraft:movement": {
-                "value": 0.25
             },
             "minecraft:type_family": {
                 "family": [
@@ -504,37 +615,39 @@
                 "add": {
                     "component_groups": [
                         "borgy:houndeye_wild",
-                        "borgy:houndeye_wild_calm"
+                        "borgy:houndeye_wild_calm",
+                        "borgy:can_move"
                     ]
                 }
             },
             "minecraft:entity_born": {
-                "add": {
-                    "component_groups": [
-                        "borgy:houndeye_baby",
-                        "borgy:houndeye_tamed"
-                    ]
-                }
-            },
-            "borgy:grow_up": {
                 "randomize": [
                     {
                         "weight": 1,
                         "add": {
                             "component_groups": [
-                                "borgy:become_bull_houndeye"
+                                "borgy:houndeye_baby",
+                                "borgy:houndeye_tamed",
+                                "borgy:can_move"
                             ]
                         }
                     },
                     {
-                        "weight": 3,
-                        "remove": {
+                        "weight": 1,
+                        "add": {
                             "component_groups": [
-                                "borgy:houndeye_baby"
+                                "borgy:become_baby_bull_houndeye"
                             ]
                         }
                     }
                 ]
+            },
+            "borgy:grow_up": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:houndeye_baby"
+                    ]
+                }
             },
             "borgy:one_houndeye": {
                 "add": {
@@ -546,7 +659,11 @@
                     "component_groups": [
                         "borgy:houndeye_two",
                         "borgy:houndeye_three",
-                        "borgy:houndeye_four"
+                        "borgy:houndeye_four",
+                        "borgy:houndeye_five",
+                        "borgy:houndeye_six",
+                        "borgy:houndeye_seven",
+                        "borgy:houndeye_eight"
                     ]
                 }
             },
@@ -560,7 +677,11 @@
                     "component_groups": [
                         "borgy:houndeye_one",
                         "borgy:houndeye_three",
-                        "borgy:houndeye_four"
+                        "borgy:houndeye_four",
+                        "borgy:houndeye_five",
+                        "borgy:houndeye_six",
+                        "borgy:houndeye_seven",
+                        "borgy:houndeye_eight"
                     ]
                 }
             },
@@ -574,7 +695,11 @@
                     "component_groups": [
                         "borgy:houndeye_one",
                         "borgy:houndeye_two",
-                        "borgy:houndeye_four"
+                        "borgy:houndeye_four",
+                        "borgy:houndeye_five",
+                        "borgy:houndeye_six",
+                        "borgy:houndeye_seven",
+                        "borgy:houndeye_eight"
                     ]
                 }
             },
@@ -588,21 +713,102 @@
                     "component_groups": [
                         "borgy:houndeye_one",
                         "borgy:houndeye_two",
-                        "borgy:houndeye_three"
+                        "borgy:houndeye_three",
+                        "borgy:houndeye_five",
+                        "borgy:houndeye_six",
+                        "borgy:houndeye_seven",
+                        "borgy:houndeye_eight"
+                    ]
+                }
+            },
+            "borgy:five_houndeyes": {
+                "add": {
+                    "component_groups": [
+                        "borgy:houndeye_five"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:houndeye_one",
+                        "borgy:houndeye_two",
+                        "borgy:houndeye_three",
+                        "borgy:houndeye_four",
+                        "borgy:houndeye_six",
+                        "borgy:houndeye_seven",
+                        "borgy:houndeye_eight"
+                    ]
+                }
+            },
+            "borgy:six_houndeyes": {
+                "add": {
+                    "component_groups": [
+                        "borgy:houndeye_six"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:houndeye_one",
+                        "borgy:houndeye_two",
+                        "borgy:houndeye_three",
+                        "borgy:houndeye_four",
+                        "borgy:houndeye_five",
+                        "borgy:houndeye_seven",
+                        "borgy:houndeye_eight"
+                    ]
+                }
+            },
+            "borgy:seven_houndeyes": {
+                "add": {
+                    "component_groups": [
+                        "borgy:houndeye_seven"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:houndeye_one",
+                        "borgy:houndeye_two",
+                        "borgy:houndeye_three",
+                        "borgy:houndeye_four",
+                        "borgy:houndeye_five",
+                        "borgy:houndeye_six",
+                        "borgy:houndeye_eight"
+                    ]
+                }
+            },
+            "borgy:eight_houndeyes": {
+                "add": {
+                    "component_groups": [
+                        "borgy:houndeye_eight"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:houndeye_one",
+                        "borgy:houndeye_two",
+                        "borgy:houndeye_three",
+                        "borgy:houndeye_five",
+                        "borgy:houndeye_six",
+                        "borgy:houndeye_seven"
                     ]
                 }
             },
             "borgy:one_houndeye_attack": {
                 "add": {
                     "component_groups": [
-                        "borgy:houndeye_attacking_one"
+                        "borgy:houndeye_attacking_one",
+                        "borgy:cannot_move"
                     ]
                 },
                 "remove": {
                     "component_groups": [
+                        "borgy:can_move",
                         "borgy:houndeye_attacking_two",
                         "borgy:houndeye_attacking_three",
                         "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_five",
+                        "borgy:houndeye_attacking_six",
+                        "borgy:houndeye_attacking_seven",
+                        "borgy:houndeye_attacking_eight",
                         "borgy:houndeye_attacking_none"
                     ]
                 }
@@ -610,14 +816,20 @@
             "borgy:two_houndeye_attack": {
                 "add": {
                     "component_groups": [
-                        "borgy:houndeye_attacking_two"
+                        "borgy:houndeye_attacking_two",
+                        "borgy:cannot_move"
                     ]
                 },
                 "remove": {
                     "component_groups": [
+                        "borgy:can_move",
                         "borgy:houndeye_attacking_one",
                         "borgy:houndeye_attacking_three",
                         "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_five",
+                        "borgy:houndeye_attacking_six",
+                        "borgy:houndeye_attacking_seven",
+                        "borgy:houndeye_attacking_eight",
                         "borgy:houndeye_attacking_none"
                     ]
                 }
@@ -625,14 +837,20 @@
             "borgy:three_houndeye_attack": {
                 "add": {
                     "component_groups": [
-                        "borgy:houndeye_attacking_three"
+                        "borgy:houndeye_attacking_three",
+                        "borgy:cannot_move"
                     ]
                 },
                 "remove": {
                     "component_groups": [
+                        "borgy:can_move",
                         "borgy:houndeye_attacking_one",
                         "borgy:houndeye_attacking_two",
                         "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_five",
+                        "borgy:houndeye_attacking_six",
+                        "borgy:houndeye_attacking_seven",
+                        "borgy:houndeye_attacking_eight",
                         "borgy:houndeye_attacking_none"
                     ]
                 }
@@ -640,14 +858,104 @@
             "borgy:four_houndeye_attack": {
                 "add": {
                     "component_groups": [
-                        "borgy:houndeye_attacking_four"
+                        "borgy:houndeye_attacking_four",
+                        "borgy:cannot_move"
                     ]
                 },
                 "remove": {
                     "component_groups": [
+                        "borgy:can_move",
                         "borgy:houndeye_attacking_one",
                         "borgy:houndeye_attacking_two",
                         "borgy:houndeye_attacking_three",
+                        "borgy:houndeye_attacking_five",
+                        "borgy:houndeye_attacking_six",
+                        "borgy:houndeye_attacking_seven",
+                        "borgy:houndeye_attacking_eight",
+                        "borgy:houndeye_attacking_none"
+                    ]
+                }
+            },
+            "borgy:five_houndeye_attack": {
+                "add": {
+                    "component_groups": [
+                        "borgy:houndeye_attacking_five",
+                        "borgy:cannot_move"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:can_move",
+                        "borgy:houndeye_attacking_one",
+                        "borgy:houndeye_attacking_two",
+                        "borgy:houndeye_attacking_three",
+                        "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_six",
+                        "borgy:houndeye_attacking_seven",
+                        "borgy:houndeye_attacking_eight",
+                        "borgy:houndeye_attacking_none"
+                    ]
+                }
+            },
+            "borgy:six_houndeye_attack": {
+                "add": {
+                    "component_groups": [
+                        "borgy:houndeye_attacking_six",
+                        "borgy:cannot_move"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:can_move",
+                        "borgy:houndeye_attacking_one",
+                        "borgy:houndeye_attacking_two",
+                        "borgy:houndeye_attacking_three",
+                        "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_five",
+                        "borgy:houndeye_attacking_seven",
+                        "borgy:houndeye_attacking_eight",
+                        "borgy:houndeye_attacking_none"
+                    ]
+                }
+            },
+            "borgy:seven_houndeye_attack": {
+                "add": {
+                    "component_groups": [
+                        "borgy:houndeye_attacking_seven",
+                        "borgy:cannot_move"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:can_move",
+                        "borgy:houndeye_attacking_one",
+                        "borgy:houndeye_attacking_two",
+                        "borgy:houndeye_attacking_three",
+                        "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_five",
+                        "borgy:houndeye_attacking_six",
+                        "borgy:houndeye_attacking_eight",
+                        "borgy:houndeye_attacking_none"
+                    ]
+                }
+            },
+            "borgy:eight_houndeye_attack": {
+                "add": {
+                    "component_groups": [
+                        "borgy:houndeye_attacking_eight",
+                        "borgy:cannot_move"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:can_move",
+                        "borgy:houndeye_attacking_one",
+                        "borgy:houndeye_attacking_two",
+                        "borgy:houndeye_attacking_three",
+                        "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_five",
+                        "borgy:houndeye_attacking_six",
+                        "borgy:houndeye_attacking_seven",
                         "borgy:houndeye_attacking_none"
                     ]
                 }
@@ -655,25 +963,41 @@
             "borgy:no_houndeye_attack": {
                 "add": {
                     "component_groups": [
-                        "borgy:houndeye_attacking_none"
+                        "borgy:houndeye_attacking_none",
+                        "borgy:can_move"
                     ]
                 },
                 "remove": {
                     "component_groups": [
-                        "borgy:houndeye_attacking_one",
-                        "borgy:houndeye_attacking_two",
-                        "borgy:houndeye_attacking_three",
-                        "borgy:houndeye_attacking_four"
-                    ]
-                }
-            },
-            "borgy:stop_shockwave": {
-                "remove": {
-                    "component_groups": [
+                        "borgy:cannot_move",
                         "borgy:houndeye_attacking_one",
                         "borgy:houndeye_attacking_two",
                         "borgy:houndeye_attacking_three",
                         "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_five",
+                        "borgy:houndeye_attacking_six",
+                        "borgy:houndeye_attacking_seven",
+                        "borgy:houndeye_attacking_eight"
+                    ]
+                }
+            },
+            "borgy:stop_shockwave": {
+                "add": {
+                    "component_groups": [
+                        "borgy:can_move"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:cannot_move",
+                        "borgy:houndeye_attacking_one",
+                        "borgy:houndeye_attacking_two",
+                        "borgy:houndeye_attacking_three",
+                        "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_five",
+                        "borgy:houndeye_attacking_six",
+                        "borgy:houndeye_attacking_seven",
+                        "borgy:houndeye_attacking_eight",
                         "borgy:houndeye_attacking_none"
                     ]
                 }
@@ -702,26 +1026,41 @@
                         "borgy:houndeye_attacking_one",
                         "borgy:houndeye_attacking_two",
                         "borgy:houndeye_attacking_three",
-                        "borgy:houndeye_attacking_four"
+                        "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_five",
+                        "borgy:houndeye_attacking_six",
+                        "borgy:houndeye_attacking_seven",
+                        "borgy:houndeye_attacking_eight"
                     ]
                 }
             },
             "borgy:no_target": {
+                "add": {
+                    "component_groups": [
+                        "borgy:can_move"
+                    ]
+                },
                 "remove": {
                     "component_groups": [
+                        "borgy:cannot_move",
                         "borgy:houndeye_finding_target",
                         "borgy:houndeye_attack",
                         "borgy:houndeye_attacking_one",
                         "borgy:houndeye_attacking_two",
                         "borgy:houndeye_attacking_three",
-                        "borgy:houndeye_attacking_four"
+                        "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_five",
+                        "borgy:houndeye_attacking_six",
+                        "borgy:houndeye_attacking_seven",
+                        "borgy:houndeye_attacking_eight"
                     ]
                 }
             },
             "borgy:on_tame": {
                 "add": {
                     "component_groups": [
-                        "borgy:houndeye_tamed"
+                        "borgy:houndeye_tamed",
+                        "borgy:can_move"
                     ]
                 },
                 "remove": {
@@ -733,8 +1072,13 @@
                         "borgy:houndeye_attacking_two",
                         "borgy:houndeye_attacking_three",
                         "borgy:houndeye_attacking_four",
+                        "borgy:houndeye_attacking_five",
+                        "borgy:houndeye_attacking_six",
+                        "borgy:houndeye_attacking_seven",
+                        "borgy:houndeye_attacking_eight",
                         "borgy:houndeye_wild_calm",
-                        "borgy:houndeye_wild_angry"
+                        "borgy:houndeye_wild_angry",
+                        "borgy:cannot_move"
                     ]
                 }
             },

@@ -7,10 +7,9 @@
 		},
 		"conditions": [
 			{
-				"minecraft:spawns_on_surface": {},
 				"minecraft:spawns_underground": {},
 				"minecraft:weight": {
-					"default": 5
+					"default": 15
 				},
 				"minecraft:biome_filter": {
 					"any_of": [
@@ -23,6 +22,10 @@
 				},
 				"minecraft:density_limit": {
 					"surface": 2
+				},
+				"minecraft:height_filter": {
+				  	"min": -63,
+				  	"max": 63
 				}
 			}
 		]
