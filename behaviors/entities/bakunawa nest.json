@@ -1,0 +1,108 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "borgy:bakunawa_nest",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "borgy:has_egg": {
+                "minecraft:is_sheared": {}
+            },
+            "borgy:make_guardian_angry": {
+                "minecraft:angry": {
+                    "duration": 60,
+                    "broadcast_range": 24,
+                    "broadcast_anger": true,
+                    "broadcast_targets": [
+                        "bakunawa"
+                    ],
+                    "calm_event": {
+                        "event": "borgy:calm_down",
+                        "target": "self"
+                    }
+                }
+            }
+        },
+        "components": {
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 3,
+                "within_radius": 24,
+                "reselect_targets": true,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "player"
+                        },
+                        "max_dist": 24
+                    }
+                ]
+            },
+            "minecraft:interact": {
+                "interactions": [
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "test": "has_component",
+                                "subject": "self",
+                                "value": "minecraft:is_sheared"
+                            },
+                            "event": "borgy:grab_egg",
+                            "target": "self"
+                        },
+                        "interact_text": "action.interact.grab_egg",
+                        "spawn_items": {
+                            "table": "loot_tables/bakunawa egg.loot.json"
+                        }
+                    }
+                ]
+            },
+            "minecraft:physics": {
+                "has_gravity": true,
+                "has_collision": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "borgy:has_egg"
+                    ]
+                }
+            },
+            "borgy:grab_egg": {
+                "add": {
+                    "component_groups": [
+                        "borgy:make_guardian_angry"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:has_egg"
+                    ]
+                }
+            },
+            "borgy:calm_down": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:make_guardian_angry"
+                    ]
+                }
+            }
+        }
+    }
+}

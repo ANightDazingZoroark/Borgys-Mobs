@@ -7,7 +7,8 @@
                 "default": "skeleton"
             },
             "textures": {
-                "default": "textures/entity/bakunawa"
+                "default": "textures/entity/bakunawa",
+                "sleeping": "textures/entity/bakunawa sleeping"
             },
             "geometry": {
                 "default": "geometry.bakunawa"
@@ -17,10 +18,12 @@
                 "animFlyPose": "animation.bakunawa.fly_pose",
                 "animSwimPose": "animation.bakunawa.swim_pose",
                 "animIdle": "animation.bakunawa.idle",
+                "animSit": "animation.bakunawa.sitting",
                 "animWalk": "animation.bakunawa.walk",
                 "animFly": "animation.bakunawa.fly",
                 "animSwim": "animation.bakunawa.swim",
                 "animLook": "animation.bakunawa.look",
+                "animSleep": "animation.bakunawa.sleeping",
                 "animAttack": "animation.bakunawa.attack",
                 "animStatusStandingGood": "animation.tame_status.standing_good",
                 "animStatusStandingOk": "animation.tame_status.standing_ok",

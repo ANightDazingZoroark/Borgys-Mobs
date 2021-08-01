@@ -623,7 +623,7 @@
             "minecraft:entity_born": {
                 "randomize": [
                     {
-                        "weight": 1,
+                        "weight": 3,
                         "add": {
                             "component_groups": [
                                 "borgy:houndeye_baby",

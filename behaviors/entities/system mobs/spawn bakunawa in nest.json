@@ -1,0 +1,35 @@
+{
+	"format_version": "1.14.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "borgy:spawn_bakunawa_in_nest",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+        "components": {
+            "minecraft:health": {
+                "value": 20
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "sonicAbsorber"
+                ]
+            },
+            "minecraft:physics": {
+                "has_gravity": true,
+                "has_collision": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            }
+        }
+    }
+}

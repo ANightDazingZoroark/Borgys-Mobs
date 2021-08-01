@@ -155,6 +155,110 @@
 					}
 				}
 			}
+		},
+		"animation.bakunawa.sitting": {
+			"loop": true,
+			"animation_length": 2.08,
+			"bones": {
+				"hips": {
+					"position": [0, -15, 0]
+				},
+				"leftWing0": {
+					"rotation": [0, 0, 37.5]
+				},
+				"leftWIng1": {
+					"rotation": [0, 0, -35]
+				},
+				"rightWing": {
+					"rotation": [0, 0, -37.5]
+				},
+				"rightWIng3": {
+					"rotation": [0, 0, 35]
+				},
+				"neck": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [12.5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [-12.5, 0, 0],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"leftLeg": {
+					"rotation": [-50, 0, 0]
+				},
+				"leftShin": {
+					"rotation": [50, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-50, 0, 0]
+				},
+				"rightShin": {
+					"rotation": [50, 0, 0]
+				},
+				"tail1": {
+					"rotation": [2.5, 0, 0]
+				},
+				"tail2": {
+					"rotation": [-20, 0, 0]
+				},
+				"tail3": {
+					"rotation": [7.5, 0, 0]
+				}
+			}
+		},
+		"animation.bakunawa.sleeping": {
+			"loop": true,
+			"animation_length": 2.08,
+			"bones": {
+				"hips": {
+					"position": [0, -15, 0]
+				},
+				"leftWing0": {
+					"rotation": [0, 0, 37.5]
+				},
+				"leftWIng1": {
+					"rotation": [0, 0, -35]
+				},
+				"rightWing": {
+					"rotation": [0, 0, -37.5]
+				},
+				"rightWIng3": {
+					"rotation": [0, 0, 35]
+				},
+				"neck": {
+					"rotation": [37.5, 0, 0]
+				},
+				"head": {
+					"rotation": [-5, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [-50, 0, 0]
+				},
+				"leftShin": {
+					"rotation": [50, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-50, 0, 0]
+				},
+				"rightShin": {
+					"rotation": [50, 0, 0]
+				},
+				"tail1": {
+					"rotation": [2.5, 0, 0]
+				},
+				"tail2": {
+					"rotation": [-20, 0, 0]
+				},
+				"tail3": {
+					"rotation": [7.5, 0, 0]
+				}
+			}
 		}
 	}
 }

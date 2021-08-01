@@ -1,0 +1,20 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "borgy:bakunawa_nest",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+                "default": "textures/entity/bakunawa nest"
+			},
+			"geometry": {
+				"default": "geometry.bakunawa_nest"
+			},
+			"render_controllers": [
+				"controller.render.bakunawa_nest"
+			]
+		}
+	}
+}

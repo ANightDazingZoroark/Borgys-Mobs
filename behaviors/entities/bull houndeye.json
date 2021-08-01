@@ -332,6 +332,16 @@
                         "target": "self"
                     }
                 }
+            },
+            "borgy:can_move": {   
+                "minecraft:movement": {
+                    "value": 0.25
+                }
+            },
+            "borgy:cannot_move": {   
+                "minecraft:movement": {
+                    "value": 0
+                }
             }
         },
         "components": {
@@ -348,9 +358,6 @@
             },
             "minecraft:scale": {
                 "value": 0.6
-            },
-            "minecraft:movement": {
-                "value": 0.25
             },
             "minecraft:type_family": {
                 "family": [
@@ -408,7 +415,8 @@
                 "add": {
                     "component_groups": [
                         "borgy:houndeye_wild",
-                        "borgy:houndeye_wild_calm"
+                        "borgy:houndeye_wild_calm",
+                        "borgy:can_move"
                     ]
                 }
             },
@@ -416,7 +424,8 @@
                 "add": {
                     "component_groups": [
                         "borgy:houndeye_baby",
-                        "borgy:houndeye_tamed"
+                        "borgy:houndeye_tamed",
+                        "borgy:can_move"
                     ]
                 }
             },
@@ -424,7 +433,8 @@
                 "add": {
                     "component_groups": [
                         "borgy:houndeye_baby",
-                        "borgy:houndeye_tamed"
+                        "borgy:houndeye_tamed",
+                        "borgy:can_move"
                     ]
                 }
             },
@@ -438,30 +448,40 @@
             "borgy:bull_houndeye_attack": {
                 "add": {
                     "component_groups": [
-                        "borgy:houndeye_attacking"
+                        "borgy:houndeye_attacking",
+                        "borgy:cannot_move"
                     ]
                 },
                 "remove": {
                     "component_groups": [
-                        "borgy:houndeye_attacking_none"
+                        "borgy:houndeye_attacking_none",
+                        "borgy:can_move"
                     ]
                 }
             },
             "borgy:no_houndeye_attack": {
                 "add": {
                     "component_groups": [
-                        "borgy:houndeye_attacking_none"
+                        "borgy:houndeye_attacking_none",
+                        "borgy:can_move"
                     ]
                 },
                 "remove": {
                     "component_groups": [
-                        "borgy:houndeye_attacking"
+                        "borgy:houndeye_attacking",
+                        "borgy:cannot_move"
                     ]
                 }
             },
             "borgy:stop_shockwave": {
+                "add": {
+                    "component_groups": [
+                        "borgy:can_move"
+                    ]
+                },
                 "remove": {
                     "component_groups": [
+                        "borgy:cannot_move",
                         "borgy:houndeye_attacking",
                         "borgy:houndeye_attacking_none"
                     ]
@@ -493,8 +513,14 @@
                 }
             },
             "borgy:no_target": {
+                "add": {
+                    "component_groups": [
+                        "borgy:can_move"
+                    ]
+                },
                 "remove": {
                     "component_groups": [
+                        "borgy:cannot_move",
                         "borgy:houndeye_finding_target",
                         "borgy:houndeye_attack",
                         "borgy:houndeye_attacking"
@@ -504,7 +530,8 @@
             "borgy:on_tame": {
                 "add": {
                     "component_groups": [
-                        "borgy:houndeye_tamed"
+                        "borgy:houndeye_tamed",
+                        "borgy:can_move"
                     ]
                 },
                 "remove": {
@@ -514,7 +541,8 @@
                         "borgy:houndeye_attack",
                         "borgy:houndeye_attacking",
                         "borgy:houndeye_wild_calm",
-                        "borgy:houndeye_wild_angry"
+                        "borgy:houndeye_wild_angry",
+                        "borgy:cannot_move"
                     ]
                 }
             },

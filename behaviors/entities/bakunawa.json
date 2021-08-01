@@ -147,7 +147,7 @@
                     "avoid_damage_blocks": true
                 },
                 "minecraft:behavior.random_stroll": {
-                    "priority": 4
+                    "priority": 7
                 },
                 "minecraft:behavior.move_to_water": {
                     "priority": 2,
@@ -165,7 +165,7 @@
                     "can_sink": false
                 },
                 "minecraft:behavior.random_swim": {
-                    "priority": 4,
+                    "priority": 7,
                     "interval": 0,
                     "xz_dist": 20
                 }
@@ -482,7 +482,7 @@
                     "avoid_damage_blocks": true
                 },
                 "minecraft:behavior.random_stroll": {
-                    "priority": 5
+                    "priority": 7
                 },
                 "minecraft:physics": {
                     "has_gravity": true
@@ -526,7 +526,7 @@
                     "can_sink": false
                 },
                 "minecraft:behavior.random_swim": {
-                    "priority": 5,
+                    "priority": 7,
                     "interval": 0,
                     "xz_dist": 20
                 },
@@ -695,6 +695,48 @@
 						"isForcedAttacking"
                     ]
                 }
+            },
+            "borgy:bakunawa_nest_guardian": {
+                "minecraft:home": {},
+                "minecraft:navigation.generic": {
+                    "is_amphibious": false,
+                    "can_path_over_water": false,
+                    "can_swim": true,
+                    "can_walk": true,
+                    "can_breach": true,
+                    "can_sink": false
+                },
+                "minecraft:physics": {
+                    "has_gravity": true
+                },
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 4,
+                    "attack_duration": 0.52,
+                    "hit_delay_pct": 1,
+                    "track_target": true,
+                    "reach_multiplier": 3
+                }
+            },
+            "borgy:bakunawa_nest_guardian_sleeping": {
+                "minecraft:behavior.nap": {
+                    "priority": 5,
+                    "mob_detect_dist": 0,
+                    "mob_detect_height": 0
+                },
+                "minecraft:on_target_acquired": {
+                    "event": "borgy:wake_up",
+                    "target": "self"
+                }
+            },
+            "borgy:bakunawa_nest_guardian_awake": {
+                "minecraft:behavior.go_home": {
+                    "priority": 6,
+                    "goal_radius": 1.2,
+                    "on_home": {
+                        "event": "borgy:go_back_home",
+                        "target": "self"
+                    }
+                }
             }
         },
         "components": {
@@ -815,6 +857,12 @@
                                     "test": "in_water",
                                     "subject": "self",
                                     "value": false
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:home"
                                 }
                             ]
                         },
@@ -844,6 +892,12 @@
                                     "test": "in_water",
                                     "subject": "self",
                                     "value": true
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:home"
                                 }
                             ]
                         },
@@ -868,6 +922,12 @@
                                 {
                                     "test": "is_daytime",
                                     "value": false
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:home"
                                 }
                             ]
                         },
@@ -902,6 +962,12 @@
                                     "test": "in_water",
                                     "subject": "self",
                                     "value": false
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:home"
                                 }
                             ]
                         },
@@ -926,6 +992,12 @@
                                     "test": "in_water",
                                     "subject": "self",
                                     "value": false
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:home"
                                 }
                             ]
                         },
@@ -950,6 +1022,12 @@
                                     "test": "in_water",
                                     "subject": "self",
                                     "value": true
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:home"
                                 }
                             ]
                         },
@@ -1465,17 +1543,70 @@
 				}
 			},
 			"borgy:no_force_attacked": {
-				"add": {
-					"component_groups": [
-						"borgy:default_targets"
-				  	]
-				},
-				"remove": {
-				  	"component_groups": [
-						"borgy:attack_forced_attack_entity"
-				  	]
-				}
-			}
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "borgy:attack_forced_attack_entity"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "operator": "!=",
+                            "value": "minecraft:home"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "borgy:default_targets"
+                            ]
+                        }
+                    }
+                ]
+			},
+            "borgy:spawn_as_nest_guardian": {
+                "add": {
+                    "component_groups": [
+                        "borgy:bakunawa_nest_guardian",
+                        "borgy:bakunawa_nest_guardian_sleeping",
+                        "borgy:bakunawa_adult",
+                        "borgy:bakunawa_adult_wild",
+                        "borgy:default_collision",
+                        "borgy:is_unpushable",
+                        "borgy:default_family"
+                    ]
+                }
+            },
+            "borgy:wake_up": {
+                "add": {
+                    "component_groups": [
+                        "borgy:bakunawa_nest_guardian_awake",
+                        "borgy:is_pushable"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:bakunawa_nest_guardian_sleeping",
+                        "borgy:is_unpushable"
+                    ]
+                }
+            },
+            "borgy:go_back_home": {
+                "add": {
+                    "component_groups": [
+                        "borgy:bakunawa_nest_guardian_sleeping",
+                        "borgy:is_unpushable"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:bakunawa_nest_guardian_awake",
+                        "borgy:is_pushable"
+                    ]
+                }
+            }
         }
     }
 }

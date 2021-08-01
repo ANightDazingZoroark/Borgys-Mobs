@@ -8,6 +8,11 @@
             "textures": [
                 "textures/block/sonic absorber"
             ]
+        },
+        "bakunawa nest material": {
+            "textures": [
+                "textures/block/bakunawa nest material"
+            ]
         }
     }
 }

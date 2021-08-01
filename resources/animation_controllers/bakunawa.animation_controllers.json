@@ -7,13 +7,13 @@
 				"default": {
 					"animations": [
 						{
-							"animLandPose": "query.is_on_ground && !query.is_in_water"
+							"animLandPose": "query.is_on_ground && !query.is_in_water && !query.is_sitting"
 						},
 						{
 							"animFlyPose": "!query.is_on_ground && !query.is_in_water"
 						},
                         {
-                            "animSwimPose": "query.is_in_water"
+                            "animSwimPose": "query.is_in_water && !query.is_sleeping"
                         }
 					]
 				}
@@ -25,15 +25,21 @@
 				"default": {
 					"animations": [
 						{
-							"animIdle": "query.ground_speed == 0"
+							"animIdle": "query.ground_speed == 0 && !query.is_sitting"
 						},
 						{
-							"animWalk": "query.ground_speed > 0"
+							"animWalk": "query.ground_speed > 0 && !query.is_sitting"
+						},
+						{
+							"animSit": "query.is_sitting"
 						}
 					],
                     "transitions": [
                         {
                             "flying": "!query.is_on_ground"
+                        },
+                        {
+                            "sleeping": "query.is_sleeping"
                         }
                     ]
 				},
@@ -47,16 +53,37 @@
                         },
                         {
                             "swimming": "query.is_in_water"
+                        },
+                        {
+                            "sleeping": "query.is_sleeping"
                         }
                     ]
                 },
                 "swimming": {
                     "animations": [
-                        "animSwim"
+                        {
+                            "animSwim": "!query.is_sitting"
+                        },
+                        {
+                            "animSit": "query.is_on_ground && query.is_sitting"
+                        }
                     ],
                     "transitions": [
                         {
                             "default": "!query.is_in_water"
+                        },
+                        {
+                            "sleeping": "query.is_sleeping"
+                        }
+                    ]
+                },
+                "sleeping": {
+                    "animations": [
+                        "animSleep"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_sleeping"
                         }
                     ]
                 }
