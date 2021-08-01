@@ -300,6 +300,54 @@
 					"death": "mob.poison_headcrab_zombie.death"
 				}
             },
+			"borgy:scorched_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.player_headcrab_zombie.hurt",
+					"death": "mob.player_headcrab_zombie.death"
+				}
+			},
+			"borgy:frostbite_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.player_headcrab_zombie.hurt",
+					"death": "mob.player_headcrab_zombie.death"
+				}
+			},
+			"borgy:electro_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.player_headcrab_zombie.hurt",
+					"death": "mob.player_headcrab_zombie.death"
+				}
+			},
+			"borgy:enderite_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.player_headcrab_zombie.hurt",
+					"death": "mob.player_headcrab_zombie.death"
+				}
+			},
 			"borgy:sigbin": {
 				"volume": 2,
 				"pitch": [
