@@ -95,4 +95,5 @@ item.spawn_egg.entity.borgy:bakunawa.name=Spawn Bakunawa
 item.spawn_egg.entity.borgy:sigbin.name=Spawn Sigbin
 item.spawn_egg.entity.borgy:sarimanok.name=Spawn Sarimanok
 
+tile.borgy:bakunawa_nest_material.name=Bakunawa Nest Material
 tile.borgy:sonic_absorber.name=Sonic Absorber

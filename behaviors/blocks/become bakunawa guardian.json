@@ -1,0 +1,37 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:block": {
+        "description": {
+            "identifier": "borgy:become_bakunawa_guardian"
+        },
+        "components": {
+            "minecraft:destroy_time": 0.75,
+            "minecraft:friction": 0.6,
+            "minecraft:block_light_absorption": 0.0,
+            "minecraft:unit_cube": {},
+            "minecraft:ticking": {
+                "range": [
+                    2, 
+                    2
+                ],
+                "on_tick": {
+                    "event": "borgy:become_bakunawa_guardian",
+                    "target": "self"
+                }
+            },
+            "minecraft:loot": "loot_tables/empty.json"
+        },
+        "events": {
+            "borgy:become_bakunawa_guardian": {
+                "die": {
+                    "target": "self"
+                },
+                "run_command": {
+                    "command": [
+                        "summon borgy:bakunawa ~ ~ ~ borgy:spawn_as_nest_guardian"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:block": {
+        "description": {
+            "identifier": "borgy:become_water"
+        },
+        "components": {
+            "minecraft:destroy_time": 0.75,
+            "minecraft:friction": 0.6,
+            "minecraft:block_light_absorption": 0.0,
+            "minecraft:unit_cube": {},
+            "minecraft:ticking": {
+                "range": [
+                    1, 
+                    1
+                ],
+                "on_tick": {
+                    "event": "borgy:become_water",
+                    "target": "self"
+                }
+            },
+            "minecraft:loot": "loot_tables/empty.json"
+        },
+        "events": {
+            "borgy:become_water": {
+                "die": {
+                    "target": "self"
+                },
+                "set_block_at_pos": {
+                    "block_type": "minecraft:flowing_water",
+                    "block_offset": [0, 0, 0]
+                }
+            }
+        }
+    }
+}
