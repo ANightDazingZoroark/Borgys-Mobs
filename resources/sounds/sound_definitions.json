@@ -229,6 +229,12 @@
             "sounds/poison headcrab zombie/poison headcrab zombie death"
         ]
     },
+    "mob.electro_headcrab_zombie.zap": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/headcrab zombie/electric zap"
+        ]
+    },
     "mob.sigbin.idle": {
         "category": "hostile",
         "sounds": [

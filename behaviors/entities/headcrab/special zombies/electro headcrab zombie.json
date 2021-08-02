@@ -268,7 +268,7 @@
                     "command": [
                         "effect @e[r=7.5, family=!electroHeadcrab, family=!electro_headcrab_zombie] slowness 3 255",
                         "execute @e[r=7.5, family=!electroHeadcrab, family=!electro_headcrab_zombie] ~ ~ ~ particle borgy:electro_headcrab_zombie_electricity ~ ~ ~",
-                        "say reeeeeeeeeeee"
+                        "playsound mob.electro_headcrab_zombie.zap @a[r=16]"
                     ]
                 }
             }
