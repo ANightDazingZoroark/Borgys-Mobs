@@ -1,5 +1,5 @@
-action.hint.exit.borgy:icthyosaur=Look up or down while jumping to ascend/descend, Sneak to dismount
-action.hint.exit.borgy:bakunawa=Look up or down to ascend/descend, Jump to hover, Sneak to dismount
+action.hint.exit.borgy:icthyosaur=Jump to ascend, double jump to activate hover
+action.hint.exit.borgy:bakunawa=Jump to ascend, double jump to activate hover
 
 entity.borgy:bullsquid.name=Bullsquid
 entity.borgy:houndeye.name=Houndeye
