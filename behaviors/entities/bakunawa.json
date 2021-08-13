@@ -196,17 +196,6 @@
                 "minecraft:loot": {
                     "table": "loot_tables/bakunawa.loot.json"
                 },
-                "minecraft:behavior.hurt_by_target": {
-                    "priority": 2,
-                    "entity_types": {
-                        "filters": {
-                            "test": "is_family",
-                            "subject": "other",
-                            "operator": "!=",
-                            "value": "forcedAttack"
-                        }
-                    }
-                },
                 "minecraft:knockback_resistance": {
                     "value": 100,
                     "max": 100
@@ -221,6 +210,17 @@
                 },
                 "minecraft:experience_reward": {
                     "on_death": "query.last_hit_by_player ? Math.Random(20,32) : 0"
+                },
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 2,
+                    "entity_types": {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "operator": "!=",
+                            "value": "forcedAttack"
+                        }
+                    }
                 }
             },
             "borgy:default_targets": {
@@ -259,6 +259,7 @@
             "borgy:attack_forced_attack_entity": {
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 3,
+                    "within_radius": 64,
                     "entity_types": [
                         {
                             "filters": {
@@ -737,7 +738,12 @@
                         "target": "self"
                     }
                 }
-            }
+            },     
+			"borgy:drop_experience_from_forced_attack": {
+			  	"minecraft:experience_reward": {
+					"on_death": "Math.random(20, 32)"
+			  	}
+			}
         },
         "components": {
             "minecraft:movement.generic":{},
@@ -1125,11 +1131,65 @@
 										"subject": "self",
 										"operator": "!=",
 										"value": "minecraft:is_tamed"
+									},
+									{
+									  	"test": "has_damage",
+									  	"subject": "self",
+									  	"operator": "!=",
+									  	"value": "fatal"
 									}
 							  	]
 							},
 							"event": "borgy:on_force_attacked",
 							"target": "self"
+						}
+					},
+					{
+						"on_damage": {
+							"filters": {
+						  		"all_of": [
+									{
+							  			"test": "is_family",
+							  			"subject": "other",
+							  			"value": "forcedAttack"
+									},
+									{
+							  			"test": "has_damage",
+							  			"subject": "self",
+							  			"value": "fatal"
+									},
+									{
+							  			"test": "has_component",
+							  			"subject": "self",
+							  			"operator": "!=",
+							  			"value": "minecraft:is_baby"
+									}
+						  		]
+							},
+							"event": "borgy:on_force_attacked_death",
+							"target": "self"
+					  	}
+					},
+					{
+					  	"on_damage": {
+							"filters": {
+						  		"test": "is_family",
+						  		"subject": "other",
+						  		"value": "sarcoSpinAttack"
+							},
+							"event": "borgy:hit_by_sarco_spin",
+							"target": "self"
+					  	}
+					},
+					{
+						"on_damage": {
+						  	"filters": {
+								"test": "has_equipment",
+								"subject": "other",
+								"value": "rift:dimetrodon_frost_attack"
+						  	},
+						  	"event": "borgy:hit_by_frost_dimetrodon",
+						  	"target": "self"
 						}
 					}
 				]
@@ -1606,7 +1666,29 @@
                         "borgy:is_pushable"
                     ]
                 }
-            }
+            },
+			"borgy:hit_by_sarco_spin": {
+				"run_command": {
+					"command": [
+						"effect @s slowness 30 2"
+					]
+				}
+			},
+			"borgy:hit_by_frost_dimetrodon": {
+				"run_command": {
+					"command": [
+						"effect @s weakness 20 2",
+						"effect @s slowness 20 2"
+				  	]
+				}
+			},
+			"borgy:on_force_attacked_death": {
+			  	"add": {
+					"component_groups": [
+				  		"borgy:drop_experience_from_forced_attack"
+					]
+			  	}
+			}
         }
     }
 }

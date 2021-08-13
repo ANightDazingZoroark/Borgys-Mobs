@@ -79,7 +79,89 @@
                         "target": "self"
                     }
                 }
-            }
+            },
+            "borgy:default_targets": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 3,
+                    "within_radius": 24,
+                    "reselect_targets": true,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "mob"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "headcrabGeneral"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "headcrab_zombie_general"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "monster"
+                                    }
+                                ]
+                            },
+                            "max_dist": 24
+                        },
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "is_riding",
+                                        "subject": "other",
+                                        "value": false
+                                    }
+                                ]
+                            },
+                            "max_dist": 24
+                        }
+                    ]
+                }
+            },
+            "borgy:attack_forced_attack_entity": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 3,
+                    "within_radius": 24,
+                    "reselect_targets": true,
+                    "entity_types": [
+                        {
+                            "filters": {
+                              "test": "is_family",
+                              "subject": "other",
+                              "value": "isForcedAttacking"
+                            },
+                            "max_dist": 24
+                        }
+                    ]
+                },
+                "minecraft:on_target_escape": {
+                    "event": "borgy:no_force_attacked",
+                    "target": "self"
+                }
+            },
+			"borgy:drop_experience_from_forced_attack": {
+			  	"minecraft:experience_reward": {
+					"on_death": "Math.random(3,6)"
+			  	}
+			}
         },
         "components": {
             "minecraft:health": {
@@ -169,60 +251,6 @@
                     }
                 ]
             },
-            "minecraft:behavior.nearest_attackable_target": {
-                "priority": 3,
-                "within_radius": 24,
-                "reselect_targets": true,
-                "entity_types": [
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "mob"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "headcrabGeneral"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "headcrab_zombie_general"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "monster"
-                                }
-                            ]
-                        },
-                        "max_dist": 24
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "player"
-                                },
-                                {
-                                    "test": "is_riding",
-                                    "subject": "other",
-                                    "value": false
-                                }
-                            ]
-                        },
-                        "max_dist": 24
-                    }
-                ]
-            },
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:nameable": {},
             "minecraft:experience_reward": {
@@ -234,8 +262,8 @@
             "minecraft:rideable": {
                 "seat_count": 1,
                 "family_types": [
-                  "headcrab_zombie",
-                  "headcrab"
+                    "headcrab_zombie",
+                    "headcrab"
                 ],
                 "seats": [
                     {
@@ -268,14 +296,92 @@
                     {
                         "on_damage": {
                             "filters": {
-                                "test": "has_damage",
-                                "subject": "self",
-                                "value": "fatal"
+                                "all_of": [
+                                    {
+                                        "test": "has_damage",
+                                        "subject": "self",
+                                        "value": "fatal"
+                                    },
+									{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "forcedAttack"
+                                    }
+                                ]
                             },
                             "event": "borgy:leave_headcrab_behind",
                             "target": "self"
                         }
-                    }
+                    },
+                    {
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+								  		"test": "is_family",
+								  		"subject": "other",
+								  		"value": "forcedAttack"
+									},
+									{
+								  		"test": "has_target",
+								  		"subject": "self",
+								  		"value": false
+									},
+									{
+									  	"test": "has_damage",
+									  	"subject": "self",
+									  	"operator": "!=",
+									  	"value": "fatal"
+									}
+							  	]
+							},
+							"event": "borgy:on_force_attacked",
+							"target": "self"
+						}
+					},
+					{
+						"on_damage": {
+							"filters": {
+						  		"all_of": [
+									{
+							  			"test": "is_family",
+							  			"subject": "other",
+							  			"value": "forcedAttack"
+									},
+									{
+							  			"test": "has_damage",
+							  			"subject": "self",
+							  			"value": "fatal"
+									}
+						  		]
+							},
+							"event": "borgy:on_force_attacked_death",
+							"target": "self"
+					  	}
+					},
+					{
+					  	"on_damage": {
+							"filters": {
+						  		"test": "is_family",
+						  		"subject": "other",
+						  		"value": "sarcoSpinAttack"
+							},
+							"event": "borgy:hit_by_sarco_spin",
+							"target": "self"
+					  	}
+					},
+					{
+						"on_damage": {
+						  	"filters": {
+								"test": "has_equipment",
+								"subject": "other",
+								"value": "rift:dimetrodon_frost_attack"
+						  	},
+						  	"event": "borgy:hit_by_frost_dimetrodon",
+						  	"target": "self"
+						}
+					}
                 ]
             }
         },
@@ -287,7 +393,8 @@
                         "add": {
                             "component_groups": [
                                 "borgy:has_harming_potion",
-                                "borgy:can_rush_attack"
+                                "borgy:can_rush_attack",
+                                "borgy:default_targets"
                             ]
                         }
                     },
@@ -296,7 +403,8 @@
                         "add": {
                             "component_groups": [
                                 "borgy:has_poison_potion",
-                                "borgy:can_rush_attack"
+                                "borgy:can_rush_attack",
+                                "borgy:default_targets"
                             ]
                         }
                     },
@@ -305,7 +413,8 @@
                         "add": {
                             "component_groups": [
                                 "borgy:has_weakness_potion",
-                                "borgy:can_rush_attack"
+                                "borgy:can_rush_attack",
+                                "borgy:default_targets"
                             ]
                         }
                     },
@@ -314,7 +423,8 @@
                         "add": {
                             "component_groups": [
                                 "borgy:has_slowness_potion",
-                                "borgy:can_rush_attack"
+                                "borgy:can_rush_attack",
+                                "borgy:default_targets"
                             ]
                         }
                     },
@@ -323,7 +433,8 @@
                         "add": {
                             "component_groups": [
                                 "borgy:has_decay_potion",
-                                "borgy:can_rush_attack"
+                                "borgy:can_rush_attack",
+                                "borgy:default_targets"
                             ]
                         }
                     }
@@ -336,7 +447,8 @@
                         "add": {
                             "component_groups": [
                                 "borgy:has_harming_potion",
-                                "borgy:can_rush_attack"
+                                "borgy:can_rush_attack",
+                                "borgy:default_targets"
                             ]
                         }
                     },
@@ -345,7 +457,8 @@
                         "add": {
                             "component_groups": [
                                 "borgy:has_poison_potion",
-                                "borgy:can_rush_attack"
+                                "borgy:can_rush_attack",
+                                "borgy:default_targets"
                             ]
                         }
                     },
@@ -354,7 +467,8 @@
                         "add": {
                             "component_groups": [
                                 "borgy:has_weakness_potion",
-                                "borgy:can_rush_attack"
+                                "borgy:can_rush_attack",
+                                "borgy:default_targets"
                             ]
                         }
                     },
@@ -363,7 +477,8 @@
                         "add": {
                             "component_groups": [
                                 "borgy:has_slowness_potion",
-                                "borgy:can_rush_attack"
+                                "borgy:can_rush_attack",
+                                "borgy:default_targets"
                             ]
                         }
                     },
@@ -372,7 +487,8 @@
                         "add": {
                             "component_groups": [
                                 "borgy:has_decay_potion",
-                                "borgy:can_rush_attack"
+                                "borgy:can_rush_attack",
+                                "borgy:default_targets"
                             ]
                         }
                     }
@@ -604,7 +720,58 @@
                         }
                     }
                 ]
-            }
+            },
+			"borgy:on_force_attacked": {
+				"add": {
+				  	"component_groups": [
+						"borgy:attack_forced_attack_entity"
+				  	]
+				},
+				"remove": {
+				  	"component_groups": [
+						"borgy:default_targets"
+				  	]
+				}
+			},
+			"borgy:no_force_attacked": {
+                "add": {
+                    "component_groups": [
+                        "borgy:default_targets"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:attack_forced_attack_entity"
+                    ]
+                }
+			},
+			"borgy:hit_by_sarco_spin": {
+				"run_command": {
+					"command": [
+						"effect @s slowness 30 2"
+					]
+				}
+			},
+			"borgy:hit_by_frost_dimetrodon": {
+				"run_command": {
+					"command": [
+						"effect @s weakness 20 2",
+						"effect @s slowness 20 2"
+				  	]
+				}
+			},
+			"borgy:on_force_attacked_death": {
+			  	"add": {
+					"component_groups": [
+				  		"borgy:drop_experience_from_forced_attack"
+					]
+			  	},
+                "run_command": {
+                    "command": [
+                        "summon borgy:headcrab"
+                    ]
+                }
+			}
         }
     }
 }

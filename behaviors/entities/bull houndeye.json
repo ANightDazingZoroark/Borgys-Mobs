@@ -48,6 +48,35 @@
                 }
             },
             "borgy:houndeye_wild": {
+                "minecraft:behavior.random_stroll": {
+                    "priority": 6
+                },
+                "minecraft:behavior.random_look_around": {
+                    "priority": 7
+                },
+                "minecraft:behavior.hurt_by_target": {
+				    "priority": 2,
+                    "entity_types": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "houndeye"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "!=",
+                                    "value": "forcedAttack"
+                                }
+                            ]
+                        }
+                    }
+			    }
+            },
+            "borgy:default_targets": {
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 3,
                     "within_radius": 24,
@@ -87,24 +116,22 @@
                             "max_dist": 24
                         }
                     ]
-                },
-                "minecraft:behavior.random_stroll": {
-                    "priority": 6
-                },
-                "minecraft:behavior.random_look_around": {
-                    "priority": 7
-                },
-                "minecraft:behavior.hurt_by_target": {
-				    "priority": 2,
-                    "entity_types": {
-                        "filters": {
-                            "test": "is_family",
-                            "subject": "other",
-                            "operator": "!=",
-                            "value": "houndeye"
+                }
+            },
+            "borgy:attack_forced_attack_entity": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 3,
+                    "entity_types": [
+                        {
+                            "filters": {
+                              "test": "is_family",
+                              "subject": "other",
+                              "value": "isForcedAttacking"
+                            },
+                            "max_dist": 64
                         }
-                    }
-			    }
+                    ]
+                }
             },
             "borgy:houndeye_wild_calm": {
                 "minecraft:on_target_acquired": {
@@ -342,7 +369,12 @@
                 "minecraft:movement": {
                     "value": 0
                 }
-            }
+            },     
+			"borgy:drop_experience_from_forced_attack": {
+			  	"minecraft:experience_reward": {
+					"on_death": "Math.random(6,12)"
+			  	}
+			}
         },
         "components": {
             "minecraft:health": {
@@ -408,7 +440,97 @@
             },
             "minecraft:behavior.breed": {
                 "priority": 2
-            }
+            },
+            "minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+								  		"test": "is_family",
+								  		"subject": "other",
+								  		"value": "forcedAttack"
+									},
+									{
+								  		"test": "has_target",
+								  		"subject": "self",
+								  		"value": false
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "!=",
+										"value": "minecraft:is_baby"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "!=",
+										"value": "minecraft:is_tamed"
+									},
+									{
+									  	"test": "has_damage",
+									  	"subject": "self",
+									  	"operator": "!=",
+									  	"value": "fatal"
+									}
+							  	]
+							},
+							"event": "borgy:on_force_attacked",
+							"target": "self"
+						}
+					},
+					{
+						"on_damage": {
+							"filters": {
+						  		"all_of": [
+									{
+							  			"test": "is_family",
+							  			"subject": "other",
+							  			"value": "forcedAttack"
+									},
+									{
+							  			"test": "has_damage",
+							  			"subject": "self",
+							  			"value": "fatal"
+									},
+									{
+							  			"test": "has_component",
+							  			"subject": "self",
+							  			"operator": "!=",
+							  			"value": "minecraft:is_baby"
+									}
+						  		]
+							},
+							"event": "borgy:on_force_attacked_death",
+							"target": "self"
+					  	}
+					},
+					{
+					  	"on_damage": {
+							"filters": {
+						  		"test": "is_family",
+						  		"subject": "other",
+						  		"value": "sarcoSpinAttack"
+							},
+							"event": "borgy:hit_by_sarco_spin",
+							"target": "self"
+					  	}
+					},
+					{
+						"on_damage": {
+						  	"filters": {
+								"test": "has_equipment",
+								"subject": "other",
+								"value": "rift:dimetrodon_frost_attack"
+						  	},
+						  	"event": "borgy:hit_by_frost_dimetrodon",
+						  	"target": "self"
+						}
+					}
+				]
+			}
         },
         "events": {
             "minecraft:entity_spawned": {
@@ -416,6 +538,7 @@
                     "component_groups": [
                         "borgy:houndeye_wild",
                         "borgy:houndeye_wild_calm",
+                        "borgy:default_targets",
                         "borgy:can_move"
                     ]
                 }
@@ -515,7 +638,8 @@
             "borgy:no_target": {
                 "add": {
                     "component_groups": [
-                        "borgy:can_move"
+                        "borgy:can_move",
+                        "borgy:default_targets"
                     ]
                 },
                 "remove": {
@@ -523,7 +647,8 @@
                         "borgy:cannot_move",
                         "borgy:houndeye_finding_target",
                         "borgy:houndeye_attack",
-                        "borgy:houndeye_attacking"
+                        "borgy:houndeye_attacking",
+                        "borgy:attack_forced_attack_entity"
                     ]
                 }
             },
@@ -583,7 +708,41 @@
                         "borgy:shockwave_disabled"
                     ]
                 }
-            }
+            },
+			"borgy:on_force_attacked": {
+				"add": {
+				  	"component_groups": [
+						"borgy:attack_forced_attack_entity"
+				  	]
+				},
+				"remove": {
+				  	"component_groups": [
+						"borgy:default_targets"
+				  	]
+				}
+			},
+			"borgy:hit_by_sarco_spin": {
+				"run_command": {
+					"command": [
+						"effect @s slowness 30 2"
+					]
+				}
+			},
+			"borgy:hit_by_frost_dimetrodon": {
+				"run_command": {
+					"command": [
+						"effect @s weakness 20 2",
+						"effect @s slowness 20 2"
+				  	]
+				}
+			},
+			"borgy:on_force_attacked_death": {
+			  	"add": {
+					"component_groups": [
+				  		"borgy:drop_experience_from_forced_attack"
+					]
+			  	}
+			}
         }
     }
 }

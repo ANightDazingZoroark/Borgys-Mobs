@@ -119,6 +119,9 @@
                         {
                             "ascending": "query.is_jumping && query.get_equipped_item_name('main_hand') != 'bakunawa_staff'"
                         }
+                    ],
+                    "on_entry": [
+                        "/effect @e[type=borgy:bakunawa, c=1, tag=tamed] levitation 0 0"
                     ]
                 },
                 "jumpCooldown": {
@@ -132,7 +135,10 @@
 						{
 							"descending": "return !query.is_jumping && query.life_time - variable.jump_cooldown > 0.5;"
 						}
-					]
+					],
+                    "on_entry": [
+                        "/effect @e[type=borgy:bakunawa, c=1, tag=tamed] levitation 0 0"
+                    ]
                 },
                 "ascending": {
                     "animations": [
@@ -148,6 +154,9 @@
                         {
                             "jumpCooldown": "variable.jump_cooldown = query.life_time; return (!query.is_jumping);"
                         }
+                    ],
+                    "on_entry": [
+                        "/effect @e[type=borgy:bakunawa, c=1, tag=tamed] slow_falling 0 0"
                     ]
                 },
                 "hovering": {
@@ -156,8 +165,9 @@
                         "@s borgy:clear_bakunawa_effects_two",
                         "/tellraw @p {\"rawtext\":[{\"text\":\"Enabled hover mode\"}]}",
                         "/event entity @e[type=borgy:bakunawa, c=1, tag=tamed] borgy:on_hover",
-                        "/execute  @e[type=borgy:bakunawa, c=1, tag=tamed] ~ ~ ~ tp @s ~ ~ ~",
-                        "/execute  @e[type=borgy:bakunawa, c=1, tag=tamed] ~ ~ ~ effect @s clear"
+                        "/execute @e[type=borgy:bakunawa, c=1, tag=tamed] ~ ~ ~ tp @s ~ ~ ~",
+                        "/execute @e[type=borgy:bakunawa, c=1, tag=tamed] ~ ~ ~ effect @s levitation 0 0",
+                        "/execute @e[type=borgy:bakunawa, c=1, tag=tamed] ~ ~ ~ effect @s slow_falling 0 0"
                     ],
                     "on_exit": [
                         "/tellraw @p {\"rawtext\":[{\"text\":\"Disabled hover mode\"}]}",

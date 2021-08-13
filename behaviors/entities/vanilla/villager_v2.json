@@ -1397,37 +1397,37 @@
           "value": 6
         }
       },
-      "become_headcrab_zombie": {
+      "borgy:become_headcrab_zombie": {
         "minecraft:transformation": {
           "into": "borgy:villager_headcrab_zombie"
         }
       },
-      "become_fast_headcrab_zombie": {
+      "borgy:become_fast_headcrab_zombie": {
         "minecraft:transformation": {
           "into": "borgy:fast_headcrab_zombie"
         }
       },
-      "become_poison_headcrab_zombie": {
+      "borgy:become_poison_headcrab_zombie": {
         "minecraft:transformation": {
           "into": "borgy:poison_headcrab_zombie<borgy:has_no_passengers>"
         }
       },
-      "become_scorched_headcrab_zombie": {
+      "borgy:become_scorched_headcrab_zombie": {
         "minecraft:transformation": {
           "into": "borgy:scorched_headcrab_zombie<minecraft:entity_spawned>"
         }
       },
-      "become_frostbite_headcrab_zombie": {
+      "borgy:become_frostbite_headcrab_zombie": {
         "minecraft:transformation": {
           "into": "borgy:frostbite_headcrab_zombie<minecraft:entity_spawned>"
         }
       },
-      "become_electro_headcrab_zombie": {
+      "borgy:become_electro_headcrab_zombie": {
         "minecraft:transformation": {
           "into": "borgy:electro_headcrab_zombie<minecraft:entity_spawned>"
         }
       },
-      "become_enderite_headcrab_zombie": {
+      "borgy:become_enderite_headcrab_zombie": {
         "minecraft:transformation": {
           "into": "borgy:enderite_headcrab_zombie<minecraft:entity_spawned>"
         }
@@ -1543,7 +1543,7 @@
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "headcrab_zombie" }
                 ]
               },
-              "event": "become_headcrab_zombie",
+              "event": "borgy:become_headcrab_zombie",
               "target": "self"
             }
           },
@@ -1555,7 +1555,7 @@
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "fast_headcrab_zombie" }
                 ]
               },
-              "event": "become_fast_headcrab_zombie",
+              "event": "borgy:become_fast_headcrab_zombie",
               "target": "self"
             }
           },
@@ -1569,7 +1569,7 @@
                   { "test": "has_damage", "subject": "self", "operator": "equals", "value": "attack" }
                 ]
               },
-              "event": "become_poison_headcrab_zombie",
+              "event": "borgy:become_poison_headcrab_zombie",
               "target": "self"
             }
           },
@@ -1581,7 +1581,7 @@
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "scorched_headcrab_zombie" }
                 ]
               },
-              "event": "become_scorched_headcrab_zombie",
+              "event": "borgy:become_scorched_headcrab_zombie",
               "target": "self"
             }
           },
@@ -1593,7 +1593,7 @@
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "frostbite_headcrab_zombie" }
                 ]
               },
-              "event": "become_frostbite_headcrab_zombie",
+              "event": "borgy:become_frostbite_headcrab_zombie",
               "target": "self"
             }
           },
@@ -1605,7 +1605,7 @@
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "electro_headcrab_zombie" }
                 ]
               },
-              "event": "become_electro_headcrab_zombie",
+              "event": "borgy:become_electro_headcrab_zombie",
               "target": "self"
             }
           },
@@ -1617,7 +1617,7 @@
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "enderite_headcrab_zombie" }
                 ]
               },
-              "event": "become_enderite_headcrab_zombie",
+              "event": "borgy:become_enderite_headcrab_zombie",
               "target": "self"
             }
           }
@@ -1714,7 +1714,7 @@
           "subject": "other",
           "value": "firedHeadcrab"
         },
-        "event": "become_headcrab_zombie_from_fired_headcrab"
+        "event": "borgy:become_headcrab_zombie_from_fired_headcrab"
       }
     },
     "events":{
@@ -2564,36 +2564,36 @@
       "minecraft:resupply_trades": {
         "add": { "component_groups": [ "trade_resupply_component_group" ] }
       },
-      "become_headcrab_zombie": {
-        "add": { "component_groups": [ "become_headcrab_zombie" ] },
+      "borgy:become_headcrab_zombie": {
+        "add": { "component_groups": [ "borgy:become_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:headcrab, c=1] borgy:into_headcrab_zombie" ] }
       },
-      "become_fast_headcrab_zombie": {
-        "add": { "component_groups": [ "become_fast_headcrab_zombie" ] },
+      "borgy:become_fast_headcrab_zombie": {
+        "add": { "component_groups": [ "borgy:become_fast_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:fast_headcrab, c=1] borgy:into_fast_headcrab_zombie" ] }
       },
-      "become_poison_headcrab_zombie": {
-        "add": { "component_groups": [ "become_poison_headcrab_zombie" ] },
+      "borgy:become_poison_headcrab_zombie": {
+        "add": { "component_groups": [ "borgy:become_poison_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:poison_headcrab, c=1] borgy:into_poison_headcrab_zombie" ] }
       },
-      "become_scorched_headcrab_zombie": {
-        "add": { "component_groups": [ "become_scorched_headcrab_zombie" ] },
+      "borgy:become_scorched_headcrab_zombie": {
+        "add": { "component_groups": [ "borgy:become_scorched_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:scorched_headcrab, c=1] borgy:into_scorched_headcrab_zombie" ] }
       },
-      "become_frostbite_headcrab_zombie": {
-        "add": { "component_groups": [ "become_frostbite_headcrab_zombie" ] },
+      "borgy:become_frostbite_headcrab_zombie": {
+        "add": { "component_groups": [ "borgy:become_frostbite_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:frostbite_headcrab, c=1] borgy:into_frostbite_headcrab_zombie" ] }
       },
-      "become_electro_headcrab_zombie": {
-        "add": { "component_groups": [ "become_electro_headcrab_zombie" ] },
+      "borgy:become_electro_headcrab_zombie": {
+        "add": { "component_groups": [ "borgy:become_electro_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:electro_headcrab, c=1] borgy:into_electro_headcrab_zombie" ] }
       },
-      "become_enderite_headcrab_zombie": {
-        "add": { "component_groups": [ "become_enderite_headcrab_zombie" ] },
+      "borgy:become_enderite_headcrab_zombie": {
+        "add": { "component_groups": [ "borgy:become_enderite_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:enderite_headcrab, c=1] borgy:into_enderite_headcrab_zombie" ] }
       },
-      "become_headcrab_zombie_from_fired_headcrab": {
-        "add": { "component_groups": [ "become_headcrab_zombie" ] },
+      "borgy:become_headcrab_zombie_from_fired_headcrab": {
+        "add": { "component_groups": [ "borgy:become_headcrab_zombie" ] },
         "run_command": {
           "command": [
             "event entity @e[type=borgy:fired_headcrab, c=1] borgy:commit_disappear"
