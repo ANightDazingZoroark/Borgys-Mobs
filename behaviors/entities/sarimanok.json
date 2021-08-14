@@ -20,6 +20,23 @@
                     }
                 }
             },
+            "borgy:default_targets": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 3,
+                    "within_radius": 24,
+                    "reselect_targets": true,
+                    "entity_types": [
+                        {
+                            "filters": {
+                              "test": "is_family",
+                              "subject": "other",
+                              "value": "parasaurAngerer"
+                            },
+                            "max_dist": 24
+                        }
+                    ]
+                }
+            },
             "borgy:attack_forced_attack_entity": {
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 3,
@@ -54,6 +71,7 @@
             "minecraft:type_family": {
                 "family": [
                     "sarimanok",
+                    "animal",
                     "mob"
                 ]
             },
@@ -81,7 +99,22 @@
                         "value": "forcedAttack"
                     }
                 }
-            },            
+            },
+            "minecraft:behavior.avoid_mob_type": {
+                "priority": 1,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "parasaurScary"
+                        },
+                        "max_dist": 10,
+                        "walk_speed_multiplier": 1.5,
+                        "sprint_speed_multiplier": 1.5
+                    }
+                ]
+            },
             "minecraft:loot": {
                 "table": "loot_tables/sarimanok.loot.json"
             },
@@ -241,6 +274,13 @@
             }
         },
         "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "borgy:default_targets"
+                    ]
+                }
+            },
             "borgy:give_rewards": {
                 "add": {
                     "component_groups": [
@@ -265,9 +305,19 @@
 				  	"component_groups": [
 						"borgy:attack_forced_attack_entity"
 				  	]
-				}
+				},
+                "remove": {
+                    "component_groups": [
+                        "borgy:default_targets"
+                    ]
+                }
 			},
 			"borgy:no_force_attacked": {
+                "add": {
+                    "component_groups": [
+                        "borgy:default_targets"
+                    ]
+                },
                 "remove": {
                     "component_groups": [
                         "borgy:attack_forced_attack_entity"

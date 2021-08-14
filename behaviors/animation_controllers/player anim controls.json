@@ -11,7 +11,8 @@
                         }
                     ],
                     "on_entry": [
-                        "/event entity @e[type=borgy:icthyosaur, c=1, tag=tamed] borgy:deactivate_control"
+                        "/event entity @e[type=borgy:icthyosaur, c=1, tag=tamed] borgy:deactivate_control",
+                        "/effect @e[type=borgy:icthyosaur, c=1, tag=tamed] levitation 0 0"
                     ],
                     "on_exit": [
                         "/event entity @e[type=borgy:icthyosaur, c=1, tag=tamed] borgy:activate_control"
@@ -25,6 +26,9 @@
                         {
                             "ascending": "query.is_jumping && query.get_equipped_item_name('main_hand') != 'icthyosaur_staff'"
                         }
+                    ],
+                    "on_entry": [
+                        "/effect @e[type=borgy:icthyosaur, c=1, tag=tamed] levitation 0 0"
                     ]
                 },
                 "jumpCooldown": {
@@ -35,7 +39,10 @@
 						{
 							"descending": "return !query.is_jumping && query.life_time - variable.jump_cooldown > 0.5;"
 						}
-					]
+					],
+                    "on_entry": [
+                        "/effect @e[type=borgy:icthyosaur, c=1, tag=tamed] levitation 0 0"
+                    ]
                 },
                 "ascending": {
                     "animations": [

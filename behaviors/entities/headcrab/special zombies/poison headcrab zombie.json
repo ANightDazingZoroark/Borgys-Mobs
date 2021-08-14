@@ -161,7 +161,89 @@
                 "minecraft:spell_effects": {
                     "remove_effects": "poison"
                 }
-            }
+            },
+            "borgy:default_targets": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 3,
+                    "within_radius": 24,
+                    "reselect_targets": true,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "mob"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "headcrabGeneral"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "headcrab_zombie_general"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "monster"
+                                    }
+                                ]
+                            },
+                            "max_dist": 24
+                        },
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "is_riding",
+                                        "subject": "other",
+                                        "value": false
+                                    }
+                                ]
+                            },
+                            "max_dist": 24
+                        }
+                    ]
+                }
+            },
+            "borgy:attack_forced_attack_entity": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 3,
+                    "within_radius": 24,
+                    "reselect_targets": true,
+                    "entity_types": [
+                        {
+                            "filters": {
+                              "test": "is_family",
+                              "subject": "other",
+                              "value": "isForcedAttacking"
+                            },
+                            "max_dist": 24
+                        }
+                    ]
+                },
+                "minecraft:on_target_escape": {
+                    "event": "borgy:no_force_attacked",
+                    "target": "self"
+                }
+            },
+			"borgy:drop_experience_from_forced_attack": {
+			  	"minecraft:experience_reward": {
+					"on_death": "Math.random(3,6)"
+			  	}
+			}
         },
         "components": {
             "minecraft:health": {
@@ -221,6 +303,12 @@
                                 "subject": "other",
                                 "operator": "!=",
                                 "value": "sigbin"
+                            },
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "operator": "!=",
+                                "value": "forcedAttack"
                             }
                         ]
                     }
@@ -231,67 +319,22 @@
                 "entity_types": [
                     {
                         "filters": {
-                            "test": "is_family",
-                            "subject": "other",
-                            "value": "sigbin"
+                            "any_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "sigbin"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "parasaurScary"
+                                }
+                            ]
                         },
                         "max_dist": 10,
                         "walk_speed_multiplier": 1.5,
                         "sprint_speed_multiplier": 1.5
-                    }
-                ]
-            },
-            "minecraft:behavior.nearest_attackable_target": {
-                "priority": 3,
-                "within_radius": 24,
-                "reselect_targets": true,
-                "entity_types": [
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "mob"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "headcrabGeneral"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "headcrab_zombie_general"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "operator": "!=",
-                                    "value": "monster"
-                                }
-                            ]
-                        },
-                        "max_dist": 24
-                    },
-                    {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "player"
-                                },
-                                {
-                                    "test": "is_riding",
-                                    "subject": "other",
-                                    "value": false
-                                }
-                            ]
-                        },
-                        "max_dist": 24
                     }
                 ]
             },
@@ -341,7 +384,13 @@
                                         "test": "is_variant",
                                         "subject": "self",
                                         "value": 2
-                                    }
+                                    },
+									{
+							  			"test": "is_family",
+							  			"subject": "other",
+                                        "operator": "!=",
+							  			"value": "forcedAttack"
+									}
                                 ]
                             },
                             "event": "borgy:leave_two_headcrabs_behind",
@@ -361,7 +410,13 @@
                                         "test": "is_variant",
                                         "subject": "self",
                                         "value": 1
-                                    }
+                                    },
+									{
+							  			"test": "is_family",
+							  			"subject": "other",
+                                        "operator": "!=",
+							  			"value": "forcedAttack"
+									}
                                 ]
                             },
                             "event": "borgy:leave_one_headcrab_behind",
@@ -381,13 +436,142 @@
                                         "test": "is_variant",
                                         "subject": "self",
                                         "value": 0
-                                    }
+                                    },
+									{
+							  			"test": "is_family",
+							  			"subject": "other",
+                                        "operator": "!=",
+							  			"value": "forcedAttack"
+									}
                                 ]
                             },
                             "event": "borgy:leave_no_headcrabs_behind",
                             "target": "self"
                         }
-                    }
+                    },
+                    {
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+								  		"test": "is_family",
+								  		"subject": "other",
+								  		"value": "forcedAttack"
+									},
+									{
+								  		"test": "has_target",
+								  		"subject": "self",
+								  		"value": false
+									},
+									{
+									  	"test": "has_damage",
+									  	"subject": "self",
+									  	"operator": "!=",
+									  	"value": "fatal"
+									}
+							  	]
+							},
+							"event": "borgy:on_force_attacked",
+							"target": "self"
+						}
+					},
+					{
+						"on_damage": {
+							"filters": {
+						  		"all_of": [
+									{
+							  			"test": "is_family",
+							  			"subject": "other",
+							  			"value": "forcedAttack"
+									},
+									{
+							  			"test": "has_damage",
+							  			"subject": "self",
+							  			"value": "fatal"
+									},
+                                    {
+                                        "test": "is_variant",
+                                        "subject": "self",
+                                        "value": 2
+                                    }
+						  		]
+							},
+							"event": "borgy:on_force_attacked_death_two_headcrabs",
+							"target": "self"
+					  	}
+					},
+					{
+						"on_damage": {
+							"filters": {
+						  		"all_of": [
+									{
+							  			"test": "is_family",
+							  			"subject": "other",
+							  			"value": "forcedAttack"
+									},
+									{
+							  			"test": "has_damage",
+							  			"subject": "self",
+							  			"value": "fatal"
+									},
+                                    {
+                                        "test": "is_variant",
+                                        "subject": "self",
+                                        "value": 1
+                                    }
+						  		]
+							},
+							"event": "borgy:on_force_attacked_death_one_headcrab",
+							"target": "self"
+					  	}
+					},
+					{
+						"on_damage": {
+							"filters": {
+						  		"all_of": [
+									{
+							  			"test": "is_family",
+							  			"subject": "other",
+							  			"value": "forcedAttack"
+									},
+									{
+							  			"test": "has_damage",
+							  			"subject": "self",
+							  			"value": "fatal"
+									},
+                                    {
+                                        "test": "is_variant",
+                                        "subject": "self",
+                                        "value": 0
+                                    }
+						  		]
+							},
+							"event": "borgy:on_force_attacked_death_no_headcrabs",
+							"target": "self"
+					  	}
+					},
+					{
+					  	"on_damage": {
+							"filters": {
+						  		"test": "is_family",
+						  		"subject": "other",
+						  		"value": "sarcoSpinAttack"
+							},
+							"event": "borgy:hit_by_sarco_spin",
+							"target": "self"
+					  	}
+					},
+					{
+						"on_damage": {
+						  	"filters": {
+								"test": "has_equipment",
+								"subject": "other",
+								"value": "rift:dimetrodon_frost_attack"
+						  	},
+						  	"event": "borgy:hit_by_frost_dimetrodon",
+						  	"target": "self"
+						}
+					}
                 ]
             }
         },
@@ -396,6 +580,7 @@
                 "add": {
                     "component_groups": [
                         "borgy:two_passengers",
+                        "borgy:default_targets",
                         "borgy:can_melee"
                     ]
                 }
@@ -403,7 +588,9 @@
             "borgy:has_no_passengers": {
                 "add": {
                     "component_groups": [
-                        "borgy:no_passengers"
+                        "borgy:no_passengers",
+                        "borgy:default_targets",
+                        "borgy:can_melee"
                     ]
                 }
             },
@@ -557,7 +744,85 @@
                         "borgy:remove_poison"
                     ]
                 }
-            }
+            },
+			"borgy:on_force_attacked": {
+				"add": {
+				  	"component_groups": [
+						"borgy:attack_forced_attack_entity"
+				  	]
+				},
+				"remove": {
+				  	"component_groups": [
+						"borgy:default_targets"
+				  	]
+				}
+			},
+			"borgy:no_force_attacked": {
+                "add": {
+                    "component_groups": [
+                        "borgy:default_targets"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:attack_forced_attack_entity"
+                    ]
+                }
+			},
+			"borgy:hit_by_sarco_spin": {
+				"run_command": {
+					"command": [
+						"effect @s slowness 30 2"
+					]
+				}
+			},
+			"borgy:hit_by_frost_dimetrodon": {
+				"run_command": {
+					"command": [
+						"effect @s weakness 20 2",
+						"effect @s slowness 20 2"
+				  	]
+				}
+			},
+			"borgy:on_force_attacked_death_two_headcrabs": {
+			  	"add": {
+					"component_groups": [
+				  		"borgy:drop_experience_from_forced_attack"
+					]
+			  	},
+                "run_command": {
+                    "command": [
+                        "summon borgy:poison_headcrab",
+                        "summon borgy:poison_headcrab",
+                        "summon borgy:poison_puddle"
+                    ]
+                }
+			},
+			"borgy:on_force_attacked_death_one_headcrab": {
+			  	"add": {
+					"component_groups": [
+				  		"borgy:drop_experience_from_forced_attack"
+					]
+			  	},
+                "run_command": {
+                    "command": [
+                        "summon borgy:poison_headcrab",
+                        "summon borgy:poison_puddle"
+                    ]
+                }
+			},
+			"borgy:on_force_attacked_death_no_headcrabs": {
+			  	"add": {
+					"component_groups": [
+				  		"borgy:drop_experience_from_forced_attack"
+					]
+			  	},
+                "run_command": {
+                    "command": [
+                        "summon borgy:poison_puddle"
+                    ]
+                }
+			}
         }
     }
 }

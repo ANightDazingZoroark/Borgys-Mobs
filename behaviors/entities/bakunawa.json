@@ -684,6 +684,7 @@
                 "minecraft:type_family": {
                     "family": [
                         "bakunawa",
+                        "largeCarnivore",
                         "mob"
                     ]
                 }
@@ -692,6 +693,7 @@
                 "minecraft:type_family": {
                     "family": [
                         "bakunawa",
+                        "largeCarnivore",
                         "mob",
 						"isForcedAttacking"
                     ]

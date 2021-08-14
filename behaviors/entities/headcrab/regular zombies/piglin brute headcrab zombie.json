@@ -194,9 +194,18 @@
                 "entity_types": [
                     {
                         "filters": {
-                            "test": "is_family",
-                            "subject": "other",
-                            "value": "sigbin"
+                            "any_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "sigbin"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "parasaurScary"
+                                }
+                            ]
                         },
                         "max_dist": 10,
                         "walk_speed_multiplier": 1.5,

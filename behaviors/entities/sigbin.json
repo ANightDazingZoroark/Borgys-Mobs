@@ -38,7 +38,7 @@
             },
             "borgy:wild": {
                 "minecraft:behavior.hurt_by_target": {
-                    "priority": 2,
+                    "priority": 3,
                     "entity_types": {
                         "filters": {
                             "test": "is_family",
@@ -90,17 +90,32 @@
                     }
                 },
                 "minecraft:behavior.delayed_attack": {
-                    "priority": 4,
+                    "priority": 5,
                     "speed_multiplier": 1.75,
                     "attack_duration": 0.6,
                     "hit_delay_pct": 0.8,
                     "track_target": true,
                     "reach_multiplier": 2
+                },
+                "minecraft:behavior.avoid_mob_type": {
+                    "priority": 2,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "parasaurScary"
+                            },
+                            "max_dist": 10,
+                            "walk_speed_multiplier": 1.5,
+                            "sprint_speed_multiplier": 1.5
+                        }
+                    ]
                 }
             },
             "borgy:default_targets": {
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 3,
+                    "priority": 4,
                     "within_radius": 24,
                     "reselect_targets": true,
                     "entity_types": [
@@ -170,13 +185,21 @@
                                 ]
                             },
                             "max_dist": 24
+                        },
+                        {
+                            "filters": {
+                              "test": "is_family",
+                              "subject": "other",
+                              "value": "parasaurAngerer"
+                            },
+                            "max_dist": 24
                         }
                     ]
                 }
             },
             "borgy:attack_forced_attack_entity": {
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 3,
+                    "priority": 4,
                     "within_radius": 24,
                     "reselect_targets": true,
                     "entity_types": [
@@ -233,7 +256,7 @@
                     ]
                 },
                 "minecraft:behavior.delayed_attack": {
-                    "priority": 4,
+                    "priority": 5,
                     "speed_multiplier": 1.75,
                     "attack_duration": 0.6,
                     "hit_delay_pct": 0.8,
@@ -266,7 +289,7 @@
             },
             "borgy:tamed_at_night": {
                 "minecraft:behavior.follow_owner": {
-                    "priority": 5
+                    "priority": 6
                 },
                 "minecraft:behavior.owner_hurt_target": {
                     "filters": {
@@ -275,7 +298,7 @@
                         "operator": "!=",
                         "value": "minecraft:is_baby"
                     },
-                    "priority": 3
+                    "priority": 4
                 },
                 "minecraft:behavior.owner_hurt_by_target": {
                     "filters": {
@@ -284,7 +307,7 @@
                         "operator": "!=",
                         "value": "minecraft:is_baby"
                     },
-                    "priority": 2
+                    "priority": 3
                 },
                 "minecraft:breedable": {
                     "breeds_with": {
