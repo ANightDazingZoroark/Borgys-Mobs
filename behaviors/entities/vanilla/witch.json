@@ -173,7 +173,9 @@
                   "test": "is_family",
                   "subject": "other",
                   "value": "irongolem"
-                }
+                },
+                { "test": "is_family", "subject": "other", "value": "headcrabGeneral" },
+                { "test": "is_family", "subject": "other", "value": "headcrab_zombie_general" }
               ]
             },
             "max_dist": 10
