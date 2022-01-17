@@ -1,5 +1,5 @@
 {
-	"format_version": "1.14.0",
+	"format_version": "1.16.0",
 	"minecraft:entity": {
 		"description": {
 			"identifier": "borgy:icthyosaur_forced_attack",
@@ -13,9 +13,43 @@
 				"duration": 0.52,
 				"attack_time": 0.52,
 				"knockback_damage": 16,
-				"knockback_strength": 0,
-				"knockback_range": 3,
+				"knockback_strength": 1,
+				"knockback_range": 4,
 				"damage_filters": {
+					"any_of": [
+						{
+							"all_of": [
+								{
+									"test": "has_component",
+									"subject": "other",
+									"operator": "!=",
+									"value": "minecraft:is_tamed"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "player"
+								}
+							]
+						},
+						{
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								},
+								{
+									"test": "is_riding",
+									"subject": "other",
+									"value": false
+								}
+							]
+						}
+					]
+                },
+				"knockback_filters": {
 					"any_of": [
 						{
 							"all_of": [
