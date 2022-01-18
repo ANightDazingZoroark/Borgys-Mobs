@@ -24,6 +24,17 @@ let bileLauncherAmmo = [
     "borgy:cooked_headcrab"
 ]
 
+function hasTag(player, tag, dimension) {
+    try {
+        let msg = Commands.run(`tag "${player.name}" list`, World.getDimension(dimension ?? 'overworld')).statusMessage;
+        let msgSplited = msg.split(":");
+        let playerTags = msgSplited.length > 1 ? msgSplited[1].match(/§a(.*?)§r/)[1].trim().split(",") : [];
+        
+        return playerTags.find(it => it == tag) ? true : false;
+    } 
+    catch (e) {}
+}
+
 function checkForItems(player, searchedItem) {
     const container = player.getComponent("minecraft:inventory").container;
     for (let i = 0; i <= 36; i++){
@@ -44,49 +55,41 @@ function checkForItems(player, searchedItem) {
     }
 };
 
+function removeOneAtATime(player, searchedItem) {
+    const container = player.getComponent("minecraft:inventory").container;
+    for (let i = 0; i < 36; i++){
+        const item = container.getItem(i);
+        try {
+            if (item.id == searchedItem) {
+                Commands.run(`clear "${player.name}" ${searchedItem} 0 1`, World.getDimension('overworld'));
+            }
+        }
+        catch (e) {
+            continue;
+        }
+    }
+};
+
 World.events.tick.subscribe((ev) => {
     let players = World.getPlayers();
     for (let j = 0; j <= players.length; j++) {
-        //for headcrab launcher ammo
-        try {
-            if (checkForItems(players[j], "minecraft:ender_pearl")) {
-                Commands.run(`say headcrab launcher ammo`, World.getDimension('overworld'));
-                Commands.run(`tag "${players[j].name}" add hasHeadcrabLauncherAmmo`, World.getDimension('overworld'));
-            }
-            else {
-                Commands.run(`tag "${players[j].name}" remove hasHeadcrabLauncherAmmo`, World.getDimension('overworld'));
-            }
-        }
-        catch (e) {
-            continue;
-        }
-        
-        //for sonic cannon ammo
-        try {
-            if (checkForItems(players[j], "minecraft:redstone")) {
-                Commands.run(`say sonic cannon ammo`, World.getDimension('overworld'));
-                Commands.run(`tag "${players[j].name}" add hasSonicCannonAmmo`, World.getDimension('overworld'));
-            }
-            else {
-                Commands.run(`tag "${players[j].name}" remove hasSonicCannonAmmo`, World.getDimension('overworld'));
-            }
-        }
-        catch (e) {
-            continue;
-        }
-
-        //for bile launcher ammo
         for (let l = 0; l <= bileLauncherAmmo.length; l++) {
             if (l < bileLauncherAmmo.length) {
                 if (checkForItems(players[j], bileLauncherAmmo[l])) {
-                    Commands.run(`say bile launcher ammo`, World.getDimension('overworld'));
-                    Commands.run(`tag "${players[j].name}" add hasBileLauncherAmmo`, World.getDimension('overworld'));
+                    Commands.run(`event entity "${players[j].name}" borgy:has_bile_launcher_ammo`, World.getDimension('overworld'));
                     break;
                 }
             }
             else {
-                Commands.run(`tag "${players[j].name}" remove hasBileLauncherAmmo`, World.getDimension('overworld'));
+                Commands.run(`event entity "${players[j].name}" borgy:no_bile_launcher_ammo`, World.getDimension('overworld'));
             }
+        }
+        if (hasTag(players[j], "usedBileLauncherAmmo")) {
+            for (let m = 0; m <= bileLauncherAmmo.length; m++) {
+                removeOneAtATime(players[j], bileLauncherAmmo[m])
+                break;
+            }
+            Commands.run(`tag "${players[j].name}" remove usedBileLauncherAmmo`, World.getDimension('overworld'));
         }
     }
 });

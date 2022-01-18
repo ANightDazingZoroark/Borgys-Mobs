@@ -26,7 +26,7 @@
 				"can_always_eat": true
 			},
 			"minecraft:cooldown": {
-                "category": "reload",
+                "category": "bileLauncher",
                 "duration": 1
             },
 			"minecraft:on_use": {
@@ -35,7 +35,7 @@
 				}
 			},
 			"minecraft:durability": {
-				"max_durability": 60
+				"max_durability": 150
 			},
 			"minecraft:repairable": {
 				"repair_items": [
@@ -43,23 +43,30 @@
 						"items": [
 							"borgy:bile_gland"
 						],
-						"repair_amount": 5
+						"repair_amount": 20
 					}
 				]
 			}
 		},
 		"events": {
 			"borgy:fire": {
-				"shoot": {
-					"projectile": "borgy:bullsquid_projectile<borgy:when_fired_by_player>",
-					"launch_power": 0.8,
-					"angle_offset": 0
-				},
-				"damage": {
-					"amount": 1,
-					"type": "durability",
-					"target": "self"
-				}
+				"sequence": [
+					{},
+					{
+						"condition": "query.skin_id == 1",
+						"run_command": {
+							"command": [
+								"event entity @s borgy:use_bile_launcher"
+							],
+							"target": "holder"
+						},
+						"damage": {
+							"amount": 1,
+							"type": "durability",
+							"target": "self"
+						}
+					}
+				]
 			}
 		}
 	}

@@ -77,14 +77,29 @@
           "value": 0
         }
       },
-      "borgy:has_bakunawa_armor": {
+      "borgy:has_bile_launcher_ammo": {
         "minecraft:skin_id": {
           "value": 1
         }
       },
-      "borgy:has_sonic_absorbtion_armor": {
-        "minecraft:skin_id": {
-          "value": 2
+      "borgy:bile_launcher_fire": {
+        "minecraft:spawn_entity": {
+          "entities": [
+						{
+							"spawn_entity": "borgy:bullsquid_projectile",
+              "spawn_event": "borgy:when_fired_by_player",
+							"min_wait_time": 0,
+							"max_wait_time": 0,            
+              "single_use": true
+						}
+					]
+        },
+        "minecraft:timer": {
+          "time": 0.05,
+          "time_down_event": {
+            "event": "borgy:no_bile_launcher_ammo",
+            "target": "self"
+          }
         }
       }
     },
@@ -929,6 +944,49 @@
         "run_command": {
           "command": [
             "tag @s remove hasSonicAbsorb"
+          ]
+        }
+      },
+      "borgy:use_bile_launcher": {
+        "add": {
+          "component_groups": [
+            "borgy:bile_launcher_fire"
+          ]
+        },
+        "run_command": {
+          "command": [
+            "tag @s add usedBileLauncherAmmo"
+          ]
+        }
+      },
+      "borgy:stop_using_bile_launcher": {
+        "remove": {
+          "component_groups": [
+            "borgy:bile_launcher_fire"
+          ]
+        }
+      },
+      "borgy:has_bile_launcher_ammo": {
+        "add": {
+          "component_groups": [
+            "borgy:has_bile_launcher_ammo"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "borgy:no_special_things"
+          ]
+        }
+      },
+      "borgy:no_bile_launcher_ammo": {
+        "add": {
+          "component_groups": [
+            "borgy:no_special_things"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "borgy:has_bile_launcher_ammo"
           ]
         }
       }
