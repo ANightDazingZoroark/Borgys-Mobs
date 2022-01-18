@@ -13,12 +13,28 @@
         "type": "data",
         "uuid": "15557f9f-bbbc-4b8f-bf20-4d07b2635895",
         "version": [1, 3, 4]
+      },
+      {
+        "description": "Gametest Module",
+        "type": "javascript",
+        "uuid": "e59a35e5-6e3e-48d2-8017-bc0b49da0249",
+        "version": [0, 0, 1],
+        "entry": "scripts/Main.js"
       }
     ],
     "dependencies": [
       {
         "uuid": "a26b2cce-b6c0-4428-a780-e7815b66ab77",
         "version": [1, 3, 4]
+      },
+      {
+        // Minecraft native module - needed to use the "mojang-minecraft" module
+        "uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
+        "version": [
+          0,
+          0, 
+          1
+        ]
       }
     ],
     "metadata": {

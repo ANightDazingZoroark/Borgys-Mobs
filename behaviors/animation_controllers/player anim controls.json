@@ -24,7 +24,7 @@
                             "default": "!query.is_riding || (query.is_riding ? (query.get_ride -> query.owner_identifier) != 'borgy:icthyosaur') || (query.is_riding ? (query.get_ride -> query.is_saddled) == 0) || (query.is_riding ? (query.get_ride -> query.is_in_water) == 0)"
                         },
                         {
-                            "ascending": "query.is_jumping && query.get_equipped_item_name('main_hand') != 'icthyosaur_staff'"
+                            "ascending": "query.is_jumping"
                         }
                     ],
                     "on_entry": [
@@ -53,7 +53,7 @@
                             "default": "!query.is_riding || (query.is_riding ? (query.get_ride -> query.owner_identifier) != 'borgy:icthyosaur') || (query.is_riding ? (query.get_ride -> query.is_saddled) == 0)"
                         },
                         {
-                            "descending": "query.get_equipped_item_name('main_hand') == 'icthyosaur_staff' || (query.is_riding ? (query.get_ride -> query.is_in_water) == 0)"
+                            "descending": "(query.is_riding ? (query.get_ride -> query.is_in_water) == 0)"
                         },
                         {
                             "jumpCooldown": "variable.jump_cooldown = query.life_time; return (!query.is_jumping);"
@@ -71,7 +71,7 @@
                     ],
                     "transitions": [
                         {
-                            "ascending": "return query.life_time - variable.jump_cooldown > 1 && (query.is_jumping == 1.0) && (query.get_equipped_item_name('main_hand') != 'icthyosaur_staff');"
+                            "ascending": "return query.life_time - variable.jump_cooldown > 1 && (query.is_jumping == 1.0);"
                         },
                         {
                             "default": "!query.is_riding || (query.is_riding ? (query.get_ride -> query.owner_identifier) != 'borgy:icthyosaur') || (query.is_riding ? (query.get_ride -> query.is_in_water) == 0)"
@@ -124,7 +124,7 @@
                             "default": "!query.is_riding || (query.is_riding ? (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa') || (query.is_riding ? (query.get_ride -> query.is_saddled) == 0)"
                         },
                         {
-                            "ascending": "query.is_jumping && query.get_equipped_item_name('main_hand') != 'bakunawa_staff'"
+                            "ascending": "query.is_jumping"
                         }
                     ],
                     "on_entry": [
@@ -156,9 +156,6 @@
                             "default": "!query.is_riding || (query.is_riding ? (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa') || (query.is_riding ? (query.get_ride -> query.is_saddled) == 0)"
                         },
                         {
-                            "descending": "query.get_equipped_item_name('main_hand') == 'bakunawa_staff'"
-                        },
-                        {
                             "jumpCooldown": "variable.jump_cooldown = query.life_time; return (!query.is_jumping);"
                         }
                     ],
@@ -182,7 +179,7 @@
                     ],
                     "transitions": [
                         {
-                            "ascending": "return query.life_time - variable.jump_cooldown > 1 && (query.is_jumping == 1.0) && (query.get_equipped_item_name('main_hand') != 'bakunawa_staff');"
+                            "ascending": "return query.life_time - variable.jump_cooldown > 1 && (query.is_jumping == 1.0);"
                         },
                         {
                             "default": "!query.is_riding || (query.is_riding ? (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa')"
@@ -213,17 +210,30 @@
 							"default": "(query.get_equipped_item_name('main_hand') != 'bakunawa_staff') || !query.is_riding || (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa'"
 						},
 						{
-							"biteToBreath": "query.is_jumping && query.is_riding"
+							"biteModeLimbo": "query.is_using_item && (query.get_ride -> query.is_saddled)"
+						}
+					]
+                },
+                "biteModeLimbo": {
+                    "animations": [
+                        "animUseStaffTimer"
+                    ],
+					"transitions": [
+						{
+							"default": "(query.get_equipped_item_name('main_hand') != 'bakunawa_staff') || !query.is_riding || (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa'"
 						},
 						{
-							"useBiteMode": "query.is_using_item && (query.get_ride -> query.is_saddled)"
+							"useBiteMode": "!query.is_using_item"
+						},
+						{
+							"biteToBreath": "query.all_animations_finished"
 						}
 					]
                 },
                 "useBiteMode": {
                     "transitions": [
 						{
-							"biteMode": "(query.get_equipped_item_name('main_hand') != 'bakunawa_staff') || !query.is_using_item"
+							"biteMode": "(1.0)"
 						}
 					],
                     "on_entry": [
@@ -239,7 +249,7 @@
 							"default": "(query.get_equipped_item_name('main_hand') != 'bakunawa_staff') || !query.is_riding || (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa'"
 						},
 						{
-							"breathMode": "!query.is_jumping"
+							"breathMode": "!query.is_using_item"
 						}
 					],
 					"on_exit": [
@@ -252,17 +262,30 @@
 							"default": "(query.get_equipped_item_name('main_hand') != 'bakunawa_staff') || !query.is_riding || (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa'"
 						},
 						{
-							"breathToBite": "query.is_jumping && query.is_riding"
+							"breathModeLimbo": "query.is_using_item"
+						}
+					]
+                },
+                "breathModeLimbo": {
+                    "animations": [
+                        "animUseStaffTimer"
+                    ],
+					"transitions": [
+						{
+							"default": "(query.get_equipped_item_name('main_hand') != 'bakunawa_staff') || !query.is_riding || (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa'"
 						},
 						{
-							"useBreathMode": "query.is_using_item"
+							"useBreathMode": "!query.is_using_item"
+						},
+						{
+							"breathToBite": "query.all_animations_finished"
 						}
 					]
                 },
                 "useBreathMode": {
                     "transitions": [
                         {
-                            "breathMode": "!query.is_riding || query.get_equipped_item_name('main_hand') != 'bakunawa_staff' || !query.is_using_item"
+                            "breathMode": "(1.0)"
                         }
                     ],
                     "on_entry": [
@@ -278,7 +301,7 @@
 							"default": "(query.get_equipped_item_name('main_hand') != 'bakunawa_staff') || !query.is_riding || (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa'"
 						},
 						{
-							"biteMode": "!query.is_jumping"
+							"biteMode": "!query.is_using_item"
 						}
 					],
 					"on_exit": [

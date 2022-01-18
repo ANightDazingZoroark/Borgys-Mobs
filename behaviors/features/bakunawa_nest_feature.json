@@ -4,12 +4,17 @@
 		"description": {
 			"identifier": "borgy:bakunawa_nest_feature"
 		},
-		"structure_name": "mystructure:bakunawa_nest_placer",
+		"structure_name": "mystructure:bakunawa_nest",
 		"adjustment_radius": 16,
-		"facing_direction": "random",
+		"facing_direction": "north",
 		"constraints": {
-			"grounded": {},
-			"unburied": {}
+			"block_intersection": {
+				"block_allowlist": [
+					"minecraft:water",
+					"minecraft:seagrass",
+					"minecraft:kelp"
+				]
+			}
 		}
 	}
 }

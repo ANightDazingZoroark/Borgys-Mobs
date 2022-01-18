@@ -225,6 +225,7 @@
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 7,
                     "within_radius": 96,
+					"attack_interval": 15,
                     "entity_types": [
                         {
                             "filters": {
@@ -1002,6 +1003,12 @@
                                     "test": "has_component",
                                     "subject": "self",
                                     "operator": "!=",
+                                    "value": "minecraft:home"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
                                     "value": "minecraft:is_tamed"
                                 },
                                 {
@@ -1020,6 +1027,12 @@
                                 {
                                     "test": "is_daytime",
                                     "value": false
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:home"
                                 },
                                 {
                                     "test": "has_component",
@@ -1542,6 +1555,11 @@
                         "borgy:default_collision",
                         "borgy:is_unpushable",
                         "borgy:default_family"
+                    ]
+                },
+                "run_command": {
+                    "command": [
+                        "tp @s ~ ~ ~ 0"
                     ]
                 }
             },

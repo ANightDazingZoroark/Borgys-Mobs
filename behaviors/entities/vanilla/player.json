@@ -21,7 +21,8 @@
         "animRideBakunawaWithHeart": "animation.player_ride_bakunawa_with_heart",
         "animBakunawaDescend": "animation.player_control_bakunawa_descend",
         "animBakunawaAscend": "animation.player_control_bakunawa_ascend",
-        "animIcthyosaurAscend": "animation.player_control_icthyosaur_ascend"
+        "animIcthyosaurAscend": "animation.player_control_icthyosaur_ascend",
+        "animUseStaffTimer": "animation.player_use_staff_timer"
       },
       "scripts": {
         "animate": [

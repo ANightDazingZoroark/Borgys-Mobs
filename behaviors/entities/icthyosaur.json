@@ -49,12 +49,12 @@
             },
             "borgy:icthyosaur_wild": {
                 "minecraft:behavior.random_swim": {
-                    "priority": 5,
+                    "priority": 9,
                     "interval": 0,
                     "xz_dist": 20
                 },
                 "minecraft:behavior.hurt_by_target": {
-                    "priority": 2,
+                    "priority": 4,
                     "entity_types": {
                         "filters": {
                             "test": "is_family",
@@ -63,6 +63,25 @@
                             "value": "forcedAttack"
                         }
                     }
+                },
+                "minecraft:behavior.tempt": {
+					"priority": 5,
+					"within_radius": 16,
+					"speed_multiplier": 0.75,
+					"items": [
+						"minecraft:beef",
+                        "minecraft:porkchop",
+                        "minecraft:muttonraw",
+                        "minecraft:chicken",
+                        "minecraft:rabbit",
+                        "minecraft:fish",
+                        "minecraft:salmon",
+                        "minecraft:tropical_fish",
+                        "minecraft:pufferfish",
+                        "minecraft:rotten_flesh",
+                        "borgy:raw_alien_meat",
+                        "borgy:raw_headcrab"
+					]
                 },
                 "minecraft:tameable": {
 					"probability": 0.25,
@@ -91,8 +110,9 @@
             },
             "borgy:default_targets": {
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 3,
+                    "priority": 6,
                     "within_radius": 24,
+					"attack_interval": 15,
                     "entity_types": [
                         {
                             "filters": {
@@ -117,39 +137,79 @@
                                                 "value": "player"
                                             }
                                         ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
                                     },
                                     {
-                                        "all_of": [
+                                        "test": "is_riding",
+                                        "subject": "other",
+                                        "value": false
+                                    },
+                                    {
+                                        "any_of": [
                                             {
-                                                "test": "is_family",
+                                                "test": "has_equipment",
                                                 "subject": "other",
-                                                "value": "player"
+                                                "operator": "!=",
+                                                "value": "minecraft:beef"
                                             },
                                             {
-                                                "any_of": [
-                                                    {
-                                                        "test": "is_sneaking",
-                                                        "subject": "other",
-                                                        "value": false
-                                                    },
-                                                    {
-                                                        "test": "is_riding",
-                                                        "subject": "other",
-                                                        "value": false
-                                                    }
-                                                ]
+                                                "test": "has_equipment",
+                                                "subject": "other",
+                                                "operator": "!=",
+                                                "value": "minecraft:porkchop"
+                                            },
+                                            {
+                                                "test": "has_equipment",
+                                                "subject": "other",
+                                                "operator": "!=",
+                                                "value": "minecraft:chicken"
+                                            },
+                                            {
+                                                "test": "has_equipment",
+                                                "subject": "other",
+                                                "operator": "!=",
+                                                "value": "minecraft:mutton"
+                                            },
+                                            {
+                                                "test": "has_equipment",
+                                                "subject": "other",
+                                                "operator": "!=",
+                                                "value": "minecraft:rabbit"
+                                            },
+                                            {
+                                                "test": "has_equipment",
+                                                "subject": "other",
+                                                "operator": "!=",
+                                                "value": "borgy:raw_alien_meat"
+                                            },
+                                            {
+                                                "test": "has_equipment",
+                                                "subject": "other",
+                                                "operator": "!=",
+                                                "value": "borgy:raw_headcrab"
                                             }
                                         ]
                                     }
                                 ]
-                            }
+                            },
+                            "max_dist": 24
                         }
                     ]
                 }
             },
             "borgy:attack_forced_attack_entity": {
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 3,
+                    "priority": 6,
                     "entity_types": [
                         {
                             "filters": {
@@ -169,7 +229,7 @@
             "borgy:icthyosaur_tamed": {
                 "minecraft:is_tamed": {},
                 "minecraft:behavior.follow_owner": {
-                    "priority": 4
+                    "priority": 8
                 },
                 "minecraft:behavior.owner_hurt_target": {
                     "filters": {
@@ -400,7 +460,7 @@
             "minecraft:movement.generic": {},
             "minecraft:jump.static": {},
             "minecraft:behavior.delayed_attack": {
-                "priority": 4,
+                "priority": 7,
                 "attack_duration": 0.52,
                 "hit_delay_pct": 1,
                 "track_target": true,

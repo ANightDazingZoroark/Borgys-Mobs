@@ -157,16 +157,12 @@
                     "reach_multiplier": 1.5
                 }
             },
-            "borgy:remove_poison": {
-                "minecraft:spell_effects": {
-                    "remove_effects": "poison"
-                }
-            },
             "borgy:default_targets": {
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 3,
                     "within_radius": 24,
                     "reselect_targets": true,
+                    "must_see": true,
                     "entity_types": [
                         {
                             "filters": {
@@ -243,7 +239,61 @@
 			  	"minecraft:experience_reward": {
 					"on_death": "Math.random(3,6)"
 			  	}
-			}
+			},
+            "borgy:leave_two_headcrabs_behind": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+						{
+							"spawn_entity": "borgy:poison_headcrab",
+                            "spawn_event": "minecraft:entity_spawned",
+							"min_wait_time": 0,
+							"max_wait_time": 0,
+                            "num_to_spawn": 2,
+                            "single_use": true
+						},
+                        {
+                            "spawn_entity": "borgy:poison_puddle",
+                            "spawn_event": "minecraft:entity_spawned",
+							"min_wait_time": 0,
+							"max_wait_time": 0,
+                            "single_use": true
+                        }
+					]
+                }
+            },
+            "borgy:leave_one_headcrab_behind": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+						{
+							"spawn_entity": "borgy:poison_headcrab",
+                            "spawn_event": "minecraft:entity_spawned",
+							"min_wait_time": 0,
+							"max_wait_time": 0,
+                            "single_use": true
+						},
+                        {
+                            "spawn_entity": "borgy:poison_puddle",
+                            "spawn_event": "minecraft:entity_spawned",
+							"min_wait_time": 0,
+							"max_wait_time": 0,
+                            "single_use": true
+                        }
+					]
+                }
+            },
+            "borgy:leave_no_headcrabs_behind": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+                        {
+                            "spawn_entity": "borgy:poison_puddle",
+                            "spawn_event": "minecraft:entity_spawned",
+							"min_wait_time": 0,
+							"max_wait_time": 0,
+                            "single_use": true
+                        }
+					]
+                }
+            }
         },
         "components": {
             "minecraft:health": {
@@ -345,29 +395,6 @@
             },
             "minecraft:despawn": {
                 "despawn_from_distance": {}
-            },
-            "minecraft:environment_sensor": {
-                "triggers": [
-                    {
-                        "filters": {
-                            "test": "has_mob_effect",
-                            "subject": "self",
-                            "value": "poison"
-                        },
-                        "event": "borgy:remove_poison_effect",
-                        "subject": "self"
-                    },
-                    {
-                        "filters": {
-                            "test": "has_mob_effect",
-                            "subject": "self",
-                            "operator": "!=",
-                            "value": "poison"
-                        },
-                        "event": "borgy:stop_remove_poison_effect",
-                        "subject": "self"
-                    }
-                ]
             },
             "minecraft:damage_sensor": {
                 "triggers": [
@@ -637,26 +664,23 @@
                 }
             },
             "borgy:leave_two_headcrabs_behind": {
-                "run_command": {
-                    "command": [
-                        "summon borgy:poison_headcrab",
-                        "summon borgy:poison_headcrab",
-                        "summon borgy:poison_puddle"
+                "add": {
+                    "component_groups": [
+                        "borgy:leave_two_headcrabs_behind"
                     ]
                 }
             },
             "borgy:leave_one_headcrab_behind": {
-                "run_command": {
-                    "command": [
-                        "summon borgy:poison_headcrab",
-                        "summon borgy:poison_puddle"
+                "add": {
+                    "component_groups": [
+                        "borgy:leave_one_headcrab_behind"
                     ]
                 }
             },
             "borgy:leave_no_headcrabs_behind": {
-                "run_command": {
-                    "command": [
-                        "summon borgy:poison_puddle"
+                "add": {
+                    "component_groups": [
+                        "borgy:leave_no_headcrabs_behind"
                     ]
                 }
             },
@@ -731,20 +755,6 @@
                     ]
                 }
             },
-            "borgy:remove_poison_effect": {
-                "add": {
-                    "component_groups": [
-                        "borgy:remove_poison"
-                    ]
-                }
-            },
-            "borgy:stop_remove_poison_effect": {
-                "remove": {
-                    "component_groups": [
-                        "borgy:remove_poison"
-                    ]
-                }
-            },
 			"borgy:on_force_attacked": {
 				"add": {
 				  	"component_groups": [
@@ -787,41 +797,26 @@
 			"borgy:on_force_attacked_death_two_headcrabs": {
 			  	"add": {
 					"component_groups": [
-				  		"borgy:drop_experience_from_forced_attack"
+				  		"borgy:drop_experience_from_forced_attack",
+                        "borgy:leave_two_headcrabs_behind"
 					]
-			  	},
-                "run_command": {
-                    "command": [
-                        "summon borgy:poison_headcrab",
-                        "summon borgy:poison_headcrab",
-                        "summon borgy:poison_puddle"
-                    ]
-                }
+			  	}
 			},
 			"borgy:on_force_attacked_death_one_headcrab": {
 			  	"add": {
 					"component_groups": [
-				  		"borgy:drop_experience_from_forced_attack"
+				  		"borgy:drop_experience_from_forced_attack",
+                        "borgy:leave_one_headcrab_behind"
 					]
-			  	},
-                "run_command": {
-                    "command": [
-                        "summon borgy:poison_headcrab",
-                        "summon borgy:poison_puddle"
-                    ]
-                }
+			  	}
 			},
 			"borgy:on_force_attacked_death_no_headcrabs": {
 			  	"add": {
 					"component_groups": [
-				  		"borgy:drop_experience_from_forced_attack"
+				  		"borgy:drop_experience_from_forced_attack",
+                        "borgy:leave_no_headcrabs_behind"
 					]
-			  	},
-                "run_command": {
-                    "command": [
-                        "summon borgy:poison_puddle"
-                    ]
-                }
+			  	}
 			}
         }
     }

@@ -28,7 +28,9 @@
                 "minecraft:ageable": {
                     "duration": 1200,
                     "feed_items": [
-                        "minecraft:rotten_flesh"
+                        "minecraft:rotten_flesh",
+                        "borgy:raw_headcrab",
+                        "borgy:cooked_headcrab"
                     ],
                     "grow_up": {
                         "event": "borgy:grow_up",
@@ -38,7 +40,7 @@
             },
             "borgy:wild": {
                 "minecraft:behavior.hurt_by_target": {
-                    "priority": 3,
+                    "priority": 6,
                     "entity_types": {
                         "filters": {
                             "test": "is_family",
@@ -49,7 +51,7 @@
                     }
                 },
                 "minecraft:behavior.random_stroll": {
-                    "priority": 6
+                    "priority": 11
                 },
                 "minecraft:despawn": {
                     "despawn_from_distance": {}
@@ -82,15 +84,27 @@
                 "minecraft:tameable": {
                     "probability": 0.25,
                     "tame_items": [
-                        "minecraft:rotten_flesh"
+                        "minecraft:rotten_flesh",
+                        "borgy:raw_headcrab",
+                        "borgy:cooked_headcrab"
                     ],
                     "tame_event": {
                         "event": "borgy:on_tame",
                         "target": "self"
                     }
                 },
+                "minecraft:behavior.tempt": {
+					"priority": 7,
+					"within_radius": 16,
+					"speed_multiplier": 0.75,
+					"items": [
+                        "minecraft:rotten_flesh",
+                        "borgy:raw_alien_meat",
+                        "borgy:raw_headcrab"
+					]
+                },
                 "minecraft:behavior.delayed_attack": {
-                    "priority": 5,
+                    "priority": 9,
                     "speed_multiplier": 1.75,
                     "attack_duration": 0.6,
                     "hit_delay_pct": 0.8,
@@ -98,7 +112,7 @@
                     "reach_multiplier": 2
                 },
                 "minecraft:behavior.avoid_mob_type": {
-                    "priority": 2,
+                    "priority": 3,
                     "entity_types": [
                         {
                             "filters": {
@@ -115,7 +129,7 @@
             },
             "borgy:default_targets": {
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 4,
+                    "priority": 8,
                     "within_radius": 24,
                     "reselect_targets": true,
                     "entity_types": [
@@ -133,6 +147,20 @@
                                         "domain": "hand",
                                         "operator": "!=",
                                         "value": "rotten_flesh"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "operator": "!=",
+                                        "value": "borgy:raw_headcrab"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "operator": "!=",
+                                        "value": "borgy:cooked_headcrab"
                                     },
                                     {
                                         "any_of": [
@@ -199,7 +227,7 @@
             },
             "borgy:attack_forced_attack_entity": {
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 4,
+                    "priority": 8,
                     "within_radius": 24,
                     "reselect_targets": true,
                     "entity_types": [
@@ -256,7 +284,7 @@
                     ]
                 },
                 "minecraft:behavior.delayed_attack": {
-                    "priority": 5,
+                    "priority": 9,
                     "speed_multiplier": 1.75,
                     "attack_duration": 0.6,
                     "hit_delay_pct": 0.8,
@@ -289,7 +317,7 @@
             },
             "borgy:tamed_at_night": {
                 "minecraft:behavior.follow_owner": {
-                    "priority": 6
+                    "priority": 10
                 },
                 "minecraft:behavior.owner_hurt_target": {
                     "filters": {
@@ -298,7 +326,7 @@
                         "operator": "!=",
                         "value": "minecraft:is_baby"
                     },
-                    "priority": 4
+                    "priority": 5
                 },
                 "minecraft:behavior.owner_hurt_by_target": {
                     "filters": {
@@ -307,7 +335,7 @@
                         "operator": "!=",
                         "value": "minecraft:is_baby"
                     },
-                    "priority": 3
+                    "priority": 4
                 },
                 "minecraft:breedable": {
                     "breeds_with": {
@@ -319,7 +347,9 @@
                         }
                     },
                     "breed_items": [
-                        "minecraft:rotten_flesh"
+                        "minecraft:rotten_flesh",
+                        "borgy:raw_headcrab",
+                        "borgy:cooked_headcrab"
                     ],
                     "require_tame": true,
                     "require_full_health": true,
@@ -377,7 +407,7 @@
             "minecraft:behavior.float": {},
             "minecraft:jump.static": {},
             "minecraft:behavior.random_look_around": {
-                "priority": 5
+                "priority": 12
             },
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:nameable": {},

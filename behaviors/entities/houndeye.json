@@ -52,7 +52,9 @@
                         "minecraft:cooked_porkchop",
                         "minecraft:cooked_chicken",
                         "minecraft:cooked_mutton",
-                        "minecraft:cooked_rabbit"
+                        "minecraft:cooked_rabbit",
+                        "borgy:cooked_alien_meat",
+                        "borgy:cooked_headcrab"
                     ],
                     "grow_up": {
                         "event": "borgy:grow_up",
@@ -67,7 +69,7 @@
                         "minecraft:cooked_beef",
                         "minecraft:cooked_porkchop",
                         "minecraft:cooked_chicken",
-                        "minecraft:muttoncooked",
+                        "minecraft:cooked_mutton",
                         "minecraft:cooked_rabbit",
                         "borgy:cooked_alien_meat",
                         "borgy:cooked_headcrab"
@@ -77,14 +79,28 @@
                         "target": "self"
                     }
                 },
+                "minecraft:behavior.tempt": {
+					"priority": 7,
+					"within_radius": 16,
+					"speed_multiplier": 0.75,
+					"items": [
+                        "minecraft:cooked_beef",
+                        "minecraft:cooked_porkchop",
+                        "minecraft:cooked_chicken",
+                        "minecraft:cooked_mutton",
+                        "minecraft:cooked_rabbit",
+                        "borgy:cooked_alien_meat",
+                        "borgy:cooked_headcrab"
+					]
+                },
                 "minecraft:behavior.random_stroll": {
-                    "priority": 6
+                    "priority": 11
                 },
                 "minecraft:behavior.random_look_around": {
-                    "priority": 7
+                    "priority": 12
                 },
                 "minecraft:behavior.hurt_by_target": {
-				    "priority": 3,
+				    "priority": 6,
                     "entity_types": {
                         "filters": {
                             "all_of": [
@@ -105,7 +121,7 @@
                     }
 			    },
                 "minecraft:behavior.avoid_mob_type": {
-                    "priority": 2,
+                    "priority": 3,
                     "entity_types": [
                         {
                             "filters": {
@@ -122,7 +138,7 @@
             },
             "borgy:default_targets": {
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 4,
+                    "priority": 8,
                     "within_radius": 24,
                     "reselect_targets": true,
                     "entity_types": [
@@ -159,56 +175,51 @@
                                         "value": "player"
                                     },
                                     {
-                                        "any_of": [
-                                            {
-                                                "test": "is_riding",
-                                                "subject": "other",
-                                                "value": false
-                                            },
-                                            {
-                                                "all_of": [
-                                                    {
-                                                        "test": "is_sneaking",
-                                                        "subject": "other",
-                                                        "value": false
-                                                    },
-                                                    {
-                                                        "any_of": [
-                                                            {
-                                                                "test": "has_equipment",
-                                                                "subject": "other",
-                                                                "operator": "!=",
-                                                                "value": "minecraft:cooked_beef"
-                                                            },
-                                                            {
-                                                                "test": "has_equipment",
-                                                                "subject": "other",
-                                                                "operator": "!=",
-                                                                "value": "minecraft:cooked_porkchop"
-                                                            },
-                                                            {
-                                                                "test": "has_equipment",
-                                                                "subject": "other",
-                                                                "operator": "!=",
-                                                                "value": "minecraft:cooked_chicken"
-                                                            },
-                                                            {
-                                                                "test": "has_equipment",
-                                                                "subject": "other",
-                                                                "operator": "!=",
-                                                                "value": "minecraft:muttoncooked"
-                                                            },
-                                                            {
-                                                                "test": "has_equipment",
-                                                                "subject": "other",
-                                                                "operator": "!=",
-                                                                "value": "minecraft:cooked_rabbit"
-                                                            }
-                                                        ]
-                                                    }
-                                                ]
-                                            }
-                                        ]
+                                        "test": "is_riding",
+                                        "subject": "other",
+                                        "value": false
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "minecraft:cooked_beef"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "minecraft:cooked_porkchop"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "minecraft:cooked_chicken"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "minecraft:cooked_mutton"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "minecraft:cooked_rabbit"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "borgy:cooked_alien_meat"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "borgy:cooked_headcrab"
                                     }
                                 ]
                             },
@@ -219,7 +230,7 @@
             },
             "borgy:attack_forced_attack_entity": {
                 "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 4,
+                    "priority": 8,
                     "entity_types": [
                         {
                             "filters": {
@@ -257,7 +268,7 @@
                 "minecraft:is_tamed": {},
                 "minecraft:sittable": {},
                 "minecraft:behavior.follow_owner": {
-                    "priority": 6
+                    "priority": 10
                 },
                 "minecraft:behavior.owner_hurt_target": {
                     "filters": {
@@ -266,7 +277,7 @@
                         "operator": "!=",
                         "value": "minecraft:is_baby"
                     },
-                    "priority": 4
+                    "priority": 5
                 },
                 "minecraft:behavior.owner_hurt_by_target": {
                     "filters": {
@@ -275,7 +286,7 @@
                         "operator": "!=",
                         "value": "minecraft:is_baby"
                     },
-                    "priority": 3
+                    "priority": 4
                 },
                 "minecraft:healable": {
                     "items": [
@@ -292,11 +303,19 @@
                             "heal_amount": 15
                         },
                         {
-                            "item": "minecraft:muttoncooked",
+                            "item": "minecraft:cooked_mutton",
                             "heal_amount": 15
                         },
                         {
                             "item": "minecraft:cooked_rabbit",
+                            "heal_amount": 15
+                        },
+                        {
+                            "item": "borgy:cooked_alien_meat",
+                            "heal_amount": 15
+                        },
+                        {
+                            "item": "borgy:cooked_headcrab",
                             "heal_amount": 15
                         }
                     ]
@@ -325,7 +344,9 @@
                         "minecraft:cooked_porkchop",
                         "minecraft:cooked_chicken",
                         "minecraft:cooked_mutton",
-                        "minecraft:cooked_rabbit"
+                        "minecraft:cooked_rabbit",
+                        "borgy:cooked_alien_meat",
+                        "borgy:cooked_headcrab"
                     ],
                     "require_tame": true,
                     "require_full_health": true,
@@ -381,7 +402,7 @@
                     "damage": 0
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 5,
+                    "priority": 9,
                     "speed_multiplier": 1.75,
                     "reach_multiplier": 0.0
                 }

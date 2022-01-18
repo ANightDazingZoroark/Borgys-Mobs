@@ -95,6 +95,14 @@
 						"3.04": [0, 0, 0]
 					}
 				}
+			},
+			"sound_effects": {
+				"0.0": {
+					"effect": "attackStart"
+				},
+				"3.2": {
+					"effect": "attackEnd"
+				}
 			}
 		}
 	}

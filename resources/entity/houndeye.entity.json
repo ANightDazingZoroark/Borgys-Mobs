@@ -45,6 +45,10 @@
                 "tamedSittingOk": "borgy:tamed_houndeye_sitting_ok",
                 "tamedSittingBad": "borgy:tamed_houndeye_sitting_bad"
 			},
+            "sound_effects": {
+                "attackStart": "mob.houndeye.attack_start",
+                "attackEnd": "mob.houndeye.attack_end"
+            },
             "spawn_egg": {
 				"base_color": "#97621e",
 				"overlay_color": "#2e5b63"

@@ -65,6 +65,7 @@
                     "priority": 3,
                     "within_radius": 24,
                     "reselect_targets": true,
+                    "must_see": true,
                     "entity_types": [
                         {
                             "filters": {
@@ -141,7 +142,20 @@
 			  	"minecraft:experience_reward": {
 					"on_death": "Math.random(3,6)"
 			  	}
-			}
+			},
+            "borgy:leave_headcrab_behind": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+						{
+							"spawn_entity": "borgy:scorched_headcrab",
+                            "spawn_event": "minecraft:entity_spawned",
+							"min_wait_time": 0,
+							"max_wait_time": 0,            
+                            "single_use": true
+						}
+					]
+                }
+            }
         },
         "components": {
             "minecraft:health": {
@@ -413,10 +427,14 @@
                 }
             },
             "borgy:leave_headcrab_behind": {
+                "add": {
+                    "component_groups": [
+                        "borgy:leave_headcrab_behind"
+                    ]
+                },
                 "run_command": {
                     "command": [
-                        "replaceitem entity @s slot.weapon.mainhand 0 air",
-                        "summon borgy:scorched_headcrab"
+                        "replaceitem entity @s slot.weapon.mainhand 0 air"
                     ]
                 }
             },
@@ -462,13 +480,13 @@
 			"borgy:on_force_attacked_death": {
 			  	"add": {
 					"component_groups": [
-				  		"borgy:drop_experience_from_forced_attack"
+				  		"borgy:drop_experience_from_forced_attack",
+                        "borgy:leave_headcrab_behind"
 					]
 			  	},
                 "run_command": {
                     "command": [
-                        "replaceitem entity @s slot.weapon.mainhand 0 air",
-                        "summon borgy:scorched_headcrab"
+                        "replaceitem entity @s slot.weapon.mainhand 0 air"
                     ]
                 }
 			}

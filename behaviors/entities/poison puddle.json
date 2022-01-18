@@ -31,13 +31,13 @@
                             "test": "is_family",
                             "subject": "other",
                             "operator": "!=",
-                            "value": "poisonHeadcrab"
+                            "value": "inanimate"
                         },
                         {
-                            "test": "is_family",
+                            "test": "has_mob_effect",
                             "subject": "other",
                             "operator": "!=",
-                            "value": "poison_headcrab_zombie"
+                            "value": "poison"
                         }
                     ]
                 }

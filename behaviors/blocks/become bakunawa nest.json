@@ -22,16 +22,7 @@
             "minecraft:loot": "loot_tables/empty.json"
         },
         "events": {
-            "borgy:become_bakunawa_nest": {
-                "die": {
-                    "target": "self"
-                },
-                "run_command": {
-                    "command": [
-                        "summon borgy:bakunawa_nest"
-                    ]
-                }
-            }
+            "borgy:become_bakunawa_nest": {}
         }
     }
 }

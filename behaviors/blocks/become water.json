@@ -22,15 +22,7 @@
             "minecraft:loot": "loot_tables/empty.json"
         },
         "events": {
-            "borgy:become_water": {
-                "die": {
-                    "target": "self"
-                },
-                "set_block_at_pos": {
-                    "block_type": "minecraft:flowing_water",
-                    "block_offset": [0, 0, 0]
-                }
-            }
+            "borgy:become_water": {}
         }
     }
 }

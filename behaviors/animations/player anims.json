@@ -1,6 +1,10 @@
 {
     "format_version": "1.10.0",
     "animations": {
+		"animation.player_use_staff_timer": {
+            "animation_length": 0.5,
+			"loop": false
+        },
         "animation.player_control_icthyosaur": {
             "animation_length": 0.05,
 			"loop": true,

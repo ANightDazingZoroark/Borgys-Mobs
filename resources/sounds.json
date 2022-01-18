@@ -24,8 +24,7 @@
 				"events": {
 					"ambient": "mob.houndeye.idle",
 					"hurt": "mob.houndeye.hurt",
-					"death": "mob.houndeye.death",
-                    "roar": "mob.houndeye.attack"
+					"death": "mob.houndeye.death"
 				}
             },
             "borgy:hoteye": {
