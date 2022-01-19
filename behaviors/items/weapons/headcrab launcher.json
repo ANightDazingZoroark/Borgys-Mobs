@@ -31,7 +31,7 @@
 				}
 			},
 			"minecraft:durability": {
-				"max_durability": 30
+				"max_durability": 50
 			},
 			"minecraft:repairable": {
 				"repair_items": [
@@ -45,23 +45,33 @@
 			}
 		},
 		"events": {
-			"borgy:fire": {			
-				"shoot": {
-					"projectile": "borgy:fired_headcrab",
-					"launch_power": 1,
-					"angle_offset": 0
-				},
-				"run_command": {
-					"command": [
-						"playsound mob.headcrab.attack @a[r=16]"
-					],
-					"target": "self"
-				},
-				"damage": {
-					"amount": 1,
-					"type": "durability",
-					"target": "self"
-				}
+			"borgy:fire": {
+				"sequence": [
+					{
+						"condition":"query.skin_id != 2",
+						"run_command": {
+							"command": [
+								"tellraw @s {\"rawtext\":[{\"text\":\"You need ender pearls in your inventory for that to work!\"}]}"
+							],
+							"target": "holder"
+						}
+					},
+					{
+						"condition": "query.skin_id == 2",
+						"run_command": {
+							"command": [
+								"event entity @s borgy:use_headcrab_launcher",
+								"clear @s ender_pearl 0 1"
+							],
+							"target": "holder"
+						},
+						"damage": {
+							"amount": 1,
+							"type": "durability",
+							"target": "self"
+						}
+					}
+				]
 			}
 		}
 	}

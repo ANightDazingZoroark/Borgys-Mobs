@@ -35,7 +35,7 @@
 				}
 			},
 			"minecraft:durability": {
-				"max_durability": 15
+				"max_durability": 100
 			},
 			"minecraft:repairable": {
 				"repair_items": [
@@ -43,24 +43,40 @@
 						"items": [
 							"borgy:houndeye_lung"
 						],
-						"repair_amount": 5
+						"repair_amount": 10
 					}
 				]
 			}
 		},
 		"events": {
 			"borgy:fire": {
-				"run_command": {
-					"command": [
-						"summon borgy:sonic_cannon_entity ~ ~ ~"
-					],
-					"target": "holder"
-				},
-				"damage": {
-					"amount": 1,
-					"type": "durability",
-					"target": "self"
-				}
+				"sequence": [
+					{},
+					{
+						"condition": "query.skin_id != 3",
+						"run_command": {
+							"command": [
+								"tellraw @s {\"rawtext\":[{\"text\":\"You need redstone in your inventory for that to work!\"}]}"
+							],
+							"target": "holder"
+						}
+					},
+					{
+						"condition": "query.skin_id == 3",
+						"run_command": {
+							"command": [
+								"event entity @s borgy:use_sonic_cannon",
+								"clear @s redstone 0 1"
+							],
+							"target": "holder"
+						},
+						"damage": {
+							"amount": 1,
+							"type": "durability",
+							"target": "self"
+						}
+					}
+				]
 			}
 		}
 	}

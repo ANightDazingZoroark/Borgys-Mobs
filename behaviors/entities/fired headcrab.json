@@ -73,9 +73,9 @@
         },
         "events": {
             "borgy:when_fired_by_player": {
-                "add": {
-                    "component_groups": [
-                        "borgy:fired_by_player"
+                "run_command": {
+                    "command": [
+                        "playsound mob.headcrab.attack @a[r=16]"
                     ]
                 }
             },

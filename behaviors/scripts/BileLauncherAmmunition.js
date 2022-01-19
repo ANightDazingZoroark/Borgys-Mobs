@@ -61,7 +61,8 @@ function removeOneAtATime(player, searchedItem) {
         const item = container.getItem(i);
         try {
             if (item.id == searchedItem) {
-                Commands.run(`clear "${player.name}" ${searchedItem} 0 1`, World.getDimension('overworld'));
+                Commands.run(`clear @a[name="${player.name}", tag=usedBileLauncherAmmo] ${searchedItem} 0 1`, World.getDimension('overworld'));
+                Commands.run(`tag @a[name="${player.name}"] remove usedBileLauncherAmmo`, World.getDimension('overworld'));
             }
         }
         catch (e) {
@@ -76,20 +77,19 @@ World.events.tick.subscribe((ev) => {
         for (let l = 0; l <= bileLauncherAmmo.length; l++) {
             if (l < bileLauncherAmmo.length) {
                 if (checkForItems(players[j], bileLauncherAmmo[l])) {
-                    Commands.run(`event entity "${players[j].name}" borgy:has_bile_launcher_ammo`, World.getDimension('overworld'));
+                    Commands.run(`event entity @a[name="${players[j].name}", tag=hasBileLauncher] borgy:has_bile_launcher_ammo`, World.getDimension('overworld'));
                     break;
                 }
             }
             else {
-                Commands.run(`event entity "${players[j].name}" borgy:no_bile_launcher_ammo`, World.getDimension('overworld'));
+                Commands.run(`event entity @a[name="${players[j].name}"] borgy:no_ammo`, World.getDimension('overworld'));
             }
         }
-        if (hasTag(players[j], "usedBileLauncherAmmo")) {
-            for (let m = 0; m <= bileLauncherAmmo.length; m++) {
-                removeOneAtATime(players[j], bileLauncherAmmo[m])
+        for (let m = 0; m <= bileLauncherAmmo.length; m++) {
+            if(checkForItems(players[j], bileLauncherAmmo[m])) {
+                removeOneAtATime(players[j], bileLauncherAmmo[m]);
                 break;
             }
-            Commands.run(`tag "${players[j].name}" remove usedBileLauncherAmmo`, World.getDimension('overworld'));
         }
     }
 });

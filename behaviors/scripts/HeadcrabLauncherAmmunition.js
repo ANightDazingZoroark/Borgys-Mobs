@@ -24,10 +24,10 @@ World.events.tick.subscribe((ev) => {
     let players = World.getPlayers();
     for (let j = 0; j <= players.length; j++) {
         if (checkForItems(players[j], "minecraft:ender_pearl")) {
-            Commands.run(`tag "${players[j].name}" add hasHeadcrabLauncherAmmo`, World.getDimension('overworld'));
+            Commands.run(`event entity @a[name="${players[j].name}", tag=hasHeadcrabLauncher] borgy:has_headcrab_launcher_ammo`, World.getDimension('overworld'));
         }
         else {
-            Commands.run(`tag "${players[j].name}" remove hasHeadcrabLauncherAmmo`, World.getDimension('overworld'));
+            Commands.run(`event entity @a[name="${players[j].name}"] borgy:borgy:no_ammo`, World.getDimension('overworld'));
         }
     }
 });

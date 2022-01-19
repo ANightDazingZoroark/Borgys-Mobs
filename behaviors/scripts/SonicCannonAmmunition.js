@@ -24,10 +24,10 @@ World.events.tick.subscribe((ev) => {
     let players = World.getPlayers();
     for (let j = 0; j <= players.length; j++) {
         if (checkForItems(players[j], "minecraft:redstone")) {
-            Commands.run(`tag "${players[j].name}" add hasSonicCannonAmmo`, World.getDimension('overworld'));
+            Commands.run(`event entity @a[name="${players[j].name}", tag=hasSonicCannon] borgy:has_sonic_cannon_ammo`, World.getDimension('overworld'));
         }
         else {
-            Commands.run(`tag "${players[j].name}" remove hasSonicCannonAmmo`, World.getDimension('overworld'));
+            Commands.run(`event entity @a[name="${players[j].name}"] borgy:borgy:no_ammo`, World.getDimension('overworld'));
         }
     }
 });

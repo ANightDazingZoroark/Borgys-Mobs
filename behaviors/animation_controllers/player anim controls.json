@@ -353,6 +353,63 @@
                     ]
                 }
             }
+        },
+        "controller.animation.player_weapon_management": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "bileLauncher": "query.get_equipped_item_name('main_hand') == 'bile_launcher'"
+                        },
+                        {
+                            "headcrabLauncher": "query.get_equipped_item_name('main_hand') == 'headcrab_launcher'"
+                        },
+                        {
+                            "sonicCannon": "query.get_equipped_item_name('main_hand') == 'sonic_cannon'"
+                        }
+                    ]
+                },
+                "bileLauncher": {
+                    "transitions": [
+                        {
+                            "default": "query.get_equipped_item_name('main_hand') != 'bile_launcher'"
+                        }
+                    ],
+                    "on_entry": [
+                        "/tag @s add hasBileLauncher"
+                    ],
+                    "on_exit": [
+                        "/tag @s remove hasBileLauncher"
+                    ]
+                },
+                "headcrabLauncher": {
+                    "transitions": [
+                        {
+                            "default": "query.get_equipped_item_name('main_hand') != 'headcrab_launcher'"
+                        }
+                    ],
+                    "on_entry": [
+                        "/tag @s add hasHeadcrabLauncher"
+                    ],
+                    "on_exit": [
+                        "/tag @s remove hasHeadcrabLauncher"
+                    ]
+                },
+                "sonicCannon": {
+                    "transitions": [
+                        {
+                            "default": "query.get_equipped_item_name('main_hand') != 'sonic_cannon'"
+                        }
+                    ],
+                    "on_entry": [
+                        "/tag @s add hasSonicCannon"
+                    ],
+                    "on_exit": [
+                        "/tag @s remove hasSonicCannon"
+                    ]
+                }
+            }
         }
     }
 }

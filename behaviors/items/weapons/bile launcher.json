@@ -51,7 +51,15 @@
 		"events": {
 			"borgy:fire": {
 				"sequence": [
-					{},
+					{
+						"condition":"query.skin_id != 1",
+						"run_command": {
+							"command": [
+								"tellraw @s {\"rawtext\":[{\"text\":\"You need meat in your inventory for that to work!\"}]}"
+							],
+							"target": "holder"
+						}
+					},
 					{
 						"condition": "query.skin_id == 1",
 						"run_command": {
