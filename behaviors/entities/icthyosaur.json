@@ -427,6 +427,16 @@
 						"isForcedAttacking"
                     ]
                 }
+            },
+            "borgy:can_attack": {
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 7,
+                    "attack_duration": 0.52,
+                    "hit_delay_pct": 1,
+                    "track_target": true,
+                    "reach_multiplier": 3,
+                    "speed_multiplier": 1.75
+                }
             }
         },
         "components": {
@@ -459,14 +469,6 @@
             "minecraft:physics": {},
             "minecraft:movement.generic": {},
             "minecraft:jump.static": {},
-            "minecraft:behavior.delayed_attack": {
-                "priority": 7,
-                "attack_duration": 0.52,
-                "hit_delay_pct": 1,
-                "track_target": true,
-                "reach_multiplier": 3,
-                "speed_multiplier": 1.75
-            },
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:nameable": {},
             "minecraft:experience_reward": {
@@ -632,7 +634,8 @@
                         "borgy:swim_floating",
                         "borgy:is_pushable",
                         "borgy:default_family",
-                        "borgy:default_targets"
+                        "borgy:default_targets",
+                        "borgy:can_attack"
                     ]
                 }
             },
@@ -669,7 +672,9 @@
                 },
                 "remove": {
                     "component_groups": [
-                        "borgy:icthyosaur_wild"
+                        "borgy:icthyosaur_wild",
+                        "borgy:default_targets",
+                        "borgy:attack_forced_attack_entity"
                     ]
                 }
             },
@@ -708,7 +713,8 @@
                 "remove": {
                     "component_groups": [
                         "borgy:icthyosaur_sittable",
-                        "borgy:is_pushable"
+                        "borgy:is_pushable",
+                        "borgy:can_attack"
                     ]
                 }
             },
@@ -716,7 +722,8 @@
                 "add": {
                     "component_groups": [
                         "borgy:icthyosaur_sittable",
-                        "borgy:is_pushable"
+                        "borgy:is_pushable",
+                        "borgy:can_attack"
                     ]
                 },
                 "remove": {

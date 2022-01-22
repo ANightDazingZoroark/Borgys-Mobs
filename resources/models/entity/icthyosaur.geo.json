@@ -18,7 +18,8 @@
 						{"origin": [-12, 3, -12], "size": [24, 24, 24], "uv": [10, 182]}
 					],
 					"locators": {
-						"tamestatus": [0, 68, -23]
+						"tamestatusbaby": [0, 68, -23],
+						"tamestatus": [0, 52, -23]
 					}
 				},
 				{

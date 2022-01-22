@@ -21,6 +21,12 @@
                 "animStatusSittingGood": "animation.tame_status.sitting_good",
                 "animStatusSittingOk": "animation.tame_status.sitting_ok",
                 "animStatusSittingBad": "animation.tame_status.sitting_bad",
+                "animStatusBabyStandingGood": "animation.tame_status.baby_standing_good",
+                "animStatusBabyStandingOk": "animation.tame_status.baby_standing_ok",
+                "animStatusBabyStandingBad": "animation.tame_status.baby_standing_bad",
+                "animStatusBabySittingGood": "animation.tame_status.baby_sitting_good",
+                "animStatusBabySittingOk": "animation.tame_status.baby_sitting_ok",
+                "animStatusBabySittingBad": "animation.tame_status.baby_sitting_bad",
                 "contAttack": "controller.animation.icthyosaur_attack",
                 "contTameStatus": "controller.animation.tame_status"
             },

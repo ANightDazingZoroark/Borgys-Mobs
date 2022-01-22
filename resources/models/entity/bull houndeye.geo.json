@@ -15,7 +15,8 @@
 					"name": "bullHoundeye",
 					"pivot": [0, 5, 0],
 					"locators": {
-						"tamestatus": [0, 60, 0]
+						"tamestatus": [0, 56, 0],
+						"tamestatusbaby": [0, 64, 0]
 					}
 				},
 				{

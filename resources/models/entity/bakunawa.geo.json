@@ -19,7 +19,8 @@
 						{"origin": [-20, 34, 61], "size": [40, 40, 28], "uv": [52, 262]}
 					],
 					"locators": {
-						"tamestatus": [0, 125, 34]
+						"tamestatus": [0, 125, 34],
+						"tamestatusbaby": [0, 150, 34]
 					}
 				},
 				{
