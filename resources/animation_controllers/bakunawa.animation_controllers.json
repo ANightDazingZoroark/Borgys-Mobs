@@ -61,12 +61,7 @@
                 },
                 "swimming": {
                     "animations": [
-                        {
-                            "animSwim": "!query.is_sitting"
-                        },
-                        {
-                            "animSit": "query.is_on_ground && query.is_sitting"
-                        }
+                        "animSwim"
                     ],
                     "transitions": [
                         {

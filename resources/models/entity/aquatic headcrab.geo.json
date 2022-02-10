@@ -1,0 +1,166 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.aquatic_headcrab",
+				"texture_width": 96,
+				"texture_height": 96,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "headcrab",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-7, 4, -9], "size": [14, 16, 18], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "leg0",
+					"parent": "headcrab",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [6, 11, 5], "size": [2, 2, 12], "pivot": [6.5, 12, 8], "rotation": [0, 30, 0], "uv": [18, 34]}
+					]
+				},
+				{
+					"name": "shin0",
+					"parent": "leg0",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [10.29904, 11, 14.94423], "size": [2, 2, 16], "inflate": -0.125, "uv": [14, 48]}
+					]
+				},
+				{
+					"name": "leg1",
+					"parent": "headcrab",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-8, 11, 5], "size": [2, 2, 12], "pivot": [-6.5, 12, 8], "rotation": [0, -30, 0], "uv": [18, 34]}
+					]
+				},
+				{
+					"name": "shin1",
+					"parent": "leg1",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-12.29904, 11, 14.94423], "size": [2, 2, 16], "inflate": -0.125, "uv": [14, 48]}
+					]
+				},
+				{
+					"name": "leg2",
+					"parent": "headcrab",
+					"pivot": [0, 12, 0],
+					"rotation": [0, 0, -90],
+					"cubes": [
+						{"origin": [6, 11, 5], "size": [2, 2, 12], "pivot": [6.5, 12, 8], "rotation": [0, 30, 0], "uv": [18, 34]}
+					]
+				},
+				{
+					"name": "shin2",
+					"parent": "leg2",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [10.29904, 11, 14.94423], "size": [2, 2, 16], "inflate": -0.125, "uv": [14, 48]}
+					]
+				},
+				{
+					"name": "leg3",
+					"parent": "headcrab",
+					"pivot": [0, 12, 0],
+					"rotation": [0, 0, 90],
+					"cubes": [
+						{"origin": [6, 11, 5], "size": [2, 2, 12], "pivot": [6.5, 12, 8], "rotation": [0, 30, 0], "uv": [18, 34]}
+					]
+				},
+				{
+					"name": "shin3",
+					"parent": "leg3",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [10.29904, 11, 14.94423], "size": [2, 2, 16], "inflate": -0.125, "uv": [14, 48]}
+					]
+				},
+				{
+					"name": "leg4",
+					"parent": "headcrab",
+					"pivot": [0, 12, 0],
+					"rotation": [0, 10, -45],
+					"cubes": [
+						{"origin": [6, 11, 5], "size": [2, 2, 12], "pivot": [6.5, 12, 8], "rotation": [0, 30, 0], "uv": [18, 34]}
+					]
+				},
+				{
+					"name": "shin4",
+					"parent": "leg4",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [10.29904, 11, 14.94423], "size": [2, 2, 18], "inflate": -0.125, "pivot": [11.59904, 12, 14.94423], "rotation": [0, -10, 0], "uv": [12, 66]}
+					]
+				},
+				{
+					"name": "leg5",
+					"parent": "headcrab",
+					"pivot": [0, 12, 0],
+					"rotation": [0, -10, 45],
+					"cubes": [
+						{"origin": [-8, 11, 5], "size": [2, 2, 12], "pivot": [-6.5, 12, 8], "rotation": [0, -30, 0], "uv": [18, 34]}
+					]
+				},
+				{
+					"name": "shin5",
+					"parent": "leg5",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-12.29904, 11, 14.94423], "size": [2, 2, 18], "inflate": -0.125, "pivot": [-11.59904, 12, 14.94423], "rotation": [0, 10, 0], "uv": [12, 66]}
+					]
+				},
+				{
+					"name": "leg6",
+					"parent": "headcrab",
+					"pivot": [0, 12, 0],
+					"rotation": [0, 10, 45],
+					"cubes": [
+						{"origin": [6, 11, 5], "size": [2, 2, 12], "pivot": [6.5, 12, 8], "rotation": [0, 30, 0], "uv": [18, 34]}
+					]
+				},
+				{
+					"name": "shin7",
+					"parent": "leg6",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [10.29904, 11, 14.94423], "size": [2, 2, 18], "inflate": -0.125, "pivot": [11.59904, 12, 14.94423], "rotation": [0, -10, 0], "uv": [12, 66]}
+					]
+				},
+				{
+					"name": "leg7",
+					"parent": "headcrab",
+					"pivot": [0, 12, 0],
+					"rotation": [0, -10, -45],
+					"cubes": [
+						{"origin": [-8, 11, 5], "size": [2, 2, 12], "pivot": [-6.5, 12, 8], "rotation": [0, -30, 0], "uv": [18, 34]}
+					]
+				},
+				{
+					"name": "shin6",
+					"parent": "leg7",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-12.29904, 11, 14.94423], "size": [2, 2, 18], "inflate": -0.125, "pivot": [-11.59904, 12, 14.94423], "rotation": [0, 10, 0], "uv": [12, 66]}
+					]
+				},
+				{
+					"name": "beak",
+					"parent": "headcrab",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-3.5, 9, -18], "size": [7, 6, 9], "uv": [46, 3]}
+					]
+				}
+			]
+		}
+	]
+}

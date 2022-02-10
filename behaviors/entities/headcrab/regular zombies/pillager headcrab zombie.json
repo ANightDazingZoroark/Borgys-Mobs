@@ -17,29 +17,126 @@
                     "entity_types": [
                         {
                             "filters": {
-                                "all_of": [
+                                "any_of": [
                                     {
                                         "test": "is_family",
                                         "subject": "other",
-                                        "value": "mob"
+                                        "value": "animal"
                                     },
                                     {
                                         "test": "is_family",
                                         "subject": "other",
-                                        "operator": "!=",
-                                        "value": "headcrabGeneral"
+                                        "value": "pig"
                                     },
                                     {
                                         "test": "is_family",
                                         "subject": "other",
-                                        "operator": "!=",
-                                        "value": "headcrab_zombie_general"
+                                        "value": "cow"
                                     },
                                     {
                                         "test": "is_family",
                                         "subject": "other",
-                                        "operator": "!=",
-                                        "value": "monster"
+                                        "value": "sheep"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "chicken"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "rabbit"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "horse"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "goat"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "donkey"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "mule"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "panda"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "polarbear"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "parrot"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "wolf"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "cat"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "ocelot"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "parrot"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "fox"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "llama"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "villager"
+                                    },
+                                    {
+                                        "all_of": [
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "illager"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "operator": "!=",
+                                                "value": "ravager"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "wandering_trader"
                                     }
                                 ]
                             },

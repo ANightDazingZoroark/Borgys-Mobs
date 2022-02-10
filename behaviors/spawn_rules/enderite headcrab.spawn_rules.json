@@ -20,6 +20,11 @@
 						}
 					]
 				},
+				"minecraft:brightness_filter": {
+				  	"min": 0,
+				  	"max": 7,
+				  	"adjust_for_weather": true
+				},
 				"minecraft:density_limit": {
 					"surface": 8
 				}

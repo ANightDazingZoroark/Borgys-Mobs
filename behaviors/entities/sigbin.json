@@ -827,12 +827,7 @@
 				  	"component_groups": [
 						"borgy:default_targets"
 				  	]
-				},
-                "run_command": {
-                    "command": [
-                        "say oof"
-                    ]
-                }
+				}
 			},
 			"borgy:no_force_attacked": {
                 "add": {
@@ -843,11 +838,6 @@
                 "remove": {
                     "component_groups": [
                         "borgy:attack_forced_attack_entity"
-                    ]
-                },
-                "run_command": {
-                    "command": [
-                        "say bye"
                     ]
                 }
 			},

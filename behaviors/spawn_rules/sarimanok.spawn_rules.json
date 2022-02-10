@@ -14,7 +14,7 @@
 					"adjust_for_weather": false
 				},
 				"minecraft:weight": {
-					"default": 5
+					"default": 50
 				},
 				"minecraft:biome_filter": [
 					{

@@ -93,10 +93,20 @@
                 "priority": 2,
                 "entity_types": {
                     "filters": {
-                        "test": "is_family",
-                        "subject": "other",
-                        "operator": "!=",
-                        "value": "forcedAttack"
+                        "all_of": [
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "operator": "!=",
+                                "value": "forcedAttack"
+                            },
+                            {
+                                "test": "has_mob_effect",
+                                "subject": "other",
+                                "operator": "!=",
+                                "value": "wither"
+                            }
+                        ]
                     }
                 }
             },
