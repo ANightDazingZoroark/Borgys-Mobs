@@ -447,38 +447,40 @@
                     "require_full_health": true,
                     "inherit_tamed": false,
                     "breed_cooldown": 1200
-				}
+				},
+                "minecraft:behavior.player_ride_tamed": {}
             },
             "borgy:bakunawa_adult_tamed_no_rider": {
-                "minecraft:navigation.generic": {
-                    "is_amphibious": false,
-                    "can_path_over_water": true,
-                    "can_swim": true,
-                    "can_walk": true,
-                    "can_breach": false,
-                    "can_sink": false
-                }
-            },
+				"minecraft:navigation.generic": {
+					"is_amphibious": true,
+					"can_path_over_water": false,
+					"can_swim": true,
+					"can_walk": true,
+					"can_breach": true,
+					"can_sink": false,
+					"avoid_damage_blocks": true
+				}
+			},
             "borgy:bakunawa_adult_tamed_has_rider_hovering": {
                 "minecraft:navigation.generic": {
                     "is_amphibious": false,
-                    "can_path_over_water": true,
+                    "can_path_over_water": false,
                     "can_swim": true,
-                    "can_walk": true,
-                    "can_breach": false,
+                    "can_walk": false,
+                    "can_breach": true,
                     "can_sink": false
                 }
-            },
+			},
             "borgy:bakunawa_adult_tamed_has_rider_controlled": {
-                "minecraft:navigation.generic": {
+				"minecraft:navigation.generic": {
                     "is_amphibious": false,
                     "can_path_over_water": true,
                     "can_swim": true,
-                    "can_walk": true,
+                    "can_walk": false,
                     "can_breach": false,
                     "can_sink": true
                 }
-            },
+			},
             "borgy:bakunawa_adult_tamed_has_gravity": {
                 "minecraft:physics": {
                     "has_gravity": true
@@ -1354,7 +1356,8 @@
                 "add": {
                     "component_groups": [
                         "borgy:bakunawa_adult_tamed_has_rider_hovering",
-                        "borgy:is_unpushable"
+                        "borgy:is_unpushable",
+                        "borgy:bakunawa_adult_tamed_has_gravity"
                     ]
                 },
                 "remove": {

@@ -25,43 +25,21 @@
                 "animLook": "animation.bakunawa.look",
                 "animSleep": "animation.bakunawa.sleeping",
                 "animAttack": "animation.bakunawa.attack",
-                "animStatusStandingGood": "animation.tame_status.standing_good",
-                "animStatusStandingOk": "animation.tame_status.standing_ok",
-                "animStatusStandingBad": "animation.tame_status.standing_bad",
-                "animStatusSittingGood": "animation.tame_status.sitting_good",
-                "animStatusSittingOk": "animation.tame_status.sitting_ok",
-                "animStatusSittingBad": "animation.tame_status.sitting_bad",
-                "animStatusBabyStandingGood": "animation.tame_status.baby_standing_good",
-                "animStatusBabyStandingOk": "animation.tame_status.baby_standing_ok",
-                "animStatusBabyStandingBad": "animation.tame_status.baby_standing_bad",
-                "animStatusBabySittingGood": "animation.tame_status.baby_sitting_good",
-                "animStatusBabySittingOk": "animation.tame_status.baby_sitting_ok",
-                "animStatusBabySittingBad": "animation.tame_status.baby_sitting_bad",
                 "contPose": "controller.animation.bakunawa_poses",
                 "contMove": "controller.animation.bakunawa_movement",
-                "contAttack": "controller.animation.bakunawa_attack",
-                "contTameStatus": "controller.animation.tame_status"
+                "contAttack": "controller.animation.bakunawa_attack"
             },
             "scripts": {
                 "animate": [
                     "animLook",
                     "contPose",
                     "contMove",
-                    "contAttack",
-                    "contTameStatus"
+                    "contAttack"
                 ]
             },
             "render_controllers": [
                 "controller.render.bakunawa"
             ],
-            "particle_effects": {
-			    "tamedStandingGood": "borgy:tamed_bakunawa_standing_good",
-                "tamedStandingOk": "borgy:tamed_bakunawa_standing_ok",
-                "tamedStandingBad": "borgy:tamed_bakunawa_standing_bad",
-			    "tamedSittingGood": "borgy:tamed_bakunawa_sitting_good",
-                "tamedSittingOk": "borgy:tamed_bakunawa_sitting_ok",
-                "tamedSittingBad": "borgy:tamed_bakunawa_sitting_bad"
-			},
             "spawn_egg": {
 				"base_color": "#3590ae",
 				"overlay_color": "#004f69"

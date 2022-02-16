@@ -1,0 +1,41 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:lavawyrm",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/lavawyrm"
+            },
+            "geometry": {
+                "default": "geometry.lavawyrm"
+            },
+            "animations": {
+                "animLandPose": "animation.lavawyrm.land_pose",
+                "animSwimPose": "animation.lavawyrm.swim_pose",
+                "animMove": "animation.lavawyrm.move",
+                "animJump": "animation.lavawyrm.jump",
+                "animAttack": "animation.lavawyrm.attack",
+                "animSit": "animation.lavawyrm.sitting",
+                "animIdle": "animation.lavawyrm.idle",
+                "contPoses": "controller.animation.lavawyrm_poses",
+                "contMove": "controller.animation.lavawyrm_movement"
+            },
+            "scripts": {
+                "animate": [
+                    "contPoses",
+                    "contMove"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.lavawyrm"
+            ],
+            "spawn_egg": {
+				"base_color": "#820000",
+				"overlay_color": "#852020"
+			}
+        }
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "borgy:lavawyrm",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "borgy:lavawyrm_baby": {
+                "minecraft:is_baby": {}
+            },
+            "borgy:lavawyrm_baby_wild": {},
+            "borgy:lavawyrm_baby_tamed": {},
+            "borgy:lavawyrm_adult": {
+                "minecraft:scale": {
+                    "value": 1.75
+                }
+            },
+            "borgy:lavawyrm_adult_wild": {},
+            "borgy:lavawyrm_adult_tamed": {},
+            "borgy:lavawyrm_tamed": {
+                "minecraft:is_tamed": {}
+            },
+            "borgy:lavawyrm_sittable": {},
+            "borgy:lavawyrm_rideable": {},
+            "borgy:lavawyrm_saddled": {},
+            "borgy:lavawyrm_chested": {},
+            "borgy:is_pushable": {
+			    "minecraft:pushable": {
+				    "is_pushable": true,
+				    "is_pushable_by_piston": true
+			    }
+            },
+            "borgy:is_unpushable": {
+			    "minecraft:pushable": {
+				    "is_pushable": false,
+				    "is_pushable_by_piston": false
+			    }
+            },
+            "borgy:lavawyrm_in_lava": {
+                "minecraft:is_sheared": {}
+            },
+            "borgy:lavawyrm_fire_rushing": {
+                "minecraft:is_ignited": {}
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "lavawyrm",
+                    "mob"
+                ]
+            },
+            "minecraft:movement": {
+                "value": 0.20
+            },
+            "minecraft:lava_movement": {
+                "value": 0.25
+            },
+            "minecraft:collision_box": {
+                "height": 3,
+                "width": 3
+            },
+            "minecraft:physics": {},
+            "minecraft:movement.basic": {},
+            "minecraft:navigation.walk": {
+                "can_path_over_lava": true,
+                "avoid_water": true,
+                "can_sink": false,
+                "can_walk_in_lava": true
+            },
+            "minecraft:fire_immune": {},
+            "minecraft:jump.static": {},
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:nameable": {},
+            "minecraft:behavior.stay_while_sitting": {
+                "priority": 1
+            },
+            "minecraft:behavior.breed": {
+                "priority": 2
+            },
+            "minecraft:behavior.rise_to_liquid_level": {
+                "priority": 0,
+                "liquid_y_offset": 0.25,
+                "rise_delta": 0.01,
+                "sink_delta": 0.01
+            },
+            "minecraft:environment_sensor": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_adult"
+                    ]
+                }
+            }
+        }
+    }
+}

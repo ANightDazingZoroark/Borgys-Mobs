@@ -18,18 +18,6 @@
                 "animSit": "animation.sigbin.sit",
                 "animAttack": "animation.sigbin.attack",
                 "animSleep": "animation.sigbin.sleep",
-                "animStatusStandingGood": "animation.tame_status.standing_good",
-                "animStatusStandingOk": "animation.tame_status.standing_ok",
-                "animStatusStandingBad": "animation.tame_status.standing_bad",
-                "animStatusSittingGood": "animation.tame_status.sitting_good",
-                "animStatusSittingOk": "animation.tame_status.sitting_ok",
-                "animStatusSittingBad": "animation.tame_status.sitting_bad",
-                "animStatusBabyStandingGood": "animation.tame_status.baby_standing_good",
-                "animStatusBabyStandingOk": "animation.tame_status.baby_standing_ok",
-                "animStatusBabyStandingBad": "animation.tame_status.baby_standing_bad",
-                "animStatusBabySittingGood": "animation.tame_status.baby_sitting_good",
-                "animStatusBabySittingOk": "animation.tame_status.baby_sitting_ok",
-                "animStatusBabySittingBad": "animation.tame_status.baby_sitting_bad",
                 "contMove": "controller.animation.sigbin_movement",
                 "contAttack": "controller.animation.sigbin_attack",
                 "contTameStatus": "controller.animation.tame_status"
@@ -37,21 +25,12 @@
             "scripts": {
                 "animate": [
                     "contMove",
-                    "contAttack",
-                    "contTameStatus"
+                    "contAttack"
                 ]
             },
             "render_controllers": [
                 "controller.render.common"
             ],
-            "particle_effects": {
-			    "tamedStandingGood": "borgy:tamed_sigbin_standing_good",
-                "tamedStandingOk": "borgy:tamed_sigbin_standing_ok",
-                "tamedStandingBad": "borgy:tamed_sigbin_standing_bad",
-			    "tamedSittingGood": "borgy:tamed_sigbin_sitting_good",
-                "tamedSittingOk": "borgy:tamed_sigbin_sitting_ok",
-                "tamedSittingBad": "borgy:tamed_sigbin_sitting_bad"
-			},
             "spawn_egg": {
 				"base_color": "#474747",
 				"overlay_color": "#272727"

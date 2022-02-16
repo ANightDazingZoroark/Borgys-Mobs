@@ -1,0 +1,53 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.lavawyrm_poses": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"animLandPose": "!query.is_in_water && !query.is_sheared"
+						},
+                        {
+                            "animSwimPose": "query.is_in_water || query.is_sheared"
+                        }
+					]
+				}
+			}
+		},
+        "controller.animation.lavawyrm_movement": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"animIdle": "query.ground_speed == 0 && (query.is_on_ground || query.is_in_water || query.is_sheared)"
+						},
+						{
+							"animMove": "query.ground_speed > 0 && (query.is_on_ground || query.is_in_water || query.is_sheared)"
+						},
+                        {
+                            "animJump": "!query.is_on_ground || query.is_in_water || query.is_sheared"
+                        }
+					],
+					"transitions": [
+						{
+							"sitting": "query.is_sitting"
+						}
+					]
+				},
+                "sitting": {
+                    "animations": [
+                        "animSit"
+                    ],
+					"transitions": [
+						{
+							"default": "!query.is_sitting"
+						}
+					]
+                }
+			}
+		}
+    }
+}

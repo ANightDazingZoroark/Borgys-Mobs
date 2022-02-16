@@ -17,40 +17,18 @@
                 "animWalk": "animation.bull_houndeye.walk",
                 "animSit": "animation.bull_houndeye.sit",
                 "animAttack": "animation.bull_houndeye.attack",
-                "animStatusStandingGood": "animation.tame_status.standing_good",
-                "animStatusStandingOk": "animation.tame_status.standing_ok",
-                "animStatusStandingBad": "animation.tame_status.standing_bad",
-                "animStatusSittingGood": "animation.tame_status.sitting_good",
-                "animStatusSittingOk": "animation.tame_status.sitting_ok",
-                "animStatusSittingBad": "animation.tame_status.sitting_bad",
-                "animStatusBabyStandingGood": "animation.tame_status.baby_standing_good",
-                "animStatusBabyStandingOk": "animation.tame_status.baby_standing_ok",
-                "animStatusBabyStandingBad": "animation.tame_status.baby_standing_bad",
-                "animStatusBabySittingGood": "animation.tame_status.baby_sitting_good",
-                "animStatusBabySittingOk": "animation.tame_status.baby_sitting_ok",
-                "animStatusBabySittingBad": "animation.tame_status.baby_sitting_bad",
                 "contMove": "controller.animation.houndeye_movement",
-                "contAttack": "controller.animation.houndeye_attack",
-                "contTameStatus": "controller.animation.tame_status"
+                "contAttack": "controller.animation.houndeye_attack"
             },
             "scripts": {
                 "animate": [
                     "contMove",
-                    "contAttack",
-                    "contTameStatus"
+                    "contAttack"
                 ]
             },
             "render_controllers": [
                 "controller.render.common"
             ],
-            "particle_effects": {
-			    "tamedStandingGood": "borgy:tamed_bull_houndeye_standing_good",
-                "tamedStandingOk": "borgy:tamed_bull_houndeye_standing_ok",
-                "tamedStandingBad": "borgy:tamed_bull_houndeye_standing_bad",
-			    "tamedSittingGood": "borgy:tamed_bull_houndeye_sitting_good",
-                "tamedSittingOk": "borgy:tamed_bull_houndeye_sitting_ok",
-                "tamedSittingBad": "borgy:tamed_bull_houndeye_sitting_bad"
-			},
             "spawn_egg": {
 				"base_color": "#97621e",
 				"overlay_color": "#8d6d20"

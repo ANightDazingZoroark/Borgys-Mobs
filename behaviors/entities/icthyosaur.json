@@ -344,7 +344,8 @@
                     "require_full_health": true,
                     "inherit_tamed": true,
                     "breed_cooldown": 30
-				}
+				},
+                "minecraft:behavior.player_ride_tamed": {}
             },
             "borgy:icthyosaur_sittable": {
                 "minecraft:sittable": {}
