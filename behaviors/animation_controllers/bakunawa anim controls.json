@@ -93,7 +93,7 @@
 					],
                     "transitions": [
                         {
-                            "default": "!query.is_powered"
+                            "default": "query.all_animations_finished"
                         }
                     ]
                 }

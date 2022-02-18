@@ -148,17 +148,6 @@
                 "minecraft:experience_reward": {
                     "on_death": "query.last_hit_by_player ? Math.Random(8, 16) : 0"
                 },
-                "minecraft:tameable": {
-					"probability": 0.25,
-					"tame_items": [
-                        "minecraft:porkchop",
-                        "minecraft:string"
-					],
-					"tame_event": {
-						"event": "borgy:on_tame_adult",
-						"target": "self"
-					}
-                },
                 "minecraft:behavior.hurt_by_target": {
                     "priority": 5,
                     "entity_types": {
@@ -193,6 +182,50 @@
                                         "value": "ravager"
                                     }
                                 ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "borgy:default_targets": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 6,
+                    "within_radius": 192,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "strider"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "hoglin"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "ravager"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "borgy:attack_forced_attack_entity": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 6,
+                    "within_radius": 192,
+                    "entity_types": [
+                        {
+                            "filters": {
+                              "test": "is_family",
+                              "subject": "other",
+                              "value": "isForcedAttacking"
                             }
                         }
                     ]
@@ -407,6 +440,11 @@
             "minecraft:lava_movement": {
                 "value": 0.5
             },
+            "minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0,
+                "breathes_lava": true
+			},
             "minecraft:collision_box": {
                 "height": 1,
                 "width": 1.5
@@ -509,20 +547,95 @@
                             }
 						},
                         "deals_damage": false
-                    }
+                    },
+					{
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+								  		"test": "is_family",
+								  		"subject": "other",
+								  		"value": "forcedAttack"
+									},
+									{
+								  		"test": "has_target",
+								  		"subject": "self",
+								  		"value": false
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "!=",
+										"value": "minecraft:is_tamed"
+									},
+									{
+									  	"test": "has_damage",
+									  	"subject": "self",
+									  	"operator": "!=",
+									  	"value": "fatal"
+									}
+							  	]
+							},
+							"event": "borgy:on_force_attacked",
+							"target": "self"
+						}
+					},
+					{
+						"on_damage": {
+							"filters": {
+						  		"all_of": [
+									{
+							  			"test": "is_family",
+							  			"subject": "other",
+							  			"value": "forcedAttack"
+									},
+									{
+							  			"test": "has_damage",
+							  			"subject": "self",
+							  			"value": "fatal"
+									},
+									{
+							  			"test": "has_component",
+							  			"subject": "self",
+							  			"operator": "!=",
+							  			"value": "minecraft:is_baby"
+									}
+						  		]
+							},
+							"event": "borgy:on_force_attacked_death",
+							"target": "self"
+					  	}
+					}
                 ]
             }
         },
         "events": {
             "minecraft:entity_spawned": {
-                "add": {
-                    "component_groups": [
-                        "borgy:lavawyrm_adult",
-                        "borgy:lavawyrm_adult_wild",
-                        "borgy:no_target",
-                        "borgy:is_pushable"
-                    ]
-                }
+                "randomize": [
+                    {
+                        "weight": 3,
+                        "add": {
+                            "component_groups": [
+                                "borgy:lavawyrm_adult",
+                                "borgy:lavawyrm_adult_wild",
+                                "borgy:no_target",
+                                "borgy:is_pushable",
+                                "borgy:default_targets"
+                            ]
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "add": {
+                            "component_groups": [
+                                "borgy:lavawyrm_baby",
+                                "borgy:lavawyrm_baby_wild",
+                                "borgy:lavawyrm_baby_calm",
+                                "borgy:is_pushable"
+                            ]
+                        }
+                    }
+                ]
             },
             "minecraft:entity_born": {
                 "add": {
@@ -549,6 +662,7 @@
                     "component_groups": [
                         "borgy:lavawyrm_adult",
                         "borgy:lavawyrm_adult_wild",
+                        "borgy:default_targets",
                         "borgy:no_target"
                     ]
                 },
@@ -630,7 +744,9 @@
                         "borgy:lavawyrm_adult_wild",
                         "borgy:lavawyrm_flame_charge",
                         "borgy:lavawyrm_normal_attack",
-                        "borgy:lavawyrm_attack_mode_change_delay"
+                        "borgy:lavawyrm_attack_mode_change_delay",
+                        "borgy:default_targets",
+                        "borgy:attack_forced_attack_entity"
                     ]
                 }
             },
@@ -691,11 +807,13 @@
             "borgy:no_attacking": {
                 "add": {
                     "component_groups": [
-                        "borgy:no_target"
+                        "borgy:no_target",
+                        "borgy:default_targets"
                     ]
                 },
                 "remove": {
                     "component_groups": [
+						"borgy:attack_forced_attack_entity",
                         "borgy:lavawyrm_flame_charge",
                         "borgy:lavawyrm_normal_attack",
                         "borgy:lavawyrm_attack_mode_change_delay"
@@ -763,7 +881,19 @@
                         "borgy:lavawyrm_forced_attack"
                     ]
                 }
-            }
+            },
+			"borgy:on_force_attacked": {
+				"add": {
+				  	"component_groups": [
+						"borgy:attack_forced_attack_entity"
+				  	]
+				},
+				"remove": {
+				  	"component_groups": [
+						"borgy:default_targets"
+				  	]
+				}
+			}
         }
     }
 }

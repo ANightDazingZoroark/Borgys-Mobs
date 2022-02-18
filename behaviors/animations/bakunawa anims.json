@@ -20,13 +20,14 @@
 			}
         },
 		"animation.forced_attack_bakunawa": {
-			"animation_length": 0.52,
-			"loop": true,
+			"animation_length": 0.6,
+			"loop": false,
 			"timeline": {
 				"0": [
-					"/playanimation @s animation.bakunawa.attack",
-                    "/summon borgy:bakunawa_forced_attack",
-					"@s borgy:on_forced_attack_family"
+					"/playanimation @s animation.bakunawa.attack"
+				],
+				"0.52": [
+					"/damage @e[tag=!tamed, family=!inanimate, type=!player, r=8] 24 entity_attack entity @s"
 				]
 			}
         }

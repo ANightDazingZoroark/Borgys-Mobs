@@ -17,7 +17,7 @@
 					],
                     "transitions": [
                         {
-                            "default": "!query.is_sheared"
+                            "default": "query.all_animations_finished"
                         }
                     ]
                 }

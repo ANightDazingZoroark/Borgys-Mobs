@@ -197,9 +197,6 @@
                             "biteMode": "(query.is_riding && query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:bakunawa') && (query.is_riding ? (query.get_ride -> query.is_saddled)) && query.get_equipped_item_name('main_hand') == 'bakunawa_staff'"
                         }
                     ],
-					"on_entry": [
-						"/event entity @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] borgy:no_forced_attack_family"
-					],
 					"on_exit": [
 						"/tellraw @s {\"rawtext\":[{\"text\":\"Ability set to Bite Mode\"}]}"
 					]
