@@ -10,17 +10,23 @@
                 "contAddTameTag": "controller.animation.add_tame_tag",
                 "contUnsittableWhenRidden": "controller.animation.become_unsittable_when_ridden",
                 "contFlameChargeUnridden": "controller.animation.lavawyrm_flame_charge_unridden",
+                "contFlameChargeRidden": "controller.animation.lavawyrm_flame_charge_ridden",
                 "contForcedAttack": "controller.animation.lavawyrm_forced_attack",
-                "animFlameChargingWildUnridden": "animation.lavawyrm_flame_charge_wild_unridden",
-                "animFlameChargingTamedUnridden": "animation.lavawyrm_flame_charge_tamed_unridden",
-                "animForcedAttack": "animation.forced_attack_lavawyrm"
+                "contCooldownSystem": "controller.animation.lavawyrm_flame_charge_cooldown",
+                "animFlameChargingWild": "animation.lavawyrm_flame_charge_wild",
+                "animFlameChargingTamed": "animation.lavawyrm_flame_charge_tamed",
+                "animForcedAttack": "animation.forced_attack_lavawyrm",
+                "animStopForcedFlameCharge": "animation.lavawyrm_stop_forced_flame_charge",
+                "animStopForcedFlameChargeCooldown": "animation.lavawyrm_stop_flame_charge_cooldown"
             },
             "scripts": {
                 "animate": [
                     "contAddTameTag",
                     "contUnsittableWhenRidden",
                     "contFlameChargeUnridden",
-                    "contForcedAttack"
+                    "contFlameChargeRidden",
+                    "contForcedAttack",
+                    "contCooldownSystem"
                 ]
             }
         },
@@ -64,10 +70,13 @@
 					}
                 },
                 "minecraft:behavior.random_stroll": {
-                    "priority": 13
+                    "priority": 14
                 },
                 "minecraft:despawn": {
                     "despawn_from_distance": {}
+                },
+                "minecraft:behavior.follow_parent": {
+					"priority": 13
                 },
                 "minecraft:behavior.hurt_by_target": {
                     "priority": 5,
@@ -140,7 +149,7 @@
                     "max": 80
                 },
                 "minecraft:behavior.random_stroll": {
-                    "priority": 13
+                    "priority": 14
                 },
                 "minecraft:despawn": {
                     "despawn_from_distance": {}
@@ -425,6 +434,39 @@
             },
             "borgy:lavawyrm_forced_attack": {
                 "minecraft:out_of_control": {}
+            },
+            "borgy:lavawyrm_forced_flame_charge": {
+                "minecraft:is_ignited": {},
+				"minecraft:area_attack": {
+					"damage_range": 1.25,
+					"damage_per_tick": 16,
+					"cause": "entity_attack",
+					"entity_filter": {
+                        "all_of": [
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "operator": "!=",
+                                "value": "player"
+                            },
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "operator": "!=",
+                                "value": "inanimate"
+                            },
+							{
+								"test": "has_component",
+								"subject": "other",
+                                "operator": "!=",
+                                "value": "minecraft:is_tamed"
+							}
+                        ]
+					}
+                }
+            },
+            "borgy:lavawyrm_forced_flame_charge_cooldown": {
+                "minecraft:is_illager_captain": {}
             }
         },
         "components": {
@@ -524,6 +566,11 @@
                                     "subject": "self",
                                     "operator": "!=",
                                     "value": "minecraft:timer"
+                                },
+                                {
+                                    "test": "rider_count",
+                                    "subject": "self",
+                                    "value": 0
                                 }
                             ]
                         },
@@ -859,7 +906,8 @@
                 },
                 "remove": {
                     "component_groups": [
-                        "borgy:is_unpushable"
+                        "borgy:is_unpushable",
+                        "borgy:lavawyrm_forced_flame_charge"
                     ]
                 },
                 "run_command": {
@@ -893,7 +941,33 @@
 						"borgy:default_targets"
 				  	]
 				}
-			}
+			},
+            "borgy:activate_flame_charge": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_forced_flame_charge"
+                    ]
+                }
+            },
+            "borgy:stop_flame_charge": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_forced_flame_charge_cooldown"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_forced_flame_charge"
+                    ]
+                }
+            },
+            "borgy:stop_flame_charge_cooldown": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_forced_flame_charge_cooldown"
+                    ]
+                }
+            }
         }
     }
 }

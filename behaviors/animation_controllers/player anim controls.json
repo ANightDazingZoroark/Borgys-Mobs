@@ -391,7 +391,10 @@
 							"default": "(query.get_equipped_item_name('main_hand') != 'lavawyrm_staff') || !query.is_riding || (query.get_ride -> query.owner_identifier) != 'borgy:lavawyrm'"
 						},
 						{
-							"useFlameChargeMode": "!query.is_using_item"
+							"useFlameChargeMode": "!query.is_using_item && !(query.get_ride -> query.is_illager_captain)"
+						},
+						{
+							"useFlameChargeModeFail": "!query.is_using_item && (query.get_ride -> query.is_illager_captain)"
 						},
 						{
 							"flameChargeToBite": "query.all_animations_finished"
@@ -406,9 +409,16 @@
                     ],
                     "on_entry": [
                         "/event entity @e[type=borgy:lavawyrm, c=1, tag=lavawyrmHasRider] borgy:activate_flame_charge"
+                    ]
+                },
+                "useFlameChargeModeFail": {
+                    "transitions": [
+                        {
+                            "flameChargeMode": "(1.0)"
+                        }
                     ],
-                    "on_exit": [
-                        "/event entity @e[type=borgy:lavawyrm, c=1, tag=lavawyrmHasRider] borgy:stop_activate_flame_charge"
+                    "on_entry": [
+						"/tellraw @s {\"rawtext\":[{\"text\":\"Cannot flame charge for another 10 seconds!\"}]}"
                     ]
                 },
                 "flameChargeToBite": {

@@ -22,18 +22,23 @@
                 "animIdle": "animation.lavawyrm.idle",
                 "contPoses": "controller.animation.lavawyrm_poses",
                 "contMove": "controller.animation.lavawyrm_movement",
-                "contAttack": "controller.animation.lavawyrm_attack"
+                "contAttack": "controller.animation.lavawyrm_attack",
+                "contFireTrail": "controller.animation.lavawyrm_fire_trail"
             },
             "scripts": {
                 "animate": [
                     "contPoses",
                     "contMove",
-                    "contAttack"
+                    "contAttack",
+                    "contFireTrail"
                 ]
             },
             "render_controllers": [
                 "controller.render.lavawyrm"
             ],
+            "particle_effects": {
+                "fireTrail": "borgy:scorched_headcrab_zombie_fire"
+			},
             "spawn_egg": {
 				"base_color": "#820000",
 				"overlay_color": "#852020"

@@ -1,7 +1,25 @@
 {
     "format_version": "1.10.0",
     "animations": {
-		"animation.lavawyrm_flame_charge_wild_unridden": {
+        "animation.lavawyrm_stop_forced_flame_charge": {
+            "animation_length": 6,
+			"loop": false,
+			"timeline": {
+				"5": [
+                    "@s borgy:stop_flame_charge"
+				]
+			}
+        },
+        "animation.lavawyrm_stop_flame_charge_cooldown": {
+            "animation_length": 11,
+			"loop": false,
+			"timeline": {
+				"10": [
+                    "@s borgy:stop_flame_charge_cooldown"
+				]
+			}
+        },
+		"animation.lavawyrm_flame_charge_wild": {
             "animation_length": 0.5,
 			"loop": true,
 			"timeline": {
@@ -14,7 +32,7 @@
 				]
 			}
         },
-		"animation.lavawyrm_flame_charge_tamed_unridden": {
+		"animation.lavawyrm_flame_charge_tamed": {
             "animation_length": 0.5,
 			"loop": true,
 			"timeline": {

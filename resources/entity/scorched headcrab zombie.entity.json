@@ -28,7 +28,7 @@
             },
             "render_controllers": [
                 "controller.render.common"
-            ],            
+            ],
             "particle_effects": {
 			    "scorchedHeadcrabFire": "borgy:scorched_headcrab_fire",
                 "scorchedHeadcrabSizzle": "borgy:scorched_headcrab_sizzle",

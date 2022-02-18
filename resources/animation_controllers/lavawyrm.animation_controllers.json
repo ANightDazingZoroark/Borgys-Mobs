@@ -22,19 +22,19 @@
 				"default": {
 					"animations": [
 						{
-							"animIdle": "query.ground_speed == 0 && (query.is_on_ground || query.is_in_water || query.is_sheared)"
+							"animIdle": "query.ground_speed == 0"
 						},
 						{
-							"animMove": "query.ground_speed > 0 && (query.is_on_ground || query.is_in_water || query.is_sheared)"
-						},
-                        {
-                            "animJump": "!query.is_on_ground && !query.is_in_water && !query.is_sheared"
-                        }
+							"animMove": "query.ground_speed > 0"
+						}
 					],
 					"transitions": [
 						{
 							"sitting": "query.is_sitting"
-						}
+						},
+                        {
+                            "jumping": "!query.is_on_ground && !query.is_in_water && !query.is_sheared"
+                        }
 					]
 				},
                 "sitting": {
@@ -44,6 +44,16 @@
 					"transitions": [
 						{
 							"default": "!query.is_sitting"
+						}
+					]
+                },
+				"jumping": {
+                    "animations": [
+                        "animJump"
+                    ],
+					"transitions": [
+						{
+							"default": "query.is_on_ground || query.is_in_water || query.is_sheared"
 						}
 					]
                 }
@@ -66,6 +76,35 @@
                     "transitions": [
                         {
                             "default": "!query.is_delayed_attacking"
+                        }
+                    ]
+                }
+			}
+        },
+        "controller.animation.lavawyrm_fire_trail": {
+            "initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "fireTrail": "query.is_ignited"
+                        }
+                    ]
+				},
+                "fireTrail": {
+                    "particle_effects": [
+                        {
+                            "effect": "fireTrail",
+                            "locator": "flamechargelocator1"
+                        },
+                        {
+                            "effect": "fireTrail",
+                            "locator": "flamechargelocator2"
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_ignited"
                         }
                     ]
                 }

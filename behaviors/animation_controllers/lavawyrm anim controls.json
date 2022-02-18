@@ -16,7 +16,7 @@
                 },
                 "flameChargeWild": {
                     "animations": [
-                        "animFlameChargingWildUnridden"
+                        "animFlameChargingWild"
                     ],
                     "transitions": [
                         {
@@ -26,12 +26,75 @@
                 },
                 "flameChargeTamed": {
                     "animations": [
-                        "animFlameChargingTamedUnridden"
+                        "animFlameChargingTamed"
                     ],
                     "transitions": [
                         {
                             "default": "!query.is_ignited"
                         }
+                    ]
+                }
+            }
+        },
+        "controller.animation.lavawyrm_flame_charge_ridden": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "flameChargeWild": "query.has_rider && query.is_ignited"
+                        }
+                    ]
+                },
+                "flameChargeWild": {
+                    "animations": [
+                        "animFlameChargingTamed"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_ignited"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.lavawyrm_flame_charge_cooldown": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "usingFlameCharge": "query.is_ignited"
+                        }
+                    ]
+                },
+                "usingFlameCharge": {
+                    "animations": [
+                        "animStopForcedFlameCharge"
+                    ],
+                    "transitions": [
+                        {
+                            "cooldown": "!query.is_ignited"
+                        }
+                    ],
+                    "on_entry": [
+                        "/tellraw @p {\"rawtext\":[{\"text\":\"Flame Charge Activated\"}]}"
+                    ],
+                    "on_exit": [
+                        "/tellraw @p {\"rawtext\":[{\"text\":\"Flame Charge Deactivated\"}]}"
+                    ]
+                },
+                "cooldown": {
+                    "animations": [
+                        "animStopForcedFlameChargeCooldown"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_illager_captain"
+                        }
+                    ],
+                    "on_exit": [
+                        "/tellraw @p {\"rawtext\":[{\"text\":\"Cooldown ended\"}]}"
                     ]
                 }
             }
