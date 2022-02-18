@@ -11,6 +11,9 @@
 		"sigbin heart": {
 			"textures": "textures/items/sigbin heart"
 		},
+		"lavawyrm heart": {
+			"textures": "textures/items/lavawyrm heart"
+		},
         "bakunawa staff": {
 			"textures": "textures/items/bakunawa staff"
 		},
@@ -19,6 +22,9 @@
 		},
 		"sigbin staff": {
 			"textures": "textures/items/sigbin staff"
+		},
+		"lavawyrm staff": {
+			"textures": "textures/items/lavawyrm staff"
 		},
 		"bakunawa egg": {
 			"textures": "textures/items/bakunawa egg"

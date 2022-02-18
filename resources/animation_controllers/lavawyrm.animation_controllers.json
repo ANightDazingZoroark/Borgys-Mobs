@@ -28,7 +28,7 @@
 							"animMove": "query.ground_speed > 0 && (query.is_on_ground || query.is_in_water || query.is_sheared)"
 						},
                         {
-                            "animJump": "!query.is_on_ground || query.is_in_water || query.is_sheared"
+                            "animJump": "!query.is_on_ground && !query.is_in_water && !query.is_sheared"
                         }
 					],
 					"transitions": [
@@ -48,6 +48,28 @@
 					]
                 }
 			}
-		}
+		},
+        "controller.animation.lavawyrm_attack": {
+            "initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "attack": "query.is_delayed_attacking"
+                        }
+                    ]
+				},
+                "attack": {
+                    "animations": [
+                        "animAttack"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_delayed_attacking"
+                        }
+                    ]
+                }
+			}
+        }
     }
 }

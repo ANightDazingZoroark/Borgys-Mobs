@@ -1,0 +1,53 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "borgy:lavawyrm_flame",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false,
+            "runtime_identifier": "minecraft:fireball"
+        },
+        "component_groups": {
+            "borgy:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "lavawyrmFlame"
+                ]
+            },
+            "minecraft:projectile": {
+                "on_hit": {
+                    "impact_damage": {
+                        "destroy_on_hit": true
+                    }
+                },
+                "catch_fire": true
+            },
+			"minecraft:collision_box": {
+                "width": 0.25,
+            	"height": 0.25
+            },
+			"minecraft:physics": {},
+            "minecraft:timer": {
+                "time": 0.5,
+                "time_down_event": {
+                    "event": "borgy:go_commit_away",
+                    "target": "self"
+                }
+            }
+        },
+        "events": {
+            "borgy:go_commit_away": {
+                "add": {
+                    "component_groups": [
+                        "borgy:despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

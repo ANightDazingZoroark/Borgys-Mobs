@@ -21,12 +21,14 @@
                 "animSit": "animation.lavawyrm.sitting",
                 "animIdle": "animation.lavawyrm.idle",
                 "contPoses": "controller.animation.lavawyrm_poses",
-                "contMove": "controller.animation.lavawyrm_movement"
+                "contMove": "controller.animation.lavawyrm_movement",
+                "contAttack": "controller.animation.lavawyrm_attack"
             },
             "scripts": {
                 "animate": [
                     "contPoses",
-                    "contMove"
+                    "contMove",
+                    "contAttack"
                 ]
             },
             "render_controllers": [

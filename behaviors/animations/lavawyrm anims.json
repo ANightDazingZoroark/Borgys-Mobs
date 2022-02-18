@@ -1,0 +1,43 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+		"animation.lavawyrm_flame_charge_wild_unridden": {
+            "animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0": [
+                    "/effect @s speed 1 2 true",
+					"/execute @e[type=!borgy:lavawyrm, family=!inanimate, r=8] ~ ~ ~ summon borgy:lavawyrm_flame"
+				],
+				"0.25": [
+					"/execute @e[type=!borgy:lavawyrm, family=!inanimate, r=8] ~ ~ ~ summon borgy:lavawyrm_flame"
+				]
+			}
+        },
+		"animation.lavawyrm_flame_charge_tamed_unridden": {
+            "animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0": [
+                    "/effect @s speed 1 2 true",
+					"/execute @e[type=!borgy:lavawyrm, type=!player, tag=!tamed, family=!inanimate, r=8] ~ ~ ~ summon borgy:lavawyrm_flame"
+				],
+				"0.25": [
+					"/execute @e[type=!borgy:lavawyrm, type=!player, tag=!tamed, family=!inanimate, r=8] ~ ~ ~ summon borgy:lavawyrm_flame"
+				]
+			}
+        },
+		"animation.forced_attack_lavawyrm": {
+			"animation_length": 0.6,
+			"loop": false,
+			"timeline": {
+				"0": [
+					"/playanimation @s animation.lavawyrm.attack"
+				],
+				"0.52": [
+					"/damage @e[tag=!tamed, family=!inanimate, type=!player, r=8] 16 entity_attack entity @s"
+				]
+			}
+        }
+    }
+}

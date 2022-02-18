@@ -10,10 +10,10 @@
 			"loop": true,
 			"timeline": {
 				"0": [
-                    "/execute @s[rxm=-90, rx=-30] ~ ~ ~ effect @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] levitation 1 10",
-					"/execute @s[rxm=-30, rx=15] ~ ~ ~ effect @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] levitation 1 2",
-					"/execute @s[rxm=15, rx=30] ~ ~ ~ effect @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] slow_falling 1 4",
-					"/execute @s[rxm=30, rx=90] ~ ~ ~ effect @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] slow_falling 1 1"
+                    "/execute @s[rxm=-90, rx=-30] ~ ~ ~ effect @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] levitation 1 10 true",
+					"/execute @s[rxm=-30, rx=15] ~ ~ ~ effect @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] levitation 1 2 true",
+					"/execute @s[rxm=15, rx=30] ~ ~ ~ effect @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] slow_falling 1 4 true",
+					"/execute @s[rxm=30, rx=90] ~ ~ ~ effect @e[type=borgy:icthyosaur, tag=icthyosaurSaddled, c=1] slow_falling 1 1 true"
 				]
 			}
         },
@@ -22,7 +22,7 @@
 			"loop": true,
 			"timeline": {
 				"0": [
-                    "/effect @e[type=borgy:icthyosaur, c=1, tag=tamed] levitation 1 4"
+                    "/effect @e[type=borgy:icthyosaur, c=1, tag=tamed] levitation 1 4 true"
 				]
 			}
         },
@@ -40,10 +40,10 @@
 			"loop": true,
 			"timeline": {
 				"0": [
-                    "/execute @s[rxm=-90, rx=-30] ~ ~ ~ effect @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] levitation 1 10",
-					"/execute @s[rxm=-30, rx=15] ~ ~ ~ effect @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] levitation 1 2",
-                    "/execute @s[rxm=15, rx=30] ~ ~ ~ effect @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] slow_falling 1 4",
-                    "/execute @s[rxm=30, rx=90] ~ ~ ~ effect @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] slow_falling 1 1"
+                    "/execute @s[rxm=-90, rx=-30] ~ ~ ~ effect @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] levitation 1 10 true",
+					"/execute @s[rxm=-30, rx=15] ~ ~ ~ effect @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] levitation 1 2 true",
+                    "/execute @s[rxm=15, rx=30] ~ ~ ~ effect @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] slow_falling 1 4 true",
+                    "/execute @s[rxm=30, rx=90] ~ ~ ~ effect @e[type=borgy:bakunawa, c=1, tag=bakunawaHasRider] slow_falling 1 1 true"
 				]
 			}
         },
@@ -52,7 +52,7 @@
 			"loop": true,
 			"timeline": {
 				"0": [
-                    "/effect @e[type=borgy:bakunawa, c=1, tag=tamed] slow_falling 1 1"
+                    "/effect @e[type=borgy:bakunawa, c=1, tag=tamed] slow_falling 1 1 true"
 				]
 			}
         },
@@ -61,7 +61,7 @@
 			"loop": true,
 			"timeline": {
 				"0": [
-                    "/effect @e[type=borgy:bakunawa, c=1, tag=tamed] levitation 1 2"
+                    "/effect @e[type=borgy:bakunawa, c=1, tag=tamed] levitation 1 2 true"
 				]
 			}
         },
@@ -79,7 +79,16 @@
 			"loop": true,
 			"timeline": {
 				"0": [
-                    "/effect @s conduit_power 1 1"
+                    "/effect @s conduit_power 1 1 true"
+				]
+			}
+        },
+        "animation.player_ride_lavawyrm": {
+            "animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": [
+                    "/effect @s fire_resistance 1 1 true"
 				]
 			}
         }

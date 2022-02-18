@@ -11,7 +11,9 @@
         "contControlIcthyosaurBite": "controller.animation.player_control_icthyosaur_bite",
         "contControlBakunawa": "controller.animation.player_control_bakunawa",
         "contBakunawaStaffUse": "controller.animation.player_use_bakunawa_staff",
+        "contLavawyrmStaffUse": "controller.animation.player_use_lavawyrm_staff",
         "contRideBakunawaWithHeart": "controller.animation.player_ride_bakunawa_with_heart",
+        "contRideLavawyrm": "controller.animation.player_ride_lavawyrm",
         "contDismount": "controller.animation.player_dismount",
         "contWeaponManagement": "controller.animation.player_weapon_management",
         "animControlIcthyosaur": "animation.player_control_icthyosaur",
@@ -19,6 +21,7 @@
         "animControlBakunawa": "animation.player_control_bakunawa",
         "animStayBakunawa": "animation.player_bakunawa_stay",
         "animRideBakunawaWithHeart": "animation.player_ride_bakunawa_with_heart",
+        "animRideLavawyrm": "animation.player_ride_lavawyrm",
         "animBakunawaDescend": "animation.player_control_bakunawa_descend",
         "animBakunawaAscend": "animation.player_control_bakunawa_ascend",
         "animIcthyosaurAscend": "animation.player_control_icthyosaur_ascend",
@@ -30,7 +33,9 @@
           "contControlIcthyosaurBite",
           "contControlBakunawa",
           "contBakunawaStaffUse",
+          "contLavawyrmStaffUse",
           "contRideBakunawaWithHeart",
+          "contRideLavawyrm",
           "contDismount",
           "contWeaponManagement"
         ]

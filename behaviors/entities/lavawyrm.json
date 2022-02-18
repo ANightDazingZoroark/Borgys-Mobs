@@ -5,28 +5,314 @@
             "identifier": "borgy:lavawyrm",
             "is_spawnable": true,
             "is_summonable": true,
-            "is_experimental": false
+            "is_experimental": false,
+            "animations": {
+                "contAddTameTag": "controller.animation.add_tame_tag",
+                "contUnsittableWhenRidden": "controller.animation.become_unsittable_when_ridden",
+                "contFlameChargeUnridden": "controller.animation.lavawyrm_flame_charge_unridden",
+                "contForcedAttack": "controller.animation.lavawyrm_forced_attack",
+                "animFlameChargingWildUnridden": "animation.lavawyrm_flame_charge_wild_unridden",
+                "animFlameChargingTamedUnridden": "animation.lavawyrm_flame_charge_tamed_unridden",
+                "animForcedAttack": "animation.forced_attack_lavawyrm"
+            },
+            "scripts": {
+                "animate": [
+                    "contAddTameTag",
+                    "contUnsittableWhenRidden",
+                    "contFlameChargeUnridden",
+                    "contForcedAttack"
+                ]
+            }
         },
         "component_groups": {
             "borgy:lavawyrm_baby": {
-                "minecraft:is_baby": {}
+                "minecraft:health": {
+                    "value": 30
+                },
+                "minecraft:is_baby": {},
+                "minecraft:scale_by_age": {
+                    "start_scale": 0.75,
+                    "end_scale": 1.25
+                },
+                "minecraft:behavior.tempt": {
+					"priority": 10,
+					"within_radius": 16,
+					"speed_multiplier": 1,
+					"items": [
+                        "minecraft:porkchop",
+                        "minecraft:string"
+					]
+                }
             },
-            "borgy:lavawyrm_baby_wild": {},
-            "borgy:lavawyrm_baby_tamed": {},
+            "borgy:lavawyrm_baby_wild": {
+                "minecraft:ageable": {
+                    "duration": 1200,
+                    "grow_up": {
+                        "event": "borgy:baby_grow_up_wild",
+                        "target": "self"
+                    }
+                },
+                "minecraft:tameable": {
+					"probability": 0.25,
+					"tame_items": [
+                        "minecraft:porkchop",
+                        "minecraft:string"
+					],
+					"tame_event": {
+						"event": "borgy:on_tame_baby",
+						"target": "self"
+					}
+                },
+                "minecraft:behavior.random_stroll": {
+                    "priority": 13
+                },
+                "minecraft:despawn": {
+                    "despawn_from_distance": {}
+                },
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 5,
+                    "entity_types": {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "operator": "!=",
+                            "value": "forcedAttack"
+                        }
+                    }
+                }
+            },
+            "borgy:lavawyrm_baby_calm": {
+                "minecraft:on_target_acquired": {
+                    "event": "borgy:baby_become_scared",
+                    "target": "self"
+                }
+            },
+            "borgy:lavawyrm_baby_scared": {
+                "minecraft:angry": {
+                    "duration": 30,
+                    "broadcast_anger": true,
+                    "broadcast_range": 36,
+					"broadcast_filters": {
+						"test": "has_component",
+						"subject": "other",
+						"operator": "!=",
+						"value": "minecraft:is_tamed"
+					},
+					"broadcast_targets": [
+						"lavawyrm"
+					],
+                    "calm_event": {
+                        "event": "borgy:baby_on_calm",
+                        "target": "self"
+                    }
+                }
+            },
+            "borgy:lavawyrm_baby_tamed": {
+                "minecraft:ageable": {
+                    "duration": 1200,
+                    "grow_up": {
+                        "event": "borgy:baby_grow_up_tamed",
+                        "target": "self"
+                    },
+                    "feed_items": [
+						{
+							"item": "minecraft:porkchop",
+							"growth": 0.1
+						},
+						{
+							"item": "minecraft:string",
+							"growth": 0.1
+						}
+                    ]
+                }
+            },
             "borgy:lavawyrm_adult": {
                 "minecraft:scale": {
                     "value": 1.75
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/lavawyrm.loot.json"
                 }
             },
-            "borgy:lavawyrm_adult_wild": {},
-            "borgy:lavawyrm_adult_tamed": {},
-            "borgy:lavawyrm_tamed": {
-                "minecraft:is_tamed": {}
+            "borgy:lavawyrm_adult_wild": {
+                "minecraft:health": {
+                    "value": 80,
+                    "max": 80
+                },
+                "minecraft:behavior.random_stroll": {
+                    "priority": 13
+                },
+                "minecraft:despawn": {
+                    "despawn_from_distance": {}
+                },
+                "minecraft:experience_reward": {
+                    "on_death": "query.last_hit_by_player ? Math.Random(8, 16) : 0"
+                },
+                "minecraft:tameable": {
+					"probability": 0.25,
+					"tame_items": [
+                        "minecraft:porkchop",
+                        "minecraft:string"
+					],
+					"tame_event": {
+						"event": "borgy:on_tame_adult",
+						"target": "self"
+					}
+                },
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 5,
+                    "entity_types": {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "operator": "!=",
+                            "value": "forcedAttack"
+                        }
+                    }
+                },
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 6,
+                    "within_radius": 192,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "strider"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "hoglin"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "ravager"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
             },
-            "borgy:lavawyrm_sittable": {},
-            "borgy:lavawyrm_rideable": {},
-            "borgy:lavawyrm_saddled": {},
-            "borgy:lavawyrm_chested": {},
+            "borgy:lavawyrm_adult_tamed": {
+                "minecraft:health": {
+                    "value": 80,
+                    "max": 80
+                },
+                "minecraft:inventory": {
+					"container_type": "horse",
+					"inventory_size": 16,
+                    "restrict_to_owner": true,
+					"private": false
+				},
+                "minecraft:healable": {
+					"items": [
+						{
+							"item": "minecraft:porkchop",
+							"heal_amount": 12
+						},
+						{
+							"item": "minecraft:string",
+							"heal_amount": 12
+						}
+					]
+				},
+                "minecraft:equippable": {
+					"slots": [
+						{
+							"slot": 0,
+							"accepted_items": [
+								"minecraft:saddle"
+							],
+							"item": "minecraft:saddle",
+							"interact_text": "action.interact.saddle",
+							"on_equip": {
+								"event": "borgy:attach_saddle",
+								"target": "self"
+							},
+							"on_unequip": {
+								"event": "borgy:remove_saddle",
+								"target": "self"
+							}
+						}
+					]
+				},
+                "minecraft:breedable": {
+                    "breeds_with": {
+                        "mate_type": "borgy:lavawyrm",
+                        "baby_type": "borgy:lavawyrm",
+                        "breed_event": {
+                            "event": "minecraft:entity_born",
+                            "target": "baby"
+                        }
+                    },
+                    "breed_items": [
+                        "minecraft:porkchop",
+                        "minecraft:string"
+                    ],
+                    "require_tame": true,
+                    "require_full_health": true,
+                    "inherit_tamed": true,
+                    "breed_cooldown": 30
+				},
+                "minecraft:behavior.player_ride_tamed": {}
+            },
+            "borgy:lavawyrm_tamed": {
+                "minecraft:is_tamed": {},
+                "minecraft:behavior.follow_owner": {
+                    "priority": 11
+                },
+                "minecraft:behavior.owner_hurt_target": {
+                    "priority": 4
+                },
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "priority": 3
+                }
+            },
+            "borgy:lavawyrm_sittable": {
+                "minecraft:sittable": {}
+            },
+            "borgy:lavawyrm_rideable": {
+                "minecraft:rideable": {
+					"seats": [
+						{
+							"position": [
+                                0, 
+                                0.625, 
+                                0.1
+                            ]
+						}
+					]
+				}
+            },
+            "borgy:lavawyrm_saddled": {
+                "minecraft:is_saddled": {},
+                "minecraft:input_ground_controlled": {},
+				"minecraft:can_power_jump": {}
+            },
+            "borgy:lavawyrm_chested": {
+                "minecraft:is_chested": {}
+            },
+            "borgy:lavawyrm_can_power_jump": {
+				"minecraft:horse.jump_strength": {
+					"value": {
+						"range_min": 2,
+						"range_max": 2
+					}
+				}
+            },
+            "borgy:lavawyrm_cannot_power_jump": {
+				"minecraft:horse.jump_strength": {
+					"value": {
+						"range_min": 0.0,
+						"range_max": 0.0
+					}
+				}
+            },
             "borgy:is_pushable": {
 			    "minecraft:pushable": {
 				    "is_pushable": true,
@@ -42,8 +328,70 @@
             "borgy:lavawyrm_in_lava": {
                 "minecraft:is_sheared": {}
             },
-            "borgy:lavawyrm_fire_rushing": {
-                "minecraft:is_ignited": {}
+            "borgy:no_target": {
+                "minecraft:on_target_acquired": {
+                    "filters": {
+                        "test": "rider_count",
+                        "subject": "self",
+                        "value": 0
+                    },
+                    "event": "borgy:start_flame_charge",
+                    "target": "self"
+                }
+            },
+            "borgy:lavawyrm_flame_charge": {
+                "minecraft:is_ignited": {},
+                "minecraft:attack": {
+                    "damage": 16
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 8,
+                    "speed_multiplier": 2,
+                    "reach_multiplier": 1.5
+                },
+				"minecraft:behavior.stalk_and_pounce_on_target": {
+					"priority": 7,
+					"stalk_speed": 1.2,
+					"max_stalk_dist": 17,
+					"leap_height": 1.2,
+					"leap_dist": 1.6,
+					"pounce_max_dist": 16,
+					"interest_time": 0,
+					"strike_dist": 14
+				},
+                "minecraft:on_target_escape": {
+                    "event": "borgy:no_attacking",
+                    "target": "self"
+                }
+            },
+            "borgy:lavawyrm_attack_mode_change_delay": {
+                "minecraft:is_charged": {},
+                "minecraft:timer": {
+                    "time": 2,
+                    "time_down_event": {
+                        "event": "borgy:remove_change_attack_delay",
+                        "target": "self"
+                    }
+                }
+            },
+            "borgy:lavawyrm_normal_attack": {
+                "minecraft:attack": {
+                    "damage": 16
+                },
+                "minecraft:behavior.delayed_attack": {
+                    "priority": 9,
+                    "attack_duration": 0.52,
+                    "hit_delay_pct": 1,
+                    "track_target": true,
+                    "reach_multiplier": 1.75
+                },
+                "minecraft:on_target_escape": {
+                    "event": "borgy:no_attacking",
+                    "target": "self"
+                }
+            },
+            "borgy:lavawyrm_forced_attack": {
+                "minecraft:out_of_control": {}
             }
         },
         "components": {
@@ -54,14 +402,14 @@
                 ]
             },
             "minecraft:movement": {
-                "value": 0.20
-            },
-            "minecraft:lava_movement": {
                 "value": 0.25
             },
+            "minecraft:lava_movement": {
+                "value": 0.5
+            },
             "minecraft:collision_box": {
-                "height": 3,
-                "width": 3
+                "height": 1,
+                "width": 1.5
             },
             "minecraft:physics": {},
             "minecraft:movement.basic": {},
@@ -83,17 +431,336 @@
             },
             "minecraft:behavior.rise_to_liquid_level": {
                 "priority": 0,
-                "liquid_y_offset": 0.25,
+                "liquid_y_offset": 0,
                 "rise_delta": 0.01,
                 "sink_delta": 0.01
             },
-            "minecraft:environment_sensor": {}
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [
+                    {
+                        "filters": {
+                            "test": "in_water_or_rain",
+                            "operator": "==",
+                            "value": true
+                        },
+                        "cause": "drowning",
+                        "damage_per_tick": 3
+                    }
+                ]
+            },
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "filters": {
+                            "test": "in_lava",
+                            "subject": "self",
+                            "value": true
+                        },
+                        "event": "borgy:in_lava",
+                        "target": "self"
+                    },
+                    {
+                        "filters": {
+                            "test": "in_lava",
+                            "subject": "self",
+                            "value": false
+                        },
+                        "event": "borgy:not_in_lava",
+                        "target": "self"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_moving",
+                                    "subject": "self",
+                                    "value": false
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_ignited"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "!=",
+                                    "value": "minecraft:timer"
+                                }
+                            ]
+                        },
+                        "event": "borgy:start_normal_attack",
+                        "target": "self"
+                    }
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "fall",
+                        "deals_damage": false
+                    },
+                    {
+						"on_damage": {
+							"filters": {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "lavawyrmFlame"
+                            }
+						},
+                        "deals_damage": false
+                    }
+                ]
+            }
         },
         "events": {
             "minecraft:entity_spawned": {
                 "add": {
                     "component_groups": [
-                        "borgy:lavawyrm_adult"
+                        "borgy:lavawyrm_adult",
+                        "borgy:lavawyrm_adult_wild",
+                        "borgy:no_target",
+                        "borgy:is_pushable"
+                    ]
+                }
+            },
+            "minecraft:entity_born": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_baby",
+                        "borgy:lavawyrm_baby_tamed",
+                        "borgy:lavawyrm_tamed",
+                        "borgy:lavawyrm_sittable"
+                    ]
+                }
+            },
+            "borgy:spawn_as_baby": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_baby",
+                        "borgy:lavawyrm_baby_wild",
+                        "borgy:lavawyrm_baby_calm",
+                        "borgy:is_pushable"
+                    ]
+                }
+            },
+            "borgy:baby_grow_up_wild": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_adult",
+                        "borgy:lavawyrm_adult_wild",
+                        "borgy:no_target"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_baby",
+                        "borgy:lavawyrm_baby_wild",
+                        "borgy:lavawyrm_baby_calm",
+                        "borgy:lavawyrm_baby_scared"
+                    ]
+                }
+            },
+            "borgy:on_tame_baby": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_baby_tamed",
+                        "borgy:lavawyrm_tamed",
+                        "borgy:lavawyrm_sittable"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_baby_wild",
+                        "borgy:lavawyrm_baby_calm",
+                        "borgy:lavawyrm_baby_scared"
+                    ]
+                }
+            },
+            "borgy:baby_become_scared": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_baby_scared"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_baby_calm"
+                    ]
+                }
+            },
+            "borgy:baby_on_calm": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_baby_calm"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_baby_scared"
+                    ]
+                }
+            },
+            "borgy:baby_grow_up_tamed": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_adult",
+                        "borgy:lavawyrm_adult_tamed",
+                        "borgy:lavawyrm_rideable"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_baby",
+                        "borgy:lavawyrm_baby_tamed"
+                    ]
+                }
+            },
+            "borgy:on_tame_adult": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_adult_tamed",
+                        "borgy:lavawyrm_tamed",
+                        "borgy:lavawyrm_sittable",
+                        "borgy:lavawyrm_rideable"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_adult_wild",
+                        "borgy:lavawyrm_flame_charge",
+                        "borgy:lavawyrm_normal_attack",
+                        "borgy:lavawyrm_attack_mode_change_delay"
+                    ]
+                }
+            },
+            "borgy:attach_saddle": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_saddled",
+                        "borgy:lavawyrm_can_power_jump"
+                    ]
+                }
+            },
+            "borgy:remove_saddle": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_saddled"
+                    ]
+                }
+            },
+            "borgy:in_lava": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_in_lava"
+                    ]
+                }
+            },
+            "borgy:not_in_lava": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_in_lava"
+                    ]
+                }
+            },
+            "borgy:start_flame_charge": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_flame_charge",
+                        "borgy:lavawyrm_attack_mode_change_delay"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:no_target"
+                    ]
+                }
+            },
+            "borgy:start_normal_attack": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_normal_attack"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_flame_charge"
+                    ]
+                }
+            },
+            "borgy:no_attacking": {
+                "add": {
+                    "component_groups": [
+                        "borgy:no_target"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_flame_charge",
+                        "borgy:lavawyrm_normal_attack",
+                        "borgy:lavawyrm_attack_mode_change_delay"
+                    ]
+                }
+            },
+            "borgy:remove_change_attack_delay": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_attack_mode_change_delay"
+                    ]
+                }
+            },
+            "borgy:cannot_sit": {
+                "add": {
+                    "component_groups": [
+                        "borgy:is_unpushable"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:is_pushable",
+                        "borgy:no_target",
+                        "borgy:lavawyrm_sittable",
+                        "borgy:lavawyrm_flame_charge",
+                        "borgy:lavawyrm_normal_attack",
+                        "borgy:lavawyrm_attack_mode_change_delay"
+                    ]
+                },
+                "run_command": {
+                    "command": [
+                        "tag @s add lavawyrmHasRider"
+                    ]
+                }
+            },
+            "borgy:can_sit": {
+                "add": {
+                    "component_groups": [
+                        "borgy:is_pushable",
+                        "borgy:no_target",
+                        "borgy:lavawyrm_sittable"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:is_unpushable"
+                    ]
+                },
+                "run_command": {
+                    "command": [
+                        "tag @s remove lavawyrmHasRider"
+                    ]
+                }
+            },
+            "borgy:lavawyrm_forced_bite": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_forced_attack"
+                    ]
+                }
+            },
+            "borgy:lavawyrm_stop_forced_bite": {
+                "remove": {
+                    "component_groups": [
+                        "borgy:lavawyrm_forced_attack"
                     ]
                 }
             }

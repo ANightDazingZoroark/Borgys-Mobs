@@ -1,0 +1,62 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.lavawyrm_flame_charge_unridden": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "flameChargeWild": "!query.has_rider && query.is_ignited && !query.is_tamed"
+                        },
+                        {
+                            "flameChargeTamed": "!query.has_rider && query.is_ignited && query.is_tamed"
+                        }
+                    ]
+                },
+                "flameChargeWild": {
+                    "animations": [
+                        "animFlameChargingWildUnridden"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_ignited"
+                        }
+                    ]
+                },
+                "flameChargeTamed": {
+                    "animations": [
+                        "animFlameChargingTamedUnridden"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_ignited"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.lavawyrm_forced_attack": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "forceAttack": "query.out_of_control"
+                        }
+                    ]
+                },
+                "forceAttack": {
+                    "animations": [
+						"animForcedAttack"
+					],
+                    "transitions": [
+                        {
+                            "default": "query.all_animations_finished"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

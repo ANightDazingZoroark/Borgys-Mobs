@@ -35,6 +35,7 @@ entity.borgy:bakunawa.name=Bakunawa
 entity.borgy:bakunawa_egg.name=Bakunawa Egg
 entity.borgy:sigbin.name=Sigbin
 entity.borgy:sarimanok.name=Sarimanok
+entity.borgy:lavawyrm.name=Lavawyrm
 
 item.borgy:bakunawa_boots.name=Bakunawa Boots
 item.borgy:bakunawa_chestplate.name=Bakunawa Chestplate
@@ -52,6 +53,8 @@ item.borgy:headcrab_launcher.name=Headcrab Launcher
 item.borgy:houndeye_lung.name=Houndeye Lung
 item.borgy:icthyosaur_heart.name=Icthyosaur Heart
 item.borgy:icthyosaur_staff.name=Icthyosaur Staff
+item.borgy:lavawyrm_heart.name=Lavawyrm Heart
+item.borgy:lavawyrm_staff.name=Lavawyrm Staff
 item.borgy:raw_alien_meat.name=Raw Alien Meat
 item.borgy:raw_headcrab.name=Raw Headcrab
 item.borgy:sarimanok_feather.name=Sarimanok Feather
@@ -96,6 +99,7 @@ item.spawn_egg.entity.borgy:enderite_headcrab_zombie.name=Spawn Enderite Headcra
 item.spawn_egg.entity.borgy:bakunawa.name=Spawn Bakunawa
 item.spawn_egg.entity.borgy:sigbin.name=Spawn Sigbin
 item.spawn_egg.entity.borgy:sarimanok.name=Spawn Sarimanok
+item.spawn_egg.entity.borgy:lavawyrm.name=Spawn Lavawyrm
 
 tile.borgy:bakunawa_nest_material.name=Bakunawa Nest Material
 tile.borgy:sonic_absorber.name=Sonic Absorber
