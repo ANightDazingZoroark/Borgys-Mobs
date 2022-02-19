@@ -37,7 +37,7 @@
                 "controller.render.lavawyrm"
             ],
             "particle_effects": {
-                "fireTrail": "borgy:scorched_headcrab_zombie_fire"
+                "fireTrail": "borgy:lavawyrm_fire"
 			},
             "spawn_egg": {
 				"base_color": "#820000",

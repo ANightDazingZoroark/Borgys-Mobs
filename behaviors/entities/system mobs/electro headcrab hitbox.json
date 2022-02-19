@@ -16,10 +16,6 @@
             "minecraft:health": {
                 "value": 24
             },
-            "minecraft:breathable": {
-				"total_supply": 15,
-				"suffocate_time": 0
-			},
             "minecraft:collision_box": {
                 "width": 1,
                 "height": 1

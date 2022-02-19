@@ -2,6 +2,7 @@ accessibility.chat.howtoopen=If you do not see any custom items, please turn on 
 
 action.hint.exit.borgy:icthyosaur=Jump to ascend, double jump to activate hover
 action.hint.exit.borgy:bakunawa=Jump to ascend, double jump to activate hover
+action.hint.exit.borgy:lavawyrm=Press sneak to dismount
 
 entity.borgy:bullsquid.name=Bullsquid
 entity.borgy:houndeye.name=Houndeye

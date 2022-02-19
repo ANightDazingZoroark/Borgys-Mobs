@@ -64,7 +64,10 @@
                 "default": {
                     "transitions": [
                         {
-                            "usingFlameCharge": "query.is_ignited"
+                            "usingFlameCharge": "query.is_ignited && query.is_tamed && query.has_rider"
+                        },
+                        {
+                            "cooldown": "query.is_illager_captain"
                         }
                     ]
                 },

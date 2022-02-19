@@ -184,11 +184,6 @@
                                         "test": "is_family",
                                         "subject": "other",
                                         "value": "hoglin"
-                                    },
-                                    {
-                                        "test": "is_family",
-                                        "subject": "other",
-                                        "value": "ravager"
                                     }
                                 ]
                             }
