@@ -1,0 +1,62 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.plaguebird.look": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": ["math.clamp(query.target_x_rotation, -7.5, 7.5)", "math.clamp(query.target_y_rotation, -15, 15)", 0]
+				}
+			}
+		},
+		"animation.plaguebird.walk": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"body": {
+					"rotation": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [0, 0, -20]
+				},
+				"rightArm": {
+					"rotation": [0, 0, 20]
+				},
+				"rightFoot": {
+					"rotation": {
+						"0.5": [0, 0, 0],
+						"0.75": [-9.9627, 0.8672, -4.9244],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"leftFoot": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-9.96271, 0.86717, 4.92442],
+						"0.5": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.plaguebird.idle": {
+			"loop": true,
+			"animation_length": 2.08,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [0, 0, -15],
+						"2.08": [0, 0, 0]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.04": [0, 0, 15],
+						"2.08": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

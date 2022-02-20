@@ -1,0 +1,55 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:plague_boots",
+			"category": "equipment"
+		},
+		"components": {
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.boots"
+			},
+			"minecraft:icon": {
+				"texture": "plague boots"
+			},
+			"minecraft:display_name": {
+				"value": "item.borgy:plague_boots.name"
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:enchantable": {
+				"value": 15,
+				"slot": "armor_feet"
+			},
+			"minecraft:armor": {
+				"protection": 1
+			},
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"borgy:plaguebird_skin"
+						],
+						"repair_amount": 16
+					},
+                    {
+                        "items": [
+                            "borgy:plague_boots"
+                        ],
+                        "repair_amount": 30
+                    }
+				]
+			},
+			"minecraft:wearable": {
+				"dispensable": true,
+				"slot": "slot.armor.feet"
+			},
+            "minecraft:durability": {
+                "max_durability": 65,
+                "damage_chance": {
+                    "min": 60,
+                    "max": 100
+                }
+            }
+		}
+	}
+}

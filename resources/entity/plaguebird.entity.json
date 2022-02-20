@@ -1,0 +1,36 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:plaguebird",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/plaguebird"
+            },
+            "geometry": {
+                "default": "geometry.plaguebird"
+            },
+            "animations": {
+                "animLook": "animation.plaguebird.look",
+                "animIdle": "animation.plaguebird.idle",
+                "animWalk": "animation.plaguebird.walk",
+                "contMove": "controller.animation.plaguebird_movement"
+            },
+            "scripts": {
+                "animate": [
+                    "animLook",
+                    "contMove"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#202020",
+				"overlay_color": "#5d5d5d"
+			}
+        }
+    }
+}

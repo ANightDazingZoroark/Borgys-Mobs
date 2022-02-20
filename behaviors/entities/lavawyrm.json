@@ -155,6 +155,7 @@
                     "despawn_from_distance": {}
                 },
                 "minecraft:experience_reward": {
+                    "on_bred": "Math.Random(12, 24)",
                     "on_death": "query.last_hit_by_player ? Math.Random(8, 16) : 0"
                 },
                 "minecraft:behavior.hurt_by_target": {
@@ -462,7 +463,12 @@
             },
             "borgy:lavawyrm_forced_flame_charge_cooldown": {
                 "minecraft:is_illager_captain": {}
-            }
+            },
+			"borgy:drop_experience_from_forced_attack": {
+			  	"minecraft:experience_reward": {
+					"on_death": "Math.random(8, 16)"
+			  	}
+			}
         },
         "components": {
             "minecraft:type_family": {
@@ -574,6 +580,88 @@
                     }
                 ]
             },
+            "minecraft:interact": {
+                "interactions": [
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"any_of": [
+											{
+												"test": "has_equipment",
+												"subject": "other",
+												"domain": "hand",
+												"value": "minecraft:string"
+											},
+											{
+												"test": "has_equipment",
+												"subject": "other",
+												"domain": "hand",
+												"value": "minecraft:porkchop"
+											}
+										]
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "!=",
+										"value": "minecraft:is_tamed"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "!=",
+										"value": "minecraft:is_baby"
+									}
+								]
+							},
+							"event": "borgy:lol",
+							"target": "self"
+						},
+						"interact_text": "action.interact.tame"
+					},
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "minecraft:chest"
+									},
+									{
+										"test": "is_owner",
+										"subject": "other",
+										"value": true
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"value": "minecraft:is_tamed"
+									},
+                                    {
+										"test": "has_component",
+										"subject": "self",
+                                        "operator": "!=",
+										"value": "minecraft:is_baby"
+									},
+									{
+										"test": "is_sneaking",
+										"subject": "other",
+										"value": true
+									}
+								]
+							},
+							"event": "borgy:attach_chest",
+							"target": "self"
+						},
+						"interact_text": "action.interact.attachchest",
+						"use_item": true
+					}
+                ]
+            },
             "minecraft:damage_sensor": {
                 "triggers": [
                     {
@@ -635,6 +723,12 @@
 							  			"test": "has_damage",
 							  			"subject": "self",
 							  			"value": "fatal"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "!=",
+										"value": "minecraft:is_tamed"
 									},
 									{
 							  			"test": "has_component",
@@ -807,6 +901,20 @@
                     ]
                 }
             },
+            "borgy:attach_chest": {
+                "add": {
+                    "component_groups": [
+                        "borgy:lavawyrm_chested"
+                    ]
+                }
+            },
+            "borgy:lol": {
+				"run_command": {
+					"command": [
+						"tellraw @p {\"rawtext\":[{\"text\":\"That's not how you tame a Lavawyrm, only wild baby Lavawyrms can be tamed!\"}]}"
+					]
+				}
+			},
             "borgy:in_lava": {
                 "add": {
                     "component_groups": [
@@ -937,6 +1045,13 @@
 				  	]
 				}
 			},
+            "borgy:on_force_attacked_death": {
+                "add": {
+                    "component_groups": [
+                        "borgy:drop_experience_from_forced_attack"
+                    ]
+                }
+            },
             "borgy:activate_flame_charge": {
                 "add": {
                     "component_groups": [

@@ -1,0 +1,223 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "borgy:plaguebird",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "borgy:plaguebird_baby": {
+                "minecraft:is_baby": {},
+                "minecraft:health": {
+                    "value": 8
+                },
+                "minecraft:scale_by_age": {
+                    "start_scale": 0.3,
+                    "end_scale": 0.5
+                },
+                "minecraft:ageable": {
+                    "duration": 1200,
+                    "grow_up": {
+                        "event": "borgy:baby_grow_up",
+                        "target": "self"
+                    },
+                    "feed_items": [
+						{
+							"item": "minecraft:rotten_flesh",
+							"growth": 0.1
+						},
+						{
+							"item": "minecraft:spider_eye",
+							"growth": 0.1
+						}
+                    ]
+                },
+                "minecraft:behavior.follow_parent": {
+					"priority": 3
+                },
+                "minecraft:behavior.tempt": {
+					"priority": 2,
+					"within_radius": 16,
+					"speed_multiplier": 1,
+					"items": [
+                        "minecraft:rotten_flesh",
+                        "minecraft:spider_eye"
+					]
+                }
+            },
+            "borgy:plaguebird_adult": {
+                "minecraft:health": {
+                    "value": 16
+                },
+                "minecraft:scale": {
+                    "value": 0.6
+                },
+                "minecraft:behavior.breed": {
+                    "priority": 0
+                },
+                "minecraft:experience_reward": {
+                    "on_death": "query.last_hit_by_player ? Math.Random(1, 3) : 0",
+                    "on_bred": "Math.random(3, 6)"
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/plaguebird.loot.json"
+                },
+                "minecraft:behavior.tempt": {
+					"priority": 2,
+					"within_radius": 16,
+					"speed_multiplier": 1,
+					"items": [
+                        "minecraft:rotten_flesh",
+                        "minecraft:spider_eye"
+					]
+                },
+                "minecraft:breedable": {
+                    "breeds_with": {
+                        "mate_type": "borgy:plaguebird",
+                        "baby_type": "borgy:plaguebird",
+                        "breed_event": {
+                            "event": "minecraft:entity_born",
+                            "target": "baby"
+                        }
+                    },
+                    "breed_items": [
+                        "minecraft:rotten_flesh",
+                        "minecraft:spider_eye"
+                    ],
+                    "require_tame": false,
+                    "breed_cooldown": 30
+				}
+            },
+			"borgy:drop_experience_from_forced_attack": {
+			  	"minecraft:experience_reward": {
+					"on_death": "Math.random(1, 3)"
+			  	}
+			}
+        },
+        "components": {
+            "minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+            "minecraft:collision_box": {
+                "width": 1,
+                "height": 1.5
+            },
+            "minecraft:movement": {
+                "value": 0.25
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "plaguebird",
+                    "mob"
+                ]
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {},
+			"minecraft:navigation.walk": {
+				"avoid_water": true,
+				"avoid_damage_blocks": true
+			},
+			"minecraft:movement.basic": {},
+            "minecraft:behavior.float": {},
+            "minecraft:jump.static": {},
+            "minecraft:behavior.panic": {
+                "priority": 1
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 4
+            },
+            "minecraft:behavior.random_look_around": {
+                "priority": 5
+            },
+			"minecraft:leashable": {
+				"soft_distance": 4,
+				"hard_distance": 8,
+				"max_distance": 12
+			},
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:nameable": {},
+            "minecraft:mob_effect": {
+                "effect_range": 3,
+                "mob_effect": "poison",
+                "effect_time": 45,
+                "entity_filter": {
+                    "test": "has_mob_effect",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "poison"
+                }
+            },
+            "minecraft:despawn": {
+                "despawn_from_distance": {}
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+					{
+						"on_damage": {
+							"filters": {
+						  		"all_of": [
+									{
+							  			"test": "is_family",
+							  			"subject": "other",
+							  			"value": "forcedAttack"
+									},
+									{
+							  			"test": "has_damage",
+							  			"subject": "self",
+							  			"value": "fatal"
+									},
+									{
+							  			"test": "has_component",
+							  			"subject": "self",
+							  			"operator": "!=",
+							  			"value": "minecraft:is_baby"
+									}
+						  		]
+							},
+							"event": "borgy:on_force_attacked_death",
+							"target": "self"
+					  	}
+					}
+                ]
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "borgy:plaguebird_adult"
+                    ]
+                }
+            },
+            "minecraft:entity_born": {
+                "add": {
+                    "component_groups": [
+                        "borgy:plaguebird_baby"
+                    ]
+                }
+            },
+            "borgy:baby_grow_up": {
+                "add": {
+                    "component_groups": [
+                        "borgy:plaguebird_adult"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:plaguebird_baby"
+                    ]
+                }
+            },
+            "borgy:on_force_attacked_death": {
+                "add": {
+                    "component_groups": [
+                        "borgy:drop_experience_from_forced_attack"
+                    ]
+                }
+            }
+        }
+    }
+}

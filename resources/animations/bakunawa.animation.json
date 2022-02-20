@@ -134,7 +134,6 @@
 		},
 		"animation.bakunawa.look": {
 			"loop": true,
-			"animation_length": 0.52,
 			"bones": {
 				"neck": {
 					"rotation": ["math.clamp(query.target_x_rotation, -5, 7.5)", "math.clamp(query.target_y_rotation, -7.5, 7.5)", 0]

@@ -2,16 +2,8 @@
     "format_version": "1.8.0",
     "render_controllers": {
         "controller.render.lavawyrm": {
-            "arrays": {
-				"textures": {
-					"Array.skins": [
-                        "Texture.default",
-                        "Texture.sleeping"
-					]
-				}
-			},
             "textures": [
-                "Array.skins[query.is_sleeping]"
+                "Texture.default"
             ],
             "geometry": "Geometry.default",
             "part_visibility": [

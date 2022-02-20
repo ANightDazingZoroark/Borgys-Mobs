@@ -1,0 +1,26 @@
+{
+	"format_version": "1.10.0",
+	"geometry.plague_mask": {
+		"texturewidth": 64,
+		"textureheight": 64,
+		"visible_bounds_width": 4,
+		"visible_bounds_height": 5,
+		"visible_bounds_offset": [0, 2.5, 0],
+		"bones": [
+			{
+				"name": "head",
+				"pivot": [0, 24, 0],
+				"cubes": [
+					{"origin": [-5, 23, -4.25], "size": [10, 10, 0], "uv": [40, 0]},
+					{"origin": [-5, 23, -5], "size": [0, 10, 10], "uv": [0, -2]},
+					{"origin": [5, 23, -5], "size": [0, 10, 10], "uv": [0, -2], "mirror": true},
+					{"origin": [-5, 23, 5], "size": [10, 10, 0], "uv": [40, 0], "mirror": true},
+					{"origin": [-6, 33, -6], "size": [12, 1, 12], "uv": [0, 22]},
+					{"origin": [-5, 34, -5], "size": [10, 2, 10], "uv": [10, 10]},
+					{"origin": [-1.5, 26, -11.25], "size": [3, 3, 7], "uv": [19.9, 0]},
+					{"origin": [-1, 24, -10.25], "size": [2, 2, 6], "uv": [0, 0]}
+				]
+			}
+		]
+	}
+}

@@ -57,7 +57,7 @@
                     "event": "borgy:no_force_attacked",
                     "target": "self"
                 }
-            },     
+            },
 			"borgy:drop_experience_from_forced_attack": {
 			  	"minecraft:experience_reward": {
 					"on_death": "Math.random(3,6)"
@@ -133,9 +133,19 @@
                 "mob_effect": "wither",
                 "effect_time": 45,
                 "entity_filter": {
-                    "test": "is_target",
-                    "subject": "other",
-                    "value": true
+                    "all_of": [
+                        {
+                            "test": "is_target",
+                            "subject": "other",
+                            "value": true
+                        },
+                        {
+                            "test": "has_mob_effect",
+                            "subject": "other",
+                            "operator": "!=",
+                            "value": "wither"
+                        }
+                    ]
                 }
             },
             "minecraft:behavior.panic": {

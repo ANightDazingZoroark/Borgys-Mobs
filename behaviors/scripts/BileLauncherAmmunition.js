@@ -1,4 +1,4 @@
-import { World, Commands } from "mojang-minecraft"
+import { world } from "mojang-minecraft"
 
 let bileLauncherAmmo = [
     "minecraft:beef",
@@ -23,17 +23,6 @@ let bileLauncherAmmo = [
     "borgy:raw_headcrab",
     "borgy:cooked_headcrab"
 ]
-
-function hasTag(player, tag, dimension) {
-    try {
-        let msg = Commands.run(`tag "${player.name}" list`, World.getDimension(dimension ?? 'overworld')).statusMessage;
-        let msgSplited = msg.split(":");
-        let playerTags = msgSplited.length > 1 ? msgSplited[1].match(/§a(.*?)§r/)[1].trim().split(",") : [];
-        
-        return playerTags.find(it => it == tag) ? true : false;
-    } 
-    catch (e) {}
-}
 
 function checkForItems(player, searchedItem) {
     const container = player.getComponent("minecraft:inventory").container;
@@ -61,8 +50,8 @@ function removeOneAtATime(player, searchedItem) {
         const item = container.getItem(i);
         try {
             if (item.id == searchedItem) {
-                Commands.run(`clear @a[name="${player.name}", tag=usedBileLauncherAmmo] ${searchedItem} 0 1`, World.getDimension('overworld'));
-                Commands.run(`tag @a[name="${player.name}"] remove usedBileLauncherAmmo`, World.getDimension('overworld'));
+                world.getDimension('overworld').runCommand(`clear @a[name="${player.name}", tag=usedBileLauncherAmmo] ${searchedItem} 0 1`);
+                world.getDimension('overworld').runCommand(`tag @a[name="${player.name}"] remove usedBileLauncherAmmo`);
             }
         }
         catch (e) {
@@ -71,18 +60,18 @@ function removeOneAtATime(player, searchedItem) {
     }
 };
 
-World.events.tick.subscribe((ev) => {
-    let players = World.getPlayers();
+world.events.tick.subscribe((ev) => {
+    let players = Array.from(world.getPlayers());
     for (let j = 0; j <= players.length; j++) {
         for (let l = 0; l <= bileLauncherAmmo.length; l++) {
             if (l < bileLauncherAmmo.length) {
                 if (checkForItems(players[j], bileLauncherAmmo[l])) {
-                    Commands.run(`event entity @a[name="${players[j].name}", tag=hasBileLauncher] borgy:has_bile_launcher_ammo`, World.getDimension('overworld'));
+                    world.getDimension('overworld').runCommand(`event entity @a[name="${players[j].name}", tag=hasBileLauncher] borgy:has_bile_launcher_ammo`);
                     break;
                 }
             }
             else {
-                Commands.run(`event entity @a[name="${players[j].name}"] borgy:no_ammo`, World.getDimension('overworld'));
+                world.getDimension('overworld').runCommand(`event entity @a[name="${players[j].name}"] borgy:no_ammo`);
             }
         }
         for (let m = 0; m <= bileLauncherAmmo.length; m++) {

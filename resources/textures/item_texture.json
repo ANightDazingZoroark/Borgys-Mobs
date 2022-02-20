@@ -41,6 +41,9 @@
 		"sarimanok feather": {
 			"textures": "textures/items/sarimanok feather"
 		},
+		"plaguebird skin": {
+			"textures": "textures/items/plaguebird skin"
+		},
         "raw alien meat": {
 			"textures": "textures/items/raw alien meat"
 		},

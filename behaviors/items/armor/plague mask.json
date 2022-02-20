@@ -1,0 +1,55 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "borgy:plague_mask",
+			"category": "equipment"
+		},
+		"components": {
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.helmet"
+			},
+			"minecraft:icon": {
+				"texture": "plague mask"
+			},
+			"minecraft:display_name": {
+				"value": "item.borgy:plague_mask.name"
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:enchantable": {
+				"value": 15,
+				"slot": "armor_head"
+			},
+			"minecraft:armor": {
+				"protection": 1
+			},
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"borgy:plaguebird_skin"
+						],
+						"repair_amount": 13
+					},
+                    {
+                        "items": [
+                            "borgy:plague_mask"
+                        ],
+                        "repair_amount": 30
+                    }
+				]
+			},
+			"minecraft:wearable": {
+				"dispensable": true,
+				"slot": "slot.armor.head"
+			},
+            "minecraft:durability": {
+                "max_durability": 55,
+                "damage_chance": {
+                    "min": 60,
+                    "max": 100
+                }
+            }
+		}
+	}
+}

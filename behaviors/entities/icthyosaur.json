@@ -438,7 +438,12 @@
                     "reach_multiplier": 3,
                     "speed_multiplier": 1.75
                 }
-            }
+            },
+			"borgy:drop_experience_from_forced_attack": {
+			  	"minecraft:experience_reward": {
+					"on_death": "Math.Random(12,18)"
+			  	}
+			}
         },
         "components": {
             "minecraft:health": {
@@ -473,6 +478,7 @@
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:nameable": {},
             "minecraft:experience_reward": {
+                "on_bred": "Math.Random(20,28)",
                 "on_death": "query.last_hit_by_player ? Math.Random(12,18) : 0"
             },
             "minecraft:behavior.stay_while_sitting": {
@@ -623,6 +629,38 @@
 							"event": "borgy:on_force_attacked",
 							"target": "self"
 						}
+					},
+					{
+						"on_damage": {
+							"filters": {
+						  		"all_of": [
+									{
+							  			"test": "is_family",
+							  			"subject": "other",
+							  			"value": "forcedAttack"
+									},
+									{
+							  			"test": "has_damage",
+							  			"subject": "self",
+							  			"value": "fatal"
+									},
+									{
+							  			"test": "has_component",
+							  			"subject": "self",
+							  			"operator": "!=",
+							  			"value": "minecraft:is_baby"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "!=",
+										"value": "minecraft:is_tamed"
+									}
+						  		]
+							},
+							"event": "borgy:on_force_attacked_death",
+							"target": "self"
+					  	}
 					}
 				]
 			}
@@ -822,6 +860,13 @@
 				  	]
 				}
 			},
+            "borgy:on_force_attacked_death": {
+                "add": {
+                    "component_groups": [
+                        "borgy:drop_experience_from_forced_attack"
+                    ]
+                }
+            },
 			"borgy:no_force_attacked": {
 				"add": {
 					"component_groups": [

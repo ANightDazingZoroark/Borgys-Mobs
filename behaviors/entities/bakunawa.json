@@ -208,7 +208,8 @@
                     "despawn_from_distance": {}
                 },
                 "minecraft:experience_reward": {
-                    "on_death": "query.last_hit_by_player ? Math.Random(20,32) : 0"
+                    "on_bred": "Math.random(20, 32)",
+                    "on_death": "query.last_hit_by_player ? Math.Random(16, 24) : 0"
                 },
                 "minecraft:behavior.hurt_by_target": {
                     "priority": 6,
@@ -810,6 +811,69 @@
 							"filters": {
 								"all_of": [
 									{
+										"any_of": [
+											{
+												"test": "has_equipment",
+												"subject": "other",
+												"domain": "hand",
+												"value": "minecraft:fish"
+											},
+											{
+												"test": "has_equipment",
+												"subject": "other",
+												"domain": "hand",
+												"value": "minecraft:cooked_fish"
+											},
+											{
+												"test": "has_equipment",
+												"subject": "other",
+												"domain": "hand",
+												"value": "minecraft:salmon"
+											},
+											{
+												"test": "has_equipment",
+												"subject": "other",
+												"domain": "hand",
+												"value": "minecraft:cooked_salmon"
+											},
+											{
+												"test": "has_equipment",
+												"subject": "other",
+												"domain": "hand",
+												"value": "minecraft:tropical_fish"
+											},
+											{
+												"test": "has_equipment",
+												"subject": "other",
+												"domain": "hand",
+												"value": "minecraft:pufferfish"
+											}
+										]
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "!=",
+										"value": "minecraft:is_tamed"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "!=",
+										"value": "minecraft:is_baby"
+									}
+								]
+							},
+							"event": "borgy:lol",
+							"target": "self"
+						},
+						"interact_text": "action.interact.tame"
+					},
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
 										"test": "has_equipment",
 										"subject": "other",
 										"domain": "hand",
@@ -1353,6 +1417,13 @@
                     ]
                 }
             },
+			"borgy:lol": {
+				"run_command": {
+					"command": [
+						"tellraw @p {\"rawtext\":[{\"text\":\"That's not how you tame a Bakunawa, you need to kill them for a chance to get their eggs before taming them!\"}]}"
+					]
+				}
+			},
             "borgy:cannot_sit": {
                 "add": {
                     "component_groups": [
