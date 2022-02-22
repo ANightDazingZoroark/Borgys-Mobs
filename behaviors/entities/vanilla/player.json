@@ -7,6 +7,7 @@
       "is_summonable": false,
       "is_experimental": false,
       "animations": {
+        "contPlayerArmor": "controller.animation.player_armor",
         "contControlIcthyosaur": "controller.animation.player_control_icthyosaur",
         "contControlIcthyosaurBite": "controller.animation.player_control_icthyosaur_bite",
         "contControlBakunawa": "controller.animation.player_control_bakunawa",
@@ -16,6 +17,8 @@
         "contRideLavawyrm": "controller.animation.player_ride_lavawyrm",
         "contDismount": "controller.animation.player_dismount",
         "contWeaponManagement": "controller.animation.player_weapon_management",
+        "animBakunawaArmorEffects": "animation.player_bakunawa_armor_effects",
+        "animPlagueArmorEffects": "animation.player_plague_armor_effects",
         "animControlIcthyosaur": "animation.player_control_icthyosaur",
         "animControlIcthyosaurBite": "animation.player_control_icthyosaur_bite",
         "animControlBakunawa": "animation.player_control_bakunawa",
@@ -29,6 +32,7 @@
       },
       "scripts": {
         "animate": [
+          "contPlayerArmor",
           "contControlIcthyosaur",
           "contControlIcthyosaurBite",
           "contControlBakunawa",
@@ -269,103 +273,6 @@
               ]
             },
             "event": "minecraft:trigger_raid"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {
-                  "test": "has_equipment",
-                  "subject": "self",
-                  "domain": "head",
-                  "value": "borgy:bakunawa_helmet"
-                },
-                {
-                  "test": "has_equipment",
-                  "subject": "self",
-                  "domain": "torso",
-                  "value": "borgy:bakunawa_chestplate"
-                },
-                {
-                  "test": "has_equipment",
-                  "subject": "self",
-                  "domain": "leg",
-                  "value": "borgy:bakunawa_leggings"
-                },
-                {
-                  "test": "has_equipment",
-                  "subject": "self",
-                  "domain": "feet",
-                  "value": "borgy:bakunawa_boots"
-                }
-              ]
-            },
-            "event": "borgy:put_on_bakunawa_armor"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {
-                  "test": "has_equipment",
-                  "subject": "self",
-                  "domain": "head",
-                  "value": "borgy:sonic_absorbtion_helmet"
-                },
-                {
-                  "test": "has_equipment",
-                  "subject": "self",
-                  "domain": "torso",
-                  "value": "borgy:sonic_absorbtion_chestplate"
-                },
-                {
-                  "test": "has_equipment",
-                  "subject": "self",
-                  "domain": "leg",
-                  "value": "borgy:sonic_absorbtion_leggings"
-                },
-                {
-                  "test": "has_equipment",
-                  "subject": "self",
-                  "domain": "feet",
-                  "value": "borgy:sonic_absorbtion_boots"
-                }
-              ]
-            },
-            "event": "borgy:put_on_sonic_absorbtion_armor"
-          },
-          {
-            "filters": {
-              "any_of": [
-                {
-                  "test": "has_equipment",
-                  "subject": "self",
-                  "domain": "head",
-                  "operator": "!=",
-                  "value": "borgy:sonic_absorbtion_helmet"
-                },
-                {
-                  "test": "has_equipment",
-                  "subject": "self",
-                  "domain": "torso",
-                  "operator": "!=",
-                  "value": "borgy:sonic_absorbtion_chestplate"
-                },
-                {
-                  "test": "has_equipment",
-                  "subject": "self",
-                  "domain": "leg",
-                  "operator": "!=",
-                  "value": "borgy:sonic_absorbtion_leggings"
-                },
-                {
-                  "test": "has_equipment",
-                  "subject": "self",
-                  "domain": "feet",
-                  "operator": "!=",
-                  "value": "borgy:sonic_absorbtion_boots"
-                }
-              ]
-            },
-            "event": "borgy:remove_sonic_absorbtion_armor"
           }
         ]
       },
@@ -977,29 +884,6 @@
             "event entity @e[type=borgy:enderite_headcrab, c=1] borgy:enderite_headcrab_zombie",
             "summon borgy:enderite_headcrab_zombie ~ ~ ~ minecraft:entity_spawned",
             "kill @s"
-          ]
-        }
-      },
-      "borgy:put_on_bakunawa_armor": {
-        "run_command": {
-          "command": [
-            "effect @s conduit_power 3 2 true",
-            "effect @s strength 3 2 true",
-            "effect @s slow_falling 3 2 true"
-          ]
-        }
-      },
-      "borgy:put_on_sonic_absorbtion_armor": {
-        "run_command": {
-          "command": [
-            "tag @s add hasSonicAbsorb"
-          ]
-        }
-      },
-      "borgy:remove_sonic_absorbtion_armor": {
-        "run_command": {
-          "command": [
-            "tag @s remove hasSonicAbsorb"
           ]
         }
       },

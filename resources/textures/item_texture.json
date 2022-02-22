@@ -97,6 +97,18 @@
 		},
 		"sonic absorbtion boots": {
 			"textures": "textures/items/sonic absorbtion boots"
+		},
+		"plague mask": {
+			"textures": "textures/items/plague mask"
+		},
+		"plague robe": {
+			"textures": "textures/items/plague robe"
+		},
+		"plague leggings": {
+			"textures": "textures/items/plague leggings"
+		},
+		"plague boots": {
+			"textures": "textures/items/plague boots"
 		}
     }
 }

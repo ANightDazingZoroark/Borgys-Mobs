@@ -5,6 +5,28 @@
             "animation_length": 0.5,
 			"loop": false
         },
+		"animation.player_bakunawa_armor_effects": {
+            "animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": [
+                    "/effect @s conduit_power 3 2 true",
+					"/effect @s strength 3 2 true",
+					"/effect @s slow_falling 3 2 true"
+				]
+			}
+        },
+		"animation.player_plague_armor_effects": {
+            "animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": [
+                    "/effect @s poison 0",
+					"/effect @s fatal_poison 0",
+					"/effect @s wither 0"
+				]
+			}
+        },
         "animation.player_control_icthyosaur": {
             "animation_length": 0.05,
 			"loop": true,

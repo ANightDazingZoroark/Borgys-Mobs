@@ -1,0 +1,26 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "borgy:plague_robe_crafting"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			"X X",
+			"XXX",
+			"XXX"
+		],
+		"key": {
+			"X": {
+				"item": "borgy:plaguebird_skin"
+			}
+		},
+		"result": [
+			{
+				"item": "borgy:plague_robe"
+			}
+		]
+	}
+}

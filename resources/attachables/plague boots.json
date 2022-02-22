@@ -8,11 +8,11 @@
 				"enchanted": "armor_enchanted"
 			},
 			"textures": {
-				"default": "textures/armor/plague armor",
+				"default": "textures/armor/plague boots",
 				"enchanted": "textures/misc/enchanted_item_glint"
 			},
 			"geometry": {
-				"default": "geometry.humanoid.armor.boots"
+				"default": "geometry.plague_boots"
 			},
 			"scripts": {
 				"parent_setup": "variable.boot_layer_visible = 0.0;"

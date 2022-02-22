@@ -1,6 +1,62 @@
 {
     "format_version": "1.10.0",
     "animation_controllers": {
+        "controller.animation.player_armor": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "bakunawaArmor": "query.is_item_name_any('slot.armor.head', 'borgy:bakunawa_helmet') && query.is_item_name_any('slot.armor.chest', 'borgy:bakunawa_chestplate') && query.is_item_name_any('slot.armor.legs', 'borgy:bakunawa_leggings') && query.is_item_name_any('slot.armor.feet', 'borgy:bakunawa_boots')"
+                        },
+                        {
+                            "sonicAbsorbtionArmor": "query.is_item_name_any('slot.armor.head', 'borgy:sonic_absorbtion_helmet') && query.is_item_name_any('slot.armor.chest', 'borgy:sonic_absorbtion_chestplate') && query.is_item_name_any('slot.armor.legs', 'borgy:sonic_absorbtion_leggings') && query.is_item_name_any('slot.armor.feet', 'borgy:sonic_absorbtion_boots')"
+                        },
+                        {
+                            "plagueArmor": "query.is_item_name_any('slot.armor.head', 'borgy:plague_mask') && query.is_item_name_any('slot.armor.chest', 'borgy:plague_robe') && query.is_item_name_any('slot.armor.legs', 'borgy:plague_leggings') && query.is_item_name_any('slot.armor.feet', 'borgy:plague_boots')"
+                        }
+                    ]
+                },
+                "bakunawaArmor": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_item_name_any('slot.armor.head', 'borgy:bakunawa_helmet') || !query.is_item_name_any('slot.armor.chest', 'borgy:bakunawa_chestplate') || !query.is_item_name_any('slot.armor.legs', 'borgy:bakunawa_leggings') || !query.is_item_name_any('slot.armor.feet', 'borgy:bakunawa_boots')"
+                        }
+                    ],
+                    "animations": [
+                        "animBakunawaArmorEffects"
+                    ],
+                    "on_exit": [
+                        "/effect @s conduit_power 0",
+                        "/effect @s strength 0",
+                        "/effect @s slow_falling 0"
+                    ]
+                },
+                "sonicAbsorbtionArmor": {
+                    "transitions": [
+                        {
+                            "default": "!query.is_item_name_any('slot.armor.head', 'borgy:sonic_absorbtion_helmet') || !query.is_item_name_any('slot.armor.chest', 'borgy:sonic_absorbtion_chestplate') || !query.is_item_name_any('slot.armor.legs', 'borgy:sonic_absorbtion_leggings') || !query.is_item_name_any('slot.armor.feet', 'borgy:sonic_absorbtion_boots')"
+                        }
+                    ],
+                    "on_entry": [
+                        "/tag @s add hasSonicAbsorb"
+                    ],
+                    "on_exit": [
+                        "/tag @s remove hasSonicAbsorb"
+                    ]
+                },
+                "plagueArmor": {
+                    "transitions": [
+                        {
+                            "plagueArmor": "!query.is_item_name_any('slot.armor.head', 'borgy:plague_mask') || !query.is_item_name_any('slot.armor.chest', 'borgy:plague_robe') || !query.is_item_name_any('slot.armor.legs', 'borgy:plague_leggings') || !query.is_item_name_any('slot.armor.feet', 'borgy:plague_boots')"
+                        }
+                    ],
+                    "animations": [
+                        "animPlagueArmorEffects"
+                    ]
+                }
+            }
+        },
         "controller.animation.player_control_icthyosaur": {
             "initial_state": "default",
             "states": {

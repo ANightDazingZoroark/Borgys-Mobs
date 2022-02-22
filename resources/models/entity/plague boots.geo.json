@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"geometry.plague_boots": {
+		"texturewidth": 16,
+		"textureheight": 16,
+		"visible_bounds_width": 2,
+		"visible_bounds_height": 3,
+		"visible_bounds_offset": [0, 1.5, 0],
+		"bones": [
+			{
+				"name": "leftLeg",
+				"pivot": [-1.9, 12, 0],
+				"mirror": true,
+				"cubes": [
+					{"origin": [-3.9, 0, -2], "size": [4, 6, 4], "uv": [0, 0], "inflate": 1, "mirror": false}
+				]
+			},
+			{
+				"name": "rightLeg",
+				"pivot": [1.9, 12, 0],
+				"mirror": true,
+				"cubes": [
+					{"origin": [-0.1, 0, -2], "size": [4, 6, 4], "uv": [0, 0], "inflate": 1}
+				]
+			}
+		]
+	}
+}
