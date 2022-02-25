@@ -1,0 +1,33 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:spawn_rules": {
+		"description": {
+			"identifier": "borgy:lavawyrm",
+			"population_control": "animal"
+		},
+		"conditions": [
+			{
+                "minecraft:spawns_lava": {},
+                "minecraft:spawns_underground": {},
+				"minecraft:weight": {
+					"default": 15
+				},
+                "minecraft:biome_filter": [
+                    {
+                        "test": "has_biome_tag", 
+                        "operator": "==", 
+                        "value": "basalt_deltas"
+                    }
+                ],
+                "minecraft:density_limit": {
+                    "surface": 6,
+                    "underground": 6
+                },
+                "minecraft:herd": {
+                    "min_size": 1,
+                    "max_size": 4
+                }
+			}
+		]
+	}
+}

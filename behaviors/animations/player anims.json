@@ -16,6 +16,10 @@
 				]
 			}
         },
+		"animation.player_poison_aura_countdown": {
+            "animation_length": 60,
+			"loop": false
+        },
 		"animation.player_plague_armor_effects": {
             "animation_length": 0.05,
 			"loop": true,

@@ -1,0 +1,1 @@
+execute @a[tag=poisonAura] ~ ~ ~ effect @e[r=6, tag=!tamed, tag=!poisonAura, family=!inanimate, type=!borgy:poison_headcrab_zombie, type=!borgy:poison_headcrab, type=!borgy:plaguebird] poison 10

@@ -144,6 +144,38 @@
                             "subject": "other",
                             "operator": "!=",
                             "value": "wither"
+                        },
+                        {
+                            "any_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "head",
+                                    "operator": "!=",
+                                    "value": "borgy:plague_mask"
+                                },
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "torso",
+                                    "operator": "!=",
+                                    "value": "borgy:plague_robe"
+                                },
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "leg",
+                                    "operator": "!=",
+                                    "value": "borgy:plague_leggings"
+                                },
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "feet",
+                                    "operator": "!=",
+                                    "value": "borgy:plague_boots"
+                                }
+                            ]
                         }
                     ]
                 }

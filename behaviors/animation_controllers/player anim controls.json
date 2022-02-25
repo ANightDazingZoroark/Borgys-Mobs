@@ -57,6 +57,37 @@
                 }
             }
         },
+        "controller.animation.player_poison_aura": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "poisonAura": "query.out_of_control"
+                        }
+                    ]
+                },
+                "poisonAura": {
+                    "animations": [
+                        "animPoisonAuraCountdown"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.all_animations_finished"
+                        }
+                    ],
+                    "on_entry": [
+                        "/say has poison aura",
+                        "/tag @s add poisonAura"
+                    ],
+                    "on_exit": [
+                        "/say has no poison aura",
+                        "/tag @s remove poisonAura",
+                        "/event entity @s borgy:remove_poison_aura_effect"
+                    ]
+                }
+            }
+        },
         "controller.animation.player_control_icthyosaur": {
             "initial_state": "default",
             "states": {

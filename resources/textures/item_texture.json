@@ -44,6 +44,9 @@
 		"plaguebird skin": {
 			"textures": "textures/items/plaguebird skin"
 		},
+		"plaguebird gland": {
+			"textures": "textures/items/plaguebird gland"
+		},
         "raw alien meat": {
 			"textures": "textures/items/raw alien meat"
 		},
@@ -73,6 +76,9 @@
 		},
 		"sarimanok sword": {
 			"textures": "textures/items/sarimanok sword"
+		},
+		"poison aura potion": {
+			"textures": "textures/items/poison aura potion"
 		},
 		"bakunawa helmet": {
 			"textures": "textures/items/bakunawa helmet"

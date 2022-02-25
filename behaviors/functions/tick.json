@@ -1,6 +1,7 @@
 {
     "values": [
         "cmd.remove_mob_effects",
+        "cmd.poison_aura_effect",
         "cmd.command_block_management"
     ]
 }

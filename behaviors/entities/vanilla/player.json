@@ -8,6 +8,7 @@
       "is_experimental": false,
       "animations": {
         "contPlayerArmor": "controller.animation.player_armor",
+        "contPoisonAura": "controller.animation.player_poison_aura",
         "contControlIcthyosaur": "controller.animation.player_control_icthyosaur",
         "contControlIcthyosaurBite": "controller.animation.player_control_icthyosaur_bite",
         "contControlBakunawa": "controller.animation.player_control_bakunawa",
@@ -19,6 +20,7 @@
         "contWeaponManagement": "controller.animation.player_weapon_management",
         "animBakunawaArmorEffects": "animation.player_bakunawa_armor_effects",
         "animPlagueArmorEffects": "animation.player_plague_armor_effects",
+        "animPoisonAuraCountdown": "animation.player_poison_aura_countdown",
         "animControlIcthyosaur": "animation.player_control_icthyosaur",
         "animControlIcthyosaurBite": "animation.player_control_icthyosaur_bite",
         "animControlBakunawa": "animation.player_control_bakunawa",
@@ -33,6 +35,7 @@
       "scripts": {
         "animate": [
           "contPlayerArmor",
+          "contPoisonAura",
           "contControlIcthyosaur",
           "contControlIcthyosaurBite",
           "contControlBakunawa",
@@ -161,6 +164,9 @@
             "target": "self"
           }
         }
+      },
+      "borgy:poison_aura_effect": {
+        "minecraft:out_of_control": {}
       }
     },
 
@@ -985,6 +991,21 @@
             "borgy:has_bile_launcher_ammo",
             "borgy:has_headcrab_launcher_ammo",
             "borgy:has_sonic_cannon_ammo"
+          ]
+        }
+      },
+
+      "borgy:apply_poison_aura_effect": {
+        "add": {
+          "component_groups": [
+            "borgy:poison_aura_effect"
+          ]
+        }
+      },
+      "borgy:remove_poison_aura_effect": {
+        "remove": {
+          "component_groups": [
+            "borgy:poison_aura_effect"
           ]
         }
       }

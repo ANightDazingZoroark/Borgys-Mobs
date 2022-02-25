@@ -37,6 +37,7 @@ entity.borgy:bakunawa_egg.name=Bakunawa Egg
 entity.borgy:sigbin.name=Sigbin
 entity.borgy:sarimanok.name=Sarimanok
 entity.borgy:lavawyrm.name=Lavawyrm
+entity.borgy:plaguebird.name=Plaguebird
 
 item.borgy:bakunawa_boots.name=Bakunawa Boots
 item.borgy:bakunawa_chestplate.name=Bakunawa Chestplate
@@ -60,7 +61,8 @@ item.borgy:plague_boots.name=Plague Boots
 item.borgy:plague_leggings.name=Plague Leggings
 item.borgy:plague_mask.name=Plague Mask
 item.borgy:plague_robe.name=Plague Robe
-item.borgy:plaguebird_mask.name=Plaguebird Skin
+item.borgy:plaguebird_gland.name=Plaguebird Gland
+item.borgy:plaguebird_skin.name=Plaguebird Skin
 item.borgy:raw_alien_meat.name=Raw Alien Meat
 item.borgy:raw_headcrab.name=Raw Headcrab
 item.borgy:sarimanok_feather.name=Sarimanok Feather
@@ -106,6 +108,7 @@ item.spawn_egg.entity.borgy:bakunawa.name=Spawn Bakunawa
 item.spawn_egg.entity.borgy:sigbin.name=Spawn Sigbin
 item.spawn_egg.entity.borgy:sarimanok.name=Spawn Sarimanok
 item.spawn_egg.entity.borgy:lavawyrm.name=Spawn Lavawyrm
+item.spawn_egg.entity.borgy:plaguebird.name=Spawn Plaguebird
 
 tile.borgy:bakunawa_nest_material.name=Bakunawa Nest Material
 tile.borgy:sonic_absorber.name=Sonic Absorber
