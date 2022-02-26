@@ -19,7 +19,6 @@
 			"minecraft:icon": {
 				"texture": "heart on a stick"
 			},
-			"minecraft:render_offsets": "carrot_on_a_stick",
 			"minecraft:durability": {
 				"max_durability": 25
 			}

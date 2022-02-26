@@ -15,12 +15,15 @@
             "animations": {
                 "animDefault": "animation.manananggal.default",
                 "animMove": "animation.manananggal.moving",
-                "contMove": "controller.animation.manananggal_movement"
+                "animAttack": "animation.manananggal.attacking",
+                "contMove": "controller.animation.manananggal_movement",
+                "contAttack": "controller.animation.manananggal_attack"
             },
             "scripts": {
                 "animate": [
                     "animDefault",
-                    "contMove"
+                    "contMove",
+                    "contAttack"
                 ]
             },
             "render_controllers": [

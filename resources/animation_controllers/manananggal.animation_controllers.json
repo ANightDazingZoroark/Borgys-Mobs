@@ -22,6 +22,28 @@
                     ]
                 }
 			}
-		}
+		},
+        "controller.animation.manananggal_attack": {
+            "initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "attack": "variable.attack_time"
+                        }
+                    ]
+				},
+                "attack": {
+                    "animations": [
+                        "animAttack"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!variable.attack_time"
+                        }
+                    ]
+                }
+			}
+        }
     }
 }

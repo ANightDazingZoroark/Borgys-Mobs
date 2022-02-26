@@ -281,7 +281,7 @@
                 "default": {
                     "transitions": [
                         {
-                            "controlling": "query.is_riding && query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:manananggal'"
+                            "controlling": "query.is_riding && query.get_equipped_item_name('main_hand') == 'heart_on_a_stick' && (query.get_ride -> query.owner_identifier) == 'borgy:manananggal'"
                         }
                     ]
                 },
@@ -291,14 +291,13 @@
                     ],
                     "transitions": [
                         {
-                            "controlling": "!query.is_riding || query.is_riding ? (query.get_ride -> query.owner_identifier) != 'borgy:manananggal'"
+                            "default": "!query.is_riding || query.get_equipped_item_name('main_hand') != 'heart_on_a_stick' || (query.get_ride -> query.owner_identifier) != 'borgy:manananggal'"
                         }
                     ],
-                    "on_entry": [
-                        "/say yes"
-                    ],
                     "on_exit": [
-                        "/say no"
+                        "/ride @s stop_riding",
+                        "/effect @e[type=borgy:manananggal, tag=tamed, c=1] levitation 0",
+                        "/effect @e[type=borgy:manananggal, tag=tamed, c=1] slow_falling 0"
                     ]
                 }
             }

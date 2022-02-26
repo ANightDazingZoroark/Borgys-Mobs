@@ -1,0 +1,28 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "borgy:heart_on_a_stick_sigbin_crafting"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			"# ",
+			" X"
+		],
+		"key": {
+			"#": {
+				"item": "minecraft:fishing_rod"
+			},
+			"X": {
+				"item": "borgy:sigbin_heart"
+			}
+		},
+		"result": [
+			{
+				"item": "borgy:heart_on_a_stick"
+			}
+		]
+	}
+}

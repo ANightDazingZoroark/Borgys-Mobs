@@ -1,0 +1,33 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:spawn_rules": {
+		"description": {
+			"identifier": "borgy:plaguebird",
+			"population_control": "animal"
+		},
+		"conditions": [
+			{
+				"minecraft:spawns_underground": {},
+				"minecraft:brightness_filter": {
+				  	"min": 0,
+				  	"max": 7,
+				  	"adjust_for_weather": false
+				},
+				"minecraft:weight": {
+				  	"default": 30
+				},
+				"minecraft:herd": {
+					"min_size": 2,
+					"max_size": 4
+				},
+				"minecraft:biome_filter": {
+				  	"test": "has_biome_tag", "operator": "==", "value": "animal"
+				},
+                "minecraft:density_limit": {
+                    "surface": 8,
+                    "underground": 8
+                }
+			}
+		]
+	}
+}
