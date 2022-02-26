@@ -3,6 +3,7 @@ accessibility.chat.howtoopen=If you do not see any custom items, please turn on 
 action.hint.exit.borgy:icthyosaur=Jump to ascend, double jump to activate hover
 action.hint.exit.borgy:bakunawa=Jump to ascend, double jump to activate hover
 action.hint.exit.borgy:lavawyrm=Press sneak to dismount
+action.hint.exit.borgy:manananggal=Look up and down to hover, hold Heart on a Stick to control direction
 
 entity.borgy:bullsquid.name=Bullsquid
 entity.borgy:houndeye.name=Houndeye
@@ -38,6 +39,7 @@ entity.borgy:sigbin.name=Sigbin
 entity.borgy:sarimanok.name=Sarimanok
 entity.borgy:lavawyrm.name=Lavawyrm
 entity.borgy:plaguebird.name=Plaguebird
+entity.borgy:manananggal.name=Manananggal
 
 item.borgy:bakunawa_boots.name=Bakunawa Boots
 item.borgy:bakunawa_chestplate.name=Bakunawa Chestplate
@@ -63,6 +65,7 @@ item.borgy:plague_mask.name=Plague Mask
 item.borgy:plague_robe.name=Plague Robe
 item.borgy:plaguebird_gland.name=Plaguebird Gland
 item.borgy:plaguebird_skin.name=Plaguebird Skin
+item.borgy:poison_aura_potion.name=Potion of Poison Aura
 item.borgy:raw_alien_meat.name=Raw Alien Meat
 item.borgy:raw_headcrab.name=Raw Headcrab
 item.borgy:sarimanok_feather.name=Sarimanok Feather
@@ -109,6 +112,7 @@ item.spawn_egg.entity.borgy:sigbin.name=Spawn Sigbin
 item.spawn_egg.entity.borgy:sarimanok.name=Spawn Sarimanok
 item.spawn_egg.entity.borgy:lavawyrm.name=Spawn Lavawyrm
 item.spawn_egg.entity.borgy:plaguebird.name=Spawn Plaguebird
+item.spawn_egg.entity.borgy:manananggal.name=Spawn Manananggal
 
 tile.borgy:bakunawa_nest_material.name=Bakunawa Nest Material
 tile.borgy:sonic_absorber.name=Sonic Absorber

@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.geometry.manananggal",
+				"identifier": "geometry.manananggal",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 6,
@@ -11,14 +11,6 @@
 				"visible_bounds_offset": [0, 1.75, 0]
 			},
 			"bones": [
-				{
-					"name": "head",
-					"pivot": [0, 24, 0],
-					"mirror": true,
-					"cubes": [
-						{"origin": [-4, 23.5, -4], "size": [8, 8, 8], "uv": [0, 0]}
-					]
-				},
 				{
 					"name": "body",
 					"pivot": [0, 24, 0],
@@ -32,7 +24,7 @@
 				{
 					"name": "leftWing",
 					"parent": "body",
-					"pivot": [0, 24, 0],
+					"pivot": [-2, 21.3, 2.9],
 					"cubes": [
 						{"origin": [-2, 11.70426, 3.25399], "size": [0, 12, 28], "pivot": [-2, 21.3, 2.9], "rotation": [30.36119, -40.78947, -20.94102], "uv": [8, 24], "mirror": true}
 					]
@@ -40,9 +32,17 @@
 				{
 					"name": "rightWing",
 					"parent": "body",
-					"pivot": [0, 24, 0],
+					"pivot": [2, 21.3, 2.9],
 					"cubes": [
-						{"origin": [2, 11.70426, 3.25399], "size": [0, 12, 28], "pivot": [2, 21.3, 2.9], "rotation": [30.36119, 40.78947, 20.94102], "uv": [8, 12]}
+						{"origin": [2, 11.70426, 3.25399], "size": [0, 12, 28], "pivot": [2, 21.3, 2.9], "rotation": [30.3612, 40.78947, 20.94102], "uv": [8, 12]}
+					]
+				},
+				{
+					"name": "head",
+					"pivot": [0, 24, 0],
+					"mirror": true,
+					"cubes": [
+						{"origin": [-4, 23.5, -4], "size": [8, 8, 8], "uv": [0, 0]}
 					]
 				},
 				{

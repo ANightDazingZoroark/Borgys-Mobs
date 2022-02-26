@@ -168,34 +168,12 @@
                             "value": "forcedAttack"
                         }
                     }
-                },
-                "minecraft:behavior.nearest_attackable_target": {
-                    "priority": 6,
-                    "within_radius": 192,
-                    "entity_types": [
-                        {
-                            "filters": {
-                                "any_of": [
-                                    {
-                                        "test": "is_family",
-                                        "subject": "other",
-                                        "value": "strider"
-                                    },
-                                    {
-                                        "test": "is_family",
-                                        "subject": "other",
-                                        "value": "hoglin"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
                 }
             },
             "borgy:default_targets": {
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 6,
-                    "within_radius": 192,
+                    "within_radius": 32,
                     "entity_types": [
                         {
                             "filters": {
@@ -209,14 +187,11 @@
                                         "test": "is_family",
                                         "subject": "other",
                                         "value": "hoglin"
-                                    },
-                                    {
-                                        "test": "is_family",
-                                        "subject": "other",
-                                        "value": "ravager"
                                     }
                                 ]
-                            }
+                            },
+                            "max_dist": 32,
+                            "must_see": false
                         }
                     ]
                 }

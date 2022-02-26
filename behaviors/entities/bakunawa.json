@@ -227,14 +227,15 @@
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 7,
                     "within_radius": 96,
-					"attack_interval": 15,
                     "entity_types": [
                         {
                             "filters": {
                                 "test": "is_family",
                                 "subject": "other",
                                 "value": "mob"
-                            }
+                            },
+                            "max_dist": 96,
+                            "must_see": false
                         },
                         {
                             "filters": {
@@ -250,7 +251,9 @@
                                         "value": false
                                     }
                                 ]
-                            }
+                            },
+                            "max_dist": 96,
+                            "must_see": false
                         }
                     ]
                 }
@@ -479,7 +482,7 @@
                     "can_path_over_water": true,
                     "can_swim": true,
                     "can_walk": false,
-                    "can_breach": false,
+                    "can_breach": true,
                     "can_sink": true
                 }
 			},

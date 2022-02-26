@@ -77,11 +77,11 @@
                         }
                     ],
                     "on_entry": [
-                        "/say has poison aura",
+                        "/tellraw @s {\"rawtext\":[{\"text\":\"Poison Aura Effect Applied\"}]}",
                         "/tag @s add poisonAura"
                     ],
                     "on_exit": [
-                        "/say has no poison aura",
+                        "/tellraw @s {\"rawtext\":[{\"text\":\"Poison Aura Effect Gone\"}]}",
                         "/tag @s remove poisonAura",
                         "/event entity @s borgy:remove_poison_aura_effect"
                     ]
@@ -271,6 +271,34 @@
                         {
                             "default": "!query.is_riding || (query.is_riding ? (query.get_ride -> query.owner_identifier) != 'borgy:bakunawa')"
                         }
+                    ]
+                }
+            }
+        },
+        "controller.animation.player_control_manananggal": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "controlling": "query.is_riding && query.is_riding ? (query.get_ride -> query.owner_identifier) == 'borgy:manananggal'"
+                        }
+                    ]
+                },
+                "controlling": {
+                    "animations": [
+                        "animControlManananggal"
+                    ],
+                    "transitions": [
+                        {
+                            "controlling": "!query.is_riding || query.is_riding ? (query.get_ride -> query.owner_identifier) != 'borgy:manananggal'"
+                        }
+                    ],
+                    "on_entry": [
+                        "/say yes"
+                    ],
+                    "on_exit": [
+                        "/say no"
                     ]
                 }
             }

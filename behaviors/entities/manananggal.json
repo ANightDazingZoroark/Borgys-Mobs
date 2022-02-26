@@ -1,0 +1,367 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "borgy:manananggal",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false,
+            "animations": {
+                "contAddTameTag": "controller.animation.add_tame_tag"
+            },
+            "scripts": {
+                "animate": [
+                    "contAddTameTag"
+                ]
+            }
+        },
+        "component_groups": {
+            "borgy:manananggal_wild": {
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3
+                },
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 2,
+                    "reselect_targets": true,
+                    "within_radius": 24,
+					"attack_interval": 15,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "any_of": [
+                                    { 
+                                        "test": "is_family", 
+                                        "subject": "other", 
+                                        "value": "villager" 
+                                    },
+                                    { 
+                                        "test": "is_family", 
+                                        "subject": "other", 
+                                        "value": "pillager"
+                                    },
+                                    { 
+                                        "test": "is_family", 
+                                        "subject": "other", 
+                                        "value": "wandering_trader" 
+                                    }
+                                ]
+                            },
+                            "max_dist": 24,
+                            "must_see": false
+                        },
+                        {
+                            "filters": {
+                                "all_of": [
+                                    { 
+                                        "test": "is_family", 
+                                        "subject": "other", 
+                                        "value": "player" 
+                                    },
+                                    { 
+                                        "test": "is_riding", 
+                                        "subject": "other", 
+                                        "value": false 
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "operator": "!=",
+                                        "value": "borgy:icthyosaur_heart" 
+                                    },
+                                    { 
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "operator": "!=",
+                                        "value": "borgy:bakunawa_heart" 
+                                    },
+                                    { 
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "operator": "!=",
+                                        "value": "borgy:sigbin_heart" 
+                                    },
+                                    { 
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "operator": "!=",
+                                        "value": "borgy:lavawyrm_heart" 
+                                    },
+                                    { 
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "operator": "!=",
+                                        "value": "borgy:heart_on_a_stick" 
+                                    }
+                                ]
+                            },
+                            "max_dist": 24,
+                            "must_see": false
+                        }
+                    ]
+                },
+                "minecraft:tameable": {
+                    "probability": 0.25,
+                    "tame_items": [
+                        "borgy:icthyosaur_heart",
+                        "borgy:bakunawa_heart",
+                        "borgy:sigbin_heart",
+                        "borgy:lavawyrm_heart"
+                    ],
+                    "tame_event": {
+                        "event": "borgy:on_tame",
+                        "target": "self"
+                    }
+                },
+                "minecraft:experience_reward": {
+                  "on_death": "query.last_hit_by_player ? Math.Random(1,3) : 0"
+                },
+                "minecraft:burns_in_daylight": {},
+                "minecraft:despawn": {
+                    "despawn_from_distance": {}
+                }
+            },
+            "borgy:manananggal_tamed": {
+                "minecraft:is_tamed": {},
+                "minecraft:behavior.player_ride_tamed": {},
+                "minecraft:rideable": {
+					"seats": [
+						{
+							"position": [
+                                0, 
+                                -0.575, 
+                                -0.2
+                            ]
+						}
+					]
+				},
+                "minecraft:item_controllable": {
+                    "control_items": "borgy:heart_on_a_stick"
+                },
+                "minecraft:behavior.controlled_by_player": {
+                    "priority": 0
+                },
+                "minecraft:boostable": {
+                    "speed_multiplier": 2,
+                    "duration": 16,
+                    "boost_items": [
+                        {
+                            "item": "borgy:heart_on_a_stick",
+                            "damage": 1,
+                            "replace_item": "fishing_rod"
+                        }
+                    ]
+                }
+            },
+            "borgy:manananggal_unridden": {
+                "minecraft:navigation.hover": {
+                    "can_path_over_water": true,
+                    "can_sink": false,
+                    "can_pass_doors": false,
+                    "can_path_from_air": true,
+                    "avoid_water": true,
+                    "avoid_damage_blocks": true,
+                    "avoid_sun": false
+                },
+                "minecraft:movement.hover": {},
+                "minecraft:can_fly": {},
+                "minecraft:behavior.random_hover": {
+                    "priority": 5,
+                    "xz_dist": 8,
+                    "y_dist": 8,
+                    "y_offset": -1,
+                    "interval": 1,
+                    "hover_height": [
+                        3,
+                        6
+                    ]
+                },
+                "minecraft:physics": {
+                    "has_gravity": false
+                }
+            },
+            "borgy:manananggal_ridden": {
+				"minecraft:navigation.generic": {
+                    "is_amphibious": false,
+                    "can_path_over_water": true,
+                    "can_swim": false,
+                    "can_walk": false,
+                    "can_breach": false,
+                    "can_sink": true
+                },
+                "minecraft:movement.generic": {},
+                "minecraft:physics": {
+                    "has_gravity": true
+                }
+			}
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 20
+            },
+            "minecraft:attack": {
+                "damage": 4
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "manananggal",
+                    "mob"
+                ]
+            },
+            "minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+            "minecraft:collision_box": {
+                "width": 1,
+                "height": 1.8
+            },
+            "minecraft:movement": {
+                "value": 0.3
+            },
+            "minecraft:flying_speed": {
+                "value": 0.25
+            },
+            "minecraft:behavior.tempt": {
+                "priority": 4,
+                "within_radius": 28,
+                "speed_multiplier": 0.75,
+                "items": [
+                    "borgy:icthyosaur_heart",
+                    "borgy:bakunawa_heart",
+                    "borgy:sigbin_heart",
+                    "borgy:lavawyrm_heart",
+                    "borgy:heart_on_a_stick"
+                ]
+            },
+            "minecraft:jump.static": {},
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 1,
+                "entity_types": {
+                    "filters": {
+                        "test": "is_family",
+                        "subject": "other",
+                        "operator": "!=",
+                        "value": "forcedAttack"
+                    }
+                }
+            },
+            "minecraft:pushable": {},
+			"minecraft:leashable": {
+				"soft_distance": 4,
+				"hard_distance": 8,
+				"max_distance": 12
+			},
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:nameable": {},
+            "minecraft:scheduler": {
+                "scheduled_events": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "rider_count",
+									"subject": "self",
+									"operator": ">",
+									"value": 0
+								},
+								{
+									"test": "has_component",
+									"subject": "self",
+									"value": "minecraft:is_tamed"
+								}
+							]
+						},
+						"event": "borgy:has_rider"
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "rider_count",
+									"subject": "self",
+									"operator": "==",
+									"value": 0
+								},
+								{
+									"test": "has_component",
+									"subject": "self",
+									"value": "minecraft:is_tamed"
+								}
+							]
+						},
+						"event": "borgy:has_no_rider"
+					}
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "fall",
+                        "deals_damage": false
+                    }
+                ]
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "borgy:manananggal_wild",
+                        "borgy:manananggal_unridden"
+                    ]
+                }
+            },
+            "borgy:on_tame": {
+                "add": {
+                    "component_groups": [
+                        "borgy:manananggal_tamed"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:manananggal_wild"
+                    ]
+                }
+            },
+            "borgy:has_rider": {
+                "add": {
+                    "component_groups": [
+                        "borgy:manananggal_ridden"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:manananggal_unridden"
+                    ]
+                },
+                "run_command": {
+                    "command": [
+                        "tag @s add manananggalHasRider"
+                    ]
+                }
+            },
+            "borgy:has_no_rider": {
+                "add": {
+                    "component_groups": [
+                        "borgy:manananggal_unridden"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "borgy:manananggal_ridden"
+                    ]
+                },
+                "run_command": {
+                    "command": [
+                        "tag @s remove manananggalHasRider"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.manananggal.default": {
+			"loop": true,
+			"bones": {
+				"leftWing": {
+					"rotation": [0, "math.sin(query.anim_time * 180) * -30", 0]
+				},
+				"rightWing": {
+					"rotation": [0, "math.sin(query.anim_time * 180) * 30", 0]
+				}
+			}
+		},
+		"animation.manananggal.moving": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": [22.5, 0, 0]
+				},
+				"body": {
+					"rotation": [30, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [22.5, 0, 0]
+				},
+				"rightArm": {
+					"rotation": [22.5, 0, 0]
+				}
+			}
+		}
+	}
+}

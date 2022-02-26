@@ -1,0 +1,35 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:manananggal",
+            "materials": {
+                "default": "skeleton"
+            },
+            "textures": {
+                "default": "textures/entity/manananggal"
+            },
+            "geometry": {
+                "default": "geometry.manananggal"
+            },
+            "animations": {
+                "animDefault": "animation.manananggal.default",
+                "animMove": "animation.manananggal.moving",
+                "contMove": "controller.animation.manananggal_movement"
+            },
+            "scripts": {
+                "animate": [
+                    "animDefault",
+                    "contMove"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#5c5238",
+				"overlay_color": "#aa9f81"
+			}
+        }
+    }
+}

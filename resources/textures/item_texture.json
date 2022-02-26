@@ -80,6 +80,9 @@
 		"poison aura potion": {
 			"textures": "textures/items/poison aura potion"
 		},
+		"heart on a stick": {
+			"textures": "textures/items/heart on a stick"
+		},
 		"bakunawa helmet": {
 			"textures": "textures/items/bakunawa helmet"
 		},

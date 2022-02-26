@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.manananggal_movement": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "move": "query.ground_speed > 0"
+                        }
+                    ]
+				},
+                "move": {
+                    "animations": [
+                        "animMove"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.ground_speed == 0"
+                        }
+                    ]
+                }
+			}
+		}
+    }
+}

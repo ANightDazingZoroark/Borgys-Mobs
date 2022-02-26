@@ -1,0 +1,14 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:recipe_brewing_mix": {
+        "description": {
+            "identifier": "borgy:poison_aura_potion_brewing"
+        },
+        "tags": [ 
+            "brewing_stand"
+        ],
+        "input": "minecraft:potion_type:awkward",
+        "reagent": "borgy:plaguebird_gland",
+        "output": "borgy:poison_aura_potion"
+    }
+}
