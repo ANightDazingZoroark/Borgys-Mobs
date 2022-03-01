@@ -6,14 +6,14 @@
 				"identifier": "geometry.floating_headcrab",
 				"texture_width": 96,
 				"texture_height": 96,
-				"visible_bounds_width": 4,
-				"visible_bounds_height": 6,
-				"visible_bounds_offset": [0, 2, 0]
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 7,
+				"visible_bounds_offset": [0, 2.5, 0]
 			},
 			"bones": [
 				{
 					"name": "head",
-					"pivot": [0, 0, 0],
+					"pivot": [0, 54, 0],
 					"cubes": [
 						{"origin": [-8, 27, -8], "size": [16, 18, 16], "uv": [0, 32]}
 					]
@@ -21,7 +21,7 @@
 				{
 					"name": "balloon",
 					"parent": "head",
-					"pivot": [0, 0, 0],
+					"pivot": [0, 45, 0],
 					"cubes": [
 						{"origin": [-8, 46, -8], "size": [16, 16, 16], "inflate": 1, "uv": [0, 0]}
 					]
@@ -29,7 +29,7 @@
 				{
 					"name": "leg0",
 					"parent": "head",
-					"pivot": [0, 0, 0],
+					"pivot": [-6, 28, -6],
 					"cubes": [
 						{"origin": [-7, 14, -7], "size": [2, 14, 2], "pivot": [-6, 28, -6], "rotation": [-12.5, 45, 0], "uv": [64, 16]}
 					]
@@ -45,7 +45,7 @@
 				{
 					"name": "leg1",
 					"parent": "head",
-					"pivot": [0, 0, 0],
+					"pivot": [6, 28, -6],
 					"cubes": [
 						{"origin": [5, 14, -7], "size": [2, 14, 2], "pivot": [6, 28, -6], "rotation": [-12.5, -45, 0], "uv": [64, 16], "mirror": true}
 					]
@@ -61,7 +61,7 @@
 				{
 					"name": "leg2",
 					"parent": "head",
-					"pivot": [0, 0, 0],
+					"pivot": [-6, 28, 6],
 					"cubes": [
 						{"origin": [-7, 14, 5], "size": [2, 14, 2], "pivot": [-6, 28, 6], "rotation": [12.5, -45, 0], "uv": [64, 16]}
 					]
@@ -77,7 +77,7 @@
 				{
 					"name": "leg3",
 					"parent": "head",
-					"pivot": [0, 0, 0],
+					"pivot": [6, 28, 6],
 					"cubes": [
 						{"origin": [5, 14, 5], "size": [2, 14, 2], "pivot": [6, 28, 6], "rotation": [12.5, 45, 0], "uv": [64, 16], "mirror": true}
 					]

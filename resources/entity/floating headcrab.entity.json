@@ -1,0 +1,37 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:floating_headcrab",
+            "materials": {
+                "default": "entity"
+            },
+            "textures": {
+                "default": "textures/entity/floating headcrab"
+            },
+            "animations": {
+                "animInflate": "animation.floating_headcrab.inflate",
+                "animMove": "animation.floating_headcrab.move",
+                "animHasTarget": "animation.floating_headcrab.has_target",
+                "animIdle": "animation.floating_headcrab.idle",
+                "contMove": "controller.animation.floating_headcrab_movement"
+            },
+            "scripts": {
+                "animate": [
+                    "animInflate",
+                    "contMove"
+                ]
+            },
+            "geometry": {
+                "default": "geometry.floating_headcrab"
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#c2ac9d",
+				"overlay_color": "#412222"
+			}
+        }
+    }
+}

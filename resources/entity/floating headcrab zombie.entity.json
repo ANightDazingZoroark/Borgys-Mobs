@@ -1,0 +1,35 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:floating_headcrab_zombie",
+            "materials": {
+                "default": "entity"
+            },
+            "textures": {
+                "default": "textures/entity/floating headcrab zombie"
+            },
+            "animations": {
+                "animInflate": "animation.floating_headcrab_zombie.inflate",
+                "animAttack": "animation.headcrab_zombie.attacking",
+                "contAttack": "controller.animation.headcrab_zombie_attack"
+            },
+            "scripts": {
+                "animate": [
+                    "animInflate",
+                    "contAttack"
+                ]
+            },
+            "geometry": {
+                "default": "geometry.floating_headcrab_zombie"
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#c2ac9d",
+				"overlay_color": "#412222"
+			}
+        }
+    }
+}

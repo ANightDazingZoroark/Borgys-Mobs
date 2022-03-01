@@ -151,6 +151,50 @@
 				
                 }
 			}
-        }
+        },
+        "controller.animation.floating_headcrab_movement": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"animIdle"
+					],
+                    "transitions": [
+                        {
+                            "moving": "query.ground_speed > 0"
+                        },
+                        {
+                            "hasTarget": "query.has_target"
+                        }
+                    ],
+                    "blend_transition": 0.5
+				},
+                "moving": {
+                    "animations": [
+                        "animMove"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.ground_speed == 0"
+                        },
+                        {
+                            "hasTarget": "query.has_target"
+                        }
+                    ],
+                    "blend_transition": 0.5
+                },
+                "hasTarget": {
+                    "animations": [
+                        "animHasTarget"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.has_target"
+                        }
+                    ],
+                    "blend_transition": 0.5
+                }
+			}
+		}
     }
 }
