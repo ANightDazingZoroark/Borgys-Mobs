@@ -211,6 +211,50 @@
                     ]
 				}
 			}
-		}
+		},
+        "controller.animation.aquatic_headcrab_zombie_attack": {
+            "initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "attack": "query.is_delayed_attacking"
+                        }
+                    ]
+				},
+                "attack": {
+                    "animations": [
+                        "animBite"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_delayed_attacking"
+                        }
+                    ]
+                }
+			}
+        },
+        "controller.animation.aquatic_headcrab_zombie_look": {
+            "initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "looking": "query.is_in_water"
+                        }
+                    ]
+				},
+                "attack": {
+                    "animations": [
+                        "animBite"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_in_water"
+                        }
+                    ]
+                }
+			}
+        }
     }
 }

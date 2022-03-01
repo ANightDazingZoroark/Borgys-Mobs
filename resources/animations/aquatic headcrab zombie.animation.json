@@ -1,0 +1,37 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.aquatic_headcrab_zombie.swim": {
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"bones": {
+				"leftLeg": {
+					"rotation": ["(math.cos(query.anim_time * 38.17) * 40.0) - this", 0, 0]
+				},
+				"rightLeg": {
+					"rotation": ["(math.cos(query.anim_time * 38.17 + 180) * 40.0) - this", 0, 0]
+				}
+			}
+		},
+		"animation.aquatic_headcrab_zombie.bite": {
+			"animation_length": 0.52,
+			"bones": {
+				"lowerJaw": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.24": [25, 0, 0],
+						"0.52": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.aquatic_headcrab_zombie.look": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": ["math.sin(query.anim_time * 30) * 15", 0, 0]
+				}
+			}
+		}
+	}
+}

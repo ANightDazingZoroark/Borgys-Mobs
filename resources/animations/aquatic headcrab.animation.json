@@ -1,0 +1,43 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.aquatic_headcrab.move": {
+			"loop": true,
+			"anim_time_update": "query.is_in_water ? query.modified_distance_moved : query.anim_time + query.delta_time",
+			"bones": {
+				"leg0": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * 15", 0]
+				},
+				"leg1": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * -15", 0]
+				},
+				"leg2": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * 15", 0]
+				},
+				"leg3": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * 15", 0]
+				},
+				"leg4": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * 15", 0]
+				},
+				"leg5": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * -15", 0]
+				},
+				"leg6": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * 15", 0]
+				},
+				"leg7": {
+					"rotation": [0, "math.sin(query.anim_time * 30) * -15", 0]
+				}
+			}
+		},
+		"animation.aquatic_headcrab.look": {
+			"loop": true,
+			"bones": {
+				"headcrab": {
+					"rotation": ["math.clamp(query.target_x_rotation, -30, 30)", 0, 0]
+				}
+			}
+		}
+	}
+}

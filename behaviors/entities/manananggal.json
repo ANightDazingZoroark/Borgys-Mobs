@@ -230,6 +230,7 @@
             "minecraft:type_family": {
                 "family": [
                     "manananggal",
+                    "monster",
                     "mob"
                 ]
             },

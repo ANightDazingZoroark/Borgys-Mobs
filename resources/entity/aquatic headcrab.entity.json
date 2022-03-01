@@ -1,0 +1,35 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:aquatic_headcrab",
+            "materials": {
+                "default": "entity"
+            },
+            "textures": {
+                "default": "textures/entity/aquatic headcrab"
+            },
+            "animations": {
+                "animMove": "animation.aquatic_headcrab.move",
+                "animLook": "animation.aquatic_headcrab.look",
+                "contLook": "controller.animation.aquatic_headcrab_looking"
+            },
+            "scripts": {
+                "animate": [
+                    "animMove",
+                    "contLook"
+                ]
+            },
+            "geometry": {
+                "default": "geometry.aquatic_headcrab"
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#6b8385",
+				"overlay_color": "#476163"
+			}
+        }
+    }
+}

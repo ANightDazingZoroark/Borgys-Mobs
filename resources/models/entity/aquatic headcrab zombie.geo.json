@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.geometry.aquatic_headcrab_zombie",
+				"identifier": "geometry.aquatic_headcrab_zombie",
 				"texture_width": 128,
 				"texture_height": 128,
 				"visible_bounds_width": 6,
@@ -182,7 +182,7 @@
 				{
 					"name": "lowerJaw",
 					"parent": "headcrab",
-					"pivot": [0, 2, -8],
+					"pivot": [0, 15, -9],
 					"cubes": [
 						{"origin": [-3, 14, -10.5], "size": [6, 10, 2], "uv": [48, 51]}
 					]

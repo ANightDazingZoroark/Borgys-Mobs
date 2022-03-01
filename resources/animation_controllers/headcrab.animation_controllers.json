@@ -128,6 +128,29 @@
                     ]
 				}
 			}
-		}
+		},
+        "controller.animation.aquatic_headcrab_looking": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "looking": "query.is_in_water"
+                        }
+                    ]
+				},
+                "looking": {
+                    "animations": [
+                        "animLook"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_in_water"
+                        }
+                    ]
+				
+                }
+			}
+        }
     }
 }

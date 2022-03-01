@@ -1,0 +1,39 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "borgy:aquatic_headcrab_zombie",
+            "materials": {
+                "default": "entity"
+            },
+            "textures": {
+                "default": "textures/entity/aquatic headcrab zombie"
+            },
+            "animations": {
+                "animMove": "animation.aquatic_headcrab_zombie.swim",
+                "animBite": "animation.aquatic_headcrab_zombie.bite",
+                "animLook": "animation.aquatic_headcrab_zombie.look",
+                "contMove": "controller.animation.headcrab_zombie_movement",
+                "contAttack": "controller.animation.aquatic_headcrab_zombie_attack",
+                "contLook": "controller.animation.aquatic_headcrab_zombie_look"
+            },
+            "scripts": {
+                "animate": [
+                    "contMove",
+                    "contAttack",
+                    "contLook"
+                ]
+            },
+            "geometry": {
+                "default": "geometry.aquatic_headcrab_zombie"
+            },
+            "render_controllers": [
+                "controller.render.common"
+            ],
+            "spawn_egg": {
+				"base_color": "#6b8385",
+				"overlay_color": "#476163"
+			}
+        }
+    }
+}

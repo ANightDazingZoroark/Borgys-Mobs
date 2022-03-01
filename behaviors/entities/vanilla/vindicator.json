@@ -251,6 +251,18 @@
                 "event": "borgy:become_enderite_headcrab_zombie",
                 "target": "self"
               }
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    { "test": "is_family", "subject": "other", "value": "aquaticHeadcrab" },
+                    { "test": "is_family", "subject": "other", "operator": "!=", "value": "aquatic_headcrab_zombie" }
+                  ]
+                },
+                "event": "borgy:become_aquatic_headcrab_zombie",
+                "target": "self"
+              }
             }
           ]
         }
@@ -376,6 +388,18 @@
                 "event": "borgy:become_enderite_headcrab_zombie",
                 "target": "self"
               }
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    { "test": "is_family", "subject": "other", "value": "aquaticHeadcrab" },
+                    { "test": "is_family", "subject": "other", "operator": "!=", "value": "aquatic_headcrab_zombie" }
+                  ]
+                },
+                "event": "borgy:become_aquatic_headcrab_zombie",
+                "target": "self"
+              }
             }
           ]
         },
@@ -427,6 +451,11 @@
       "borgy:become_enderite_headcrab_zombie": {
         "minecraft:transformation": {
           "into": "borgy:enderite_headcrab_zombie<minecraft:entity_spawned>"
+        }
+      },
+      "borgy:become_aquatic_headcrab_zombie": {
+        "minecraft:transformation": {
+          "into": "borgy:aquatic_headcrab_zombie<minecraft:entity_spawned>"
         }
       }
     },
@@ -624,6 +653,18 @@
               "event": "borgy:become_enderite_headcrab_zombie",
               "target": "self"
             }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "value": "aquaticHeadcrab" },
+                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "aquatic_headcrab_zombie" }
+                ]
+              },
+              "event": "borgy:become_aquatic_headcrab_zombie",
+              "target": "self"
+            }
           }
         ]
       },
@@ -761,6 +802,10 @@
       "borgy:become_enderite_headcrab_zombie": {
         "add": { "component_groups": [ "borgy:become_enderite_headcrab_zombie" ] },
         "run_command": { "command": [ "event entity @e[type=borgy:enderite_headcrab, c=1] borgy:into_enderite_headcrab_zombie" ] }
+      },
+      "borgy:become_aquatic_headcrab_zombie": {
+        "add": { "component_groups": [ "borgy:become_aquatic_headcrab_zombie" ] },
+        "run_command": { "command": [ "event entity @e[type=borgy:aquatic_headcrab, c=1] borgy:into_aquatic_headcrab_zombie" ] }
       },
       "borgy:become_headcrab_zombie_from_fired_headcrab": {
         "add": { "component_groups": [ "borgy:become_headcrab_zombie" ] },
