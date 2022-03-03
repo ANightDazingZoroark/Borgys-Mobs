@@ -411,6 +411,13 @@
                     "operator": "!=",
                     "value": "borgy:sonic_absorbtion_helmet"
                   },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:plague_mask"
+                  },
                   { "test": "is_family", "subject": "other", "value": "headcrab" },
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "headcrab_zombie" }
                 ]
@@ -479,6 +486,13 @@
                     "operator": "!=",
                     "value": "borgy:sonic_absorbtion_helmet"
                   },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:plague_mask"
+                  },
                   { "test": "is_family", "subject": "other", "value": "fastHeadcrab" },
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "fast_headcrab_zombie" }
                 ]
@@ -546,6 +560,13 @@
                     "domain": "head",
                     "operator": "!=",
                     "value": "borgy:sonic_absorbtion_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:plague_mask"
                   },
                   { "test": "is_family", "subject": "other", "value": "poisonHeadcrab" },
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "poison_headcrab_zombie" },
@@ -617,6 +638,13 @@
                     "operator": "!=",
                     "value": "borgy:sonic_absorbtion_helmet"
                   },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:plague_mask"
+                  },
                   { "test": "is_family", "subject": "other", "value": "scorchedHeadcrab" },
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "scorched_headcrab_zombie" }
                 ]
@@ -684,6 +712,13 @@
                     "domain": "head",
                     "operator": "!=",
                     "value": "borgy:sonic_absorbtion_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:plague_mask"
                   },
                   { "test": "is_family", "subject": "other", "value": "frostbiteHeadcrab" },
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "frostbite_headcrab_zombie" }
@@ -753,6 +788,13 @@
                     "operator": "!=",
                     "value": "borgy:sonic_absorbtion_helmet"
                   },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:plague_mask"
+                  },
                   { "test": "is_family", "subject": "other", "value": "electroHeadcrab" },
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "electro_headcrab_zombie" }
                 ]
@@ -820,6 +862,13 @@
                     "domain": "head",
                     "operator": "!=",
                     "value": "borgy:sonic_absorbtion_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:plague_mask"
                   },
                   { "test": "is_family", "subject": "other", "value": "enderiteHeadcrab" },
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "enderite_headcrab_zombie" }
@@ -889,6 +938,13 @@
                     "operator": "!=",
                     "value": "borgy:sonic_absorbtion_helmet"
                   },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:plague_mask"
+                  },
                   { "test": "is_family", "subject": "other", "value": "aquaticHeadcrab" },
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "aquatic_headcrab_zombie" }
                 ]
@@ -956,6 +1012,13 @@
                     "domain": "head",
                     "operator": "!=",
                     "value": "borgy:sonic_absorbtion_helmet"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "head",
+                    "operator": "!=",
+                    "value": "borgy:plague_mask"
                   },
                   { "test": "is_family", "subject": "other", "value": "floatingHeadcrab" },
                   { "test": "is_family", "subject": "other", "operator": "!=", "value": "floating_headcrab_zombie" }

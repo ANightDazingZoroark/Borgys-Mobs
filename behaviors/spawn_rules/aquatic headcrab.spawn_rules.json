@@ -2,13 +2,13 @@
 	"format_version": "1.8.0",
 	"minecraft:spawn_rules": {
 		"description": {
-			"identifier": "borgy:icthyosaur",
-			"population_control": "animal"
+			"identifier": "borgy:aquatic_headcrab",
+			"population_control": "monster"
 		},
 		"conditions": [
 			{
-                "minecraft:spawns_on_surface": {},
-                "minecraft:spawns_underwater": {},
+				"minecraft:spawns_on_surface": {},
+				"minecraft:spawns_underwater": {},
 				"minecraft:weight": {
 					"default": 10
 				},
@@ -20,20 +20,14 @@
                     }
                 ],
                 "minecraft:density_limit": {
-                    "surface": 5,
-                    "underground": 5
-                }
-			},
-			{
-                "minecraft:spawns_underground": {},
-                "minecraft:spawns_underwater": {},
-				"minecraft:weight": {
-					"default": 10
-				},
-                "minecraft:density_limit": {
-                    "surface": 5,
-                    "underground": 5
+                    "surface": 8,
+                    "underground": 8
                 },
+				"minecraft:brightness_filter": {
+				  	"min": 0,
+				  	"max": 7,
+				  	"adjust_for_weather": false
+				},
 				"minecraft:height_filter": {
 				  	"min": -64,
 				  	"max": 48

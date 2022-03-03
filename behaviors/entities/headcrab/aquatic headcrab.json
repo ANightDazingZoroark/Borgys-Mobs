@@ -57,7 +57,7 @@
             "minecraft:physics": {},
             "minecraft:pushable": {},
             "minecraft:navigation.generic": {
-                "is_amphibious": false,
+                "is_amphibious": true,
                 "can_path_over_water": false,
                 "can_swim": true,
                 "can_walk": false,
@@ -65,15 +65,13 @@
                 "can_sink": false
             },
             "minecraft:movement.generic": {},
-            "minecraft:behavior.random_swim": {
+            "minecraft:behavior.random_stroll": {
                 "priority": 5,
-                "interval": 0,
-                "xz_dist": 20
+                "interval": 1
             },
             "minecraft:behavior.melee_attack": {
                 "priority": 3,
                 "speed_multiplier": 1.0,
-                "track_target": true,
                 "reach_multiplier": 1.75
             },
             "minecraft:behavior.nearest_attackable_target": {

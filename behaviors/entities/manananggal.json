@@ -20,6 +20,28 @@
                 "minecraft:behavior.melee_attack": {
                     "priority": 4
                 },
+                "minecraft:tameable": {
+                    "probability": 0.25,
+                    "tame_items": [
+                        "borgy:icthyosaur_heart",
+                        "borgy:bakunawa_heart",
+                        "borgy:sigbin_heart",
+                        "borgy:lavawyrm_heart"
+                    ],
+                    "tame_event": {
+                        "event": "borgy:on_tame",
+                        "target": "self"
+                    }
+                },
+                "minecraft:experience_reward": {
+                  "on_death": "query.last_hit_by_player ? Math.Random(1,3) : 0"
+                },
+                "minecraft:burns_in_daylight": {},
+                "minecraft:despawn": {
+                    "despawn_from_distance": {}
+                }
+            },
+            "borgy:default_targets": {
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 3,
                     "reselect_targets": true,
@@ -102,26 +124,26 @@
                             "must_see": false
                         }
                     ]
+                }
+            },
+            "borgy:attack_forced_attack_entity": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 3,
+                    "within_radius": 24,
+                    "entity_types": [
+                        {
+                            "filters": {
+                              "test": "is_family",
+                              "subject": "other",
+                              "value": "isForcedAttacking"
+                            },
+                            "max_dist": 24
+                        }
+                    ]
                 },
-                "minecraft:tameable": {
-                    "probability": 0.25,
-                    "tame_items": [
-                        "borgy:icthyosaur_heart",
-                        "borgy:bakunawa_heart",
-                        "borgy:sigbin_heart",
-                        "borgy:lavawyrm_heart"
-                    ],
-                    "tame_event": {
-                        "event": "borgy:on_tame",
-                        "target": "self"
-                    }
-                },
-                "minecraft:experience_reward": {
-                  "on_death": "query.last_hit_by_player ? Math.Random(1,3) : 0"
-                },
-                "minecraft:burns_in_daylight": {},
-                "minecraft:despawn": {
-                    "despawn_from_distance": {}
+                "minecraft:on_target_escape": {
+                    "event": "borgy:no_force_attacked",
+                    "target": "self"
                 }
             },
             "borgy:manananggal_tamed": {
@@ -334,6 +356,7 @@
                 "add": {
                     "component_groups": [
                         "borgy:manananggal_wild",
+                        "borgy:default_targets",
                         "borgy:manananggal_uncontrolled"
                     ]
                 }
@@ -346,7 +369,9 @@
                 },
                 "remove": {
                     "component_groups": [
-                        "borgy:manananggal_wild"
+                        "borgy:manananggal_wild",
+                        "borgy:default_targets",
+                        "borgy:attack_forced_attack_entity"
                     ]
                 }
             },
@@ -383,6 +408,30 @@
                         "tag @s remove manananggalHasRider",
                         "effect @s levitation 0",
                         "effect @s slow_falling 0"
+                    ]
+                }
+            },
+			"borgy:on_force_attacked": {
+				"add": {
+				  	"component_groups": [
+						"borgy:attack_forced_attack_entity"
+				  	]
+				},
+				"remove": {
+				  	"component_groups": [
+						"borgy:default_targets"
+				  	]
+				}
+			},
+			"borgy:no_force_attacked": {
+				"add": {
+				  	"component_groups": [
+						"borgy:default_targets"
+				  	]
+				},
+                "remove": {
+                    "component_groups": [
+                        "borgy:attack_forced_attack_entity"
                     ]
                 }
             }

@@ -236,7 +236,7 @@
             "minecraft:physics": {},
             "minecraft:pushable": {},
             "minecraft:navigation.generic": {
-                "is_amphibious": false,
+                "is_amphibious": true,
                 "can_path_over_water": false,
                 "can_swim": true,
                 "can_walk": false,
@@ -244,16 +244,15 @@
                 "can_sink": false
             },
             "minecraft:movement.generic": {},
-            "minecraft:behavior.random_swim": {
+            "minecraft:behavior.random_stroll": {
                 "priority": 6,
-                "interval": 0,
-                "xz_dist": 20
+                "interval": 1
             },
             "minecraft:behavior.delayed_attack": {
                 "priority": 4,
-                "reach_multiplier": 1.5,
+                "reach_multiplier": 2.25,
                 "attack_duration": 0.52,
-                "hit_delay_pct": 0.46
+                "hit_delay_pct": 1
             },
             "minecraft:behavior.hurt_by_target": {
 				"priority": 2,
