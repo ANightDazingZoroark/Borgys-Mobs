@@ -170,6 +170,9 @@
       },
       "borgy:poison_aura_effect": {
         "minecraft:out_of_control": {}
+      },
+      "borgy:no_warning": {
+        "minecraft:is_ignited": {}
       }
     },
 
@@ -1226,6 +1229,13 @@
         "remove": {
           "component_groups": [
             "borgy:poison_aura_effect"
+          ]
+        }
+      },
+      "borgy:remove_warning": {
+        "add": {
+          "component_groups": [
+            "borgy:no_warning"
           ]
         }
       }
