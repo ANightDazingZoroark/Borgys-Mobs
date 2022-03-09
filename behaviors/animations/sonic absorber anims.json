@@ -6,6 +6,7 @@
 			"loop": true,
 			"timeline": {
 				"0": [
+                    "/execute @s ~ ~ ~ detect ~ ~ ~ air 0 setblock ~ ~+1 ~ air 0 replace",
                     "/execute @s ~ ~ ~ detect ~ ~ ~ air 0 kill @s"
 				]
 			}

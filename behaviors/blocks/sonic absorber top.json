@@ -2,19 +2,16 @@
     "format_version": "1.16.100",
     "minecraft:block": {
         "description": {
-            "identifier": "borgy:sonic_absorber"
+            "identifier": "borgy:sonic_absorber_top"
         },
         "components": {
-            "minecraft:creative_category": {
-                "category": "Items"
-            },
             "minecraft:material_instances": {
                 "*": {
-                    "texture": "sonic absorber bottom",
+                    "texture": "sonic absorber top",
                     "render_method": "alpha_test"
                 }
             },
-            "minecraft:geometry": "geometry.sonic_absorber_bottom",
+            "minecraft:geometry": "geometry.sonic_absorber_top",
             "minecraft:entity_collision": {
                 "origin": [
                     -8,
@@ -23,7 +20,7 @@
                 ],
                 "size": [
                     16,
-                    16,
+                    14,
                     16
                 ]
             },
@@ -35,16 +32,13 @@
                 ],
                 "size": [
                     16,
-                    16,
+                    14,
                     16
                 ]
             },
             "minecraft:destroy_time": 0.8,
             "minecraft:block_light_absorption": 0.0,
             "minecraft:immovable": true,
-            "minecraft:on_placed": {
-                "event": "borgy:set_up"
-            },
             "minecraft:ticking": {
                 "looping": true,
                 "range": [
@@ -52,24 +46,15 @@
                     0
                 ],
                 "on_tick": {
-                    "condition": "!query.block_neighbor_has_any_tag(0, 1, 0, 'borgy:sonic_absorber_top')",
+                    "condition": "!query.block_neighbor_has_any_tag(0, -1, 0, 'borgy:sonic_absorber_bottom')",
                     "event": "borgy:destroy_self",
                     "target": "self"
                 }
             },
-            "minecraft:loot": "loot_tables/empty.json",
-            "tag:borgy:sonic_absorber_bottom": {}
+            "tag:borgy:sonic_absorber_top": {}
         },
         "events": {
-            "borgy:set_up": {
-                "run_command": {
-                    "command": [
-                        "summon borgy:sonic_absorber_entity ~ ~ ~",
-                        "setblock ~ ~+1 ~ borgy:sonic_absorber_top 0 destroy"
-                    ]
-                }
-            },
-            "borgy:destroy_self": {
+            "borgy:destroy_bottom": {
                 "die": {
                     "target": "self"
                 }
