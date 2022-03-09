@@ -47,6 +47,20 @@
 				},
 				{
 					"type": "item",
+					"name": "borgy:bakunawa_scales",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 4,
+								"max": 6
+							}
+						}
+					]
+				},
+				{
+					"type": "item",
 					"name": "minecraft:heart_of_the_sea",
 					"weight": 1,
 					"functions": [

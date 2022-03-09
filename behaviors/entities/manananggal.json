@@ -64,6 +64,11 @@
                                         "test": "is_family", 
                                         "subject": "other", 
                                         "value": "wandering_trader" 
+                                    },
+                                    { 
+                                        "test": "is_family", 
+                                        "subject": "other", 
+                                        "value": "parasaurAngerer"
                                     }
                                 ]
                             },
