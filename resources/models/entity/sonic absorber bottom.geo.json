@@ -1,0 +1,30 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.sonic_absorber_bottom",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 5.5,
+				"visible_bounds_offset": [0, 2.25, 0]
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-8, 0, -8], "size": [16, 2, 16], "uv": [0, 0]},
+						{"origin": [-1, 2, -1], "size": [2, 14, 2], "uv": [16, 44]},
+						{"origin": [-7.5, 2, -1], "size": [2, 14, 2], "uv": [8, 44]},
+						{"origin": [-1, 2, 5.5], "size": [2, 14, 2], "uv": [0, 44]},
+						{"origin": [-1, 2, -7.5], "size": [2, 14, 2], "uv": [8, 0]},
+						{"origin": [5.5, 2, -1], "size": [2, 14, 2], "uv": [0, 0]},
+						{"origin": [-6, 2, -6], "size": [12, 14, 12], "uv": [0, 18]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -4,9 +4,14 @@
     "padding": 8,
     "num_mip_levels": 4,
     "texture_data": {
-        "sonic absorber": {
+        "sonic absorber bottom": {
             "textures": [
-                "textures/block/sonic absorber"
+                "textures/block/sonic absorber bottom"
+            ]
+        },
+        "sonic absorber top": {
+            "textures": [
+                "textures/block/sonic absorber top"
             ]
         },
         "bakunawa nest material": {
