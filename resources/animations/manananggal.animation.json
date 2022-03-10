@@ -12,6 +12,14 @@
 				}
 			}
 		},
+		"animation.manananggal.idle": {
+			"loop": true,
+			"bones": {
+				"manananggal": {
+					"position": [0, "math.sin(query.anim_time * 180) * 1.25", 0]
+				}
+			}
+		},
 		"animation.manananggal.moving": {
 			"loop": true,
 			"bones": {

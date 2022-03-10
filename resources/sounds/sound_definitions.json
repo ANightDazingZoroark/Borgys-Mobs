@@ -259,6 +259,60 @@
             "sounds/sigbin/sigbin death"
         ]
     },
+    "mob.lavawyrm.idle": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/lavawyrm/lavawyrm idle"
+        ]
+    },
+    "mob.lavawyrm.hurt": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/lavawyrm/lavawyrm hurt"
+        ]
+    },
+    "mob.lavawyrm.death": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/lavawyrm/lavawyrm death"
+        ]
+    },
+    "mob.plaguebird.idle": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/plaguebird/plaguebird idle"
+        ]
+    },
+    "mob.plaguebird.hurt": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/plaguebird/plaguebird hurt"
+        ]
+    },
+    "mob.plaguebird.death": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/plaguebird/plaguebird death"
+        ]
+    },
+    "mob.manananggal.idle": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/manananggal/manananggal idle"
+        ]
+    },
+    "mob.manananggal.hurt": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/manananggal/manananggal hurt"
+        ]
+    },
+    "mob.manananggal.death": {
+        "category": "hostile",
+        "sounds": [
+            "sounds/manananggal/manananggal death"
+        ]
+    },
     "sound.sonic_attack": {
         "category": "neutral",
         "sounds": [

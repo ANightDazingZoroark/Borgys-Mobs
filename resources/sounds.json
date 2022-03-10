@@ -153,6 +153,32 @@
 					"jump": "mob.headcrab.attack"
 				}
             },
+			"borgy:aquatic_headcrab": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab.idle",
+					"hurt": "mob.headcrab.hurt",
+					"death": "mob.headcrab.death",
+					"jump": "mob.headcrab.attack"
+				}
+            },
+			"borgy:floating_headcrab": {
+                "volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab.idle",
+					"hurt": "mob.headcrab.hurt",
+					"death": "mob.headcrab.death",
+					"jump": "mob.headcrab.attack"
+				}
+            },
 			"borgy:bakunawa": {
 				"volume": 2,
 				"pitch": [
@@ -369,6 +395,66 @@
 					"ambient": "mob.chicken.say",
 					"hurt": "mob.chicken.hurt",
 					"death": "mob.chicken.hurt"
+				}
+			},
+			"borgy:lavawyrm": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.lavawyrm.idle",
+					"hurt": "mob.lavawyrm.hurt",
+					"death": "mob.lavawyrm.death"
+				}
+			},
+			"borgy:plaguebird": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.plaguebird.idle",
+					"hurt": "mob.plaguebird.hurt",
+					"death": "mob.plaguebird.death"
+				}
+			},
+			"borgy:manananggal": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.manananggal.idle",
+					"hurt": "mob.manananggal.hurt",
+					"death": "mob.manananggal.death"
+				}
+			},
+			"borgy:aquatic_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.player_headcrab_zombie.hurt",
+					"death": "mob.player_headcrab_zombie.death"
+				}
+			},
+			"borgy:floating_headcrab_zombie": {
+				"volume": 2,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.headcrab_zombie.idle",
+					"hurt": "mob.player_headcrab_zombie.hurt",
+					"death": "mob.player_headcrab_zombie.death"
 				}
 			}
         }

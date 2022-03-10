@@ -3,12 +3,12 @@
 	"minecraft:spawn_rules": {
 		"description": {
 			"identifier": "borgy:aquatic_headcrab_zombie",
-			"population_control": "animal"
+			"population_control": "monster"
 		},
 		"conditions": [
 			{
 				"minecraft:spawns_on_surface": {},
-				"minecraft:spawns_underground": {},
+				"minecraft:spawns_underwater": {},
 				"minecraft:brightness_filter": {
 				  	"min": 0,
 				  	"max": 7,

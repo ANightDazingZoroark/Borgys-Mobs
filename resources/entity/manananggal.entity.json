@@ -14,21 +14,27 @@
             },
             "animations": {
                 "animDefault": "animation.manananggal.default",
+                "animIdle": "animation.manananggal.idle",
                 "animMove": "animation.manananggal.moving",
                 "animAttack": "animation.manananggal.attacking",
                 "contMove": "controller.animation.manananggal_movement",
-                "contAttack": "controller.animation.manananggal_attack"
+                "contAttack": "controller.animation.manananggal_attack",
+                "contTamePowder": "controller.animation.manananggal_tame_powder"
             },
             "scripts": {
                 "animate": [
                     "animDefault",
                     "contMove",
-                    "contAttack"
+                    "contAttack",
+                    "contTamePowder"
                 ]
             },
             "render_controllers": [
                 "controller.render.common"
             ],
+            "particle_effects": {
+			    "tamePowder": "borgy:manananggal_tame_powder"
+			},
             "spawn_egg": {
 				"base_color": "#5c5238",
 				"overlay_color": "#aa9f81"

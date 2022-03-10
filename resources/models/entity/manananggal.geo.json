@@ -12,7 +12,12 @@
 			},
 			"bones": [
 				{
+					"name": "manananggal",
+					"pivot": [0, 0, 0]
+				},
+				{
 					"name": "body",
+					"parent": "manananggal",
 					"pivot": [0, 24, 0],
 					"mirror": true,
 					"cubes": [
@@ -27,7 +32,10 @@
 					"pivot": [-2, 21.3, 2.9],
 					"cubes": [
 						{"origin": [-2, 11.70426, 3.25399], "size": [0, 12, 28], "pivot": [-2, 21.3, 2.9], "rotation": [30.36119, -40.78947, -20.94102], "uv": [8, 24], "mirror": true}
-					]
+					],
+					"locators": {
+						"tamepowderleft": [-14, 17, 17.5]
+					}
 				},
 				{
 					"name": "rightWing",
@@ -35,10 +43,14 @@
 					"pivot": [2, 21.3, 2.9],
 					"cubes": [
 						{"origin": [2, 11.70426, 3.25399], "size": [0, 12, 28], "pivot": [2, 21.3, 2.9], "rotation": [30.3612, 40.78947, 20.94102], "uv": [8, 12]}
-					]
+					],
+					"locators": {
+						"tamepowderright": [14, 17, 17.5]
+					}
 				},
 				{
 					"name": "head",
+					"parent": "manananggal",
 					"pivot": [0, 24, 0],
 					"mirror": true,
 					"cubes": [
@@ -47,6 +59,7 @@
 				},
 				{
 					"name": "leftArm",
+					"parent": "manananggal",
 					"pivot": [-5, 22, 0],
 					"mirror": true,
 					"cubes": [
@@ -55,6 +68,7 @@
 				},
 				{
 					"name": "rightArm",
+					"parent": "manananggal",
 					"pivot": [5, 22, 0],
 					"mirror": true,
 					"cubes": [

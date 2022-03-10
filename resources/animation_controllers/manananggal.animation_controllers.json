@@ -5,22 +5,15 @@
 			"initial_state": "default",
 			"states": {
 				"default": {
-                    "transitions": [
-                        {
-                            "move": "query.ground_speed > 0"
-                        }
-                    ]
-				},
-                "move": {
                     "animations": [
-                        "animMove"
-                    ],
-                    "transitions": [
                         {
-                            "default": "query.ground_speed == 0"
+                            "animIdle": "query.ground_speed == 0"
+                        },
+                        {
+                            "animMove": "query.ground_speed > 0"
                         }
                     ]
-                }
+				}
 			}
 		},
         "controller.animation.manananggal_attack": {
@@ -40,6 +33,35 @@
                     "transitions": [
                         {
                             "default": "!variable.attack_time"
+                        }
+                    ]
+                }
+			}
+        },
+        "controller.animation.manananggal_tame_powder": {
+            "initial_state": "default",
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "powdering": "query.is_tamed"
+                        }
+                    ]
+				},
+                "powdering": {
+                    "particle_effects": [
+                        {
+                            "effect": "tamePowder",
+                            "locator": "tamepowderleft"
+                        },
+                        {
+                            "effect": "tamePowder",
+                            "locator": "tamepowderright"
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!query.is_tamed"
                         }
                     ]
                 }

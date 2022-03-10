@@ -51,6 +51,7 @@
                     "target": "self"
                 }
             },
+            "minecraft:loot": "loot_tables/empty.json",
             "tag:borgy:sonic_absorber_top": {}
         },
         "events": {
