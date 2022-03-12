@@ -1,44 +1,44 @@
 {
     "format_version": 2,
     "header": {
-      "description": "Adds a diverse range of animals and monsters to your game",
-      "name": "Borgy's Mobs",
-      "uuid": "382054c0-62b1-44c7-98e4-cbb88cf7b2dd",
-      "version": [1, 4, 0],
-      "min_engine_version": [1, 18, 0]
+        "description": "Adds a diverse range of animals and monsters to your game",
+        "name": "Borgy's Mobs",
+        "uuid": "382054c0-62b1-44c7-98e4-cbb88cf7b2dd",
+        "version": [1, 4, 0],
+        "min_engine_version": [1, 18, 0]
     },
     "modules": [
-      {
-        "description": "borgys mobs behavior pack",
-        "type": "data",
-        "uuid": "15557f9f-bbbc-4b8f-bf20-4d07b2635895",
-        "version": [1, 4, 0]
-      },
-      {
-        "description": "Gametest Module",
-        "type": "javascript",
-        "uuid": "e59a35e5-6e3e-48d2-8017-bc0b49da0249",
-        "version": [0, 1, 0],
-        "entry": "scripts/BorgyMain.js"
-      }
+        {
+            "description": "borgys mobs behavior pack",
+            "type": "data",
+            "uuid": "15557f9f-bbbc-4b8f-bf20-4d07b2635895",
+            "version": [1, 4, 0]
+        },
+        {
+            "description": "Gametest Module",
+            "type": "javascript",
+            "uuid": "e59a35e5-6e3e-48d2-8017-bc0b49da0249",
+            "version": [0, 1, 0],
+            "entry": "scripts/BorgyMain.js"
+        }
     ],
     "dependencies": [
-      {
-        "uuid": "a26b2cce-b6c0-4428-a780-e7815b66ab77",
-        "version": [1, 4, 0]
-      },
-      {
-        // Minecraft native module - needed to use the "mojang-minecraft" module
-        "uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
-        "version": [
-          0,
-          1, 
-          0
-        ]
-      }
+        {
+            "uuid": "a26b2cce-b6c0-4428-a780-e7815b66ab77",
+            "version": [1, 4, 0]
+        },
+        {
+            // Minecraft native module - needed to use the "mojang-minecraft" module
+            "uuid": "b26a4d4c-afdf-4690-88f8-931846312678",
+            "version": [
+                0,
+                1, 
+                0
+            ]
+        }
     ],
     "metadata": {
-      "authors": [ "ANightDazingZoroark" ],
-      "url": "https://discord.gg/qVWaKRMCRc"
+        "authors": [ "ANightDazingZoroark" ],
+        "url": "https://discord.gg/qVWaKRMCRc"
     }
 }
