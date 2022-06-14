@@ -14,13 +14,14 @@
             "uuid": "15557f9f-bbbc-4b8f-bf20-4d07b2635895",
             "version": [1, 4, 0]
         },
-        {
-            "description": "Gametest Module",
-            "type": "javascript",
-            "uuid": "e59a35e5-6e3e-48d2-8017-bc0b49da0249",
-            "version": [0, 1, 0],
-            "entry": "scripts/BorgyMain.js"
-        }
+		{
+			"description": "JavaScript module code",
+			"language": "javascript",
+			"type": "script",
+			"uuid": "e59a35e5-6e3e-48d2-8017-bc0b49da0249",
+			"version": [0, 0, 1],
+			"entry": "scripts/BorgyMain.js"
+		}
     ],
     "dependencies": [
         {

@@ -155,7 +155,7 @@
 							"spawn_entity": "borgy:sonic_cannon_entity",
               "spawn_event": "minecraft:entity_spawned",
 							"min_wait_time": 0,
-							"max_wait_time": 0,            
+							"max_wait_time": 0,
               "single_use": true
 						}
 					]
